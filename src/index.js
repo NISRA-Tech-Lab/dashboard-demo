@@ -3,7 +3,6 @@ import { readData } from "./utils/read-data.js";
 import { insertValue } from "./utils/insert-value.js";
 import { latest_year, updateYearSpans, first_year } from "./utils/update-years.js";
 import { toTitleCase } from "./utils/to-title-case.js";
-import { getSectors } from "./utils/get-sectors.js";
 import { config } from "./config/config.js";
 
 window.addEventListener("DOMContentLoaded", async () => {
