@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   role="img"
+   width="240.3625"
+   height="82.300003"
+   viewBox="0 0 240.3625 82.300003"
+   preserveAspectRatio="xMinYMin"
+   version="1.1"
+   id="svg5"
+   sodipodi:docname="DfE.svg"
+   inkscape:version="1.3.2 (091e20e, 2023-11-25, custom)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <sodipodi:namedview
+     id="namedview5"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="1.4989316"
+     inkscape:cx="262.52031"
+     inkscape:cy="136.76408"
+     inkscape:window-width="1718"
+     inkscape:window-height="1360"
+     inkscape:window-x="3633"
+     inkscape:window-y="0"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg5" />
+  <title
+     id="title1">Department for the Economy</title>
+  <defs
+     id="defs1">
+    <style
+       id="style1">
+      @import url(https://fonts.googleapis.com/css2?family=Libre+Bodoni%3Aital%2Cwght%400%2C400%3B0%2C500%3B0%2C600%3B0%2C700%3B1%2C400%3B1%2C500%3B1%2C600%3B1%2C700&amp;display=swap);
+      @import url(https://fonts.googleapis.com/css2?family=Libre+Franklin%3Aital%2Cwght%400%2C100%3B0%2C200%3B0%2C300%3B0%2C400%3B0%2C500%3B0%2C600%3B0%2C700%3B0%2C800%3B0%2C900%3B1%2C100%3B1%2C200%3B1%2C300%3B1%2C400%3B1%2C500%3B1%2C600%3B1%2C700%3B1%2C800%3B1%2C900&amp;display=swap);
+      .svg-logo-txt-sm {font-family: &quot;Libre Franklin&quot;, sans-serif; letter-spacing: -0.2px; white-space: nowrap; font-size: 14px;}
+      .svg-logo-txt-lg {font-family: &quot;Libre Bodoni&quot;, Georgia; font-size: 40px; letter-spacing: -1.5px; white-space: nowrap;}
+    </style>
+  </defs>
+  <g
+     fill="#2b78c6"
+     id="g1"
+     transform="translate(-0.5,-0.5)"
+     style="fill:#ffffff">
+    <path
+       d="m 35.5,0.5 8.9,5.1 V 15.9 L 35.5,21 26.6,15.9 V 5.7 Z m 0,20.7 8.9,5.1 v 10.3 l -8.9,5.1 -8.9,-5.1 V 26.3 Z M 53.3,10.9 62.2,16 v 10.3 l -8.9,5.1 -8.9,-5.1 V 16 Z m 0,20.5 8.9,5.1 v 10.3 l -8.9,5.1 -8.9,-5.1 V 36.5 Z m 0,20.6 8.9,5.1 v 10.3 l -8.9,5.1 -8.9,-5.1 V 57.1 Z M 70.4,21.1 V 41.7 L 62.2,36.6 V 26.3 l 8.2,-5.1 z m 0,20.6 V 62.3 L 62.2,57.2 V 46.9 l 8.2,-5.1 z"
+       id="path1"
+       style="fill:#ffffff" />
+  </g>
+  <g
+     fill="#142062"
+     id="g2"
+     transform="translate(-0.5,-0.5)"
+     style="fill:#ffffff">
+    <path
+       d="m 35.5,41.7 8.9,5.1 v 10.3 l -8.9,5.1 -8.9,-5.1 V 46.8 Z m 0,20.6 8.9,5.1 v 10.3 l -8.9,5.1 -8.9,-5.1 V 67.4 Z M 17.7,10.9 26.6,16 V 26.3 L 17.7,31.4 8.8,26.3 V 16 Z m 0,20.5 8.9,5.1 V 46.8 L 17.7,51.9 8.8,46.8 V 36.5 Z m 0,20.6 8.9,5.1 V 67.4 L 17.7,72.5 8.8,67.4 V 57.1 Z M 0.5,21.1 V 41.7 L 8.7,36.6 V 26.3 Z m 0,20.7 V 62.4 L 8.7,57.3 V 47 Z"
+       id="path2"
+       style="fill:#ffffff" />
+  </g>
+  <g
+     style="fill:#ffffff"
+     aria-hidden="true"
+     id="g5"
+     transform="translate(-0.5,-0.5)">
+    <text
+       role="presentation"
+       class="svg-logo-txt-sm"
+       transform="translate(86.9,13)"
+       id="text2"
+       style="fill:#ffffff">Department for the</text>
+    <text
+       role="presentation"
+       class="svg-logo-txt-lg"
+       transform="translate(83.3,54)"
+       id="text3"
+       style="fill:#ffffff">Economy</text>
+  </g>
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:title>Department for the Economy</dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+</svg>

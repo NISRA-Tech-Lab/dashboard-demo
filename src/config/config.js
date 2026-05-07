@@ -1,28 +1,25 @@
 export const config = {
     // Dashboard title
-    "title": `Northern Ireland Greenhouse Gas Inventory`,
-
-    "show_projections": false,
+    "title": "Dashboard Template",
 
     // Set order of page links and display text in navigation bar
     "navigation": [
         { href: "index.html", text: "Home" },
-        { href: "change-in-emissions.html", text: "Change in Emissions" },
-        { href: "sector-comparison.html", text: "Sector Comparison" },
-        { href: "sector-emissions.html", text: "Sector Emissions" },
-        { href: "uk-comparison.html", text: "UK Comparison" },
-        { href: "projections.html", text: "Projections" },        
+        { href: "page.html", text: "Page" },
         { href: "user-notes.html", text: "User Notes" }  
     ],
     
     "portal_url": "https://data.nisra.gov.uk/",
 
-    "logo": "assets/img/logo/DAERA_Logo_NI_white.svg",
+    // Departmental abbreviations. See departments.js for available options
+    "department": "DoH",
 
+    // Data portal tables to use in the dashboard.
     "matrix": [
-        "GHGEMSSNS"
+        "EXAMPLETABLE1",
+        "EXAMPLETABLE2"
     ],
     
-    "rateit": "greenhouse-gas-inventory"
+    "rateit": "link-to-rateit"
     
 }

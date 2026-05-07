@@ -1,4 +1,5 @@
 import { config } from "../config/config.js";
+import { departments } from "../config/departments.js";
 
 export function insertHeader () {
 
@@ -21,22 +22,22 @@ export function insertHeader () {
 
   <!-- Left: NISRA logo -->
   <div class="col-12 col-xl-4 d-flex justify-content-center justify-content-xl-start">
-    <a class="navbar-brand ps-2 d-flex align-items-center" href="https://www.nisra.gov.uk/">
+    <a class="navbar-brand ps-2 d-flex align-items-center" href="https://www.nisra.gov.uk/" target="_blank" rel="noopener noreferrer">
       <img src="assets/img/logo/nisra-only-white.svg"
-           alt="NISRA logo" height="60" class="me-3" role="img" title="NISRA">
+           alt="NISRA logo" height="60" class="me-3" role="img" title="NISRA Website (opens in new tab)">
     </a>
   </div>
 
   <!-- Center: Page title -->
   <div class="col-12 col-xl-4 d-flex justify-content-center">
-    <h1 class="mb-0 text-white fs-2 app-title text-center">${config.title} 1990-<span class="latest-year"></span></h1>
+    <h1 class="mb-0 text-white fs-2 app-title text-center">${config.title}</h1>
   </div>
 
-  <!-- Right: TEO logo -->
+  <!-- Right: Department logo -->
   <div class="col-12 col-xl-4 d-flex justify-content-center justify-content-xl-end">
-    <a class="navbar-brand pe-2 d-flex align-items-center" href="./">
-      <img id="banner-logo" src=${config.logo}
-           alt="TEO logo" height="60" class="ms-3">
+    <a class="navbar-brand pe-2 d-flex align-items-center" href="${departments[config.department].url}" target="_blank" rel="noopener noreferrer">
+      <img id="banner-logo" src="assets/img/logo/dep_white/${config.department}.svg"
+           alt="${departments[config.department].name} logo" height="60" class="ms-3" title="${departments[config.department].name} Website (opens in new tab)" role="img">
     </a>
   </div>
 

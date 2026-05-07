@@ -166,14 +166,6 @@ nav a{
   vertical-align: middle;
 }
 
-banner a[target="_blank"]::after {
-  content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="14" height="11" viewBox="0 0 14 11"><g fill="none" stroke="white" stroke-width="1"><path d="M0 3h2V0h12v8h-2v3H0zm13-2H3v6h10zM2 4H1v4h1zm-1 6h10V8H1z"/></g></svg>');
-  display: inline-block;
-  width: 14px;
-  height: 11px;
-  margin: 0 5px 0 5px;
-}
-
 table tr:not(:has(th)):hover {
   background-color: #f2f2f2;
 }
