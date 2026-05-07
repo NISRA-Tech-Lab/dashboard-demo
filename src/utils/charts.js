@@ -3,7 +3,18 @@ import { wrapLabel } from "./wrap-label.js";
 import { getSelectedGender } from "./get-selected-gender.js";
 import { getNested } from "./get-nested.js";
 
-export const chart_colours = ["#3878c5", "#00205B", "#68A41E", "#732777", "#ce70d2", "#434700", "#a88f8f", "#3b3b3b", "#e64791", "#400b23"];
+export const chart_colours = [
+  "#3878c5",
+  "#00205B",
+  "#68A41E",
+  "#732777",
+  "#ce70d2",
+  "#434700",
+  "#a88f8f",
+  "#3b3b3b",
+  "#e64791",
+  "#400b23"
+];
 
 export const text_colours = [
   "#000000",  // #3878c5

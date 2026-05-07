@@ -12,7 +12,7 @@ export const config = {
     "portal_url": "https://data.nisra.gov.uk/",
 
     // Departmental abbreviations. See departments.js for available options
-    "department": "DoH",
+    "department": "DoF",
 
     // Data portal tables to use in the dashboard.
     "matrix": [
