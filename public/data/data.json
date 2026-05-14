@@ -1,0 +1,5103 @@
+{
+  "MYE01T05": {
+    "label": "Population totals - Northern Ireland",
+    "updated": "2025-09-18",
+    "data": {
+      "Population totals": {
+        "1971": {
+          "Rounded": 1540400,
+          "Unrounded": 1540413
+        },
+        "1972": {
+          "Rounded": 1539000,
+          "Unrounded": 1538977
+        },
+        "1973": {
+          "Rounded": 1530000,
+          "Unrounded": 1529993
+        },
+        "1974": {
+          "Rounded": 1526900,
+          "Unrounded": 1526942
+        },
+        "1975": {
+          "Rounded": 1523500,
+          "Unrounded": 1523518
+        },
+        "1976": {
+          "Rounded": 1523500,
+          "Unrounded": 1523521
+        },
+        "1977": {
+          "Rounded": 1523300,
+          "Unrounded": 1523310
+        },
+        "1978": {
+          "Rounded": 1523200,
+          "Unrounded": 1523225
+        },
+        "1979": {
+          "Rounded": 1528300,
+          "Unrounded": 1528253
+        },
+        "1980": {
+          "Rounded": 1532800,
+          "Unrounded": 1532773
+        },
+        "1981": {
+          "Rounded": 1543000,
+          "Unrounded": 1542964
+        },
+        "1982": {
+          "Rounded": 1544500,
+          "Unrounded": 1544545
+        },
+        "1983": {
+          "Rounded": 1550600,
+          "Unrounded": 1550560
+        },
+        "1984": {
+          "Rounded": 1557300,
+          "Unrounded": 1557317
+        },
+        "1985": {
+          "Rounded": 1565400,
+          "Unrounded": 1565352
+        },
+        "1986": {
+          "Rounded": 1573500,
+          "Unrounded": 1573501
+        },
+        "1987": {
+          "Rounded": 1582000,
+          "Unrounded": 1581954
+        },
+        "1988": {
+          "Rounded": 1585400,
+          "Unrounded": 1585440
+        },
+        "1989": {
+          "Rounded": 1590400,
+          "Unrounded": 1590435
+        },
+        "1990": {
+          "Rounded": 1595600,
+          "Unrounded": 1595595
+        },
+        "1991": {
+          "Rounded": 1607300,
+          "Unrounded": 1607295
+        },
+        "1992": {
+          "Rounded": 1623300,
+          "Unrounded": 1623263
+        },
+        "1993": {
+          "Rounded": 1635600,
+          "Unrounded": 1635552
+        },
+        "1994": {
+          "Rounded": 1643700,
+          "Unrounded": 1643707
+        },
+        "1995": {
+          "Rounded": 1649100,
+          "Unrounded": 1649131
+        },
+        "1996": {
+          "Rounded": 1661800,
+          "Unrounded": 1661751
+        },
+        "1997": {
+          "Rounded": 1671300,
+          "Unrounded": 1671261
+        },
+        "1998": {
+          "Rounded": 1677800,
+          "Unrounded": 1677769
+        },
+        "1999": {
+          "Rounded": 1679000,
+          "Unrounded": 1679006
+        },
+        "2000": {
+          "Rounded": 1682900,
+          "Unrounded": 1682944
+        },
+        "2001": {
+          "Rounded": 1688800,
+          "Unrounded": 1688838
+        },
+        "2002": {
+          "Rounded": 1697500,
+          "Unrounded": 1697534
+        },
+        "2003": {
+          "Rounded": 1704900,
+          "Unrounded": 1704924
+        },
+        "2004": {
+          "Rounded": 1714000,
+          "Unrounded": 1714042
+        },
+        "2005": {
+          "Rounded": 1727700,
+          "Unrounded": 1727733
+        },
+        "2006": {
+          "Rounded": 1743100,
+          "Unrounded": 1743113
+        },
+        "2007": {
+          "Rounded": 1761700,
+          "Unrounded": 1761683
+        },
+        "2008": {
+          "Rounded": 1779200,
+          "Unrounded": 1779152
+        },
+        "2009": {
+          "Rounded": 1793300,
+          "Unrounded": 1793333
+        },
+        "2010": {
+          "Rounded": 1804800,
+          "Unrounded": 1804833
+        },
+        "2011": {
+          "Rounded": 1814300,
+          "Unrounded": 1814318
+        },
+        "2012": {
+          "Rounded": 1824600,
+          "Unrounded": 1824603
+        },
+        "2013": {
+          "Rounded": 1831700,
+          "Unrounded": 1831677
+        },
+        "2014": {
+          "Rounded": 1843200,
+          "Unrounded": 1843186
+        },
+        "2015": {
+          "Rounded": 1854900,
+          "Unrounded": 1854943
+        },
+        "2016": {
+          "Rounded": 1866000,
+          "Unrounded": 1866042
+        },
+        "2017": {
+          "Rounded": 1875200,
+          "Unrounded": 1875178
+        },
+        "2018": {
+          "Rounded": 1886300,
+          "Unrounded": 1886259
+        },
+        "2019": {
+          "Rounded": 1898500,
+          "Unrounded": 1898519
+        },
+        "2020": {
+          "Rounded": 1900500,
+          "Unrounded": 1900523
+        },
+        "2021": {
+          "Rounded": 1904600,
+          "Unrounded": 1904564
+        },
+        "2022": {
+          "Rounded": 1910500,
+          "Unrounded": 1910543
+        },
+        "2023": {
+          "Rounded": 1920400,
+          "Unrounded": 1920382
+        },
+        "2024": {
+          "Rounded": 1927900,
+          "Unrounded": 1927855
+        }
+      }
+    }
+  },
+  "MYE01T03": {
+    "label": "Mid-year population estimates - Northern Ireland",
+    "updated": "2025-09-19",
+    "data": {
+      "Mid-year population estimate": {
+        "1971": {
+          "Age 0-15": {
+            "Females": 236737,
+            "Males": 246007,
+            "All persons": 482744
+          },
+          "Age 16-39": {
+            "Females": 242884,
+            "Males": 248911,
+            "All persons": 491795
+          },
+          "Age 40-64": {
+            "Females": 207353,
+            "Males": 192443,
+            "All persons": 399796
+          },
+          "Age 65+": {
+            "Females": 98826,
+            "Males": 67252,
+            "All persons": 166078
+          },
+          "All": {
+            "Females": 785800,
+            "Males": 754613,
+            "All persons": 1540413
+          }
+        },
+        "1972": {
+          "Age 0-15": {
+            "Females": 236569,
+            "Males": 246116,
+            "All persons": 482685
+          },
+          "Age 16-39": {
+            "Females": 239605,
+            "Males": 251990,
+            "All persons": 491595
+          },
+          "Age 40-64": {
+            "Females": 205462,
+            "Males": 191844,
+            "All persons": 397306
+          },
+          "Age 65+": {
+            "Females": 99832,
+            "Males": 67559,
+            "All persons": 167391
+          },
+          "All": {
+            "Females": 781468,
+            "Males": 757509,
+            "All persons": 1538977
+          }
+        },
+        "1973": {
+          "Age 0-15": {
+            "Females": 234354,
+            "Males": 245075,
+            "All persons": 479429
+          },
+          "Age 16-39": {
+            "Females": 235807,
+            "Males": 252313,
+            "All persons": 488120
+          },
+          "Age 40-64": {
+            "Females": 203043,
+            "Males": 189998,
+            "All persons": 393041
+          },
+          "Age 65+": {
+            "Females": 101044,
+            "Males": 68359,
+            "All persons": 169403
+          },
+          "All": {
+            "Females": 774248,
+            "Males": 755745,
+            "All persons": 1529993
+          }
+        },
+        "1974": {
+          "Age 0-15": {
+            "Females": 233036,
+            "Males": 244834,
+            "All persons": 477870
+          },
+          "Age 16-39": {
+            "Females": 235719,
+            "Males": 253139,
+            "All persons": 488858
+          },
+          "Age 40-64": {
+            "Females": 201169,
+            "Males": 188161,
+            "All persons": 389330
+          },
+          "Age 65+": {
+            "Females": 102025,
+            "Males": 68859,
+            "All persons": 170884
+          },
+          "All": {
+            "Females": 771949,
+            "Males": 754993,
+            "All persons": 1526942
+          }
+        },
+        "1975": {
+          "Age 0-15": {
+            "Females": 231134,
+            "Males": 243850,
+            "All persons": 474984
+          },
+          "Age 16-39": {
+            "Females": 236562,
+            "Males": 253579,
+            "All persons": 490141
+          },
+          "Age 40-64": {
+            "Females": 199371,
+            "Males": 186720,
+            "All persons": 386091
+          },
+          "Age 65+": {
+            "Females": 103100,
+            "Males": 69202,
+            "All persons": 172302
+          },
+          "All": {
+            "Females": 770167,
+            "Males": 753351,
+            "All persons": 1523518
+          }
+        },
+        "1976": {
+          "Age 0-15": {
+            "Females": 228804,
+            "Males": 242163,
+            "All persons": 470967
+          },
+          "Age 16-39": {
+            "Females": 238407,
+            "Males": 257632,
+            "All persons": 496039
+          },
+          "Age 40-64": {
+            "Females": 197718,
+            "Males": 184510,
+            "All persons": 382228
+          },
+          "Age 65+": {
+            "Females": 104547,
+            "Males": 69740,
+            "All persons": 174287
+          },
+          "All": {
+            "Females": 769476,
+            "Males": 754045,
+            "All persons": 1523521
+          }
+        },
+        "1977": {
+          "Age 0-15": {
+            "Females": 226258,
+            "Males": 239798,
+            "All persons": 466056
+          },
+          "Age 16-39": {
+            "Females": 241210,
+            "Males": 260118,
+            "All persons": 501328
+          },
+          "Age 40-64": {
+            "Females": 196310,
+            "Males": 184076,
+            "All persons": 380386
+          },
+          "Age 65+": {
+            "Females": 105604,
+            "Males": 69936,
+            "All persons": 175540
+          },
+          "All": {
+            "Females": 769382,
+            "Males": 753928,
+            "All persons": 1523310
+          }
+        },
+        "1978": {
+          "Age 0-15": {
+            "Females": 223208,
+            "Males": 236848,
+            "All persons": 460056
+          },
+          "Age 16-39": {
+            "Females": 244975,
+            "Males": 263442,
+            "All persons": 508417
+          },
+          "Age 40-64": {
+            "Females": 194628,
+            "Males": 182838,
+            "All persons": 377466
+          },
+          "Age 65+": {
+            "Females": 106843,
+            "Males": 70443,
+            "All persons": 177286
+          },
+          "All": {
+            "Females": 769654,
+            "Males": 753571,
+            "All persons": 1523225
+          }
+        },
+        "1979": {
+          "Age 0-15": {
+            "Females": 221032,
+            "Males": 233798,
+            "All persons": 454830
+          },
+          "Age 16-39": {
+            "Females": 249965,
+            "Males": 268185,
+            "All persons": 518150
+          },
+          "Age 40-64": {
+            "Females": 194036,
+            "Males": 182510,
+            "All persons": 376546
+          },
+          "Age 65+": {
+            "Females": 108055,
+            "Males": 70672,
+            "All persons": 178727
+          },
+          "All": {
+            "Females": 773088,
+            "Males": 755165,
+            "All persons": 1528253
+          }
+        },
+        "1980": {
+          "Age 0-15": {
+            "Females": 218742,
+            "Males": 231270,
+            "All persons": 450012
+          },
+          "Age 16-39": {
+            "Females": 256282,
+            "Males": 272113,
+            "All persons": 528395
+          },
+          "Age 40-64": {
+            "Females": 193631,
+            "Males": 180347,
+            "All persons": 373978
+          },
+          "Age 65+": {
+            "Females": 109356,
+            "Males": 71032,
+            "All persons": 180388
+          },
+          "All": {
+            "Females": 778011,
+            "Males": 754762,
+            "All persons": 1532773
+          }
+        },
+        "1981": {
+          "Age 0-15": {
+            "Females": 216033,
+            "Males": 228025,
+            "All persons": 444058
+          },
+          "Age 16-39": {
+            "Females": 261158,
+            "Males": 273721,
+            "All persons": 534879
+          },
+          "Age 40-64": {
+            "Females": 196021,
+            "Males": 180348,
+            "All persons": 376369
+          },
+          "Age 65+": {
+            "Females": 113127,
+            "Males": 74531,
+            "All persons": 187658
+          },
+          "All": {
+            "Females": 786339,
+            "Males": 756625,
+            "All persons": 1542964
+          }
+        },
+        "1982": {
+          "Age 0-15": {
+            "Females": 213721,
+            "Males": 224574,
+            "All persons": 438295
+          },
+          "Age 16-39": {
+            "Females": 263808,
+            "Males": 276058,
+            "All persons": 539866
+          },
+          "Age 40-64": {
+            "Females": 196831,
+            "Males": 181589,
+            "All persons": 378420
+          },
+          "Age 65+": {
+            "Females": 113448,
+            "Males": 74516,
+            "All persons": 187964
+          },
+          "All": {
+            "Females": 787808,
+            "Males": 756737,
+            "All persons": 1544545
+          }
+        },
+        "1983": {
+          "Age 0-15": {
+            "Females": 211277,
+            "Males": 221776,
+            "All persons": 433053
+          },
+          "Age 16-39": {
+            "Females": 267310,
+            "Males": 278796,
+            "All persons": 546106
+          },
+          "Age 40-64": {
+            "Females": 199010,
+            "Males": 183943,
+            "All persons": 382953
+          },
+          "Age 65+": {
+            "Females": 113950,
+            "Males": 74498,
+            "All persons": 188448
+          },
+          "All": {
+            "Females": 791547,
+            "Males": 759013,
+            "All persons": 1550560
+          }
+        },
+        "1984": {
+          "Age 0-15": {
+            "Females": 209154,
+            "Males": 219376,
+            "All persons": 428530
+          },
+          "Age 16-39": {
+            "Females": 271147,
+            "Males": 281033,
+            "All persons": 552180
+          },
+          "Age 40-64": {
+            "Females": 200727,
+            "Males": 185867,
+            "All persons": 386594
+          },
+          "Age 65+": {
+            "Females": 114981,
+            "Males": 75032,
+            "All persons": 190013
+          },
+          "All": {
+            "Females": 796009,
+            "Males": 761308,
+            "All persons": 1557317
+          }
+        },
+        "1985": {
+          "Age 0-15": {
+            "Females": 207306,
+            "Males": 217792,
+            "All persons": 425098
+          },
+          "Age 16-39": {
+            "Females": 274688,
+            "Males": 283811,
+            "All persons": 558499
+          },
+          "Age 40-64": {
+            "Females": 201697,
+            "Males": 186960,
+            "All persons": 388657
+          },
+          "Age 65+": {
+            "Females": 116756,
+            "Males": 76342,
+            "All persons": 193098
+          },
+          "All": {
+            "Females": 800447,
+            "Males": 764905,
+            "All persons": 1565352
+          }
+        },
+        "1986": {
+          "Age 0-15": {
+            "Females": 206138,
+            "Males": 216783,
+            "All persons": 422921
+          },
+          "Age 16-39": {
+            "Females": 278112,
+            "Males": 285889,
+            "All persons": 564001
+          },
+          "Age 40-64": {
+            "Females": 202565,
+            "Males": 188228,
+            "All persons": 390793
+          },
+          "Age 65+": {
+            "Females": 118303,
+            "Males": 77483,
+            "All persons": 195786
+          },
+          "All": {
+            "Females": 805118,
+            "Males": 768383,
+            "All persons": 1573501
+          }
+        },
+        "1987": {
+          "Age 0-15": {
+            "Females": 205106,
+            "Males": 216009,
+            "All persons": 421115
+          },
+          "Age 16-39": {
+            "Females": 279627,
+            "Males": 287658,
+            "All persons": 567285
+          },
+          "Age 40-64": {
+            "Females": 204218,
+            "Males": 190282,
+            "All persons": 394500
+          },
+          "Age 65+": {
+            "Females": 120153,
+            "Males": 78901,
+            "All persons": 199054
+          },
+          "All": {
+            "Females": 809104,
+            "Males": 772850,
+            "All persons": 1581954
+          }
+        },
+        "1988": {
+          "Age 0-15": {
+            "Females": 204692,
+            "Males": 215281,
+            "All persons": 419973
+          },
+          "Age 16-39": {
+            "Females": 279735,
+            "Males": 286575,
+            "All persons": 566310
+          },
+          "Age 40-64": {
+            "Females": 205804,
+            "Males": 192304,
+            "All persons": 398108
+          },
+          "Age 65+": {
+            "Females": 121429,
+            "Males": 79620,
+            "All persons": 201049
+          },
+          "All": {
+            "Females": 811660,
+            "Males": 773780,
+            "All persons": 1585440
+          }
+        },
+        "1989": {
+          "Age 0-15": {
+            "Females": 203517,
+            "Males": 214052,
+            "All persons": 417569
+          },
+          "Age 16-39": {
+            "Females": 280764,
+            "Males": 286723,
+            "All persons": 567487
+          },
+          "Age 40-64": {
+            "Females": 207230,
+            "Males": 194353,
+            "All persons": 401583
+          },
+          "Age 65+": {
+            "Females": 122985,
+            "Males": 80811,
+            "All persons": 203796
+          },
+          "All": {
+            "Females": 814496,
+            "Males": 775939,
+            "All persons": 1590435
+          }
+        },
+        "1990": {
+          "Age 0-15": {
+            "Females": 203042,
+            "Males": 213053,
+            "All persons": 416095
+          },
+          "Age 16-39": {
+            "Females": 281784,
+            "Males": 286724,
+            "All persons": 568508
+          },
+          "Age 40-64": {
+            "Females": 209017,
+            "Males": 196561,
+            "All persons": 405578
+          },
+          "Age 65+": {
+            "Females": 123868,
+            "Males": 81546,
+            "All persons": 205414
+          },
+          "All": {
+            "Females": 817711,
+            "Males": 777884,
+            "All persons": 1595595
+          }
+        },
+        "1991": {
+          "Age 0-15": {
+            "Females": 203297,
+            "Males": 213242,
+            "All persons": 416539
+          },
+          "Age 16-39": {
+            "Females": 284597,
+            "Males": 287973,
+            "All persons": 572570
+          },
+          "Age 40-64": {
+            "Females": 210880,
+            "Males": 199032,
+            "All persons": 409912
+          },
+          "Age 65+": {
+            "Females": 125371,
+            "Males": 82903,
+            "All persons": 208274
+          },
+          "All": {
+            "Females": 824145,
+            "Males": 783150,
+            "All persons": 1607295
+          }
+        },
+        "1992": {
+          "Age 0-15": {
+            "Females": 204163,
+            "Males": 213806,
+            "All persons": 417969
+          },
+          "Age 16-39": {
+            "Females": 287496,
+            "Males": 292662,
+            "All persons": 580158
+          },
+          "Age 40-64": {
+            "Females": 212790,
+            "Males": 201632,
+            "All persons": 414422
+          },
+          "Age 65+": {
+            "Females": 126698,
+            "Males": 84016,
+            "All persons": 210714
+          },
+          "All": {
+            "Females": 831147,
+            "Males": 792116,
+            "All persons": 1623263
+          }
+        },
+        "1993": {
+          "Age 0-15": {
+            "Females": 204610,
+            "Males": 213918,
+            "All persons": 418528
+          },
+          "Age 16-39": {
+            "Females": 290128,
+            "Males": 294806,
+            "All persons": 584934
+          },
+          "Age 40-64": {
+            "Females": 215067,
+            "Males": 204883,
+            "All persons": 419950
+          },
+          "Age 65+": {
+            "Females": 127535,
+            "Males": 84605,
+            "All persons": 212140
+          },
+          "All": {
+            "Females": 837340,
+            "Males": 798212,
+            "All persons": 1635552
+          }
+        },
+        "1994": {
+          "Age 0-15": {
+            "Females": 204402,
+            "Males": 213497,
+            "All persons": 417899
+          },
+          "Age 16-39": {
+            "Females": 291998,
+            "Males": 295424,
+            "All persons": 587422
+          },
+          "Age 40-64": {
+            "Females": 217163,
+            "Males": 207917,
+            "All persons": 425080
+          },
+          "Age 65+": {
+            "Females": 128198,
+            "Males": 85108,
+            "All persons": 213306
+          },
+          "All": {
+            "Females": 841761,
+            "Males": 801946,
+            "All persons": 1643707
+          }
+        },
+        "1995": {
+          "Age 0-15": {
+            "Females": 203531,
+            "Males": 212926,
+            "All persons": 416457
+          },
+          "Age 16-39": {
+            "Females": 293192,
+            "Males": 294116,
+            "All persons": 587308
+          },
+          "Age 40-64": {
+            "Females": 219340,
+            "Males": 211049,
+            "All persons": 430389
+          },
+          "Age 65+": {
+            "Females": 129054,
+            "Males": 85923,
+            "All persons": 214977
+          },
+          "All": {
+            "Females": 845117,
+            "Males": 804014,
+            "All persons": 1649131
+          }
+        },
+        "1996": {
+          "Age 0-15": {
+            "Females": 202906,
+            "Males": 212221,
+            "All persons": 415127
+          },
+          "Age 16-39": {
+            "Females": 295892,
+            "Males": 296049,
+            "All persons": 591941
+          },
+          "Age 40-64": {
+            "Females": 222686,
+            "Males": 215190,
+            "All persons": 437876
+          },
+          "Age 65+": {
+            "Females": 129920,
+            "Males": 86887,
+            "All persons": 216807
+          },
+          "All": {
+            "Females": 851404,
+            "Males": 810347,
+            "All persons": 1661751
+          }
+        },
+        "1997": {
+          "Age 0-15": {
+            "Females": 202000,
+            "Males": 211448,
+            "All persons": 413448
+          },
+          "Age 16-39": {
+            "Females": 296888,
+            "Males": 297257,
+            "All persons": 594145
+          },
+          "Age 40-64": {
+            "Females": 226545,
+            "Males": 219174,
+            "All persons": 445719
+          },
+          "Age 65+": {
+            "Females": 130309,
+            "Males": 87640,
+            "All persons": 217949
+          },
+          "All": {
+            "Females": 855742,
+            "Males": 815519,
+            "All persons": 1671261
+          }
+        },
+        "1998": {
+          "Age 0-15": {
+            "Females": 200721,
+            "Males": 210531,
+            "All persons": 411252
+          },
+          "Age 16-39": {
+            "Females": 296665,
+            "Males": 295963,
+            "All persons": 592628
+          },
+          "Age 40-64": {
+            "Females": 230811,
+            "Males": 223670,
+            "All persons": 454481
+          },
+          "Age 65+": {
+            "Females": 130903,
+            "Males": 88505,
+            "All persons": 219408
+          },
+          "All": {
+            "Females": 859100,
+            "Males": 818669,
+            "All persons": 1677769
+          }
+        },
+        "1999": {
+          "Age 0-15": {
+            "Females": 198798,
+            "Males": 208712,
+            "All persons": 407510
+          },
+          "Age 16-39": {
+            "Females": 295563,
+            "Males": 292671,
+            "All persons": 588234
+          },
+          "Age 40-64": {
+            "Females": 235159,
+            "Males": 227965,
+            "All persons": 463124
+          },
+          "Age 65+": {
+            "Females": 130988,
+            "Males": 89150,
+            "All persons": 220138
+          },
+          "All": {
+            "Females": 860508,
+            "Males": 818498,
+            "All persons": 1679006
+          }
+        },
+        "2000": {
+          "Age 0-15": {
+            "Females": 196442,
+            "Males": 206747,
+            "All persons": 403189
+          },
+          "Age 16-39": {
+            "Females": 294984,
+            "Males": 291131,
+            "All persons": 586115
+          },
+          "Age 40-64": {
+            "Females": 239912,
+            "Males": 232480,
+            "All persons": 472392
+          },
+          "Age 65+": {
+            "Females": 131128,
+            "Males": 90120,
+            "All persons": 221248
+          },
+          "All": {
+            "Females": 862466,
+            "Males": 820478,
+            "All persons": 1682944
+          }
+        },
+        "2001": {
+          "Age 0-15": {
+            "Females": 193422,
+            "Males": 204111,
+            "All persons": 397533
+          },
+          "Age 16-39": {
+            "Females": 293868,
+            "Males": 290845,
+            "All persons": 584713
+          },
+          "Age 40-64": {
+            "Females": 245011,
+            "Males": 237491,
+            "All persons": 482502
+          },
+          "Age 65+": {
+            "Females": 132264,
+            "Males": 91826,
+            "All persons": 224090
+          },
+          "All": {
+            "Females": 864565,
+            "Males": 824273,
+            "All persons": 1688838
+          }
+        },
+        "2002": {
+          "Age 0-15": {
+            "Females": 190783,
+            "Males": 200873,
+            "All persons": 391656
+          },
+          "Age 16-39": {
+            "Females": 294840,
+            "Males": 292720,
+            "All persons": 587560
+          },
+          "Age 40-64": {
+            "Females": 249568,
+            "Males": 241921,
+            "All persons": 491489
+          },
+          "Age 65+": {
+            "Females": 133357,
+            "Males": 93472,
+            "All persons": 226829
+          },
+          "All": {
+            "Females": 868548,
+            "Males": 828986,
+            "All persons": 1697534
+          }
+        },
+        "2003": {
+          "Age 0-15": {
+            "Females": 188039,
+            "Males": 197868,
+            "All persons": 385907
+          },
+          "Age 16-39": {
+            "Females": 295063,
+            "Males": 293357,
+            "All persons": 588420
+          },
+          "Age 40-64": {
+            "Females": 254384,
+            "Males": 246854,
+            "All persons": 501238
+          },
+          "Age 65+": {
+            "Females": 134334,
+            "Males": 95025,
+            "All persons": 229359
+          },
+          "All": {
+            "Females": 871820,
+            "Males": 833104,
+            "All persons": 1704924
+          }
+        },
+        "2004": {
+          "Age 0-15": {
+            "Females": 185676,
+            "Males": 195571,
+            "All persons": 381247
+          },
+          "Age 16-39": {
+            "Females": 295237,
+            "Males": 293494,
+            "All persons": 588731
+          },
+          "Age 40-64": {
+            "Females": 259489,
+            "Males": 252405,
+            "All persons": 511894
+          },
+          "Age 65+": {
+            "Females": 135389,
+            "Males": 96781,
+            "All persons": 232170
+          },
+          "All": {
+            "Females": 875791,
+            "Males": 838251,
+            "All persons": 1714042
+          }
+        },
+        "2005": {
+          "Age 0-15": {
+            "Females": 184562,
+            "Males": 194208,
+            "All persons": 378770
+          },
+          "Age 16-39": {
+            "Females": 296042,
+            "Males": 294345,
+            "All persons": 590387
+          },
+          "Age 40-64": {
+            "Females": 265341,
+            "Males": 258330,
+            "All persons": 523671
+          },
+          "Age 65+": {
+            "Females": 136487,
+            "Males": 98418,
+            "All persons": 234905
+          },
+          "All": {
+            "Females": 882432,
+            "Males": 845301,
+            "All persons": 1727733
+          }
+        },
+        "2006": {
+          "Age 0-15": {
+            "Females": 183801,
+            "Males": 193348,
+            "All persons": 377149
+          },
+          "Age 16-39": {
+            "Females": 297555,
+            "Males": 295347,
+            "All persons": 592902
+          },
+          "Age 40-64": {
+            "Females": 270922,
+            "Males": 264090,
+            "All persons": 535012
+          },
+          "Age 65+": {
+            "Females": 137725,
+            "Males": 100325,
+            "All persons": 238050
+          },
+          "All": {
+            "Females": 890003,
+            "Males": 853110,
+            "All persons": 1743113
+          }
+        },
+        "2007": {
+          "Age 0-15": {
+            "Females": 183664,
+            "Males": 193409,
+            "All persons": 377073
+          },
+          "Age 16-39": {
+            "Females": 300361,
+            "Males": 297054,
+            "All persons": 597415
+          },
+          "Age 40-64": {
+            "Females": 276005,
+            "Males": 269262,
+            "All persons": 545267
+          },
+          "Age 65+": {
+            "Females": 139397,
+            "Males": 102531,
+            "All persons": 241928
+          },
+          "All": {
+            "Females": 899427,
+            "Males": 862256,
+            "All persons": 1761683
+          }
+        },
+        "2008": {
+          "Age 0-15": {
+            "Females": 184419,
+            "Males": 194066,
+            "All persons": 378485
+          },
+          "Age 16-39": {
+            "Females": 301613,
+            "Males": 297718,
+            "All persons": 599331
+          },
+          "Age 40-64": {
+            "Females": 280215,
+            "Males": 273621,
+            "All persons": 553836
+          },
+          "Age 65+": {
+            "Females": 141907,
+            "Males": 105593,
+            "All persons": 247500
+          },
+          "All": {
+            "Females": 908154,
+            "Males": 870998,
+            "All persons": 1779152
+          }
+        },
+        "2009": {
+          "Age 0-15": {
+            "Females": 184791,
+            "Males": 194729,
+            "All persons": 379520
+          },
+          "Age 16-39": {
+            "Females": 301461,
+            "Males": 297714,
+            "All persons": 599175
+          },
+          "Age 40-64": {
+            "Females": 284018,
+            "Males": 277253,
+            "All persons": 561271
+          },
+          "Age 65+": {
+            "Females": 144501,
+            "Males": 108866,
+            "All persons": 253367
+          },
+          "All": {
+            "Females": 914771,
+            "Males": 878562,
+            "All persons": 1793333
+          }
+        },
+        "2010": {
+          "Age 0-15": {
+            "Females": 184943,
+            "Males": 195016,
+            "All persons": 379959
+          },
+          "Age 16-39": {
+            "Females": 300312,
+            "Males": 296444,
+            "All persons": 596756
+          },
+          "Age 40-64": {
+            "Females": 287728,
+            "Males": 280755,
+            "All persons": 568483
+          },
+          "Age 65+": {
+            "Females": 147315,
+            "Males": 112320,
+            "All persons": 259635
+          },
+          "All": {
+            "Females": 920298,
+            "Males": 884535,
+            "All persons": 1804833
+          }
+        },
+        "2011": {
+          "Age 0-15": {
+            "Females": 185475,
+            "Males": 195331,
+            "All persons": 380806
+          },
+          "Age 16-39": {
+            "Females": 298223,
+            "Males": 294222,
+            "All persons": 592445
+          },
+          "Age 40-64": {
+            "Females": 291249,
+            "Males": 284056,
+            "All persons": 575305
+          },
+          "Age 65+": {
+            "Females": 150049,
+            "Males": 115713,
+            "All persons": 265762
+          },
+          "All": {
+            "Females": 924996,
+            "Males": 889322,
+            "All persons": 1814318
+          }
+        },
+        "2012": {
+          "Age 0-15": {
+            "Females": 186158,
+            "Males": 195808,
+            "All persons": 381966
+          },
+          "Age 16-39": {
+            "Females": 296414,
+            "Males": 292493,
+            "All persons": 588907
+          },
+          "Age 40-64": {
+            "Females": 293762,
+            "Males": 286999,
+            "All persons": 580761
+          },
+          "Age 65+": {
+            "Females": 153402,
+            "Males": 119567,
+            "All persons": 272969
+          },
+          "All": {
+            "Females": 929736,
+            "Males": 894867,
+            "All persons": 1824603
+          }
+        },
+        "2013": {
+          "Age 0-15": {
+            "Females": 186392,
+            "Males": 195560,
+            "All persons": 381952
+          },
+          "Age 16-39": {
+            "Females": 294851,
+            "Males": 289773,
+            "All persons": 584624
+          },
+          "Age 40-64": {
+            "Females": 296395,
+            "Males": 289261,
+            "All persons": 585656
+          },
+          "Age 65+": {
+            "Females": 156243,
+            "Males": 123202,
+            "All persons": 279445
+          },
+          "All": {
+            "Females": 933881,
+            "Males": 897796,
+            "All persons": 1831677
+          }
+        },
+        "2014": {
+          "Age 0-15": {
+            "Females": 186780,
+            "Males": 195880,
+            "All persons": 382660
+          },
+          "Age 16-39": {
+            "Females": 294487,
+            "Males": 289378,
+            "All persons": 583865
+          },
+          "Age 40-64": {
+            "Females": 298995,
+            "Males": 291272,
+            "All persons": 590267
+          },
+          "Age 65+": {
+            "Females": 159337,
+            "Males": 127057,
+            "All persons": 286394
+          },
+          "All": {
+            "Females": 939599,
+            "Males": 903587,
+            "All persons": 1843186
+          }
+        },
+        "2015": {
+          "Age 0-15": {
+            "Females": 187408,
+            "Males": 196362,
+            "All persons": 383770
+          },
+          "Age 16-39": {
+            "Females": 294562,
+            "Males": 290047,
+            "All persons": 584609
+          },
+          "Age 40-64": {
+            "Females": 300850,
+            "Males": 293217,
+            "All persons": 594067
+          },
+          "Age 65+": {
+            "Females": 161953,
+            "Males": 130544,
+            "All persons": 292497
+          },
+          "All": {
+            "Females": 944773,
+            "Males": 910170,
+            "All persons": 1854943
+          }
+        },
+        "2016": {
+          "Age 0-15": {
+            "Females": 188581,
+            "Males": 197658,
+            "All persons": 386239
+          },
+          "Age 16-39": {
+            "Females": 293609,
+            "Males": 289916,
+            "All persons": 583525
+          },
+          "Age 40-64": {
+            "Females": 302865,
+            "Males": 294620,
+            "All persons": 597485
+          },
+          "Age 65+": {
+            "Females": 164613,
+            "Males": 134180,
+            "All persons": 298793
+          },
+          "All": {
+            "Females": 949668,
+            "Males": 916374,
+            "All persons": 1866042
+          }
+        },
+        "2017": {
+          "Age 0-15": {
+            "Females": 189448,
+            "Males": 198706,
+            "All persons": 388154
+          },
+          "Age 16-39": {
+            "Females": 292570,
+            "Males": 289017,
+            "All persons": 581587
+          },
+          "Age 40-64": {
+            "Females": 304871,
+            "Males": 296286,
+            "All persons": 601157
+          },
+          "Age 65+": {
+            "Females": 166826,
+            "Males": 137454,
+            "All persons": 304280
+          },
+          "All": {
+            "Females": 953715,
+            "Males": 921463,
+            "All persons": 1875178
+          }
+        },
+        "2018": {
+          "Age 0-15": {
+            "Females": 190347,
+            "Males": 199964,
+            "All persons": 390311
+          },
+          "Age 16-39": {
+            "Females": 292335,
+            "Males": 288957,
+            "All persons": 581292
+          },
+          "Age 40-64": {
+            "Females": 306901,
+            "Males": 297766,
+            "All persons": 604667
+          },
+          "Age 65+": {
+            "Females": 169278,
+            "Males": 140711,
+            "All persons": 309989
+          },
+          "All": {
+            "Females": 958861,
+            "Males": 927398,
+            "All persons": 1886259
+          }
+        },
+        "2019": {
+          "Age 0-15": {
+            "Females": 191008,
+            "Males": 200648,
+            "All persons": 391656
+          },
+          "Age 16-39": {
+            "Females": 291429,
+            "Males": 288746,
+            "All persons": 580175
+          },
+          "Age 40-64": {
+            "Females": 310007,
+            "Males": 299735,
+            "All persons": 609742
+          },
+          "Age 65+": {
+            "Females": 172225,
+            "Males": 144721,
+            "All persons": 316946
+          },
+          "All": {
+            "Females": 964669,
+            "Males": 933850,
+            "All persons": 1898519
+          }
+        },
+        "2020": {
+          "Age 0-15": {
+            "Females": 190260,
+            "Males": 199852,
+            "All persons": 390112
+          },
+          "Age 16-39": {
+            "Females": 287652,
+            "Males": 285195,
+            "All persons": 572847
+          },
+          "Age 40-64": {
+            "Females": 312931,
+            "Males": 301949,
+            "All persons": 614880
+          },
+          "Age 65+": {
+            "Females": 174566,
+            "Males": 148118,
+            "All persons": 322684
+          },
+          "All": {
+            "Females": 965409,
+            "Males": 935114,
+            "All persons": 1900523
+          }
+        },
+        "2021": {
+          "Age 0-15": {
+            "Females": 189296,
+            "Males": 198880,
+            "All persons": 388176
+          },
+          "Age 16-39": {
+            "Females": 285790,
+            "Males": 283817,
+            "All persons": 569607
+          },
+          "Age 40-64": {
+            "Females": 315116,
+            "Males": 302439,
+            "All persons": 617555
+          },
+          "Age 65+": {
+            "Females": 177548,
+            "Males": 151678,
+            "All persons": 329226
+          },
+          "All": {
+            "Females": 967750,
+            "Males": 936814,
+            "All persons": 1904564
+          }
+        },
+        "2022": {
+          "Age 0-15": {
+            "Females": 189990,
+            "Males": 199445,
+            "All persons": 389435
+          },
+          "Age 16-39": {
+            "Females": 283156,
+            "Males": 282701,
+            "All persons": 565857
+          },
+          "Age 40-64": {
+            "Females": 316937,
+            "Males": 302865,
+            "All persons": 619802
+          },
+          "Age 65+": {
+            "Females": 180513,
+            "Males": 154936,
+            "All persons": 335449
+          },
+          "All": {
+            "Females": 970596,
+            "Males": 939947,
+            "All persons": 1910543
+          }
+        },
+        "2023": {
+          "Age 0-15": {
+            "Females": 189448,
+            "Males": 198771,
+            "All persons": 388219
+          },
+          "Age 16-39": {
+            "Females": 283236,
+            "Males": 284568,
+            "All persons": 567804
+          },
+          "Age 40-64": {
+            "Females": 318234,
+            "Males": 303643,
+            "All persons": 621877
+          },
+          "Age 65+": {
+            "Females": 183979,
+            "Males": 158503,
+            "All persons": 342482
+          },
+          "All": {
+            "Females": 974897,
+            "Males": 945485,
+            "All persons": 1920382
+          }
+        },
+        "2024": {
+          "Age 0-15": {
+            "Females": 187734,
+            "Males": 196948,
+            "All persons": 384682
+          },
+          "Age 16-39": {
+            "Females": 283850,
+            "Males": 287329,
+            "All persons": 571179
+          },
+          "Age 40-64": {
+            "Females": 318999,
+            "Males": 303801,
+            "All persons": 622800
+          },
+          "Age 65+": {
+            "Females": 187482,
+            "Males": 161712,
+            "All persons": 349194
+          },
+          "All": {
+            "Females": 978065,
+            "Males": 949790,
+            "All persons": 1927855
+          }
+        }
+      }
+    }
+  },
+  "MYE01T06": {
+    "label": "Population totals",
+    "updated": "2025-09-17",
+    "data": {
+      "Population totals": {
+        "2001": {
+          "Antrim and Newtownabbey": {
+            "Rounded": 128800,
+            "Unrounded": 128760
+          },
+          "Armagh City, Banbridge and Craigavon": {
+            "Rounded": 176000,
+            "Unrounded": 176014
+          },
+          "Belfast": {
+            "Rounded": 328700,
+            "Unrounded": 328695
+          },
+          "Causeway Coast and Glens": {
+            "Rounded": 131400,
+            "Unrounded": 131374
+          },
+          "Derry City and Strabane": {
+            "Rounded": 143800,
+            "Unrounded": 143810
+          },
+          "Fermanagh and Omagh": {
+            "Rounded": 105800,
+            "Unrounded": 105751
+          },
+          "Lisburn and Castlereagh": {
+            "Rounded": 124600,
+            "Unrounded": 124585
+          },
+          "Mid and East Antrim": {
+            "Rounded": 127500,
+            "Unrounded": 127452
+          },
+          "Mid Ulster": {
+            "Rounded": 119100,
+            "Unrounded": 119112
+          },
+          "Newry, Mourne and Down": {
+            "Rounded": 153700,
+            "Unrounded": 153726
+          },
+          "Ards and North Down": {
+            "Rounded": 149600,
+            "Unrounded": 149559
+          },
+          "Northern Ireland": {
+            "Rounded": 1688800,
+            "Unrounded": 1688838
+          }
+        },
+        "2002": {
+          "Antrim and Newtownabbey": {
+            "Rounded": 129500,
+            "Unrounded": 129502
+          },
+          "Armagh City, Banbridge and Craigavon": {
+            "Rounded": 177400,
+            "Unrounded": 177357
+          },
+          "Belfast": {
+            "Rounded": 328500,
+            "Unrounded": 328471
+          },
+          "Causeway Coast and Glens": {
+            "Rounded": 132800,
+            "Unrounded": 132827
+          },
+          "Derry City and Strabane": {
+            "Rounded": 144300,
+            "Unrounded": 144280
+          },
+          "Fermanagh and Omagh": {
+            "Rounded": 106700,
+            "Unrounded": 106663
+          },
+          "Lisburn and Castlereagh": {
+            "Rounded": 124800,
+            "Unrounded": 124757
+          },
+          "Mid and East Antrim": {
+            "Rounded": 128300,
+            "Unrounded": 128281
+          },
+          "Mid Ulster": {
+            "Rounded": 120200,
+            "Unrounded": 120214
+          },
+          "Newry, Mourne and Down": {
+            "Rounded": 155000,
+            "Unrounded": 154984
+          },
+          "Ards and North Down": {
+            "Rounded": 150200,
+            "Unrounded": 150198
+          },
+          "Northern Ireland": {
+            "Rounded": 1697500,
+            "Unrounded": 1697534
+          }
+        },
+        "2003": {
+          "Antrim and Newtownabbey": {
+            "Rounded": 130400,
+            "Unrounded": 130356
+          },
+          "Armagh City, Banbridge and Craigavon": {
+            "Rounded": 179000,
+            "Unrounded": 178954
+          },
+          "Belfast": {
+            "Rounded": 327200,
+            "Unrounded": 327176
+          },
+          "Causeway Coast and Glens": {
+            "Rounded": 134200,
+            "Unrounded": 134152
+          },
+          "Derry City and Strabane": {
+            "Rounded": 144600,
+            "Unrounded": 144629
+          },
+          "Fermanagh and Omagh": {
+            "Rounded": 107300,
+            "Unrounded": 107332
+          },
+          "Lisburn and Castlereagh": {
+            "Rounded": 125000,
+            "Unrounded": 125001
+          },
+          "Mid and East Antrim": {
+            "Rounded": 129200,
+            "Unrounded": 129181
+          },
+          "Mid Ulster": {
+            "Rounded": 121300,
+            "Unrounded": 121324
+          },
+          "Newry, Mourne and Down": {
+            "Rounded": 156400,
+            "Unrounded": 156395
+          },
+          "Ards and North Down": {
+            "Rounded": 150400,
+            "Unrounded": 150424
+          },
+          "Northern Ireland": {
+            "Rounded": 1704900,
+            "Unrounded": 1704924
+          }
+        },
+        "2004": {
+          "Antrim and Newtownabbey": {
+            "Rounded": 131100,
+            "Unrounded": 131067
+          },
+          "Armagh City, Banbridge and Craigavon": {
+            "Rounded": 180800,
+            "Unrounded": 180828
+          },
+          "Belfast": {
+            "Rounded": 326300,
+            "Unrounded": 326268
+          },
+          "Causeway Coast and Glens": {
+            "Rounded": 135200,
+            "Unrounded": 135209
+          },
+          "Derry City and Strabane": {
+            "Rounded": 145000,
+            "Unrounded": 145041
+          },
+          "Fermanagh and Omagh": {
+            "Rounded": 107900,
+            "Unrounded": 107923
+          },
+          "Lisburn and Castlereagh": {
+            "Rounded": 125800,
+            "Unrounded": 125764
+          },
+          "Mid and East Antrim": {
+            "Rounded": 129900,
+            "Unrounded": 129925
+          },
+          "Mid Ulster": {
+            "Rounded": 122600,
+            "Unrounded": 122645
+          },
+          "Newry, Mourne and Down": {
+            "Rounded": 158500,
+            "Unrounded": 158460
+          },
+          "Ards and North Down": {
+            "Rounded": 150900,
+            "Unrounded": 150912
+          },
+          "Northern Ireland": {
+            "Rounded": 1714000,
+            "Unrounded": 1714042
+          }
+        },
+        "2005": {
+          "Antrim and Newtownabbey": {
+            "Rounded": 132400,
+            "Unrounded": 132350
+          },
+          "Armagh City, Banbridge and Craigavon": {
+            "Rounded": 183900,
+            "Unrounded": 183933
+          },
+          "Belfast": {
+            "Rounded": 325500,
+            "Unrounded": 325483
+          },
+          "Causeway Coast and Glens": {
+            "Rounded": 136300,
+            "Unrounded": 136340
+          },
+          "Derry City and Strabane": {
+            "Rounded": 145400,
+            "Unrounded": 145447
+          },
+          "Fermanagh and Omagh": {
+            "Rounded": 108600,
+            "Unrounded": 108586
+          },
+          "Lisburn and Castlereagh": {
+            "Rounded": 127000,
+            "Unrounded": 127043
+          },
+          "Mid and East Antrim": {
+            "Rounded": 131000,
+            "Unrounded": 130980
+          },
+          "Mid Ulster": {
+            "Rounded": 124900,
+            "Unrounded": 124885
+          },
+          "Newry, Mourne and Down": {
+            "Rounded": 160500,
+            "Unrounded": 160453
+          },
+          "Ards and North Down": {
+            "Rounded": 152200,
+            "Unrounded": 152233
+          },
+          "Northern Ireland": {
+            "Rounded": 1727700,
+            "Unrounded": 1727733
+          }
+        },
+        "2006": {
+          "Antrim and Newtownabbey": {
+            "Rounded": 133200,
+            "Unrounded": 133216
+          },
+          "Armagh City, Banbridge and Craigavon": {
+            "Rounded": 187200,
+            "Unrounded": 187196
+          },
+          "Belfast": {
+            "Rounded": 326000,
+            "Unrounded": 325985
+          },
+          "Causeway Coast and Glens": {
+            "Rounded": 137400,
+            "Unrounded": 137438
+          },
+          "Derry City and Strabane": {
+            "Rounded": 145900,
+            "Unrounded": 145855
+          },
+          "Fermanagh and Omagh": {
+            "Rounded": 109300,
+            "Unrounded": 109344
+          },
+          "Lisburn and Castlereagh": {
+            "Rounded": 128200,
+            "Unrounded": 128185
+          },
+          "Mid and East Antrim": {
+            "Rounded": 132000,
+            "Unrounded": 132021
+          },
+          "Mid Ulster": {
+            "Rounded": 127700,
+            "Unrounded": 127662
+          },
+          "Newry, Mourne and Down": {
+            "Rounded": 162700,
+            "Unrounded": 162723
+          },
+          "Ards and North Down": {
+            "Rounded": 153500,
+            "Unrounded": 153488
+          },
+          "Northern Ireland": {
+            "Rounded": 1743100,
+            "Unrounded": 1743113
+          }
+        },
+        "2007": {
+          "Antrim and Newtownabbey": {
+            "Rounded": 134800,
+            "Unrounded": 134756
+          },
+          "Armagh City, Banbridge and Craigavon": {
+            "Rounded": 190500,
+            "Unrounded": 190505
+          },
+          "Belfast": {
+            "Rounded": 327400,
+            "Unrounded": 327383
+          },
+          "Causeway Coast and Glens": {
+            "Rounded": 138400,
+            "Unrounded": 138375
+          },
+          "Derry City and Strabane": {
+            "Rounded": 146700,
+            "Unrounded": 146742
+          },
+          "Fermanagh and Omagh": {
+            "Rounded": 110300,
+            "Unrounded": 110345
+          },
+          "Lisburn and Castlereagh": {
+            "Rounded": 129200,
+            "Unrounded": 129179
+          },
+          "Mid and East Antrim": {
+            "Rounded": 133300,
+            "Unrounded": 133270
+          },
+          "Mid Ulster": {
+            "Rounded": 131100,
+            "Unrounded": 131088
+          },
+          "Newry, Mourne and Down": {
+            "Rounded": 165600,
+            "Unrounded": 165634
+          },
+          "Ards and North Down": {
+            "Rounded": 154400,
+            "Unrounded": 154406
+          },
+          "Northern Ireland": {
+            "Rounded": 1761700,
+            "Unrounded": 1761683
+          }
+        },
+        "2008": {
+          "Antrim and Newtownabbey": {
+            "Rounded": 136100,
+            "Unrounded": 136122
+          },
+          "Armagh City, Banbridge and Craigavon": {
+            "Rounded": 193600,
+            "Unrounded": 193603
+          },
+          "Belfast": {
+            "Rounded": 330100,
+            "Unrounded": 330052
+          },
+          "Causeway Coast and Glens": {
+            "Rounded": 139000,
+            "Unrounded": 139004
+          },
+          "Derry City and Strabane": {
+            "Rounded": 147500,
+            "Unrounded": 147496
+          },
+          "Fermanagh and Omagh": {
+            "Rounded": 111500,
+            "Unrounded": 111494
+          },
+          "Lisburn and Castlereagh": {
+            "Rounded": 130600,
+            "Unrounded": 130584
+          },
+          "Mid and East Antrim": {
+            "Rounded": 134200,
+            "Unrounded": 134169
+          },
+          "Mid Ulster": {
+            "Rounded": 133600,
+            "Unrounded": 133595
+          },
+          "Newry, Mourne and Down": {
+            "Rounded": 168000,
+            "Unrounded": 168019
+          },
+          "Ards and North Down": {
+            "Rounded": 155000,
+            "Unrounded": 155014
+          },
+          "Northern Ireland": {
+            "Rounded": 1779200,
+            "Unrounded": 1779152
+          }
+        },
+        "2009": {
+          "Antrim and Newtownabbey": {
+            "Rounded": 137400,
+            "Unrounded": 137422
+          },
+          "Armagh City, Banbridge and Craigavon": {
+            "Rounded": 196200,
+            "Unrounded": 196203
+          },
+          "Belfast": {
+            "Rounded": 331800,
+            "Unrounded": 331763
+          },
+          "Causeway Coast and Glens": {
+            "Rounded": 139600,
+            "Unrounded": 139616
+          },
+          "Derry City and Strabane": {
+            "Rounded": 148100,
+            "Unrounded": 148053
+          },
+          "Fermanagh and Omagh": {
+            "Rounded": 112000,
+            "Unrounded": 111998
+          },
+          "Lisburn and Castlereagh": {
+            "Rounded": 132400,
+            "Unrounded": 132386
+          },
+          "Mid and East Antrim": {
+            "Rounded": 134800,
+            "Unrounded": 134774
+          },
+          "Mid Ulster": {
+            "Rounded": 135400,
+            "Unrounded": 135408
+          },
+          "Newry, Mourne and Down": {
+            "Rounded": 169700,
+            "Unrounded": 169652
+          },
+          "Ards and North Down": {
+            "Rounded": 156100,
+            "Unrounded": 156058
+          },
+          "Northern Ireland": {
+            "Rounded": 1793300,
+            "Unrounded": 1793333
+          }
+        },
+        "2010": {
+          "Antrim and Newtownabbey": {
+            "Rounded": 138000,
+            "Unrounded": 138044
+          },
+          "Armagh City, Banbridge and Craigavon": {
+            "Rounded": 198200,
+            "Unrounded": 198202
+          },
+          "Belfast": {
+            "Rounded": 333500,
+            "Unrounded": 333489
+          },
+          "Causeway Coast and Glens": {
+            "Rounded": 140100,
+            "Unrounded": 140107
+          },
+          "Derry City and Strabane": {
+            "Rounded": 148100,
+            "Unrounded": 148148
+          },
+          "Fermanagh and Omagh": {
+            "Rounded": 112900,
+            "Unrounded": 112919
+          },
+          "Lisburn and Castlereagh": {
+            "Rounded": 133900,
+            "Unrounded": 133909
+          },
+          "Mid and East Antrim": {
+            "Rounded": 135200,
+            "Unrounded": 135157
+          },
+          "Mid Ulster": {
+            "Rounded": 137200,
+            "Unrounded": 137221
+          },
+          "Newry, Mourne and Down": {
+            "Rounded": 171100,
+            "Unrounded": 171119
+          },
+          "Ards and North Down": {
+            "Rounded": 156500,
+            "Unrounded": 156518
+          },
+          "Northern Ireland": {
+            "Rounded": 1804800,
+            "Unrounded": 1804833
+          }
+        },
+        "2011": {
+          "Antrim and Newtownabbey": {
+            "Rounded": 138700,
+            "Unrounded": 138651
+          },
+          "Armagh City, Banbridge and Craigavon": {
+            "Rounded": 200300,
+            "Unrounded": 200298
+          },
+          "Belfast": {
+            "Rounded": 333900,
+            "Unrounded": 333895
+          },
+          "Causeway Coast and Glens": {
+            "Rounded": 140900,
+            "Unrounded": 140907
+          },
+          "Derry City and Strabane": {
+            "Rounded": 148200,
+            "Unrounded": 148191
+          },
+          "Fermanagh and Omagh": {
+            "Rounded": 113500,
+            "Unrounded": 113501
+          },
+          "Lisburn and Castlereagh": {
+            "Rounded": 135300,
+            "Unrounded": 135280
+          },
+          "Mid and East Antrim": {
+            "Rounded": 135400,
+            "Unrounded": 135365
+          },
+          "Mid Ulster": {
+            "Rounded": 139000,
+            "Unrounded": 139011
+          },
+          "Newry, Mourne and Down": {
+            "Rounded": 172300,
+            "Unrounded": 172276
+          },
+          "Ards and North Down": {
+            "Rounded": 156900,
+            "Unrounded": 156943
+          },
+          "Northern Ireland": {
+            "Rounded": 1814300,
+            "Unrounded": 1814318
+          }
+        },
+        "2012": {
+          "Antrim and Newtownabbey": {
+            "Rounded": 139400,
+            "Unrounded": 139397
+          },
+          "Armagh City, Banbridge and Craigavon": {
+            "Rounded": 202600,
+            "Unrounded": 202560
+          },
+          "Belfast": {
+            "Rounded": 334300,
+            "Unrounded": 334322
+          },
+          "Causeway Coast and Glens": {
+            "Rounded": 141100,
+            "Unrounded": 141147
+          },
+          "Derry City and Strabane": {
+            "Rounded": 148700,
+            "Unrounded": 148666
+          },
+          "Fermanagh and Omagh": {
+            "Rounded": 114200,
+            "Unrounded": 114162
+          },
+          "Lisburn and Castlereagh": {
+            "Rounded": 136500,
+            "Unrounded": 136498
+          },
+          "Mid and East Antrim": {
+            "Rounded": 135800,
+            "Unrounded": 135837
+          },
+          "Mid Ulster": {
+            "Rounded": 140500,
+            "Unrounded": 140466
+          },
+          "Newry, Mourne and Down": {
+            "Rounded": 173800,
+            "Unrounded": 173754
+          },
+          "Ards and North Down": {
+            "Rounded": 157800,
+            "Unrounded": 157794
+          },
+          "Northern Ireland": {
+            "Rounded": 1824600,
+            "Unrounded": 1824603
+          }
+        },
+        "2013": {
+          "Antrim and Newtownabbey": {
+            "Rounded": 140000,
+            "Unrounded": 140042
+          },
+          "Armagh City, Banbridge and Craigavon": {
+            "Rounded": 204100,
+            "Unrounded": 204072
+          },
+          "Belfast": {
+            "Rounded": 335900,
+            "Unrounded": 335881
+          },
+          "Causeway Coast and Glens": {
+            "Rounded": 141100,
+            "Unrounded": 141100
+          },
+          "Derry City and Strabane": {
+            "Rounded": 148700,
+            "Unrounded": 148721
+          },
+          "Fermanagh and Omagh": {
+            "Rounded": 114200,
+            "Unrounded": 114219
+          },
+          "Lisburn and Castlereagh": {
+            "Rounded": 137200,
+            "Unrounded": 137201
+          },
+          "Mid and East Antrim": {
+            "Rounded": 136000,
+            "Unrounded": 135983
+          },
+          "Mid Ulster": {
+            "Rounded": 141600,
+            "Unrounded": 141551
+          },
+          "Newry, Mourne and Down": {
+            "Rounded": 175000,
+            "Unrounded": 174951
+          },
+          "Ards and North Down": {
+            "Rounded": 158000,
+            "Unrounded": 157956
+          },
+          "Northern Ireland": {
+            "Rounded": 1831700,
+            "Unrounded": 1831677
+          }
+        },
+        "2014": {
+          "Antrim and Newtownabbey": {
+            "Rounded": 140700,
+            "Unrounded": 140682
+          },
+          "Armagh City, Banbridge and Craigavon": {
+            "Rounded": 206100,
+            "Unrounded": 206141
+          },
+          "Belfast": {
+            "Rounded": 337900,
+            "Unrounded": 337872
+          },
+          "Causeway Coast and Glens": {
+            "Rounded": 141500,
+            "Unrounded": 141453
+          },
+          "Derry City and Strabane": {
+            "Rounded": 149300,
+            "Unrounded": 149307
+          },
+          "Fermanagh and Omagh": {
+            "Rounded": 114800,
+            "Unrounded": 114785
+          },
+          "Lisburn and Castlereagh": {
+            "Rounded": 139200,
+            "Unrounded": 139186
+          },
+          "Mid and East Antrim": {
+            "Rounded": 136600,
+            "Unrounded": 136610
+          },
+          "Mid Ulster": {
+            "Rounded": 143200,
+            "Unrounded": 143217
+          },
+          "Newry, Mourne and Down": {
+            "Rounded": 175600,
+            "Unrounded": 175557
+          },
+          "Ards and North Down": {
+            "Rounded": 158400,
+            "Unrounded": 158376
+          },
+          "Northern Ireland": {
+            "Rounded": 1843200,
+            "Unrounded": 1843186
+          }
+        },
+        "2015": {
+          "Antrim and Newtownabbey": {
+            "Rounded": 141400,
+            "Unrounded": 141364
+          },
+          "Armagh City, Banbridge and Craigavon": {
+            "Rounded": 208300,
+            "Unrounded": 208339
+          },
+          "Belfast": {
+            "Rounded": 340200,
+            "Unrounded": 340194
+          },
+          "Causeway Coast and Glens": {
+            "Rounded": 142100,
+            "Unrounded": 142052
+          },
+          "Derry City and Strabane": {
+            "Rounded": 149600,
+            "Unrounded": 149589
+          },
+          "Fermanagh and Omagh": {
+            "Rounded": 115100,
+            "Unrounded": 115057
+          },
+          "Lisburn and Castlereagh": {
+            "Rounded": 140900,
+            "Unrounded": 140938
+          },
+          "Mid and East Antrim": {
+            "Rounded": 137100,
+            "Unrounded": 137085
+          },
+          "Mid Ulster": {
+            "Rounded": 144400,
+            "Unrounded": 144404
+          },
+          "Newry, Mourne and Down": {
+            "Rounded": 176600,
+            "Unrounded": 176559
+          },
+          "Ards and North Down": {
+            "Rounded": 159400,
+            "Unrounded": 159362
+          },
+          "Northern Ireland": {
+            "Rounded": 1854900,
+            "Unrounded": 1854943
+          }
+        },
+        "2016": {
+          "Antrim and Newtownabbey": {
+            "Rounded": 142100,
+            "Unrounded": 142138
+          },
+          "Armagh City, Banbridge and Craigavon": {
+            "Rounded": 210900,
+            "Unrounded": 210924
+          },
+          "Belfast": {
+            "Rounded": 341100,
+            "Unrounded": 341111
+          },
+          "Causeway Coast and Glens": {
+            "Rounded": 142200,
+            "Unrounded": 142158
+          },
+          "Derry City and Strabane": {
+            "Rounded": 150300,
+            "Unrounded": 150259
+          },
+          "Fermanagh and Omagh": {
+            "Rounded": 115500,
+            "Unrounded": 115456
+          },
+          "Lisburn and Castlereagh": {
+            "Rounded": 142100,
+            "Unrounded": 142088
+          },
+          "Mid and East Antrim": {
+            "Rounded": 137700,
+            "Unrounded": 137718
+          },
+          "Mid Ulster": {
+            "Rounded": 145900,
+            "Unrounded": 145874
+          },
+          "Newry, Mourne and Down": {
+            "Rounded": 178000,
+            "Unrounded": 178017
+          },
+          "Ards and North Down": {
+            "Rounded": 160300,
+            "Unrounded": 160299
+          },
+          "Northern Ireland": {
+            "Rounded": 1866000,
+            "Unrounded": 1866042
+          }
+        },
+        "2017": {
+          "Antrim and Newtownabbey": {
+            "Rounded": 143000,
+            "Unrounded": 142996
+          },
+          "Armagh City, Banbridge and Craigavon": {
+            "Rounded": 212600,
+            "Unrounded": 212635
+          },
+          "Belfast": {
+            "Rounded": 341900,
+            "Unrounded": 341915
+          },
+          "Causeway Coast and Glens": {
+            "Rounded": 142300,
+            "Unrounded": 142296
+          },
+          "Derry City and Strabane": {
+            "Rounded": 150600,
+            "Unrounded": 150589
+          },
+          "Fermanagh and Omagh": {
+            "Rounded": 115900,
+            "Unrounded": 115859
+          },
+          "Lisburn and Castlereagh": {
+            "Rounded": 143700,
+            "Unrounded": 143737
+          },
+          "Mid and East Antrim": {
+            "Rounded": 138000,
+            "Unrounded": 138019
+          },
+          "Mid Ulster": {
+            "Rounded": 147000,
+            "Unrounded": 147002
+          },
+          "Newry, Mourne and Down": {
+            "Rounded": 179200,
+            "Unrounded": 179199
+          },
+          "Ards and North Down": {
+            "Rounded": 160900,
+            "Unrounded": 160931
+          },
+          "Northern Ireland": {
+            "Rounded": 1875200,
+            "Unrounded": 1875178
+          }
+        },
+        "2018": {
+          "Antrim and Newtownabbey": {
+            "Rounded": 144000,
+            "Unrounded": 143952
+          },
+          "Armagh City, Banbridge and Craigavon": {
+            "Rounded": 214900,
+            "Unrounded": 214887
+          },
+          "Belfast": {
+            "Rounded": 343700,
+            "Unrounded": 343690
+          },
+          "Causeway Coast and Glens": {
+            "Rounded": 142400,
+            "Unrounded": 142404
+          },
+          "Derry City and Strabane": {
+            "Rounded": 150700,
+            "Unrounded": 150712
+          },
+          "Fermanagh and Omagh": {
+            "Rounded": 116300,
+            "Unrounded": 116329
+          },
+          "Lisburn and Castlereagh": {
+            "Rounded": 145600,
+            "Unrounded": 145644
+          },
+          "Mid and East Antrim": {
+            "Rounded": 138600,
+            "Unrounded": 138592
+          },
+          "Mid Ulster": {
+            "Rounded": 148000,
+            "Unrounded": 148028
+          },
+          "Newry, Mourne and Down": {
+            "Rounded": 180200,
+            "Unrounded": 180205
+          },
+          "Ards and North Down": {
+            "Rounded": 161800,
+            "Unrounded": 161816
+          },
+          "Northern Ireland": {
+            "Rounded": 1886300,
+            "Unrounded": 1886259
+          }
+        },
+        "2019": {
+          "Antrim and Newtownabbey": {
+            "Rounded": 145200,
+            "Unrounded": 145152
+          },
+          "Armagh City, Banbridge and Craigavon": {
+            "Rounded": 217100,
+            "Unrounded": 217069
+          },
+          "Belfast": {
+            "Rounded": 345400,
+            "Unrounded": 345391
+          },
+          "Causeway Coast and Glens": {
+            "Rounded": 142800,
+            "Unrounded": 142776
+          },
+          "Derry City and Strabane": {
+            "Rounded": 151200,
+            "Unrounded": 151236
+          },
+          "Fermanagh and Omagh": {
+            "Rounded": 116800,
+            "Unrounded": 116797
+          },
+          "Lisburn and Castlereagh": {
+            "Rounded": 147500,
+            "Unrounded": 147467
+          },
+          "Mid and East Antrim": {
+            "Rounded": 139100,
+            "Unrounded": 139066
+          },
+          "Mid Ulster": {
+            "Rounded": 149200,
+            "Unrounded": 149230
+          },
+          "Newry, Mourne and Down": {
+            "Rounded": 181500,
+            "Unrounded": 181528
+          },
+          "Ards and North Down": {
+            "Rounded": 162800,
+            "Unrounded": 162807
+          },
+          "Northern Ireland": {
+            "Rounded": 1898500,
+            "Unrounded": 1898519
+          }
+        },
+        "2020": {
+          "Antrim and Newtownabbey": {
+            "Rounded": 145600,
+            "Unrounded": 145563
+          },
+          "Armagh City, Banbridge and Craigavon": {
+            "Rounded": 218200,
+            "Unrounded": 218162
+          },
+          "Belfast": {
+            "Rounded": 345000,
+            "Unrounded": 344994
+          },
+          "Causeway Coast and Glens": {
+            "Rounded": 142500,
+            "Unrounded": 142507
+          },
+          "Derry City and Strabane": {
+            "Rounded": 150800,
+            "Unrounded": 150831
+          },
+          "Fermanagh and Omagh": {
+            "Rounded": 116600,
+            "Unrounded": 116594
+          },
+          "Lisburn and Castlereagh": {
+            "Rounded": 148100,
+            "Unrounded": 148102
+          },
+          "Mid and East Antrim": {
+            "Rounded": 139100,
+            "Unrounded": 139134
+          },
+          "Mid Ulster": {
+            "Rounded": 149700,
+            "Unrounded": 149747
+          },
+          "Newry, Mourne and Down": {
+            "Rounded": 181700,
+            "Unrounded": 181683
+          },
+          "Ards and North Down": {
+            "Rounded": 163200,
+            "Unrounded": 163206
+          },
+          "Northern Ireland": {
+            "Rounded": 1900500,
+            "Unrounded": 1900523
+          }
+        },
+        "2021": {
+          "Antrim and Newtownabbey": {
+            "Rounded": 145900,
+            "Unrounded": 145852
+          },
+          "Armagh City, Banbridge and Craigavon": {
+            "Rounded": 219100,
+            "Unrounded": 219127
+          },
+          "Belfast": {
+            "Rounded": 345000,
+            "Unrounded": 344992
+          },
+          "Causeway Coast and Glens": {
+            "Rounded": 141700,
+            "Unrounded": 141664
+          },
+          "Derry City and Strabane": {
+            "Rounded": 150800,
+            "Unrounded": 150834
+          },
+          "Fermanagh and Omagh": {
+            "Rounded": 116900,
+            "Unrounded": 116926
+          },
+          "Lisburn and Castlereagh": {
+            "Rounded": 149300,
+            "Unrounded": 149272
+          },
+          "Mid and East Antrim": {
+            "Rounded": 139100,
+            "Unrounded": 139127
+          },
+          "Mid Ulster": {
+            "Rounded": 150600,
+            "Unrounded": 150598
+          },
+          "Newry, Mourne and Down": {
+            "Rounded": 182300,
+            "Unrounded": 182345
+          },
+          "Ards and North Down": {
+            "Rounded": 163800,
+            "Unrounded": 163827
+          },
+          "Northern Ireland": {
+            "Rounded": 1904600,
+            "Unrounded": 1904564
+          }
+        },
+        "2022": {
+          "Antrim and Newtownabbey": {
+            "Rounded": 146100,
+            "Unrounded": 146148
+          },
+          "Armagh City, Banbridge and Craigavon": {
+            "Rounded": 220300,
+            "Unrounded": 220271
+          },
+          "Belfast": {
+            "Rounded": 348000,
+            "Unrounded": 348005
+          },
+          "Causeway Coast and Glens": {
+            "Rounded": 141300,
+            "Unrounded": 141316
+          },
+          "Derry City and Strabane": {
+            "Rounded": 150800,
+            "Unrounded": 150836
+          },
+          "Fermanagh and Omagh": {
+            "Rounded": 117000,
+            "Unrounded": 116994
+          },
+          "Lisburn and Castlereagh": {
+            "Rounded": 149900,
+            "Unrounded": 149915
+          },
+          "Mid and East Antrim": {
+            "Rounded": 139200,
+            "Unrounded": 139200
+          },
+          "Mid Ulster": {
+            "Rounded": 151000,
+            "Unrounded": 151001
+          },
+          "Newry, Mourne and Down": {
+            "Rounded": 182600,
+            "Unrounded": 182634
+          },
+          "Ards and North Down": {
+            "Rounded": 164200,
+            "Unrounded": 164223
+          },
+          "Northern Ireland": {
+            "Rounded": 1910500,
+            "Unrounded": 1910543
+          }
+        },
+        "2023": {
+          "Antrim and Newtownabbey": {
+            "Rounded": 147300,
+            "Unrounded": 147298
+          },
+          "Armagh City, Banbridge and Craigavon": {
+            "Rounded": 221800,
+            "Unrounded": 221754
+          },
+          "Belfast": {
+            "Rounded": 350500,
+            "Unrounded": 350533
+          },
+          "Causeway Coast and Glens": {
+            "Rounded": 141700,
+            "Unrounded": 141733
+          },
+          "Derry City and Strabane": {
+            "Rounded": 150900,
+            "Unrounded": 150859
+          },
+          "Fermanagh and Omagh": {
+            "Rounded": 117200,
+            "Unrounded": 117195
+          },
+          "Lisburn and Castlereagh": {
+            "Rounded": 150800,
+            "Unrounded": 150822
+          },
+          "Mid and East Antrim": {
+            "Rounded": 139800,
+            "Unrounded": 139840
+          },
+          "Mid Ulster": {
+            "Rounded": 152000,
+            "Unrounded": 152006
+          },
+          "Newry, Mourne and Down": {
+            "Rounded": 183400,
+            "Unrounded": 183429
+          },
+          "Ards and North Down": {
+            "Rounded": 164900,
+            "Unrounded": 164913
+          },
+          "Northern Ireland": {
+            "Rounded": 1920400,
+            "Unrounded": 1920382
+          }
+        },
+        "2024": {
+          "Antrim and Newtownabbey": {
+            "Rounded": 148100,
+            "Unrounded": 148100
+          },
+          "Armagh City, Banbridge and Craigavon": {
+            "Rounded": 222500,
+            "Unrounded": 222511
+          },
+          "Belfast": {
+            "Rounded": 352400,
+            "Unrounded": 352390
+          },
+          "Causeway Coast and Glens": {
+            "Rounded": 142000,
+            "Unrounded": 141954
+          },
+          "Derry City and Strabane": {
+            "Rounded": 152400,
+            "Unrounded": 152383
+          },
+          "Fermanagh and Omagh": {
+            "Rounded": 117700,
+            "Unrounded": 117687
+          },
+          "Lisburn and Castlereagh": {
+            "Rounded": 151700,
+            "Unrounded": 151669
+          },
+          "Mid and East Antrim": {
+            "Rounded": 139900,
+            "Unrounded": 139913
+          },
+          "Mid Ulster": {
+            "Rounded": 152700,
+            "Unrounded": 152718
+          },
+          "Newry, Mourne and Down": {
+            "Rounded": 183100,
+            "Unrounded": 183115
+          },
+          "Ards and North Down": {
+            "Rounded": 165400,
+            "Unrounded": 165415
+          },
+          "Northern Ireland": {
+            "Rounded": 1927900,
+            "Unrounded": 1927855
+          }
+        }
+      }
+    }
+  },
+  "MYE01T025": {
+    "label": "Mid-year population estimates - Population Aged 85 and Over - Northern Ireland",
+    "updated": "2025-09-17",
+    "data": {
+      "Mid-year population estimate": {
+        "2001": {
+          "Females": {
+            "Age 85": 2815,
+            "Age 86": 2663,
+            "Age 87": 2277,
+            "Age 88": 1995,
+            "Age 89": 1695,
+            "Age 90": 1362,
+            "Age 91": 1098,
+            "Age 92": 856,
+            "Age 93": 705,
+            "Age 94": 520,
+            "Age 95": 376,
+            "Age 96": 254,
+            "Age 97": 164,
+            "Age 98": 103,
+            "Age 99": 76,
+            "Age 100": 52,
+            "Age 101": 24,
+            "Age 102": 30,
+            "Age 103": 8,
+            "Age 104": 3,
+            "Age 105+": 9
+          },
+          "Males": {
+            "Age 85": 1304,
+            "Age 86": 1127,
+            "Age 87": 948,
+            "Age 88": 794,
+            "Age 89": 598,
+            "Age 90": 442,
+            "Age 91": 345,
+            "Age 92": 266,
+            "Age 93": 199,
+            "Age 94": 143,
+            "Age 95": 85,
+            "Age 96": 61,
+            "Age 97": 27,
+            "Age 98": 16,
+            "Age 99": 9,
+            "Age 100": 6,
+            "Age 101": 3,
+            "Age 102": 1,
+            "Age 103": 1,
+            "Age 104": 0,
+            "Age 105+": 0
+          },
+          "All persons": {
+            "Age 85": 4119,
+            "Age 86": 3790,
+            "Age 87": 3225,
+            "Age 88": 2789,
+            "Age 89": 2293,
+            "Age 90": 1804,
+            "Age 91": 1443,
+            "Age 92": 1122,
+            "Age 93": 904,
+            "Age 94": 663,
+            "Age 95": 461,
+            "Age 96": 315,
+            "Age 97": 191,
+            "Age 98": 119,
+            "Age 99": 85,
+            "Age 100": 58,
+            "Age 101": 27,
+            "Age 102": 31,
+            "Age 103": 9,
+            "Age 104": 3,
+            "Age 105+": 9
+          }
+        },
+        "2002": {
+          "Females": {
+            "Age 85": 2673,
+            "Age 86": 2559,
+            "Age 87": 2364,
+            "Age 88": 2013,
+            "Age 89": 1746,
+            "Age 90": 1439,
+            "Age 91": 1138,
+            "Age 92": 904,
+            "Age 93": 687,
+            "Age 94": 555,
+            "Age 95": 392,
+            "Age 96": 267,
+            "Age 97": 172,
+            "Age 98": 125,
+            "Age 99": 73,
+            "Age 100": 44,
+            "Age 101": 31,
+            "Age 102": 18,
+            "Age 103": 17,
+            "Age 104": 4,
+            "Age 105+": 6
+          },
+          "Males": {
+            "Age 85": 1266,
+            "Age 86": 1131,
+            "Age 87": 957,
+            "Age 88": 806,
+            "Age 89": 645,
+            "Age 90": 483,
+            "Age 91": 353,
+            "Age 92": 251,
+            "Age 93": 219,
+            "Age 94": 156,
+            "Age 95": 107,
+            "Age 96": 53,
+            "Age 97": 41,
+            "Age 98": 17,
+            "Age 99": 10,
+            "Age 100": 1,
+            "Age 101": 1,
+            "Age 102": 2,
+            "Age 103": 0,
+            "Age 104": 1,
+            "Age 105+": 0
+          },
+          "All persons": {
+            "Age 85": 3939,
+            "Age 86": 3690,
+            "Age 87": 3321,
+            "Age 88": 2819,
+            "Age 89": 2391,
+            "Age 90": 1922,
+            "Age 91": 1491,
+            "Age 92": 1155,
+            "Age 93": 906,
+            "Age 94": 711,
+            "Age 95": 499,
+            "Age 96": 320,
+            "Age 97": 213,
+            "Age 98": 142,
+            "Age 99": 83,
+            "Age 100": 45,
+            "Age 101": 32,
+            "Age 102": 20,
+            "Age 103": 17,
+            "Age 104": 5,
+            "Age 105+": 6
+          }
+        },
+        "2003": {
+          "Females": {
+            "Age 85": 2667,
+            "Age 86": 2380,
+            "Age 87": 2277,
+            "Age 88": 2050,
+            "Age 89": 1734,
+            "Age 90": 1485,
+            "Age 91": 1206,
+            "Age 92": 937,
+            "Age 93": 743,
+            "Age 94": 536,
+            "Age 95": 419,
+            "Age 96": 284,
+            "Age 97": 188,
+            "Age 98": 117,
+            "Age 99": 92,
+            "Age 100": 49,
+            "Age 101": 30,
+            "Age 102": 20,
+            "Age 103": 9,
+            "Age 104": 7,
+            "Age 105+": 5
+          },
+          "Males": {
+            "Age 85": 1328,
+            "Age 86": 1079,
+            "Age 87": 953,
+            "Age 88": 808,
+            "Age 89": 649,
+            "Age 90": 534,
+            "Age 91": 378,
+            "Age 92": 267,
+            "Age 93": 181,
+            "Age 94": 157,
+            "Age 95": 102,
+            "Age 96": 76,
+            "Age 97": 26,
+            "Age 98": 28,
+            "Age 99": 7,
+            "Age 100": 6,
+            "Age 101": 0,
+            "Age 102": 1,
+            "Age 103": 1,
+            "Age 104": 0,
+            "Age 105+": 0
+          },
+          "All persons": {
+            "Age 85": 3995,
+            "Age 86": 3459,
+            "Age 87": 3230,
+            "Age 88": 2858,
+            "Age 89": 2383,
+            "Age 90": 2019,
+            "Age 91": 1584,
+            "Age 92": 1204,
+            "Age 93": 924,
+            "Age 94": 693,
+            "Age 95": 521,
+            "Age 96": 360,
+            "Age 97": 214,
+            "Age 98": 145,
+            "Age 99": 99,
+            "Age 100": 55,
+            "Age 101": 30,
+            "Age 102": 21,
+            "Age 103": 10,
+            "Age 104": 7,
+            "Age 105+": 5
+          }
+        },
+        "2004": {
+          "Females": {
+            "Age 85": 2943,
+            "Age 86": 2432,
+            "Age 87": 2122,
+            "Age 88": 1996,
+            "Age 89": 1795,
+            "Age 90": 1463,
+            "Age 91": 1238,
+            "Age 92": 971,
+            "Age 93": 734,
+            "Age 94": 565,
+            "Age 95": 409,
+            "Age 96": 299,
+            "Age 97": 207,
+            "Age 98": 118,
+            "Age 99": 77,
+            "Age 100": 59,
+            "Age 101": 26,
+            "Age 102": 16,
+            "Age 103": 12,
+            "Age 104": 8,
+            "Age 105+": 7
+          },
+          "Males": {
+            "Age 85": 1518,
+            "Age 86": 1132,
+            "Age 87": 920,
+            "Age 88": 784,
+            "Age 89": 658,
+            "Age 90": 539,
+            "Age 91": 435,
+            "Age 92": 273,
+            "Age 93": 205,
+            "Age 94": 138,
+            "Age 95": 113,
+            "Age 96": 71,
+            "Age 97": 51,
+            "Age 98": 13,
+            "Age 99": 20,
+            "Age 100": 7,
+            "Age 101": 1,
+            "Age 102": 0,
+            "Age 103": 1,
+            "Age 104": 0,
+            "Age 105+": 0
+          },
+          "All persons": {
+            "Age 85": 4461,
+            "Age 86": 3564,
+            "Age 87": 3042,
+            "Age 88": 2780,
+            "Age 89": 2453,
+            "Age 90": 2002,
+            "Age 91": 1673,
+            "Age 92": 1244,
+            "Age 93": 939,
+            "Age 94": 703,
+            "Age 95": 522,
+            "Age 96": 370,
+            "Age 97": 258,
+            "Age 98": 131,
+            "Age 99": 97,
+            "Age 100": 66,
+            "Age 101": 27,
+            "Age 102": 16,
+            "Age 103": 13,
+            "Age 104": 8,
+            "Age 105+": 7
+          }
+        },
+        "2005": {
+          "Females": {
+            "Age 85": 3409,
+            "Age 86": 2646,
+            "Age 87": 2189,
+            "Age 88": 1882,
+            "Age 89": 1746,
+            "Age 90": 1563,
+            "Age 91": 1250,
+            "Age 92": 1006,
+            "Age 93": 780,
+            "Age 94": 587,
+            "Age 95": 436,
+            "Age 96": 312,
+            "Age 97": 213,
+            "Age 98": 135,
+            "Age 99": 83,
+            "Age 100": 51,
+            "Age 101": 35,
+            "Age 102": 13,
+            "Age 103": 11,
+            "Age 104": 4,
+            "Age 105+": 10
+          },
+          "Males": {
+            "Age 85": 1809,
+            "Age 86": 1317,
+            "Age 87": 972,
+            "Age 88": 776,
+            "Age 89": 646,
+            "Age 90": 549,
+            "Age 91": 432,
+            "Age 92": 348,
+            "Age 93": 196,
+            "Age 94": 156,
+            "Age 95": 95,
+            "Age 96": 76,
+            "Age 97": 57,
+            "Age 98": 41,
+            "Age 99": 6,
+            "Age 100": 13,
+            "Age 101": 5,
+            "Age 102": 0,
+            "Age 103": 0,
+            "Age 104": 0,
+            "Age 105+": 0
+          },
+          "All persons": {
+            "Age 85": 5218,
+            "Age 86": 3963,
+            "Age 87": 3161,
+            "Age 88": 2658,
+            "Age 89": 2392,
+            "Age 90": 2112,
+            "Age 91": 1682,
+            "Age 92": 1354,
+            "Age 93": 976,
+            "Age 94": 743,
+            "Age 95": 531,
+            "Age 96": 388,
+            "Age 97": 270,
+            "Age 98": 176,
+            "Age 99": 89,
+            "Age 100": 64,
+            "Age 101": 40,
+            "Age 102": 13,
+            "Age 103": 11,
+            "Age 104": 4,
+            "Age 105+": 10
+          }
+        },
+        "2006": {
+          "Females": {
+            "Age 85": 3345,
+            "Age 86": 3066,
+            "Age 87": 2379,
+            "Age 88": 1954,
+            "Age 89": 1665,
+            "Age 90": 1508,
+            "Age 91": 1310,
+            "Age 92": 1038,
+            "Age 93": 796,
+            "Age 94": 613,
+            "Age 95": 459,
+            "Age 96": 329,
+            "Age 97": 234,
+            "Age 98": 152,
+            "Age 99": 85,
+            "Age 100": 57,
+            "Age 101": 31,
+            "Age 102": 21,
+            "Age 103": 6,
+            "Age 104": 8,
+            "Age 105+": 9
+          },
+          "Males": {
+            "Age 85": 1749,
+            "Age 86": 1577,
+            "Age 87": 1137,
+            "Age 88": 826,
+            "Age 89": 645,
+            "Age 90": 573,
+            "Age 91": 443,
+            "Age 92": 331,
+            "Age 93": 257,
+            "Age 94": 139,
+            "Age 95": 105,
+            "Age 96": 71,
+            "Age 97": 46,
+            "Age 98": 35,
+            "Age 99": 32,
+            "Age 100": 5,
+            "Age 101": 3,
+            "Age 102": 1,
+            "Age 103": 0,
+            "Age 104": 0,
+            "Age 105+": 0
+          },
+          "All persons": {
+            "Age 85": 5094,
+            "Age 86": 4643,
+            "Age 87": 3516,
+            "Age 88": 2780,
+            "Age 89": 2310,
+            "Age 90": 2081,
+            "Age 91": 1753,
+            "Age 92": 1369,
+            "Age 93": 1053,
+            "Age 94": 752,
+            "Age 95": 564,
+            "Age 96": 400,
+            "Age 97": 280,
+            "Age 98": 187,
+            "Age 99": 117,
+            "Age 100": 62,
+            "Age 101": 34,
+            "Age 102": 22,
+            "Age 103": 6,
+            "Age 104": 8,
+            "Age 105+": 9
+          }
+        },
+        "2007": {
+          "Females": {
+            "Age 85": 3423,
+            "Age 86": 3046,
+            "Age 87": 2749,
+            "Age 88": 2104,
+            "Age 89": 1699,
+            "Age 90": 1436,
+            "Age 91": 1260,
+            "Age 92": 1096,
+            "Age 93": 826,
+            "Age 94": 620,
+            "Age 95": 474,
+            "Age 96": 344,
+            "Age 97": 235,
+            "Age 98": 168,
+            "Age 99": 105,
+            "Age 100": 56,
+            "Age 101": 36,
+            "Age 102": 22,
+            "Age 103": 11,
+            "Age 104": 2,
+            "Age 105+": 11
+          },
+          "Males": {
+            "Age 85": 1684,
+            "Age 86": 1506,
+            "Age 87": 1354,
+            "Age 88": 968,
+            "Age 89": 675,
+            "Age 90": 517,
+            "Age 91": 439,
+            "Age 92": 339,
+            "Age 93": 246,
+            "Age 94": 193,
+            "Age 95": 99,
+            "Age 96": 78,
+            "Age 97": 50,
+            "Age 98": 25,
+            "Age 99": 21,
+            "Age 100": 24,
+            "Age 101": 3,
+            "Age 102": 1,
+            "Age 103": 1,
+            "Age 104": 0,
+            "Age 105+": 0
+          },
+          "All persons": {
+            "Age 85": 5107,
+            "Age 86": 4552,
+            "Age 87": 4103,
+            "Age 88": 3072,
+            "Age 89": 2374,
+            "Age 90": 1953,
+            "Age 91": 1699,
+            "Age 92": 1435,
+            "Age 93": 1072,
+            "Age 94": 813,
+            "Age 95": 573,
+            "Age 96": 422,
+            "Age 97": 285,
+            "Age 98": 193,
+            "Age 99": 126,
+            "Age 100": 80,
+            "Age 101": 39,
+            "Age 102": 23,
+            "Age 103": 12,
+            "Age 104": 2,
+            "Age 105+": 11
+          }
+        },
+        "2008": {
+          "Females": {
+            "Age 85": 3500,
+            "Age 86": 3121,
+            "Age 87": 2737,
+            "Age 88": 2394,
+            "Age 89": 1800,
+            "Age 90": 1469,
+            "Age 91": 1234,
+            "Age 92": 1038,
+            "Age 93": 868,
+            "Age 94": 655,
+            "Age 95": 494,
+            "Age 96": 360,
+            "Age 97": 247,
+            "Age 98": 156,
+            "Age 99": 112,
+            "Age 100": 71,
+            "Age 101": 39,
+            "Age 102": 24,
+            "Age 103": 13,
+            "Age 104": 8,
+            "Age 105+": 5
+          },
+          "Males": {
+            "Age 85": 1762,
+            "Age 86": 1479,
+            "Age 87": 1314,
+            "Age 88": 1114,
+            "Age 89": 807,
+            "Age 90": 583,
+            "Age 91": 425,
+            "Age 92": 356,
+            "Age 93": 247,
+            "Age 94": 170,
+            "Age 95": 127,
+            "Age 96": 66,
+            "Age 97": 58,
+            "Age 98": 27,
+            "Age 99": 16,
+            "Age 100": 15,
+            "Age 101": 16,
+            "Age 102": 2,
+            "Age 103": 0,
+            "Age 104": 1,
+            "Age 105+": 0
+          },
+          "All persons": {
+            "Age 85": 5262,
+            "Age 86": 4600,
+            "Age 87": 4051,
+            "Age 88": 3508,
+            "Age 89": 2607,
+            "Age 90": 2052,
+            "Age 91": 1659,
+            "Age 92": 1394,
+            "Age 93": 1115,
+            "Age 94": 825,
+            "Age 95": 621,
+            "Age 96": 426,
+            "Age 97": 305,
+            "Age 98": 183,
+            "Age 99": 128,
+            "Age 100": 86,
+            "Age 101": 55,
+            "Age 102": 26,
+            "Age 103": 13,
+            "Age 104": 9,
+            "Age 105+": 5
+          }
+        },
+        "2009": {
+          "Females": {
+            "Age 85": 3407,
+            "Age 86": 3144,
+            "Age 87": 2831,
+            "Age 88": 2451,
+            "Age 89": 2050,
+            "Age 90": 1526,
+            "Age 91": 1262,
+            "Age 92": 1022,
+            "Age 93": 828,
+            "Age 94": 705,
+            "Age 95": 512,
+            "Age 96": 398,
+            "Age 97": 264,
+            "Age 98": 169,
+            "Age 99": 103,
+            "Age 100": 72,
+            "Age 101": 43,
+            "Age 102": 28,
+            "Age 103": 12,
+            "Age 104": 6,
+            "Age 105+": 5
+          },
+          "Males": {
+            "Age 85": 1828,
+            "Age 86": 1550,
+            "Age 87": 1274,
+            "Age 88": 1123,
+            "Age 89": 904,
+            "Age 90": 639,
+            "Age 91": 469,
+            "Age 92": 327,
+            "Age 93": 267,
+            "Age 94": 188,
+            "Age 95": 112,
+            "Age 96": 88,
+            "Age 97": 37,
+            "Age 98": 39,
+            "Age 99": 17,
+            "Age 100": 14,
+            "Age 101": 8,
+            "Age 102": 8,
+            "Age 103": 1,
+            "Age 104": 0,
+            "Age 105+": 1
+          },
+          "All persons": {
+            "Age 85": 5235,
+            "Age 86": 4694,
+            "Age 87": 4105,
+            "Age 88": 3574,
+            "Age 89": 2954,
+            "Age 90": 2165,
+            "Age 91": 1731,
+            "Age 92": 1349,
+            "Age 93": 1095,
+            "Age 94": 893,
+            "Age 95": 624,
+            "Age 96": 486,
+            "Age 97": 301,
+            "Age 98": 208,
+            "Age 99": 120,
+            "Age 100": 86,
+            "Age 101": 51,
+            "Age 102": 36,
+            "Age 103": 13,
+            "Age 104": 6,
+            "Age 105+": 6
+          }
+        },
+        "2010": {
+          "Females": {
+            "Age 85": 3395,
+            "Age 86": 3133,
+            "Age 87": 2841,
+            "Age 88": 2529,
+            "Age 89": 2200,
+            "Age 90": 1820,
+            "Age 91": 1294,
+            "Age 92": 1055,
+            "Age 93": 834,
+            "Age 94": 634,
+            "Age 95": 541,
+            "Age 96": 390,
+            "Age 97": 298,
+            "Age 98": 196,
+            "Age 99": 118,
+            "Age 100": 68,
+            "Age 101": 45,
+            "Age 102": 27,
+            "Age 103": 17,
+            "Age 104": 8,
+            "Age 105+": 5
+          },
+          "Males": {
+            "Age 85": 1879,
+            "Age 86": 1616,
+            "Age 87": 1354,
+            "Age 88": 1086,
+            "Age 89": 944,
+            "Age 90": 806,
+            "Age 91": 515,
+            "Age 92": 361,
+            "Age 93": 253,
+            "Age 94": 209,
+            "Age 95": 139,
+            "Age 96": 82,
+            "Age 97": 60,
+            "Age 98": 24,
+            "Age 99": 25,
+            "Age 100": 9,
+            "Age 101": 9,
+            "Age 102": 6,
+            "Age 103": 4,
+            "Age 104": 0,
+            "Age 105+": 1
+          },
+          "All persons": {
+            "Age 85": 5274,
+            "Age 86": 4749,
+            "Age 87": 4195,
+            "Age 88": 3615,
+            "Age 89": 3144,
+            "Age 90": 2626,
+            "Age 91": 1809,
+            "Age 92": 1416,
+            "Age 93": 1087,
+            "Age 94": 843,
+            "Age 95": 680,
+            "Age 96": 472,
+            "Age 97": 358,
+            "Age 98": 220,
+            "Age 99": 143,
+            "Age 100": 77,
+            "Age 101": 54,
+            "Age 102": 33,
+            "Age 103": 21,
+            "Age 104": 8,
+            "Age 105+": 6
+          }
+        },
+        "2011": {
+          "Females": {
+            "Age 85": 3456,
+            "Age 86": 3105,
+            "Age 87": 2874,
+            "Age 88": 2549,
+            "Age 89": 2235,
+            "Age 90": 1836,
+            "Age 91": 1570,
+            "Age 92": 1078,
+            "Age 93": 871,
+            "Age 94": 672,
+            "Age 95": 495,
+            "Age 96": 414,
+            "Age 97": 276,
+            "Age 98": 220,
+            "Age 99": 127,
+            "Age 100": 88,
+            "Age 101": 44,
+            "Age 102": 35,
+            "Age 103": 15,
+            "Age 104": 8,
+            "Age 105+": 5
+          },
+          "Males": {
+            "Age 85": 1909,
+            "Age 86": 1688,
+            "Age 87": 1426,
+            "Age 88": 1163,
+            "Age 89": 930,
+            "Age 90": 777,
+            "Age 91": 642,
+            "Age 92": 397,
+            "Age 93": 281,
+            "Age 94": 176,
+            "Age 95": 153,
+            "Age 96": 102,
+            "Age 97": 63,
+            "Age 98": 38,
+            "Age 99": 15,
+            "Age 100": 14,
+            "Age 101": 8,
+            "Age 102": 5,
+            "Age 103": 3,
+            "Age 104": 2,
+            "Age 105+": 0
+          },
+          "All persons": {
+            "Age 85": 5365,
+            "Age 86": 4793,
+            "Age 87": 4300,
+            "Age 88": 3712,
+            "Age 89": 3165,
+            "Age 90": 2613,
+            "Age 91": 2212,
+            "Age 92": 1475,
+            "Age 93": 1152,
+            "Age 94": 848,
+            "Age 95": 648,
+            "Age 96": 516,
+            "Age 97": 339,
+            "Age 98": 258,
+            "Age 99": 142,
+            "Age 100": 102,
+            "Age 101": 52,
+            "Age 102": 40,
+            "Age 103": 18,
+            "Age 104": 10,
+            "Age 105+": 5
+          }
+        },
+        "2012": {
+          "Females": {
+            "Age 85": 3543,
+            "Age 86": 3156,
+            "Age 87": 2820,
+            "Age 88": 2566,
+            "Age 89": 2206,
+            "Age 90": 1898,
+            "Age 91": 1564,
+            "Age 92": 1318,
+            "Age 93": 893,
+            "Age 94": 706,
+            "Age 95": 551,
+            "Age 96": 369,
+            "Age 97": 298,
+            "Age 98": 198,
+            "Age 99": 147,
+            "Age 100": 81,
+            "Age 101": 63,
+            "Age 102": 31,
+            "Age 103": 19,
+            "Age 104": 9,
+            "Age 105+": 6
+          },
+          "Males": {
+            "Age 85": 2029,
+            "Age 86": 1677,
+            "Age 87": 1464,
+            "Age 88": 1227,
+            "Age 89": 985,
+            "Age 90": 797,
+            "Age 91": 639,
+            "Age 92": 518,
+            "Age 93": 307,
+            "Age 94": 215,
+            "Age 95": 142,
+            "Age 96": 113,
+            "Age 97": 70,
+            "Age 98": 40,
+            "Age 99": 26,
+            "Age 100": 10,
+            "Age 101": 5,
+            "Age 102": 2,
+            "Age 103": 4,
+            "Age 104": 0,
+            "Age 105+": 1
+          },
+          "All persons": {
+            "Age 85": 5572,
+            "Age 86": 4833,
+            "Age 87": 4284,
+            "Age 88": 3793,
+            "Age 89": 3191,
+            "Age 90": 2695,
+            "Age 91": 2203,
+            "Age 92": 1836,
+            "Age 93": 1200,
+            "Age 94": 921,
+            "Age 95": 693,
+            "Age 96": 482,
+            "Age 97": 368,
+            "Age 98": 238,
+            "Age 99": 173,
+            "Age 100": 91,
+            "Age 101": 68,
+            "Age 102": 33,
+            "Age 103": 23,
+            "Age 104": 9,
+            "Age 105+": 7
+          }
+        },
+        "2013": {
+          "Females": {
+            "Age 85": 3551,
+            "Age 86": 3248,
+            "Age 87": 2828,
+            "Age 88": 2495,
+            "Age 89": 2311,
+            "Age 90": 1963,
+            "Age 91": 1587,
+            "Age 92": 1242,
+            "Age 93": 1042,
+            "Age 94": 700,
+            "Age 95": 532,
+            "Age 96": 399,
+            "Age 97": 261,
+            "Age 98": 219,
+            "Age 99": 125,
+            "Age 100": 93,
+            "Age 101": 59,
+            "Age 102": 38,
+            "Age 103": 18,
+            "Age 104": 13,
+            "Age 105+": 9
+          },
+          "Males": {
+            "Age 85": 1993,
+            "Age 86": 1784,
+            "Age 87": 1453,
+            "Age 88": 1253,
+            "Age 89": 1042,
+            "Age 90": 858,
+            "Age 91": 637,
+            "Age 92": 488,
+            "Age 93": 396,
+            "Age 94": 222,
+            "Age 95": 148,
+            "Age 96": 111,
+            "Age 97": 77,
+            "Age 98": 39,
+            "Age 99": 28,
+            "Age 100": 14,
+            "Age 101": 4,
+            "Age 102": 4,
+            "Age 103": 1,
+            "Age 104": 1,
+            "Age 105+": 0
+          },
+          "All persons": {
+            "Age 85": 5544,
+            "Age 86": 5032,
+            "Age 87": 4281,
+            "Age 88": 3748,
+            "Age 89": 3353,
+            "Age 90": 2821,
+            "Age 91": 2224,
+            "Age 92": 1730,
+            "Age 93": 1438,
+            "Age 94": 922,
+            "Age 95": 680,
+            "Age 96": 510,
+            "Age 97": 338,
+            "Age 98": 258,
+            "Age 99": 153,
+            "Age 100": 107,
+            "Age 101": 63,
+            "Age 102": 42,
+            "Age 103": 19,
+            "Age 104": 14,
+            "Age 105+": 9
+          }
+        },
+        "2014": {
+          "Females": {
+            "Age 85": 3652,
+            "Age 86": 3234,
+            "Age 87": 2952,
+            "Age 88": 2577,
+            "Age 89": 2195,
+            "Age 90": 1956,
+            "Age 91": 1722,
+            "Age 92": 1352,
+            "Age 93": 1027,
+            "Age 94": 858,
+            "Age 95": 534,
+            "Age 96": 423,
+            "Age 97": 297,
+            "Age 98": 201,
+            "Age 99": 170,
+            "Age 100": 83,
+            "Age 101": 65,
+            "Age 102": 37,
+            "Age 103": 26,
+            "Age 104": 12,
+            "Age 105+": 13
+          },
+          "Males": {
+            "Age 85": 2104,
+            "Age 86": 1803,
+            "Age 87": 1567,
+            "Age 88": 1235,
+            "Age 89": 1047,
+            "Age 90": 871,
+            "Age 91": 718,
+            "Age 92": 512,
+            "Age 93": 390,
+            "Age 94": 322,
+            "Age 95": 177,
+            "Age 96": 95,
+            "Age 97": 79,
+            "Age 98": 42,
+            "Age 99": 30,
+            "Age 100": 16,
+            "Age 101": 9,
+            "Age 102": 2,
+            "Age 103": 1,
+            "Age 104": 0,
+            "Age 105+": 1
+          },
+          "All persons": {
+            "Age 85": 5756,
+            "Age 86": 5037,
+            "Age 87": 4519,
+            "Age 88": 3812,
+            "Age 89": 3242,
+            "Age 90": 2827,
+            "Age 91": 2440,
+            "Age 92": 1864,
+            "Age 93": 1417,
+            "Age 94": 1180,
+            "Age 95": 711,
+            "Age 96": 518,
+            "Age 97": 376,
+            "Age 98": 243,
+            "Age 99": 200,
+            "Age 100": 99,
+            "Age 101": 74,
+            "Age 102": 39,
+            "Age 103": 27,
+            "Age 104": 12,
+            "Age 105+": 14
+          }
+        },
+        "2015": {
+          "Females": {
+            "Age 85": 3696,
+            "Age 86": 3324,
+            "Age 87": 2916,
+            "Age 88": 2654,
+            "Age 89": 2254,
+            "Age 90": 1963,
+            "Age 91": 1683,
+            "Age 92": 1449,
+            "Age 93": 1117,
+            "Age 94": 814,
+            "Age 95": 650,
+            "Age 96": 417,
+            "Age 97": 295,
+            "Age 98": 209,
+            "Age 99": 146,
+            "Age 100": 111,
+            "Age 101": 51,
+            "Age 102": 35,
+            "Age 103": 22,
+            "Age 104": 12,
+            "Age 105+": 14
+          },
+          "Males": {
+            "Age 85": 2162,
+            "Age 86": 1903,
+            "Age 87": 1577,
+            "Age 88": 1371,
+            "Age 89": 1054,
+            "Age 90": 946,
+            "Age 91": 728,
+            "Age 92": 546,
+            "Age 93": 397,
+            "Age 94": 292,
+            "Age 95": 236,
+            "Age 96": 115,
+            "Age 97": 69,
+            "Age 98": 53,
+            "Age 99": 29,
+            "Age 100": 19,
+            "Age 101": 12,
+            "Age 102": 9,
+            "Age 103": 1,
+            "Age 104": 1,
+            "Age 105+": 0
+          },
+          "All persons": {
+            "Age 85": 5858,
+            "Age 86": 5227,
+            "Age 87": 4493,
+            "Age 88": 4025,
+            "Age 89": 3308,
+            "Age 90": 2909,
+            "Age 91": 2411,
+            "Age 92": 1995,
+            "Age 93": 1514,
+            "Age 94": 1106,
+            "Age 95": 886,
+            "Age 96": 532,
+            "Age 97": 364,
+            "Age 98": 262,
+            "Age 99": 175,
+            "Age 100": 130,
+            "Age 101": 63,
+            "Age 102": 44,
+            "Age 103": 23,
+            "Age 104": 13,
+            "Age 105+": 14
+          }
+        },
+        "2016": {
+          "Females": {
+            "Age 85": 3650,
+            "Age 86": 3390,
+            "Age 87": 3032,
+            "Age 88": 2626,
+            "Age 89": 2344,
+            "Age 90": 2032,
+            "Age 91": 1675,
+            "Age 92": 1374,
+            "Age 93": 1183,
+            "Age 94": 885,
+            "Age 95": 650,
+            "Age 96": 467,
+            "Age 97": 312,
+            "Age 98": 200,
+            "Age 99": 153,
+            "Age 100": 96,
+            "Age 101": 70,
+            "Age 102": 32,
+            "Age 103": 23,
+            "Age 104": 12,
+            "Age 105+": 15
+          },
+          "Males": {
+            "Age 85": 2353,
+            "Age 86": 1891,
+            "Age 87": 1683,
+            "Age 88": 1371,
+            "Age 89": 1185,
+            "Age 90": 948,
+            "Age 91": 740,
+            "Age 92": 567,
+            "Age 93": 415,
+            "Age 94": 292,
+            "Age 95": 223,
+            "Age 96": 160,
+            "Age 97": 84,
+            "Age 98": 40,
+            "Age 99": 34,
+            "Age 100": 15,
+            "Age 101": 11,
+            "Age 102": 4,
+            "Age 103": 6,
+            "Age 104": 1,
+            "Age 105+": 0
+          },
+          "All persons": {
+            "Age 85": 6003,
+            "Age 86": 5281,
+            "Age 87": 4715,
+            "Age 88": 3997,
+            "Age 89": 3529,
+            "Age 90": 2980,
+            "Age 91": 2415,
+            "Age 92": 1941,
+            "Age 93": 1598,
+            "Age 94": 1177,
+            "Age 95": 873,
+            "Age 96": 627,
+            "Age 97": 396,
+            "Age 98": 240,
+            "Age 99": 187,
+            "Age 100": 111,
+            "Age 101": 81,
+            "Age 102": 36,
+            "Age 103": 29,
+            "Age 104": 13,
+            "Age 105+": 15
+          }
+        },
+        "2017": {
+          "Females": {
+            "Age 85": 3784,
+            "Age 86": 3315,
+            "Age 87": 3031,
+            "Age 88": 2709,
+            "Age 89": 2324,
+            "Age 90": 2120,
+            "Age 91": 1747,
+            "Age 92": 1391,
+            "Age 93": 1093,
+            "Age 94": 919,
+            "Age 95": 661,
+            "Age 96": 487,
+            "Age 97": 315,
+            "Age 98": 215,
+            "Age 99": 135,
+            "Age 100": 97,
+            "Age 101": 62,
+            "Age 102": 46,
+            "Age 103": 17,
+            "Age 104": 16,
+            "Age 105+": 14
+          },
+          "Males": {
+            "Age 85": 2395,
+            "Age 86": 2089,
+            "Age 87": 1630,
+            "Age 88": 1451,
+            "Age 89": 1174,
+            "Age 90": 981,
+            "Age 91": 770,
+            "Age 92": 580,
+            "Age 93": 441,
+            "Age 94": 308,
+            "Age 95": 224,
+            "Age 96": 160,
+            "Age 97": 111,
+            "Age 98": 58,
+            "Age 99": 28,
+            "Age 100": 21,
+            "Age 101": 9,
+            "Age 102": 7,
+            "Age 103": 2,
+            "Age 104": 3,
+            "Age 105+": 1
+          },
+          "All persons": {
+            "Age 85": 6179,
+            "Age 86": 5404,
+            "Age 87": 4661,
+            "Age 88": 4160,
+            "Age 89": 3498,
+            "Age 90": 3101,
+            "Age 91": 2517,
+            "Age 92": 1971,
+            "Age 93": 1534,
+            "Age 94": 1227,
+            "Age 95": 885,
+            "Age 96": 647,
+            "Age 97": 426,
+            "Age 98": 273,
+            "Age 99": 163,
+            "Age 100": 118,
+            "Age 101": 71,
+            "Age 102": 53,
+            "Age 103": 19,
+            "Age 104": 19,
+            "Age 105+": 15
+          }
+        },
+        "2018": {
+          "Females": {
+            "Age 85": 3859,
+            "Age 86": 3450,
+            "Age 87": 2962,
+            "Age 88": 2683,
+            "Age 89": 2354,
+            "Age 90": 2100,
+            "Age 91": 1778,
+            "Age 92": 1428,
+            "Age 93": 1113,
+            "Age 94": 860,
+            "Age 95": 685,
+            "Age 96": 501,
+            "Age 97": 336,
+            "Age 98": 202,
+            "Age 99": 136,
+            "Age 100": 83,
+            "Age 101": 60,
+            "Age 102": 34,
+            "Age 103": 21,
+            "Age 104": 5,
+            "Age 105+": 12
+          },
+          "Males": {
+            "Age 85": 2481,
+            "Age 86": 2133,
+            "Age 87": 1835,
+            "Age 88": 1371,
+            "Age 89": 1233,
+            "Age 90": 981,
+            "Age 91": 786,
+            "Age 92": 618,
+            "Age 93": 445,
+            "Age 94": 341,
+            "Age 95": 220,
+            "Age 96": 159,
+            "Age 97": 102,
+            "Age 98": 74,
+            "Age 99": 29,
+            "Age 100": 14,
+            "Age 101": 10,
+            "Age 102": 6,
+            "Age 103": 5,
+            "Age 104": 1,
+            "Age 105+": 2
+          },
+          "All persons": {
+            "Age 85": 6340,
+            "Age 86": 5583,
+            "Age 87": 4797,
+            "Age 88": 4054,
+            "Age 89": 3587,
+            "Age 90": 3081,
+            "Age 91": 2564,
+            "Age 92": 2046,
+            "Age 93": 1558,
+            "Age 94": 1201,
+            "Age 95": 905,
+            "Age 96": 660,
+            "Age 97": 438,
+            "Age 98": 276,
+            "Age 99": 165,
+            "Age 100": 97,
+            "Age 101": 70,
+            "Age 102": 40,
+            "Age 103": 26,
+            "Age 104": 6,
+            "Age 105+": 14
+          }
+        },
+        "2019": {
+          "Females": {
+            "Age 85": 3722,
+            "Age 86": 3568,
+            "Age 87": 3153,
+            "Age 88": 2656,
+            "Age 89": 2355,
+            "Age 90": 2227,
+            "Age 91": 1790,
+            "Age 92": 1494,
+            "Age 93": 1165,
+            "Age 94": 865,
+            "Age 95": 674,
+            "Age 96": 500,
+            "Age 97": 379,
+            "Age 98": 228,
+            "Age 99": 135,
+            "Age 100": 90,
+            "Age 101": 47,
+            "Age 102": 38,
+            "Age 103": 27,
+            "Age 104": 8,
+            "Age 105+": 6
+          },
+          "Males": {
+            "Age 85": 2520,
+            "Age 86": 2255,
+            "Age 87": 1907,
+            "Age 88": 1600,
+            "Age 89": 1144,
+            "Age 90": 1065,
+            "Age 91": 795,
+            "Age 92": 608,
+            "Age 93": 486,
+            "Age 94": 345,
+            "Age 95": 250,
+            "Age 96": 159,
+            "Age 97": 119,
+            "Age 98": 58,
+            "Age 99": 47,
+            "Age 100": 19,
+            "Age 101": 7,
+            "Age 102": 6,
+            "Age 103": 3,
+            "Age 104": 3,
+            "Age 105+": 1
+          },
+          "All persons": {
+            "Age 85": 6242,
+            "Age 86": 5823,
+            "Age 87": 5060,
+            "Age 88": 4256,
+            "Age 89": 3499,
+            "Age 90": 3292,
+            "Age 91": 2585,
+            "Age 92": 2102,
+            "Age 93": 1651,
+            "Age 94": 1210,
+            "Age 95": 924,
+            "Age 96": 659,
+            "Age 97": 498,
+            "Age 98": 286,
+            "Age 99": 182,
+            "Age 100": 109,
+            "Age 101": 54,
+            "Age 102": 44,
+            "Age 103": 30,
+            "Age 104": 11,
+            "Age 105+": 7
+          }
+        },
+        "2020": {
+          "Females": {
+            "Age 85": 3941,
+            "Age 86": 3409,
+            "Age 87": 3251,
+            "Age 88": 2844,
+            "Age 89": 2280,
+            "Age 90": 2086,
+            "Age 91": 1878,
+            "Age 92": 1527,
+            "Age 93": 1220,
+            "Age 94": 916,
+            "Age 95": 662,
+            "Age 96": 519,
+            "Age 97": 341,
+            "Age 98": 278,
+            "Age 99": 137,
+            "Age 100": 87,
+            "Age 101": 54,
+            "Age 102": 25,
+            "Age 103": 21,
+            "Age 104": 12,
+            "Age 105+": 5
+          },
+          "Males": {
+            "Age 85": 2583,
+            "Age 86": 2242,
+            "Age 87": 1994,
+            "Age 88": 1647,
+            "Age 89": 1380,
+            "Age 90": 1012,
+            "Age 91": 836,
+            "Age 92": 603,
+            "Age 93": 459,
+            "Age 94": 346,
+            "Age 95": 246,
+            "Age 96": 173,
+            "Age 97": 98,
+            "Age 98": 65,
+            "Age 99": 40,
+            "Age 100": 28,
+            "Age 101": 8,
+            "Age 102": 5,
+            "Age 103": 0,
+            "Age 104": 0,
+            "Age 105+": 1
+          },
+          "All persons": {
+            "Age 85": 6524,
+            "Age 86": 5651,
+            "Age 87": 5245,
+            "Age 88": 4491,
+            "Age 89": 3660,
+            "Age 90": 3098,
+            "Age 91": 2714,
+            "Age 92": 2130,
+            "Age 93": 1679,
+            "Age 94": 1262,
+            "Age 95": 908,
+            "Age 96": 692,
+            "Age 97": 439,
+            "Age 98": 343,
+            "Age 99": 177,
+            "Age 100": 115,
+            "Age 101": 62,
+            "Age 102": 30,
+            "Age 103": 21,
+            "Age 104": 12,
+            "Age 105+": 6
+          }
+        },
+        "2021": {
+          "Females": {
+            "Age 85": 4028,
+            "Age 86": 3607,
+            "Age 87": 3070,
+            "Age 88": 2932,
+            "Age 89": 2518,
+            "Age 90": 2186,
+            "Age 91": 1727,
+            "Age 92": 1514,
+            "Age 93": 1209,
+            "Age 94": 946,
+            "Age 95": 680,
+            "Age 96": 495,
+            "Age 97": 377,
+            "Age 98": 240,
+            "Age 99": 188,
+            "Age 100": 94,
+            "Age 101": 53,
+            "Age 102": 32,
+            "Age 103": 15,
+            "Age 104": 12,
+            "Age 105+": 9
+          },
+          "Males": {
+            "Age 85": 2770,
+            "Age 86": 2298,
+            "Age 87": 1953,
+            "Age 88": 1743,
+            "Age 89": 1403,
+            "Age 90": 1083,
+            "Age 91": 835,
+            "Age 92": 674,
+            "Age 93": 476,
+            "Age 94": 354,
+            "Age 95": 260,
+            "Age 96": 166,
+            "Age 97": 119,
+            "Age 98": 63,
+            "Age 99": 45,
+            "Age 100": 25,
+            "Age 101": 18,
+            "Age 102": 2,
+            "Age 103": 3,
+            "Age 104": 0,
+            "Age 105+": 0
+          },
+          "All persons": {
+            "Age 85": 6798,
+            "Age 86": 5905,
+            "Age 87": 5023,
+            "Age 88": 4675,
+            "Age 89": 3921,
+            "Age 90": 3269,
+            "Age 91": 2562,
+            "Age 92": 2188,
+            "Age 93": 1685,
+            "Age 94": 1300,
+            "Age 95": 940,
+            "Age 96": 661,
+            "Age 97": 496,
+            "Age 98": 303,
+            "Age 99": 233,
+            "Age 100": 119,
+            "Age 101": 71,
+            "Age 102": 34,
+            "Age 103": 18,
+            "Age 104": 12,
+            "Age 105+": 9
+          }
+        },
+        "2022": {
+          "Females": {
+            "Age 85": 4128,
+            "Age 86": 3702,
+            "Age 87": 3282,
+            "Age 88": 2765,
+            "Age 89": 2570,
+            "Age 90": 2180,
+            "Age 91": 1870,
+            "Age 92": 1448,
+            "Age 93": 1216,
+            "Age 94": 942,
+            "Age 95": 710,
+            "Age 96": 492,
+            "Age 97": 347,
+            "Age 98": 258,
+            "Age 99": 158,
+            "Age 100": 110,
+            "Age 101": 58,
+            "Age 102": 35,
+            "Age 103": 15,
+            "Age 104": 12,
+            "Age 105+": 10
+          },
+          "Males": {
+            "Age 85": 2852,
+            "Age 86": 2466,
+            "Age 87": 2031,
+            "Age 88": 1703,
+            "Age 89": 1479,
+            "Age 90": 1119,
+            "Age 91": 891,
+            "Age 92": 668,
+            "Age 93": 505,
+            "Age 94": 360,
+            "Age 95": 251,
+            "Age 96": 177,
+            "Age 97": 106,
+            "Age 98": 80,
+            "Age 99": 39,
+            "Age 100": 22,
+            "Age 101": 14,
+            "Age 102": 10,
+            "Age 103": 1,
+            "Age 104": 1,
+            "Age 105+": 0
+          },
+          "All persons": {
+            "Age 85": 6980,
+            "Age 86": 6168,
+            "Age 87": 5313,
+            "Age 88": 4468,
+            "Age 89": 4049,
+            "Age 90": 3299,
+            "Age 91": 2761,
+            "Age 92": 2116,
+            "Age 93": 1721,
+            "Age 94": 1302,
+            "Age 95": 961,
+            "Age 96": 669,
+            "Age 97": 453,
+            "Age 98": 338,
+            "Age 99": 197,
+            "Age 100": 132,
+            "Age 101": 72,
+            "Age 102": 45,
+            "Age 103": 16,
+            "Age 104": 13,
+            "Age 105+": 10
+          }
+        },
+        "2023": {
+          "Females": {
+            "Age 85": 4053,
+            "Age 86": 3811,
+            "Age 87": 3326,
+            "Age 88": 2940,
+            "Age 89": 2430,
+            "Age 90": 2262,
+            "Age 91": 1841,
+            "Age 92": 1545,
+            "Age 93": 1136,
+            "Age 94": 943,
+            "Age 95": 715,
+            "Age 96": 523,
+            "Age 97": 349,
+            "Age 98": 235,
+            "Age 99": 171,
+            "Age 100": 104,
+            "Age 101": 68,
+            "Age 102": 37,
+            "Age 103": 16,
+            "Age 104": 5,
+            "Age 105+": 8
+          },
+          "Males": {
+            "Age 85": 2979,
+            "Age 86": 2556,
+            "Age 87": 2157,
+            "Age 88": 1761,
+            "Age 89": 1445,
+            "Age 90": 1209,
+            "Age 91": 923,
+            "Age 92": 702,
+            "Age 93": 506,
+            "Age 94": 383,
+            "Age 95": 261,
+            "Age 96": 177,
+            "Age 97": 119,
+            "Age 98": 73,
+            "Age 99": 51,
+            "Age 100": 24,
+            "Age 101": 16,
+            "Age 102": 7,
+            "Age 103": 5,
+            "Age 104": 0,
+            "Age 105+": 0
+          },
+          "All persons": {
+            "Age 85": 7032,
+            "Age 86": 6367,
+            "Age 87": 5483,
+            "Age 88": 4701,
+            "Age 89": 3875,
+            "Age 90": 3471,
+            "Age 91": 2764,
+            "Age 92": 2247,
+            "Age 93": 1642,
+            "Age 94": 1326,
+            "Age 95": 976,
+            "Age 96": 700,
+            "Age 97": 468,
+            "Age 98": 308,
+            "Age 99": 222,
+            "Age 100": 128,
+            "Age 101": 84,
+            "Age 102": 44,
+            "Age 103": 21,
+            "Age 104": 5,
+            "Age 105+": 8
+          }
+        },
+        "2024": {
+          "Females": {
+            "Age 85": 4180,
+            "Age 86": 3701,
+            "Age 87": 3460,
+            "Age 88": 2981,
+            "Age 89": 2619,
+            "Age 90": 2114,
+            "Age 91": 1909,
+            "Age 92": 1543,
+            "Age 93": 1265,
+            "Age 94": 911,
+            "Age 95": 746,
+            "Age 96": 520,
+            "Age 97": 379,
+            "Age 98": 258,
+            "Age 99": 156,
+            "Age 100": 102,
+            "Age 101": 60,
+            "Age 102": 41,
+            "Age 103": 20,
+            "Age 104": 9,
+            "Age 105+": 7
+          },
+          "Males": {
+            "Age 85": 2973,
+            "Age 86": 2656,
+            "Age 87": 2249,
+            "Age 88": 1878,
+            "Age 89": 1516,
+            "Age 90": 1205,
+            "Age 91": 968,
+            "Age 92": 745,
+            "Age 93": 532,
+            "Age 94": 381,
+            "Age 95": 289,
+            "Age 96": 184,
+            "Age 97": 122,
+            "Age 98": 80,
+            "Age 99": 50,
+            "Age 100": 28,
+            "Age 101": 15,
+            "Age 102": 8,
+            "Age 103": 2,
+            "Age 104": 2,
+            "Age 105+": 0
+          },
+          "All persons": {
+            "Age 85": 7153,
+            "Age 86": 6357,
+            "Age 87": 5709,
+            "Age 88": 4859,
+            "Age 89": 4135,
+            "Age 90": 3319,
+            "Age 91": 2877,
+            "Age 92": 2288,
+            "Age 93": 1797,
+            "Age 94": 1292,
+            "Age 95": 1035,
+            "Age 96": 704,
+            "Age 97": 501,
+            "Age 98": 338,
+            "Age 99": 206,
+            "Age 100": 130,
+            "Age 101": 75,
+            "Age 102": 49,
+            "Age 103": 22,
+            "Age 104": 11,
+            "Age 105+": 7
+          }
+        }
+      }
+    }
+  },
+  "COPC01T01": {
+    "label": "Components of population change - Northern Ireland",
+    "updated": "2025-09-26",
+    "data": {
+      "Components of population change": {
+        "2002": {
+          "Starting population": 1688838,
+          "Births": 21460,
+          "Deaths": 14432,
+          "Natural Change": 7028,
+          "Internal Inflows": 0,
+          "Internal Outflows": 0,
+          "Internal Net": 0,
+          "United Kingdom Inflows": 12510,
+          "United Kingdom Outflows": 11589,
+          "United Kingdom Net": 921,
+          "Rest of world Inflows": 6488,
+          "Rest of world Outflows": 6393,
+          "Rest of world Net": 95,
+          "Total Inflows": 18998,
+          "Total Outflows": 17982,
+          "Total Net": 1016,
+          "Other changes": 652,
+          "Migration and other changes": 1668,
+          "End population": 1697534
+        },
+        "2003": {
+          "Starting population": 1697534,
+          "Births": 21433,
+          "Deaths": 14648,
+          "Natural Change": 6785,
+          "Internal Inflows": 0,
+          "Internal Outflows": 0,
+          "Internal Net": 0,
+          "United Kingdom Inflows": 11107,
+          "United Kingdom Outflows": 11005,
+          "United Kingdom Net": 102,
+          "Rest of world Inflows": 6810,
+          "Rest of world Outflows": 6683,
+          "Rest of world Net": 127,
+          "Total Inflows": 17917,
+          "Total Outflows": 17688,
+          "Total Net": 229,
+          "Other changes": 376,
+          "Migration and other changes": 605,
+          "End population": 1704924
+        },
+        "2004": {
+          "Starting population": 1704924,
+          "Births": 22049,
+          "Deaths": 14736,
+          "Natural Change": 7313,
+          "Internal Inflows": 0,
+          "Internal Outflows": 0,
+          "Internal Net": 0,
+          "United Kingdom Inflows": 12245,
+          "United Kingdom Outflows": 11858,
+          "United Kingdom Net": 387,
+          "Rest of world Inflows": 8174,
+          "Rest of world Outflows": 6996,
+          "Rest of world Net": 1178,
+          "Total Inflows": 20419,
+          "Total Outflows": 18854,
+          "Total Net": 1565,
+          "Other changes": 240,
+          "Migration and other changes": 1805,
+          "End population": 1714042
+        },
+        "2005": {
+          "Starting population": 1714042,
+          "Births": 22549,
+          "Deaths": 14390,
+          "Natural Change": 8159,
+          "Internal Inflows": 0,
+          "Internal Outflows": 0,
+          "Internal Net": 0,
+          "United Kingdom Inflows": 13298,
+          "United Kingdom Outflows": 11291,
+          "United Kingdom Net": 2007,
+          "Rest of world Inflows": 12544,
+          "Rest of world Outflows": 8861,
+          "Rest of world Net": 3683,
+          "Total Inflows": 25842,
+          "Total Outflows": 20152,
+          "Total Net": 5690,
+          "Other changes": -158,
+          "Migration and other changes": 5532,
+          "End population": 1727733
+        },
+        "2006": {
+          "Starting population": 1727733,
+          "Births": 22714,
+          "Deaths": 14211,
+          "Natural Change": 8503,
+          "Internal Inflows": 0,
+          "Internal Outflows": 0,
+          "Internal Net": 0,
+          "United Kingdom Inflows": 12380,
+          "United Kingdom Outflows": 11510,
+          "United Kingdom Net": 870,
+          "Rest of world Inflows": 15803,
+          "Rest of world Outflows": 8797,
+          "Rest of world Net": 7006,
+          "Total Inflows": 28183,
+          "Total Outflows": 20307,
+          "Total Net": 7876,
+          "Other changes": -999,
+          "Migration and other changes": 6877,
+          "End population": 1743113
+        },
+        "2007": {
+          "Starting population": 1743113,
+          "Births": 23850,
+          "Deaths": 14555,
+          "Natural Change": 9295,
+          "Internal Inflows": 0,
+          "Internal Outflows": 0,
+          "Internal Net": 0,
+          "United Kingdom Inflows": 12932,
+          "United Kingdom Outflows": 11142,
+          "United Kingdom Net": 1790,
+          "Rest of world Inflows": 19773,
+          "Rest of world Outflows": 10633,
+          "Rest of world Net": 9140,
+          "Total Inflows": 32705,
+          "Total Outflows": 21775,
+          "Total Net": 10930,
+          "Other changes": -1655,
+          "Migration and other changes": 9275,
+          "End population": 1761683
+        },
+        "2008": {
+          "Starting population": 1761683,
+          "Births": 25227,
+          "Deaths": 14462,
+          "Natural Change": 10765,
+          "Internal Inflows": 0,
+          "Internal Outflows": 0,
+          "Internal Net": 0,
+          "United Kingdom Inflows": 12141,
+          "United Kingdom Outflows": 10707,
+          "United Kingdom Net": 1434,
+          "Rest of world Inflows": 18261,
+          "Rest of world Outflows": 11981,
+          "Rest of world Net": 6280,
+          "Total Inflows": 30402,
+          "Total Outflows": 22688,
+          "Total Net": 7714,
+          "Other changes": -1010,
+          "Migration and other changes": 6704,
+          "End population": 1779152
+        },
+        "2009": {
+          "Starting population": 1779152,
+          "Births": 25276,
+          "Deaths": 14566,
+          "Natural Change": 10710,
+          "Internal Inflows": 0,
+          "Internal Outflows": 0,
+          "Internal Net": 0,
+          "United Kingdom Inflows": 10857,
+          "United Kingdom Outflows": 10198,
+          "United Kingdom Net": 659,
+          "Rest of world Inflows": 14404,
+          "Rest of world Outflows": 11406,
+          "Rest of world Net": 2998,
+          "Total Inflows": 25261,
+          "Total Outflows": 21604,
+          "Total Net": 3657,
+          "Other changes": -186,
+          "Migration and other changes": 3471,
+          "End population": 1793333
+        },
+        "2010": {
+          "Starting population": 1793333,
+          "Births": 24981,
+          "Deaths": 14006,
+          "Natural Change": 10975,
+          "Internal Inflows": 0,
+          "Internal Outflows": 0,
+          "Internal Net": 0,
+          "United Kingdom Inflows": 10667,
+          "United Kingdom Outflows": 11279,
+          "United Kingdom Net": -612,
+          "Rest of world Inflows": 13877,
+          "Rest of world Outflows": 12115,
+          "Rest of world Net": 1762,
+          "Total Inflows": 24544,
+          "Total Outflows": 23394,
+          "Total Net": 1150,
+          "Other changes": -625,
+          "Migration and other changes": 525,
+          "End population": 1804833
+        },
+        "2011": {
+          "Starting population": 1804833,
+          "Births": 25424,
+          "Deaths": 14184,
+          "Natural Change": 11240,
+          "Internal Inflows": 0,
+          "Internal Outflows": 0,
+          "Internal Net": 0,
+          "United Kingdom Inflows": 10323,
+          "United Kingdom Outflows": 11121,
+          "United Kingdom Net": -798,
+          "Rest of world Inflows": 13401,
+          "Rest of world Outflows": 14097,
+          "Rest of world Net": -696,
+          "Total Inflows": 23724,
+          "Total Outflows": 25218,
+          "Total Net": -1494,
+          "Other changes": -261,
+          "Migration and other changes": -1755,
+          "End population": 1814318
+        },
+        "2012": {
+          "Starting population": 1814318,
+          "Births": 25324,
+          "Deaths": 14235,
+          "Natural Change": 11089,
+          "Internal Inflows": 0,
+          "Internal Outflows": 0,
+          "Internal Net": 0,
+          "United Kingdom Inflows": 10333,
+          "United Kingdom Outflows": 12090,
+          "United Kingdom Net": -1757,
+          "Rest of world Inflows": 12922,
+          "Rest of world Outflows": 11694,
+          "Rest of world Net": 1228,
+          "Total Inflows": 23255,
+          "Total Outflows": 23784,
+          "Total Net": -529,
+          "Other changes": -275,
+          "Migration and other changes": -804,
+          "End population": 1824603
+        },
+        "2013": {
+          "Starting population": 1824603,
+          "Births": 24527,
+          "Deaths": 14968,
+          "Natural Change": 9559,
+          "Internal Inflows": 0,
+          "Internal Outflows": 0,
+          "Internal Net": 0,
+          "United Kingdom Inflows": 10364,
+          "United Kingdom Outflows": 11815,
+          "United Kingdom Net": -1451,
+          "Rest of world Inflows": 12736,
+          "Rest of world Outflows": 12921,
+          "Rest of world Net": -185,
+          "Total Inflows": 23100,
+          "Total Outflows": 24736,
+          "Total Net": -1636,
+          "Other changes": -849,
+          "Migration and other changes": -2485,
+          "End population": 1831677
+        },
+        "2014": {
+          "Starting population": 1831677,
+          "Births": 24185,
+          "Deaths": 14337,
+          "Natural Change": 9848,
+          "Internal Inflows": 0,
+          "Internal Outflows": 0,
+          "Internal Net": 0,
+          "United Kingdom Inflows": 11081,
+          "United Kingdom Outflows": 11747,
+          "United Kingdom Net": -666,
+          "Rest of world Inflows": 13300,
+          "Rest of world Outflows": 10542,
+          "Rest of world Net": 2758,
+          "Total Inflows": 24381,
+          "Total Outflows": 22289,
+          "Total Net": 2092,
+          "Other changes": -431,
+          "Migration and other changes": 1661,
+          "End population": 1843186
+        },
+        "2015": {
+          "Starting population": 1843186,
+          "Births": 24187,
+          "Deaths": 15403,
+          "Natural Change": 8784,
+          "Internal Inflows": 0,
+          "Internal Outflows": 0,
+          "Internal Net": 0,
+          "United Kingdom Inflows": 10473,
+          "United Kingdom Outflows": 11236,
+          "United Kingdom Net": -763,
+          "Rest of world Inflows": 13093,
+          "Rest of world Outflows": 9782,
+          "Rest of world Net": 3311,
+          "Total Inflows": 23566,
+          "Total Outflows": 21018,
+          "Total Net": 2548,
+          "Other changes": 425,
+          "Migration and other changes": 2973,
+          "End population": 1854943
+        },
+        "2016": {
+          "Starting population": 1854943,
+          "Births": 24379,
+          "Deaths": 15341,
+          "Natural Change": 9038,
+          "Internal Inflows": 0,
+          "Internal Outflows": 0,
+          "Internal Net": 0,
+          "United Kingdom Inflows": 10806,
+          "United Kingdom Outflows": 10806,
+          "United Kingdom Net": 0,
+          "Rest of world Inflows": 12998,
+          "Rest of world Outflows": 11115,
+          "Rest of world Net": 1883,
+          "Total Inflows": 23804,
+          "Total Outflows": 21921,
+          "Total Net": 1883,
+          "Other changes": 178,
+          "Migration and other changes": 2061,
+          "End population": 1866042
+        },
+        "2017": {
+          "Starting population": 1866042,
+          "Births": 23598,
+          "Deaths": 15901,
+          "Natural Change": 7697,
+          "Internal Inflows": 0,
+          "Internal Outflows": 0,
+          "Internal Net": 0,
+          "United Kingdom Inflows": 10759,
+          "United Kingdom Outflows": 10167,
+          "United Kingdom Net": 592,
+          "Rest of world Inflows": 11310,
+          "Rest of world Outflows": 10469,
+          "Rest of world Net": 841,
+          "Total Inflows": 22069,
+          "Total Outflows": 20636,
+          "Total Net": 1433,
+          "Other changes": 6,
+          "Migration and other changes": 1439,
+          "End population": 1875178
+        },
+        "2018": {
+          "Starting population": 1875178,
+          "Births": 23056,
+          "Deaths": 16365,
+          "Natural Change": 6691,
+          "Internal Inflows": 0,
+          "Internal Outflows": 0,
+          "Internal Net": 0,
+          "United Kingdom Inflows": 10450,
+          "United Kingdom Outflows": 10235,
+          "United Kingdom Net": 215,
+          "Rest of world Inflows": 13100,
+          "Rest of world Outflows": 9078,
+          "Rest of world Net": 4022,
+          "Total Inflows": 23550,
+          "Total Outflows": 19313,
+          "Total Net": 4237,
+          "Other changes": 153,
+          "Migration and other changes": 4390,
+          "End population": 1886259
+        },
+        "2019": {
+          "Starting population": 1886259,
+          "Births": 22647,
+          "Deaths": 15349,
+          "Natural Change": 7298,
+          "Internal Inflows": 0,
+          "Internal Outflows": 0,
+          "Internal Net": 0,
+          "United Kingdom Inflows": 11447,
+          "United Kingdom Outflows": 10333,
+          "United Kingdom Net": 1114,
+          "Rest of world Inflows": 14191,
+          "Rest of world Outflows": 10392,
+          "Rest of world Net": 3799,
+          "Total Inflows": 25638,
+          "Total Outflows": 20725,
+          "Total Net": 4913,
+          "Other changes": 49,
+          "Migration and other changes": 4962,
+          "End population": 1898519
+        },
+        "2020": {
+          "Starting population": 1898519,
+          "Births": 21899,
+          "Deaths": 16691,
+          "Natural Change": 5208,
+          "Internal Inflows": 0,
+          "Internal Outflows": 0,
+          "Internal Net": 0,
+          "United Kingdom Inflows": 10044,
+          "United Kingdom Outflows": 11570,
+          "United Kingdom Net": -1526,
+          "Rest of world Inflows": 11181,
+          "Rest of world Outflows": 13003,
+          "Rest of world Net": -1822,
+          "Total Inflows": 21225,
+          "Total Outflows": 24573,
+          "Total Net": -3348,
+          "Other changes": 144,
+          "Migration and other changes": -3204,
+          "End population": 1900523
+        },
+        "2021": {
+          "Starting population": 1900523,
+          "Births": 21524,
+          "Deaths": 17155,
+          "Natural Change": 4369,
+          "Internal Inflows": 0,
+          "Internal Outflows": 0,
+          "Internal Net": 0,
+          "United Kingdom Inflows": 13159,
+          "United Kingdom Outflows": 15550,
+          "United Kingdom Net": -2391,
+          "Rest of world Inflows": 13296,
+          "Rest of world Outflows": 11308,
+          "Rest of world Net": 1988,
+          "Total Inflows": 26455,
+          "Total Outflows": 26858,
+          "Total Net": -403,
+          "Other changes": 75,
+          "Migration and other changes": -328,
+          "End population": 1904564
+        },
+        "2022": {
+          "Starting population": 1904564,
+          "Births": 21468,
+          "Deaths": 17712,
+          "Natural Change": 3756,
+          "Internal Inflows": 0,
+          "Internal Outflows": 0,
+          "Internal Net": 0,
+          "United Kingdom Inflows": 10094,
+          "United Kingdom Outflows": 12800,
+          "United Kingdom Net": -2706,
+          "Rest of world Inflows": 16922,
+          "Rest of world Outflows": 11902,
+          "Rest of world Net": 5020,
+          "Total Inflows": 27016,
+          "Total Outflows": 24702,
+          "Total Net": 2314,
+          "Other changes": -91,
+          "Migration and other changes": 2223,
+          "End population": 1910543
+        },
+        "2023": {
+          "Starting population": 1910543,
+          "Births": 20072,
+          "Deaths": 17601,
+          "Natural Change": 2471,
+          "Internal Inflows": 0,
+          "Internal Outflows": 0,
+          "Internal Net": 0,
+          "United Kingdom Inflows": 11738,
+          "United Kingdom Outflows": 11777,
+          "United Kingdom Net": -39,
+          "Rest of world Inflows": 18797,
+          "Rest of world Outflows": 11235,
+          "Rest of world Net": 7562,
+          "Total Inflows": 30535,
+          "Total Outflows": 23012,
+          "Total Net": 7523,
+          "Other changes": -155,
+          "Migration and other changes": 7368,
+          "End population": 1920382
+        },
+        "2024": {
+          "Starting population": 1920382,
+          "Births": 19785,
+          "Deaths": 17855,
+          "Natural Change": 1930,
+          "Internal Inflows": 0,
+          "Internal Outflows": 0,
+          "Internal Net": 0,
+          "United Kingdom Inflows": 11387,
+          "United Kingdom Outflows": 11589,
+          "United Kingdom Net": -202,
+          "Rest of world Inflows": 16851,
+          "Rest of world Outflows": 10880,
+          "Rest of world Net": 5971,
+          "Total Inflows": 28238,
+          "Total Outflows": 22469,
+          "Total Net": 5769,
+          "Other changes": -226,
+          "Migration and other changes": 5543,
+          "End population": 1927855
+        }
+      }
+    }
+  }
+}
