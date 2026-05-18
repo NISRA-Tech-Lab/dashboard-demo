@@ -1,6 +1,5 @@
     
 import { wrapLabel } from "./wrap-label.js";
-import { getSelectedGender } from "./get-selected-gender.js";
 import { getNested } from "./get-nested.js";
 
 export const chart_colours = [
@@ -110,15 +109,6 @@ export function createLineChart({years, lines, labels, unit = "%", canvas_id}) {
 export function createBarChart({ chart_data, categories, canvas_id, label_format }) {
   const bar_canvas = document.getElementById(canvas_id);
 
-  const makeDataset = (gender) => ({
-    axis: "y",
-    label: `${gender === "female" ? "Female" : "Male"}`,
-    data: gender === "female" ? chart_data.female : chart_data.male,
-    fill: false,
-    backgroundColor: gender === "female" ? chart_colours[0] : chart_colours[1],
-    borderWidth: 1
-  });
-
   const baseOptions = {
     indexAxis: "y",
     maintainAspectRatio: false,
@@ -160,36 +150,28 @@ export function createBarChart({ chart_data, categories, canvas_id, label_format
     }
   };
 
-  function datasetsForSelection(sel) {
-    if (sel === "female") return [makeDataset("female")];
-    if (sel === "male") return [makeDataset("male")];
-    return [makeDataset("female"), makeDataset("male")]; // "both" / default
-  }
-
   // initial chart
   const ctx = bar_canvas.getContext("2d");
-  let selectedGender = getSelectedGender();
+  
+  let chart_datasets = [];
+
+  for (let i = 0; i < Object.keys(chart_data).length; i++) {
+    const key = Object.keys(chart_data)[i];
+    chart_datasets[i] = {
+      label: key,
+      data: chart_data[key],
+      backgroundColor: chart_colours[i % chart_colours.length]
+    };
+  }
 
   const bar_chart = new Chart(ctx, {
     type: "bar",
     data: {
       labels: categories,
-      datasets: datasetsForSelection(selectedGender)
+      datasets: chart_datasets
     },
     options: baseOptions,
     plugins: [ChartDataLabels]
-  });
-
-  const gender_form = document.getElementById("gender-form");
-
-  // IMPORTANT: replace datasets (so legend updates), then redraw
-  gender_form.addEventListener("change", function () {
-    selectedGender = getSelectedGender();
-
-    bar_chart.data.datasets = datasetsForSelection(selectedGender);
-
-    // clears + re-renders with new legend items
-    bar_chart.update();
   });
 
   return bar_chart;
