@@ -295,3 +295,23 @@ export function splitLabel(label, maxChars) {
     }]
   };
 }
+
+function createPieChart({labels, values, canvas_id}) {
+    const pie_data = {
+    labels: labels,
+    datasets: [{
+        label: 'Population',
+        data: values,
+        backgroundColor: chart_colours.slice(0, values.length),
+        hoverOffset: 4
+    }]
+    };
+
+    const pie_config = {
+    type: 'doughnut',
+    data: pie_data,
+    };
+
+    const pie_canvas = document.getElementById(canvas_id);
+    new Chart(pie_canvas, pie_config);
+}
