@@ -296,7 +296,7 @@ export function splitLabel(label, maxChars) {
   };
 }
 
-function createPieChart({labels, values, canvas_id}) {
+export function createPieChart({labels, values, canvas_id}) {
     const pie_data = {
     labels: labels,
     datasets: [{
