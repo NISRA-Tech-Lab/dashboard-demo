@@ -5099,5 +5099,283 @@
         }
       }
     }
+  },
+  "MA01T01": {
+    "label": "Median age - Northern Ireland",
+    "updated": "2025-09-26",
+    "data": {
+      "Median Age": {
+        "1971": {
+          "Females": 29.8,
+          "Males": 26.7,
+          "All persons": 28.2
+        },
+        "1972": {
+          "Females": 29.9,
+          "Males": 26.8,
+          "All persons": 28.4
+        },
+        "1973": {
+          "Females": 30.2,
+          "Males": 27,
+          "All persons": 28.6
+        },
+        "1974": {
+          "Females": 30.4,
+          "Males": 27.1,
+          "All persons": 28.6
+        },
+        "1975": {
+          "Females": 30.5,
+          "Males": 27.1,
+          "All persons": 28.7
+        },
+        "1976": {
+          "Females": 30.6,
+          "Males": 27,
+          "All persons": 28.7
+        },
+        "1977": {
+          "Females": 30.6,
+          "Males": 27.1,
+          "All persons": 28.8
+        },
+        "1978": {
+          "Females": 30.7,
+          "Males": 27.2,
+          "All persons": 28.8
+        },
+        "1979": {
+          "Females": 30.7,
+          "Males": 27.2,
+          "All persons": 28.8
+        },
+        "1980": {
+          "Females": 30.7,
+          "Males": 27.1,
+          "All persons": 28.8
+        },
+        "1981": {
+          "Females": 31.2,
+          "Males": 27.3,
+          "All persons": 29.2
+        },
+        "1982": {
+          "Females": 31.3,
+          "Males": 27.5,
+          "All persons": 29.4
+        },
+        "1983": {
+          "Females": 31.4,
+          "Males": 27.7,
+          "All persons": 29.5
+        },
+        "1984": {
+          "Females": 31.5,
+          "Males": 27.9,
+          "All persons": 29.6
+        },
+        "1985": {
+          "Females": 31.6,
+          "Males": 28.1,
+          "All persons": 29.8
+        },
+        "1986": {
+          "Females": 31.7,
+          "Males": 28.3,
+          "All persons": 29.9
+        },
+        "1987": {
+          "Females": 31.8,
+          "Males": 28.5,
+          "All persons": 30.1
+        },
+        "1988": {
+          "Females": 32,
+          "Males": 28.8,
+          "All persons": 30.4
+        },
+        "1989": {
+          "Females": 32.3,
+          "Males": 29.2,
+          "All persons": 30.7
+        },
+        "1990": {
+          "Females": 32.6,
+          "Males": 29.5,
+          "All persons": 31
+        },
+        "1991": {
+          "Females": 32.8,
+          "Males": 29.8,
+          "All persons": 31.3
+        },
+        "1992": {
+          "Females": 32.9,
+          "Males": 30,
+          "All persons": 31.5
+        },
+        "1993": {
+          "Females": 33.1,
+          "Males": 30.3,
+          "All persons": 31.7
+        },
+        "1994": {
+          "Females": 33.4,
+          "Males": 30.6,
+          "All persons": 32
+        },
+        "1995": {
+          "Females": 33.7,
+          "Males": 31,
+          "All persons": 32.4
+        },
+        "1996": {
+          "Females": 33.9,
+          "Males": 31.4,
+          "All persons": 32.7
+        },
+        "1997": {
+          "Females": 34.3,
+          "Males": 31.8,
+          "All persons": 33
+        },
+        "1998": {
+          "Females": 34.6,
+          "Males": 32.2,
+          "All persons": 33.4
+        },
+        "1999": {
+          "Females": 35,
+          "Males": 32.7,
+          "All persons": 33.9
+        },
+        "2000": {
+          "Females": 35.4,
+          "Males": 33.1,
+          "All persons": 34.3
+        },
+        "2001": {
+          "Females": 35.8,
+          "Males": 33.5,
+          "All persons": 34.7
+        },
+        "2002": {
+          "Females": 36.1,
+          "Males": 33.9,
+          "All persons": 35
+        },
+        "2003": {
+          "Females": 36.5,
+          "Males": 34.2,
+          "All persons": 35.4
+        },
+        "2004": {
+          "Females": 36.8,
+          "Males": 34.6,
+          "All persons": 35.7
+        },
+        "2005": {
+          "Females": 37.1,
+          "Males": 34.9,
+          "All persons": 36
+        },
+        "2006": {
+          "Females": 37.3,
+          "Males": 35.2,
+          "All persons": 36.2
+        },
+        "2007": {
+          "Females": 37.4,
+          "Males": 35.4,
+          "All persons": 36.4
+        },
+        "2008": {
+          "Females": 37.6,
+          "Males": 35.6,
+          "All persons": 36.6
+        },
+        "2009": {
+          "Females": 37.8,
+          "Males": 35.8,
+          "All persons": 36.8
+        },
+        "2010": {
+          "Females": 38.1,
+          "Males": 36,
+          "All persons": 37.1
+        },
+        "2011": {
+          "Females": 38.3,
+          "Males": 36.3,
+          "All persons": 37.4
+        },
+        "2012": {
+          "Females": 38.6,
+          "Males": 36.5,
+          "All persons": 37.6
+        },
+        "2013": {
+          "Females": 38.8,
+          "Males": 36.8,
+          "All persons": 37.9
+        },
+        "2014": {
+          "Females": 39,
+          "Males": 37,
+          "All persons": 38.1
+        },
+        "2015": {
+          "Females": 39.2,
+          "Males": 37.2,
+          "All persons": 38.2
+        },
+        "2016": {
+          "Females": 39.4,
+          "Males": 37.4,
+          "All persons": 38.4
+        },
+        "2017": {
+          "Females": 39.6,
+          "Males": 37.7,
+          "All persons": 38.6
+        },
+        "2018": {
+          "Females": 39.7,
+          "Males": 37.9,
+          "All persons": 38.9
+        },
+        "2019": {
+          "Females": 40,
+          "Males": 38.2,
+          "All persons": 39.1
+        },
+        "2020": {
+          "Females": 40.4,
+          "Males": 38.6,
+          "All persons": 39.5
+        },
+        "2021": {
+          "Females": 40.7,
+          "Males": 38.8,
+          "All persons": 39.8
+        },
+        "2022": {
+          "Females": 40.9,
+          "Males": 39,
+          "All persons": 40
+        },
+        "2023": {
+          "Females": 41.1,
+          "Males": 39.1,
+          "All persons": 40.2
+        },
+        "2024": {
+          "Females": 41.3,
+          "Males": 39.3,
+          "All persons": 40.3
+        }
+      }
+    }
   }
 }

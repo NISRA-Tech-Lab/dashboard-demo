@@ -5,13 +5,13 @@ export const config = {
     // Set order of page links and display text in navigation bar
     "navigation": [
         { href: "index.html", text: "Home" },
-        { href: "population-estimates.html", text: "Population Estimates" },
-        { href: "population-change.html", text: "Population Change" },
+        { href: "population-estimates.html", text: "Population estimates" },
+        { href: "reasons-for-change.html", text: "Reasons for change" },
         { href: "migration.html", text: "Migration"},
-        { href: "age-structure.html", text: "Age Structure" }, 
+        { href: "age-structure.html", text: "Age structure" }, 
         { href: "over-85s.html", text: "Over 85s" }, 
-        {href: "local-populations.html", text: "Local Populations"},
-        { href: "user-notes.html", text: "User Notes" }  
+        { href: "local-populations.html", text: "Local populations"},
+        { href: "user-notes.html", text: "User notes" }  
     ],
     
     "portal_url": "https://data.nisra.gov.uk/",
@@ -25,7 +25,8 @@ export const config = {
         "MYE01T03",  // Broad age bands
         "MYE01T06",  // Local Government Districts
         "MYE01T025", // Over 85s
-        "COPC01T01"  // Component of population change
+        "COPC01T01", // Component of population change
+        "MA01T01"    // Median age
     ],
     
     "rateit": "link-to-rateit"

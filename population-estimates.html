@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head></head>
+<body style="display:none;">
+    
+<banner id="banner"></banner>
+  <!-- Top Navbar -->
+<nav id ="nav"></nav>
+
+<!-- Main Content -->
+<main>
+<div class="w-100 text-center current-page py-2">
+    This is a dashboard page template. Use this as a starting point for building your own dashboard. Edit the page.js file to add your own content and functionality. See the README.md file for instructions on how to use this template.
+</div>
+
+<div id="content" class="container-fluid">
+        
+        <div class = "py-2">
+            <!-- First row - cards -->
+            <div class="row text-center">
+                <div class="col-6 col-xl py-2">
+                    <div class="card h-100 navy-bg">
+                        <div class="card-body d-flex flex-column justify-content-center">
+                            <p>Total Northern Ireland population</p>
+                            <p class="display-6"><span id="pop-total"></span></p>
+                            <p>in <span class="latest-year"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-xl py-2">
+                    <div class="card h-100 blue-bg">
+                        <div class="card-body d-flex flex-column justify-content-center">
+                            <p>Population change since <span class="last-year"></span></p>
+                            <p class="display-6"><span id="pop-change"></span><span class="unit-pct">%</span></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-xl py-2">
+                    <div class="card h-100 blue-bg">
+                        <div class="card-body d-flex flex-column justify-content-center">
+                            <p>Females made up</p>
+                            <p class="display-6"><span id="pop-female"></span><span class="unit-pct">%</span></p>
+                            <p>of the population</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-xl py-2">
+                    <div class="card h-100 blue-bg">
+                        <div class="card-body d-flex flex-column justify-content-center">
+                            <p>Males made up</p>
+                            <p class="display-6"><span id="pop-male"></span><span class="unit-pct">%</span></p>
+                            <p>of the population</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-xl py-2">
+                    <div class="card h-100 blue-bg">
+                        <div class="card-body d-flex flex-column justify-content-center">
+                            <p>Average year-on-year change over last 10 years</p>
+                            <p class="display-6"><span id="pop-change-10yr"></span><span class="unit-pct">%</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Second row - tables and charts -->
+            <div class="row">
+                <div class="col-12 col-xl-6 py-2">
+                    <div class="card h-100">
+                        <div id="historic-line-capture">
+                            <div class="card-header">
+                                Population Estimates, <span class="first-year"></span> to <span class="latest-year"></span>
+                            </div>
+                            <div class="card-body d-flex flex-column justify-content-center">
+                                <canvas id="pop-line" class="chart-canvas"></canvas>
+                            </div>
+                        </div>
+                        <div class="card-footer"></div>
+                    </div>
+                </div>
+                <div class="col-12 col-xl-6 py-2">
+                    <div class="card h-100">
+                        <div id="emissions-table-capture">
+                        <div class="card-header">
+                            Sample bar chart, Category A vs Category B
+                        </div>
+                        <div class="card-body d-flex flex-column justify-content-center">
+                            <div class="table-responsive">
+                                <canvas id="pop-pie" class="chart-canvas"></canvas>
+                            </div>
+                        </div>
+                        </div>
+                        <div class="card-footer"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Third row - Definitions -->
+            <div id="info-boxes"></div>
+            
+        </div>
+        
+    </main>
+</div>
+
+<footer id = "footer"></footer>
+
+<script type = "module" src="src/population-estimates.js"></script>
+
+
+</body>
