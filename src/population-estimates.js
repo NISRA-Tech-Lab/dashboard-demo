@@ -6,6 +6,9 @@ import { toTitleCase } from "./utils/to-title-case.js";
 import { config } from "./config/config.js";
 import { createBarChart, createLineChart, createPieChart } from "./utils/charts.js";
 import { insertExpandButtons } from "./utils/expand-buttons.js";
+import { downloadButton } from "./utils/download-button.js";
+import { dateFormat } from "./utils/date-format.js";
+import { populateInfoBoxes } from "./utils/info-boxes.js";
 
 window.addEventListener("DOMContentLoaded", async () => {
 
@@ -21,6 +24,9 @@ window.addEventListener("DOMContentLoaded", async () => {
     const MYE01T05 = await readData("MYE01T05");
     const MYE01T05_stat = "Population totals";
     updateYearSpans(MYE01T05, MYE01T05_stat);
+
+    const MYE01T05_updated = dateFormat(MYE01T05.updated);
+
 
     const pop_total = (MYE01T05.data[MYE01T05_stat][latest_year]["Unrounded"]);
         
@@ -40,6 +46,7 @@ window.addEventListener("DOMContentLoaded", async () => {
     // Female population
     const MYE01T03 = await readData("MYE01T03");
     const MYE01T03_stat = "Mid-year population estimate";
+    const MYE01T03_updated = dateFormat(MYE01T03.updated);
 
     const female_pop = MYE01T03.data[MYE01T03_stat][latest_year]["All"]["Females"];
     const female_pop_pct = female_pop / pop_total * 100;
@@ -99,6 +106,35 @@ window.addEventListener("DOMContentLoaded", async () => {
         MYE01T03.data[MYE01T03_stat][latest_year]["All"]["Males"]];
 
 
-    createPieChart({labels: genders, values: pie_values, canvas_id: "pop-pie"})
+    createPieChart({labels: genders, values: pie_values, canvas_id: "pop-pie"});
+
+    createPieChart({labels: genders, values: pie_values, canvas_id: "pop-pie-expanded"});
+
+    const pop_line_query = {
+        rounded_unrounded: "Unrounded"
+    };
+
+    const pop_pie_query = {
+        "TLIST(A1)": latest_year,
+        "broadage4": "All",
+        "Sex": ["1", "2"]
+    }
+
+    downloadButton("pop-line-capture", "MYE01T05", MYE01T05_updated, pop_line_query);
+    downloadButton("pop-pie-capture", "MYE01T03", MYE01T03_updated, pop_pie_query);
+
+    populateInfoBoxes(["Data", "Plots", "Accessibility and best practice"],
+
+        [
+        `<p>The data use to populate this page comes from the NISRA Data Portal...</p>`,
+            
+        `<h3>Line chart functionality</h3>
+        <p>The function <em>createLineChart</em> is used to generate the line chart...</p>
+        <h3>Pie chart functionality</h3>
+        <p>The function <em>createPieChart</em> is used to generate the pie chart...</p>`,
+
+        `<p>Accessibility and best practice information goes here...</p>`
+    ]
+    )
 
 })
