@@ -123,7 +123,7 @@ window.addEventListener("DOMContentLoaded", async () => {
     downloadButton("pop-line-capture", "MYE01T05", MYE01T05_updated, pop_line_query);
     downloadButton("pop-pie-capture", "MYE01T03", MYE01T03_updated, pop_pie_query);
 
-    populateInfoBoxes(["Data", "Plots", "Accessibility and best practice"],
+    populateInfoBoxes(["Definitions", "Source", "What does the data mean?"],
 
         [
         `<p>The data use to populate this page comes from the NISRA Data Portal...</p>`,
