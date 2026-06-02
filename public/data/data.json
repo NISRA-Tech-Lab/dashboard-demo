@@ -5377,5 +5377,3448 @@
         }
       }
     }
+  },
+  "MIG01T02": {
+    "label": "Net Migration - Northern Ireland",
+    "updated": "2025-09-30",
+    "data": {
+      "Net Migration": {
+        "2002": {
+          "Age 0-17": {
+            "Females": {
+              "United Kingdom Net": 36,
+              "Rest of World Net": 263,
+              "Total Net": 299
+            },
+            "Males": {
+              "United Kingdom Net": -126,
+              "Rest of World Net": 273,
+              "Total Net": 147
+            },
+            "All persons": {
+              "United Kingdom Net": -90,
+              "Rest of World Net": 536,
+              "Total Net": 446
+            }
+          },
+          "Age 18-24": {
+            "Females": {
+              "United Kingdom Net": -549,
+              "Rest of World Net": -252,
+              "Total Net": -801
+            },
+            "Males": {
+              "United Kingdom Net": -521,
+              "Rest of World Net": -247,
+              "Total Net": -768
+            },
+            "All persons": {
+              "United Kingdom Net": -1070,
+              "Rest of World Net": -499,
+              "Total Net": -1569
+            }
+          },
+          "Age 25-34": {
+            "Females": {
+              "United Kingdom Net": 609,
+              "Rest of World Net": -18,
+              "Total Net": 591
+            },
+            "Males": {
+              "United Kingdom Net": 665,
+              "Rest of World Net": 121,
+              "Total Net": 786
+            },
+            "All persons": {
+              "United Kingdom Net": 1274,
+              "Rest of World Net": 103,
+              "Total Net": 1377
+            }
+          },
+          "Age 35-44": {
+            "Females": {
+              "United Kingdom Net": 148,
+              "Rest of World Net": -107,
+              "Total Net": 41
+            },
+            "Males": {
+              "United Kingdom Net": 214,
+              "Rest of World Net": 92,
+              "Total Net": 306
+            },
+            "All persons": {
+              "United Kingdom Net": 362,
+              "Rest of World Net": -15,
+              "Total Net": 347
+            }
+          },
+          "Age 45-54": {
+            "Females": {
+              "United Kingdom Net": 77,
+              "Rest of World Net": -72,
+              "Total Net": 5
+            },
+            "Males": {
+              "United Kingdom Net": 104,
+              "Rest of World Net": 50,
+              "Total Net": 154
+            },
+            "All persons": {
+              "United Kingdom Net": 181,
+              "Rest of World Net": -22,
+              "Total Net": 159
+            }
+          },
+          "Age 55-64": {
+            "Females": {
+              "United Kingdom Net": 85,
+              "Rest of World Net": 1,
+              "Total Net": 86
+            },
+            "Males": {
+              "United Kingdom Net": 88,
+              "Rest of World Net": 30,
+              "Total Net": 118
+            },
+            "All persons": {
+              "United Kingdom Net": 173,
+              "Rest of World Net": 31,
+              "Total Net": 204
+            }
+          },
+          "Age 65+": {
+            "Females": {
+              "United Kingdom Net": 49,
+              "Rest of World Net": -22,
+              "Total Net": 27
+            },
+            "Males": {
+              "United Kingdom Net": 42,
+              "Rest of World Net": -17,
+              "Total Net": 25
+            },
+            "All persons": {
+              "United Kingdom Net": 91,
+              "Rest of World Net": -39,
+              "Total Net": 52
+            }
+          },
+          "All": {
+            "Females": {
+              "United Kingdom Net": 455,
+              "Rest of World Net": -207,
+              "Total Net": 248
+            },
+            "Males": {
+              "United Kingdom Net": 466,
+              "Rest of World Net": 302,
+              "Total Net": 768
+            },
+            "All persons": {
+              "United Kingdom Net": 921,
+              "Rest of World Net": 95,
+              "Total Net": 1016
+            }
+          }
+        },
+        "2003": {
+          "Age 0-17": {
+            "Females": {
+              "United Kingdom Net": 37,
+              "Rest of World Net": 195,
+              "Total Net": 232
+            },
+            "Males": {
+              "United Kingdom Net": 9,
+              "Rest of World Net": 243,
+              "Total Net": 252
+            },
+            "All persons": {
+              "United Kingdom Net": 46,
+              "Rest of World Net": 438,
+              "Total Net": 484
+            }
+          },
+          "Age 18-24": {
+            "Females": {
+              "United Kingdom Net": -876,
+              "Rest of World Net": -241,
+              "Total Net": -1117
+            },
+            "Males": {
+              "United Kingdom Net": -900,
+              "Rest of World Net": -221,
+              "Total Net": -1121
+            },
+            "All persons": {
+              "United Kingdom Net": -1776,
+              "Rest of World Net": -462,
+              "Total Net": -2238
+            }
+          },
+          "Age 25-34": {
+            "Females": {
+              "United Kingdom Net": 473,
+              "Rest of World Net": -35,
+              "Total Net": 438
+            },
+            "Males": {
+              "United Kingdom Net": 520,
+              "Rest of World Net": 166,
+              "Total Net": 686
+            },
+            "All persons": {
+              "United Kingdom Net": 993,
+              "Rest of World Net": 131,
+              "Total Net": 1124
+            }
+          },
+          "Age 35-44": {
+            "Females": {
+              "United Kingdom Net": 153,
+              "Rest of World Net": -84,
+              "Total Net": 69
+            },
+            "Males": {
+              "United Kingdom Net": 216,
+              "Rest of World Net": 40,
+              "Total Net": 256
+            },
+            "All persons": {
+              "United Kingdom Net": 369,
+              "Rest of World Net": -44,
+              "Total Net": 325
+            }
+          },
+          "Age 45-54": {
+            "Females": {
+              "United Kingdom Net": 90,
+              "Rest of World Net": -16,
+              "Total Net": 74
+            },
+            "Males": {
+              "United Kingdom Net": 76,
+              "Rest of World Net": 49,
+              "Total Net": 125
+            },
+            "All persons": {
+              "United Kingdom Net": 166,
+              "Rest of World Net": 33,
+              "Total Net": 199
+            }
+          },
+          "Age 55-64": {
+            "Females": {
+              "United Kingdom Net": 87,
+              "Rest of World Net": 12,
+              "Total Net": 99
+            },
+            "Males": {
+              "United Kingdom Net": 97,
+              "Rest of World Net": 34,
+              "Total Net": 131
+            },
+            "All persons": {
+              "United Kingdom Net": 184,
+              "Rest of World Net": 46,
+              "Total Net": 230
+            }
+          },
+          "Age 65+": {
+            "Females": {
+              "United Kingdom Net": 54,
+              "Rest of World Net": -14,
+              "Total Net": 40
+            },
+            "Males": {
+              "United Kingdom Net": 66,
+              "Rest of World Net": -1,
+              "Total Net": 65
+            },
+            "All persons": {
+              "United Kingdom Net": 120,
+              "Rest of World Net": -15,
+              "Total Net": 105
+            }
+          },
+          "All": {
+            "Females": {
+              "United Kingdom Net": 18,
+              "Rest of World Net": -183,
+              "Total Net": -165
+            },
+            "Males": {
+              "United Kingdom Net": 84,
+              "Rest of World Net": 310,
+              "Total Net": 394
+            },
+            "All persons": {
+              "United Kingdom Net": 102,
+              "Rest of World Net": 127,
+              "Total Net": 229
+            }
+          }
+        },
+        "2004": {
+          "Age 0-17": {
+            "Females": {
+              "United Kingdom Net": -75,
+              "Rest of World Net": 395,
+              "Total Net": 320
+            },
+            "Males": {
+              "United Kingdom Net": -147,
+              "Rest of World Net": 420,
+              "Total Net": 273
+            },
+            "All persons": {
+              "United Kingdom Net": -222,
+              "Rest of World Net": 815,
+              "Total Net": 593
+            }
+          },
+          "Age 18-24": {
+            "Females": {
+              "United Kingdom Net": -500,
+              "Rest of World Net": -42,
+              "Total Net": -542
+            },
+            "Males": {
+              "United Kingdom Net": -506,
+              "Rest of World Net": -44,
+              "Total Net": -550
+            },
+            "All persons": {
+              "United Kingdom Net": -1006,
+              "Rest of World Net": -86,
+              "Total Net": -1092
+            }
+          },
+          "Age 25-34": {
+            "Females": {
+              "United Kingdom Net": 337,
+              "Rest of World Net": 76,
+              "Total Net": 413
+            },
+            "Males": {
+              "United Kingdom Net": 449,
+              "Rest of World Net": 219,
+              "Total Net": 668
+            },
+            "All persons": {
+              "United Kingdom Net": 786,
+              "Rest of World Net": 295,
+              "Total Net": 1081
+            }
+          },
+          "Age 35-44": {
+            "Females": {
+              "United Kingdom Net": 107,
+              "Rest of World Net": -66,
+              "Total Net": 41
+            },
+            "Males": {
+              "United Kingdom Net": 120,
+              "Rest of World Net": 131,
+              "Total Net": 251
+            },
+            "All persons": {
+              "United Kingdom Net": 227,
+              "Rest of World Net": 65,
+              "Total Net": 292
+            }
+          },
+          "Age 45-54": {
+            "Females": {
+              "United Kingdom Net": 82,
+              "Rest of World Net": -34,
+              "Total Net": 48
+            },
+            "Males": {
+              "United Kingdom Net": 96,
+              "Rest of World Net": 20,
+              "Total Net": 116
+            },
+            "All persons": {
+              "United Kingdom Net": 178,
+              "Rest of World Net": -14,
+              "Total Net": 164
+            }
+          },
+          "Age 55-64": {
+            "Females": {
+              "United Kingdom Net": 112,
+              "Rest of World Net": -22,
+              "Total Net": 90
+            },
+            "Males": {
+              "United Kingdom Net": 142,
+              "Rest of World Net": 64,
+              "Total Net": 206
+            },
+            "All persons": {
+              "United Kingdom Net": 254,
+              "Rest of World Net": 42,
+              "Total Net": 296
+            }
+          },
+          "Age 65+": {
+            "Females": {
+              "United Kingdom Net": 57,
+              "Rest of World Net": 59,
+              "Total Net": 116
+            },
+            "Males": {
+              "United Kingdom Net": 113,
+              "Rest of World Net": 2,
+              "Total Net": 115
+            },
+            "All persons": {
+              "United Kingdom Net": 170,
+              "Rest of World Net": 61,
+              "Total Net": 231
+            }
+          },
+          "All": {
+            "Females": {
+              "United Kingdom Net": 120,
+              "Rest of World Net": 366,
+              "Total Net": 486
+            },
+            "Males": {
+              "United Kingdom Net": 267,
+              "Rest of World Net": 812,
+              "Total Net": 1079
+            },
+            "All persons": {
+              "United Kingdom Net": 387,
+              "Rest of World Net": 1178,
+              "Total Net": 1565
+            }
+          }
+        },
+        "2005": {
+          "Age 0-17": {
+            "Females": {
+              "United Kingdom Net": 348,
+              "Rest of World Net": 485,
+              "Total Net": 833
+            },
+            "Males": {
+              "United Kingdom Net": 436,
+              "Rest of World Net": 469,
+              "Total Net": 905
+            },
+            "All persons": {
+              "United Kingdom Net": 784,
+              "Rest of World Net": 954,
+              "Total Net": 1738
+            }
+          },
+          "Age 18-24": {
+            "Females": {
+              "United Kingdom Net": -917,
+              "Rest of World Net": 610,
+              "Total Net": -307
+            },
+            "Males": {
+              "United Kingdom Net": -878,
+              "Rest of World Net": 654,
+              "Total Net": -224
+            },
+            "All persons": {
+              "United Kingdom Net": -1795,
+              "Rest of World Net": 1264,
+              "Total Net": -531
+            }
+          },
+          "Age 25-34": {
+            "Females": {
+              "United Kingdom Net": 680,
+              "Rest of World Net": 636,
+              "Total Net": 1316
+            },
+            "Males": {
+              "United Kingdom Net": 694,
+              "Rest of World Net": 680,
+              "Total Net": 1374
+            },
+            "All persons": {
+              "United Kingdom Net": 1374,
+              "Rest of World Net": 1316,
+              "Total Net": 2690
+            }
+          },
+          "Age 35-44": {
+            "Females": {
+              "United Kingdom Net": 365,
+              "Rest of World Net": 8,
+              "Total Net": 373
+            },
+            "Males": {
+              "United Kingdom Net": 381,
+              "Rest of World Net": 192,
+              "Total Net": 573
+            },
+            "All persons": {
+              "United Kingdom Net": 746,
+              "Rest of World Net": 200,
+              "Total Net": 946
+            }
+          },
+          "Age 45-54": {
+            "Females": {
+              "United Kingdom Net": 165,
+              "Rest of World Net": 33,
+              "Total Net": 198
+            },
+            "Males": {
+              "United Kingdom Net": 208,
+              "Rest of World Net": 142,
+              "Total Net": 350
+            },
+            "All persons": {
+              "United Kingdom Net": 373,
+              "Rest of World Net": 175,
+              "Total Net": 548
+            }
+          },
+          "Age 55-64": {
+            "Females": {
+              "United Kingdom Net": 136,
+              "Rest of World Net": -11,
+              "Total Net": 125
+            },
+            "Males": {
+              "United Kingdom Net": 188,
+              "Rest of World Net": -14,
+              "Total Net": 174
+            },
+            "All persons": {
+              "United Kingdom Net": 324,
+              "Rest of World Net": -25,
+              "Total Net": 299
+            }
+          },
+          "Age 65+": {
+            "Females": {
+              "United Kingdom Net": 82,
+              "Rest of World Net": -132,
+              "Total Net": -50
+            },
+            "Males": {
+              "United Kingdom Net": 119,
+              "Rest of World Net": -69,
+              "Total Net": 50
+            },
+            "All persons": {
+              "United Kingdom Net": 201,
+              "Rest of World Net": -201,
+              "Total Net": 0
+            }
+          },
+          "All": {
+            "Females": {
+              "United Kingdom Net": 859,
+              "Rest of World Net": 1629,
+              "Total Net": 2488
+            },
+            "Males": {
+              "United Kingdom Net": 1148,
+              "Rest of World Net": 2054,
+              "Total Net": 3202
+            },
+            "All persons": {
+              "United Kingdom Net": 2007,
+              "Rest of World Net": 3683,
+              "Total Net": 5690
+            }
+          }
+        },
+        "2006": {
+          "Age 0-17": {
+            "Females": {
+              "United Kingdom Net": 323,
+              "Rest of World Net": 872,
+              "Total Net": 1195
+            },
+            "Males": {
+              "United Kingdom Net": 318,
+              "Rest of World Net": 874,
+              "Total Net": 1192
+            },
+            "All persons": {
+              "United Kingdom Net": 641,
+              "Rest of World Net": 1746,
+              "Total Net": 2387
+            }
+          },
+          "Age 18-24": {
+            "Females": {
+              "United Kingdom Net": -1059,
+              "Rest of World Net": 1139,
+              "Total Net": 80
+            },
+            "Males": {
+              "United Kingdom Net": -1050,
+              "Rest of World Net": 1139,
+              "Total Net": 89
+            },
+            "All persons": {
+              "United Kingdom Net": -2109,
+              "Rest of World Net": 2278,
+              "Total Net": 169
+            }
+          },
+          "Age 25-34": {
+            "Females": {
+              "United Kingdom Net": 456,
+              "Rest of World Net": 1097,
+              "Total Net": 1553
+            },
+            "Males": {
+              "United Kingdom Net": 570,
+              "Rest of World Net": 1158,
+              "Total Net": 1728
+            },
+            "All persons": {
+              "United Kingdom Net": 1026,
+              "Rest of World Net": 2255,
+              "Total Net": 3281
+            }
+          },
+          "Age 35-44": {
+            "Females": {
+              "United Kingdom Net": 235,
+              "Rest of World Net": 145,
+              "Total Net": 380
+            },
+            "Males": {
+              "United Kingdom Net": 288,
+              "Rest of World Net": 321,
+              "Total Net": 609
+            },
+            "All persons": {
+              "United Kingdom Net": 523,
+              "Rest of World Net": 466,
+              "Total Net": 989
+            }
+          },
+          "Age 45-54": {
+            "Females": {
+              "United Kingdom Net": 108,
+              "Rest of World Net": 126,
+              "Total Net": 234
+            },
+            "Males": {
+              "United Kingdom Net": 170,
+              "Rest of World Net": 238,
+              "Total Net": 408
+            },
+            "All persons": {
+              "United Kingdom Net": 278,
+              "Rest of World Net": 364,
+              "Total Net": 642
+            }
+          },
+          "Age 55-64": {
+            "Females": {
+              "United Kingdom Net": 153,
+              "Rest of World Net": -28,
+              "Total Net": 125
+            },
+            "Males": {
+              "United Kingdom Net": 171,
+              "Rest of World Net": 8,
+              "Total Net": 179
+            },
+            "All persons": {
+              "United Kingdom Net": 324,
+              "Rest of World Net": -20,
+              "Total Net": 304
+            }
+          },
+          "Age 65+": {
+            "Females": {
+              "United Kingdom Net": 98,
+              "Rest of World Net": -47,
+              "Total Net": 51
+            },
+            "Males": {
+              "United Kingdom Net": 89,
+              "Rest of World Net": -36,
+              "Total Net": 53
+            },
+            "All persons": {
+              "United Kingdom Net": 187,
+              "Rest of World Net": -83,
+              "Total Net": 104
+            }
+          },
+          "All": {
+            "Females": {
+              "United Kingdom Net": 314,
+              "Rest of World Net": 3304,
+              "Total Net": 3618
+            },
+            "Males": {
+              "United Kingdom Net": 556,
+              "Rest of World Net": 3702,
+              "Total Net": 4258
+            },
+            "All persons": {
+              "United Kingdom Net": 870,
+              "Rest of World Net": 7006,
+              "Total Net": 7876
+            }
+          }
+        },
+        "2007": {
+          "Age 0-17": {
+            "Females": {
+              "United Kingdom Net": 289,
+              "Rest of World Net": 1085,
+              "Total Net": 1374
+            },
+            "Males": {
+              "United Kingdom Net": 269,
+              "Rest of World Net": 1168,
+              "Total Net": 1437
+            },
+            "All persons": {
+              "United Kingdom Net": 558,
+              "Rest of World Net": 2253,
+              "Total Net": 2811
+            }
+          },
+          "Age 18-24": {
+            "Females": {
+              "United Kingdom Net": -658,
+              "Rest of World Net": 1272,
+              "Total Net": 614
+            },
+            "Males": {
+              "United Kingdom Net": -670,
+              "Rest of World Net": 1265,
+              "Total Net": 595
+            },
+            "All persons": {
+              "United Kingdom Net": -1328,
+              "Rest of World Net": 2537,
+              "Total Net": 1209
+            }
+          },
+          "Age 25-34": {
+            "Females": {
+              "United Kingdom Net": 721,
+              "Rest of World Net": 1623,
+              "Total Net": 2344
+            },
+            "Males": {
+              "United Kingdom Net": 801,
+              "Rest of World Net": 1809,
+              "Total Net": 2610
+            },
+            "All persons": {
+              "United Kingdom Net": 1522,
+              "Rest of World Net": 3432,
+              "Total Net": 4954
+            }
+          },
+          "Age 35-44": {
+            "Females": {
+              "United Kingdom Net": 294,
+              "Rest of World Net": 221,
+              "Total Net": 515
+            },
+            "Males": {
+              "United Kingdom Net": 235,
+              "Rest of World Net": 355,
+              "Total Net": 590
+            },
+            "All persons": {
+              "United Kingdom Net": 529,
+              "Rest of World Net": 576,
+              "Total Net": 1105
+            }
+          },
+          "Age 45-54": {
+            "Females": {
+              "United Kingdom Net": 91,
+              "Rest of World Net": 190,
+              "Total Net": 281
+            },
+            "Males": {
+              "United Kingdom Net": 142,
+              "Rest of World Net": 325,
+              "Total Net": 467
+            },
+            "All persons": {
+              "United Kingdom Net": 233,
+              "Rest of World Net": 515,
+              "Total Net": 748
+            }
+          },
+          "Age 55-64": {
+            "Females": {
+              "United Kingdom Net": 48,
+              "Rest of World Net": -42,
+              "Total Net": 6
+            },
+            "Males": {
+              "United Kingdom Net": 144,
+              "Rest of World Net": -5,
+              "Total Net": 139
+            },
+            "All persons": {
+              "United Kingdom Net": 192,
+              "Rest of World Net": -47,
+              "Total Net": 145
+            }
+          },
+          "Age 65+": {
+            "Females": {
+              "United Kingdom Net": 43,
+              "Rest of World Net": -52,
+              "Total Net": -9
+            },
+            "Males": {
+              "United Kingdom Net": 41,
+              "Rest of World Net": -74,
+              "Total Net": -33
+            },
+            "All persons": {
+              "United Kingdom Net": 84,
+              "Rest of World Net": -126,
+              "Total Net": -42
+            }
+          },
+          "All": {
+            "Females": {
+              "United Kingdom Net": 828,
+              "Rest of World Net": 4297,
+              "Total Net": 5125
+            },
+            "Males": {
+              "United Kingdom Net": 962,
+              "Rest of World Net": 4843,
+              "Total Net": 5805
+            },
+            "All persons": {
+              "United Kingdom Net": 1790,
+              "Rest of World Net": 9140,
+              "Total Net": 10930
+            }
+          }
+        },
+        "2008": {
+          "Age 0-17": {
+            "Females": {
+              "United Kingdom Net": 333,
+              "Rest of World Net": 882,
+              "Total Net": 1215
+            },
+            "Males": {
+              "United Kingdom Net": 294,
+              "Rest of World Net": 776,
+              "Total Net": 1070
+            },
+            "All persons": {
+              "United Kingdom Net": 627,
+              "Rest of World Net": 1658,
+              "Total Net": 2285
+            }
+          },
+          "Age 18-24": {
+            "Females": {
+              "United Kingdom Net": -740,
+              "Rest of World Net": 1067,
+              "Total Net": 327
+            },
+            "Males": {
+              "United Kingdom Net": -737,
+              "Rest of World Net": 1057,
+              "Total Net": 320
+            },
+            "All persons": {
+              "United Kingdom Net": -1477,
+              "Rest of World Net": 2124,
+              "Total Net": 647
+            }
+          },
+          "Age 25-34": {
+            "Females": {
+              "United Kingdom Net": 587,
+              "Rest of World Net": 1046,
+              "Total Net": 1633
+            },
+            "Males": {
+              "United Kingdom Net": 601,
+              "Rest of World Net": 1126,
+              "Total Net": 1727
+            },
+            "All persons": {
+              "United Kingdom Net": 1188,
+              "Rest of World Net": 2172,
+              "Total Net": 3360
+            }
+          },
+          "Age 35-44": {
+            "Females": {
+              "United Kingdom Net": 268,
+              "Rest of World Net": 70,
+              "Total Net": 338
+            },
+            "Males": {
+              "United Kingdom Net": 231,
+              "Rest of World Net": 152,
+              "Total Net": 383
+            },
+            "All persons": {
+              "United Kingdom Net": 499,
+              "Rest of World Net": 222,
+              "Total Net": 721
+            }
+          },
+          "Age 45-54": {
+            "Females": {
+              "United Kingdom Net": 118,
+              "Rest of World Net": 152,
+              "Total Net": 270
+            },
+            "Males": {
+              "United Kingdom Net": 165,
+              "Rest of World Net": 139,
+              "Total Net": 304
+            },
+            "All persons": {
+              "United Kingdom Net": 283,
+              "Rest of World Net": 291,
+              "Total Net": 574
+            }
+          },
+          "Age 55-64": {
+            "Females": {
+              "United Kingdom Net": 95,
+              "Rest of World Net": -36,
+              "Total Net": 59
+            },
+            "Males": {
+              "United Kingdom Net": 111,
+              "Rest of World Net": -19,
+              "Total Net": 92
+            },
+            "All persons": {
+              "United Kingdom Net": 206,
+              "Rest of World Net": -55,
+              "Total Net": 151
+            }
+          },
+          "Age 65+": {
+            "Females": {
+              "United Kingdom Net": 36,
+              "Rest of World Net": -52,
+              "Total Net": -16
+            },
+            "Males": {
+              "United Kingdom Net": 72,
+              "Rest of World Net": -80,
+              "Total Net": -8
+            },
+            "All persons": {
+              "United Kingdom Net": 108,
+              "Rest of World Net": -132,
+              "Total Net": -24
+            }
+          },
+          "All": {
+            "Females": {
+              "United Kingdom Net": 697,
+              "Rest of World Net": 3129,
+              "Total Net": 3826
+            },
+            "Males": {
+              "United Kingdom Net": 737,
+              "Rest of World Net": 3151,
+              "Total Net": 3888
+            },
+            "All persons": {
+              "United Kingdom Net": 1434,
+              "Rest of World Net": 6280,
+              "Total Net": 7714
+            }
+          }
+        },
+        "2009": {
+          "Age 0-17": {
+            "Females": {
+              "United Kingdom Net": 236,
+              "Rest of World Net": 447,
+              "Total Net": 683
+            },
+            "Males": {
+              "United Kingdom Net": 235,
+              "Rest of World Net": 354,
+              "Total Net": 589
+            },
+            "All persons": {
+              "United Kingdom Net": 471,
+              "Rest of World Net": 801,
+              "Total Net": 1272
+            }
+          },
+          "Age 18-24": {
+            "Females": {
+              "United Kingdom Net": -700,
+              "Rest of World Net": 625,
+              "Total Net": -75
+            },
+            "Males": {
+              "United Kingdom Net": -714,
+              "Rest of World Net": 645,
+              "Total Net": -69
+            },
+            "All persons": {
+              "United Kingdom Net": -1414,
+              "Rest of World Net": 1270,
+              "Total Net": -144
+            }
+          },
+          "Age 25-34": {
+            "Females": {
+              "United Kingdom Net": 408,
+              "Rest of World Net": 357,
+              "Total Net": 765
+            },
+            "Males": {
+              "United Kingdom Net": 274,
+              "Rest of World Net": 484,
+              "Total Net": 758
+            },
+            "All persons": {
+              "United Kingdom Net": 682,
+              "Rest of World Net": 841,
+              "Total Net": 1523
+            }
+          },
+          "Age 35-44": {
+            "Females": {
+              "United Kingdom Net": 165,
+              "Rest of World Net": -62,
+              "Total Net": 103
+            },
+            "Males": {
+              "United Kingdom Net": 129,
+              "Rest of World Net": 48,
+              "Total Net": 177
+            },
+            "All persons": {
+              "United Kingdom Net": 294,
+              "Rest of World Net": -14,
+              "Total Net": 280
+            }
+          },
+          "Age 45-54": {
+            "Females": {
+              "United Kingdom Net": 115,
+              "Rest of World Net": 67,
+              "Total Net": 182
+            },
+            "Males": {
+              "United Kingdom Net": 137,
+              "Rest of World Net": 123,
+              "Total Net": 260
+            },
+            "All persons": {
+              "United Kingdom Net": 252,
+              "Rest of World Net": 190,
+              "Total Net": 442
+            }
+          },
+          "Age 55-64": {
+            "Females": {
+              "United Kingdom Net": 107,
+              "Rest of World Net": 0,
+              "Total Net": 107
+            },
+            "Males": {
+              "United Kingdom Net": 123,
+              "Rest of World Net": 5,
+              "Total Net": 128
+            },
+            "All persons": {
+              "United Kingdom Net": 230,
+              "Rest of World Net": 5,
+              "Total Net": 235
+            }
+          },
+          "Age 65+": {
+            "Females": {
+              "United Kingdom Net": 61,
+              "Rest of World Net": -33,
+              "Total Net": 28
+            },
+            "Males": {
+              "United Kingdom Net": 83,
+              "Rest of World Net": -62,
+              "Total Net": 21
+            },
+            "All persons": {
+              "United Kingdom Net": 144,
+              "Rest of World Net": -95,
+              "Total Net": 49
+            }
+          },
+          "All": {
+            "Females": {
+              "United Kingdom Net": 392,
+              "Rest of World Net": 1401,
+              "Total Net": 1793
+            },
+            "Males": {
+              "United Kingdom Net": 267,
+              "Rest of World Net": 1597,
+              "Total Net": 1864
+            },
+            "All persons": {
+              "United Kingdom Net": 659,
+              "Rest of World Net": 2998,
+              "Total Net": 3657
+            }
+          }
+        },
+        "2010": {
+          "Age 0-17": {
+            "Females": {
+              "United Kingdom Net": 163,
+              "Rest of World Net": 332,
+              "Total Net": 495
+            },
+            "Males": {
+              "United Kingdom Net": 104,
+              "Rest of World Net": 430,
+              "Total Net": 534
+            },
+            "All persons": {
+              "United Kingdom Net": 267,
+              "Rest of World Net": 762,
+              "Total Net": 1029
+            }
+          },
+          "Age 18-24": {
+            "Females": {
+              "United Kingdom Net": -878,
+              "Rest of World Net": 590,
+              "Total Net": -288
+            },
+            "Males": {
+              "United Kingdom Net": -881,
+              "Rest of World Net": 638,
+              "Total Net": -243
+            },
+            "All persons": {
+              "United Kingdom Net": -1759,
+              "Rest of World Net": 1228,
+              "Total Net": -531
+            }
+          },
+          "Age 25-34": {
+            "Females": {
+              "United Kingdom Net": 35,
+              "Rest of World Net": -3,
+              "Total Net": 32
+            },
+            "Males": {
+              "United Kingdom Net": 85,
+              "Rest of World Net": 217,
+              "Total Net": 302
+            },
+            "All persons": {
+              "United Kingdom Net": 120,
+              "Rest of World Net": 214,
+              "Total Net": 334
+            }
+          },
+          "Age 35-44": {
+            "Females": {
+              "United Kingdom Net": 144,
+              "Rest of World Net": -259,
+              "Total Net": -115
+            },
+            "Males": {
+              "United Kingdom Net": 68,
+              "Rest of World Net": -130,
+              "Total Net": -62
+            },
+            "All persons": {
+              "United Kingdom Net": 212,
+              "Rest of World Net": -389,
+              "Total Net": -177
+            }
+          },
+          "Age 45-54": {
+            "Females": {
+              "United Kingdom Net": 69,
+              "Rest of World Net": 76,
+              "Total Net": 145
+            },
+            "Males": {
+              "United Kingdom Net": 110,
+              "Rest of World Net": 21,
+              "Total Net": 131
+            },
+            "All persons": {
+              "United Kingdom Net": 179,
+              "Rest of World Net": 97,
+              "Total Net": 276
+            }
+          },
+          "Age 55-64": {
+            "Females": {
+              "United Kingdom Net": 76,
+              "Rest of World Net": -6,
+              "Total Net": 70
+            },
+            "Males": {
+              "United Kingdom Net": 108,
+              "Rest of World Net": -36,
+              "Total Net": 72
+            },
+            "All persons": {
+              "United Kingdom Net": 184,
+              "Rest of World Net": -42,
+              "Total Net": 142
+            }
+          },
+          "Age 65+": {
+            "Females": {
+              "United Kingdom Net": 84,
+              "Rest of World Net": -63,
+              "Total Net": 21
+            },
+            "Males": {
+              "United Kingdom Net": 101,
+              "Rest of World Net": -45,
+              "Total Net": 56
+            },
+            "All persons": {
+              "United Kingdom Net": 185,
+              "Rest of World Net": -108,
+              "Total Net": 77
+            }
+          },
+          "All": {
+            "Females": {
+              "United Kingdom Net": -307,
+              "Rest of World Net": 667,
+              "Total Net": 360
+            },
+            "Males": {
+              "United Kingdom Net": -305,
+              "Rest of World Net": 1095,
+              "Total Net": 790
+            },
+            "All persons": {
+              "United Kingdom Net": -612,
+              "Rest of World Net": 1762,
+              "Total Net": 1150
+            }
+          }
+        },
+        "2011": {
+          "Age 0-17": {
+            "Females": {
+              "United Kingdom Net": 54,
+              "Rest of World Net": 372,
+              "Total Net": 426
+            },
+            "Males": {
+              "United Kingdom Net": 114,
+              "Rest of World Net": 246,
+              "Total Net": 360
+            },
+            "All persons": {
+              "United Kingdom Net": 168,
+              "Rest of World Net": 618,
+              "Total Net": 786
+            }
+          },
+          "Age 18-24": {
+            "Females": {
+              "United Kingdom Net": -768,
+              "Rest of World Net": 180,
+              "Total Net": -588
+            },
+            "Males": {
+              "United Kingdom Net": -833,
+              "Rest of World Net": 183,
+              "Total Net": -650
+            },
+            "All persons": {
+              "United Kingdom Net": -1601,
+              "Rest of World Net": 363,
+              "Total Net": -1238
+            }
+          },
+          "Age 25-34": {
+            "Females": {
+              "United Kingdom Net": 25,
+              "Rest of World Net": -512,
+              "Total Net": -487
+            },
+            "Males": {
+              "United Kingdom Net": 50,
+              "Rest of World Net": -488,
+              "Total Net": -438
+            },
+            "All persons": {
+              "United Kingdom Net": 75,
+              "Rest of World Net": -1000,
+              "Total Net": -925
+            }
+          },
+          "Age 35-44": {
+            "Females": {
+              "United Kingdom Net": 74,
+              "Rest of World Net": -202,
+              "Total Net": -128
+            },
+            "Males": {
+              "United Kingdom Net": 44,
+              "Rest of World Net": -228,
+              "Total Net": -184
+            },
+            "All persons": {
+              "United Kingdom Net": 118,
+              "Rest of World Net": -430,
+              "Total Net": -312
+            }
+          },
+          "Age 45-54": {
+            "Females": {
+              "United Kingdom Net": 25,
+              "Rest of World Net": -6,
+              "Total Net": 19
+            },
+            "Males": {
+              "United Kingdom Net": 70,
+              "Rest of World Net": -21,
+              "Total Net": 49
+            },
+            "All persons": {
+              "United Kingdom Net": 95,
+              "Rest of World Net": -27,
+              "Total Net": 68
+            }
+          },
+          "Age 55-64": {
+            "Females": {
+              "United Kingdom Net": 94,
+              "Rest of World Net": -58,
+              "Total Net": 36
+            },
+            "Males": {
+              "United Kingdom Net": 105,
+              "Rest of World Net": -28,
+              "Total Net": 77
+            },
+            "All persons": {
+              "United Kingdom Net": 199,
+              "Rest of World Net": -86,
+              "Total Net": 113
+            }
+          },
+          "Age 65+": {
+            "Females": {
+              "United Kingdom Net": 60,
+              "Rest of World Net": -68,
+              "Total Net": -8
+            },
+            "Males": {
+              "United Kingdom Net": 88,
+              "Rest of World Net": -66,
+              "Total Net": 22
+            },
+            "All persons": {
+              "United Kingdom Net": 148,
+              "Rest of World Net": -134,
+              "Total Net": 14
+            }
+          },
+          "All": {
+            "Females": {
+              "United Kingdom Net": -436,
+              "Rest of World Net": -294,
+              "Total Net": -730
+            },
+            "Males": {
+              "United Kingdom Net": -362,
+              "Rest of World Net": -402,
+              "Total Net": -764
+            },
+            "All persons": {
+              "United Kingdom Net": -798,
+              "Rest of World Net": -696,
+              "Total Net": -1494
+            }
+          }
+        },
+        "2012": {
+          "Age 0-17": {
+            "Females": {
+              "United Kingdom Net": 64,
+              "Rest of World Net": 302,
+              "Total Net": 366
+            },
+            "Males": {
+              "United Kingdom Net": 53,
+              "Rest of World Net": 123,
+              "Total Net": 176
+            },
+            "All persons": {
+              "United Kingdom Net": 117,
+              "Rest of World Net": 425,
+              "Total Net": 542
+            }
+          },
+          "Age 18-24": {
+            "Females": {
+              "United Kingdom Net": -1162,
+              "Rest of World Net": 471,
+              "Total Net": -691
+            },
+            "Males": {
+              "United Kingdom Net": -1133,
+              "Rest of World Net": 80,
+              "Total Net": -1053
+            },
+            "All persons": {
+              "United Kingdom Net": -2295,
+              "Rest of World Net": 551,
+              "Total Net": -1744
+            }
+          },
+          "Age 25-34": {
+            "Females": {
+              "United Kingdom Net": -81,
+              "Rest of World Net": 32,
+              "Total Net": -49
+            },
+            "Males": {
+              "United Kingdom Net": -131,
+              "Rest of World Net": -2,
+              "Total Net": -133
+            },
+            "All persons": {
+              "United Kingdom Net": -212,
+              "Rest of World Net": 30,
+              "Total Net": -182
+            }
+          },
+          "Age 35-44": {
+            "Females": {
+              "United Kingdom Net": 117,
+              "Rest of World Net": -262,
+              "Total Net": -145
+            },
+            "Males": {
+              "United Kingdom Net": 28,
+              "Rest of World Net": 88,
+              "Total Net": 116
+            },
+            "All persons": {
+              "United Kingdom Net": 145,
+              "Rest of World Net": -174,
+              "Total Net": -29
+            }
+          },
+          "Age 45-54": {
+            "Females": {
+              "United Kingdom Net": 75,
+              "Rest of World Net": 96,
+              "Total Net": 171
+            },
+            "Males": {
+              "United Kingdom Net": 63,
+              "Rest of World Net": 160,
+              "Total Net": 223
+            },
+            "All persons": {
+              "United Kingdom Net": 138,
+              "Rest of World Net": 256,
+              "Total Net": 394
+            }
+          },
+          "Age 55-64": {
+            "Females": {
+              "United Kingdom Net": 73,
+              "Rest of World Net": 22,
+              "Total Net": 95
+            },
+            "Males": {
+              "United Kingdom Net": 115,
+              "Rest of World Net": 152,
+              "Total Net": 267
+            },
+            "All persons": {
+              "United Kingdom Net": 188,
+              "Rest of World Net": 174,
+              "Total Net": 362
+            }
+          },
+          "Age 65+": {
+            "Females": {
+              "United Kingdom Net": 53,
+              "Rest of World Net": -14,
+              "Total Net": 39
+            },
+            "Males": {
+              "United Kingdom Net": 109,
+              "Rest of World Net": -20,
+              "Total Net": 89
+            },
+            "All persons": {
+              "United Kingdom Net": 162,
+              "Rest of World Net": -34,
+              "Total Net": 128
+            }
+          },
+          "All": {
+            "Females": {
+              "United Kingdom Net": -861,
+              "Rest of World Net": 647,
+              "Total Net": -214
+            },
+            "Males": {
+              "United Kingdom Net": -896,
+              "Rest of World Net": 581,
+              "Total Net": -315
+            },
+            "All persons": {
+              "United Kingdom Net": -1757,
+              "Rest of World Net": 1228,
+              "Total Net": -529
+            }
+          }
+        },
+        "2013": {
+          "Age 0-17": {
+            "Females": {
+              "United Kingdom Net": 133,
+              "Rest of World Net": 359,
+              "Total Net": 492
+            },
+            "Males": {
+              "United Kingdom Net": 56,
+              "Rest of World Net": -8,
+              "Total Net": 48
+            },
+            "All persons": {
+              "United Kingdom Net": 189,
+              "Rest of World Net": 351,
+              "Total Net": 540
+            }
+          },
+          "Age 18-24": {
+            "Females": {
+              "United Kingdom Net": -986,
+              "Rest of World Net": 223,
+              "Total Net": -763
+            },
+            "Males": {
+              "United Kingdom Net": -1222,
+              "Rest of World Net": -178,
+              "Total Net": -1400
+            },
+            "All persons": {
+              "United Kingdom Net": -2208,
+              "Rest of World Net": 45,
+              "Total Net": -2163
+            }
+          },
+          "Age 25-34": {
+            "Females": {
+              "United Kingdom Net": 31,
+              "Rest of World Net": -227,
+              "Total Net": -196
+            },
+            "Males": {
+              "United Kingdom Net": -138,
+              "Rest of World Net": -395,
+              "Total Net": -533
+            },
+            "All persons": {
+              "United Kingdom Net": -107,
+              "Rest of World Net": -622,
+              "Total Net": -729
+            }
+          },
+          "Age 35-44": {
+            "Females": {
+              "United Kingdom Net": 79,
+              "Rest of World Net": -273,
+              "Total Net": -194
+            },
+            "Males": {
+              "United Kingdom Net": -27,
+              "Rest of World Net": -27,
+              "Total Net": -54
+            },
+            "All persons": {
+              "United Kingdom Net": 52,
+              "Rest of World Net": -300,
+              "Total Net": -248
+            }
+          },
+          "Age 45-54": {
+            "Females": {
+              "United Kingdom Net": 107,
+              "Rest of World Net": 28,
+              "Total Net": 135
+            },
+            "Males": {
+              "United Kingdom Net": 124,
+              "Rest of World Net": 159,
+              "Total Net": 283
+            },
+            "All persons": {
+              "United Kingdom Net": 231,
+              "Rest of World Net": 187,
+              "Total Net": 418
+            }
+          },
+          "Age 55-64": {
+            "Females": {
+              "United Kingdom Net": 122,
+              "Rest of World Net": 96,
+              "Total Net": 218
+            },
+            "Males": {
+              "United Kingdom Net": 116,
+              "Rest of World Net": 116,
+              "Total Net": 232
+            },
+            "All persons": {
+              "United Kingdom Net": 238,
+              "Rest of World Net": 212,
+              "Total Net": 450
+            }
+          },
+          "Age 65+": {
+            "Females": {
+              "United Kingdom Net": 69,
+              "Rest of World Net": -40,
+              "Total Net": 29
+            },
+            "Males": {
+              "United Kingdom Net": 85,
+              "Rest of World Net": -18,
+              "Total Net": 67
+            },
+            "All persons": {
+              "United Kingdom Net": 154,
+              "Rest of World Net": -58,
+              "Total Net": 96
+            }
+          },
+          "All": {
+            "Females": {
+              "United Kingdom Net": -445,
+              "Rest of World Net": 166,
+              "Total Net": -279
+            },
+            "Males": {
+              "United Kingdom Net": -1006,
+              "Rest of World Net": -351,
+              "Total Net": -1357
+            },
+            "All persons": {
+              "United Kingdom Net": -1451,
+              "Rest of World Net": -185,
+              "Total Net": -1636
+            }
+          }
+        },
+        "2014": {
+          "Age 0-17": {
+            "Females": {
+              "United Kingdom Net": 234,
+              "Rest of World Net": 537,
+              "Total Net": 771
+            },
+            "Males": {
+              "United Kingdom Net": 207,
+              "Rest of World Net": 353,
+              "Total Net": 560
+            },
+            "All persons": {
+              "United Kingdom Net": 441,
+              "Rest of World Net": 890,
+              "Total Net": 1331
+            }
+          },
+          "Age 18-24": {
+            "Females": {
+              "United Kingdom Net": -1113,
+              "Rest of World Net": 540,
+              "Total Net": -573
+            },
+            "Males": {
+              "United Kingdom Net": -1113,
+              "Rest of World Net": 260,
+              "Total Net": -853
+            },
+            "All persons": {
+              "United Kingdom Net": -2226,
+              "Rest of World Net": 800,
+              "Total Net": -1426
+            }
+          },
+          "Age 25-34": {
+            "Females": {
+              "United Kingdom Net": 109,
+              "Rest of World Net": 325,
+              "Total Net": 434
+            },
+            "Males": {
+              "United Kingdom Net": 12,
+              "Rest of World Net": 203,
+              "Total Net": 215
+            },
+            "All persons": {
+              "United Kingdom Net": 121,
+              "Rest of World Net": 528,
+              "Total Net": 649
+            }
+          },
+          "Age 35-44": {
+            "Females": {
+              "United Kingdom Net": 194,
+              "Rest of World Net": -31,
+              "Total Net": 163
+            },
+            "Males": {
+              "United Kingdom Net": 76,
+              "Rest of World Net": 198,
+              "Total Net": 274
+            },
+            "All persons": {
+              "United Kingdom Net": 270,
+              "Rest of World Net": 167,
+              "Total Net": 437
+            }
+          },
+          "Age 45-54": {
+            "Females": {
+              "United Kingdom Net": 164,
+              "Rest of World Net": 75,
+              "Total Net": 239
+            },
+            "Males": {
+              "United Kingdom Net": 123,
+              "Rest of World Net": 171,
+              "Total Net": 294
+            },
+            "All persons": {
+              "United Kingdom Net": 287,
+              "Rest of World Net": 246,
+              "Total Net": 533
+            }
+          },
+          "Age 55-64": {
+            "Females": {
+              "United Kingdom Net": 116,
+              "Rest of World Net": 112,
+              "Total Net": 228
+            },
+            "Males": {
+              "United Kingdom Net": 139,
+              "Rest of World Net": 97,
+              "Total Net": 236
+            },
+            "All persons": {
+              "United Kingdom Net": 255,
+              "Rest of World Net": 209,
+              "Total Net": 464
+            }
+          },
+          "Age 65+": {
+            "Females": {
+              "United Kingdom Net": 88,
+              "Rest of World Net": -47,
+              "Total Net": 41
+            },
+            "Males": {
+              "United Kingdom Net": 98,
+              "Rest of World Net": -35,
+              "Total Net": 63
+            },
+            "All persons": {
+              "United Kingdom Net": 186,
+              "Rest of World Net": -82,
+              "Total Net": 104
+            }
+          },
+          "All": {
+            "Females": {
+              "United Kingdom Net": -208,
+              "Rest of World Net": 1511,
+              "Total Net": 1303
+            },
+            "Males": {
+              "United Kingdom Net": -458,
+              "Rest of World Net": 1247,
+              "Total Net": 789
+            },
+            "All persons": {
+              "United Kingdom Net": -666,
+              "Rest of World Net": 2758,
+              "Total Net": 2092
+            }
+          }
+        },
+        "2015": {
+          "Age 0-17": {
+            "Females": {
+              "United Kingdom Net": 253,
+              "Rest of World Net": 425,
+              "Total Net": 678
+            },
+            "Males": {
+              "United Kingdom Net": 263,
+              "Rest of World Net": 354,
+              "Total Net": 617
+            },
+            "All persons": {
+              "United Kingdom Net": 516,
+              "Rest of World Net": 779,
+              "Total Net": 1295
+            }
+          },
+          "Age 18-24": {
+            "Females": {
+              "United Kingdom Net": -1092,
+              "Rest of World Net": 659,
+              "Total Net": -433
+            },
+            "Males": {
+              "United Kingdom Net": -1245,
+              "Rest of World Net": 402,
+              "Total Net": -843
+            },
+            "All persons": {
+              "United Kingdom Net": -2337,
+              "Rest of World Net": 1061,
+              "Total Net": -1276
+            }
+          },
+          "Age 25-34": {
+            "Females": {
+              "United Kingdom Net": 113,
+              "Rest of World Net": 397,
+              "Total Net": 510
+            },
+            "Males": {
+              "United Kingdom Net": -16,
+              "Rest of World Net": 271,
+              "Total Net": 255
+            },
+            "All persons": {
+              "United Kingdom Net": 97,
+              "Rest of World Net": 668,
+              "Total Net": 765
+            }
+          },
+          "Age 35-44": {
+            "Females": {
+              "United Kingdom Net": 193,
+              "Rest of World Net": -57,
+              "Total Net": 136
+            },
+            "Males": {
+              "United Kingdom Net": 110,
+              "Rest of World Net": 413,
+              "Total Net": 523
+            },
+            "All persons": {
+              "United Kingdom Net": 303,
+              "Rest of World Net": 356,
+              "Total Net": 659
+            }
+          },
+          "Age 45-54": {
+            "Females": {
+              "United Kingdom Net": 116,
+              "Rest of World Net": 97,
+              "Total Net": 213
+            },
+            "Males": {
+              "United Kingdom Net": 126,
+              "Rest of World Net": 268,
+              "Total Net": 394
+            },
+            "All persons": {
+              "United Kingdom Net": 242,
+              "Rest of World Net": 365,
+              "Total Net": 607
+            }
+          },
+          "Age 55-64": {
+            "Females": {
+              "United Kingdom Net": 108,
+              "Rest of World Net": 33,
+              "Total Net": 141
+            },
+            "Males": {
+              "United Kingdom Net": 71,
+              "Rest of World Net": 145,
+              "Total Net": 216
+            },
+            "All persons": {
+              "United Kingdom Net": 179,
+              "Rest of World Net": 178,
+              "Total Net": 357
+            }
+          },
+          "Age 65+": {
+            "Females": {
+              "United Kingdom Net": 114,
+              "Rest of World Net": -69,
+              "Total Net": 45
+            },
+            "Males": {
+              "United Kingdom Net": 123,
+              "Rest of World Net": -27,
+              "Total Net": 96
+            },
+            "All persons": {
+              "United Kingdom Net": 237,
+              "Rest of World Net": -96,
+              "Total Net": 141
+            }
+          },
+          "All": {
+            "Females": {
+              "United Kingdom Net": -195,
+              "Rest of World Net": 1485,
+              "Total Net": 1290
+            },
+            "Males": {
+              "United Kingdom Net": -568,
+              "Rest of World Net": 1826,
+              "Total Net": 1258
+            },
+            "All persons": {
+              "United Kingdom Net": -763,
+              "Rest of World Net": 3311,
+              "Total Net": 2548
+            }
+          }
+        },
+        "2016": {
+          "Age 0-17": {
+            "Females": {
+              "United Kingdom Net": 253,
+              "Rest of World Net": 392,
+              "Total Net": 645
+            },
+            "Males": {
+              "United Kingdom Net": 334,
+              "Rest of World Net": 264,
+              "Total Net": 598
+            },
+            "All persons": {
+              "United Kingdom Net": 587,
+              "Rest of World Net": 656,
+              "Total Net": 1243
+            }
+          },
+          "Age 18-24": {
+            "Females": {
+              "United Kingdom Net": -1130,
+              "Rest of World Net": 381,
+              "Total Net": -749
+            },
+            "Males": {
+              "United Kingdom Net": -1150,
+              "Rest of World Net": 121,
+              "Total Net": -1029
+            },
+            "All persons": {
+              "United Kingdom Net": -2280,
+              "Rest of World Net": 502,
+              "Total Net": -1778
+            }
+          },
+          "Age 25-34": {
+            "Females": {
+              "United Kingdom Net": 264,
+              "Rest of World Net": 51,
+              "Total Net": 315
+            },
+            "Males": {
+              "United Kingdom Net": 284,
+              "Rest of World Net": -122,
+              "Total Net": 162
+            },
+            "All persons": {
+              "United Kingdom Net": 548,
+              "Rest of World Net": -71,
+              "Total Net": 477
+            }
+          },
+          "Age 35-44": {
+            "Females": {
+              "United Kingdom Net": 233,
+              "Rest of World Net": 89,
+              "Total Net": 322
+            },
+            "Males": {
+              "United Kingdom Net": 150,
+              "Rest of World Net": 288,
+              "Total Net": 438
+            },
+            "All persons": {
+              "United Kingdom Net": 383,
+              "Rest of World Net": 377,
+              "Total Net": 760
+            }
+          },
+          "Age 45-54": {
+            "Females": {
+              "United Kingdom Net": 117,
+              "Rest of World Net": 18,
+              "Total Net": 135
+            },
+            "Males": {
+              "United Kingdom Net": 113,
+              "Rest of World Net": 228,
+              "Total Net": 341
+            },
+            "All persons": {
+              "United Kingdom Net": 230,
+              "Rest of World Net": 246,
+              "Total Net": 476
+            }
+          },
+          "Age 55-64": {
+            "Females": {
+              "United Kingdom Net": 133,
+              "Rest of World Net": 103,
+              "Total Net": 236
+            },
+            "Males": {
+              "United Kingdom Net": 135,
+              "Rest of World Net": 99,
+              "Total Net": 234
+            },
+            "All persons": {
+              "United Kingdom Net": 268,
+              "Rest of World Net": 202,
+              "Total Net": 470
+            }
+          },
+          "Age 65+": {
+            "Females": {
+              "United Kingdom Net": 113,
+              "Rest of World Net": -54,
+              "Total Net": 59
+            },
+            "Males": {
+              "United Kingdom Net": 151,
+              "Rest of World Net": 25,
+              "Total Net": 176
+            },
+            "All persons": {
+              "United Kingdom Net": 264,
+              "Rest of World Net": -29,
+              "Total Net": 235
+            }
+          },
+          "All": {
+            "Females": {
+              "United Kingdom Net": -17,
+              "Rest of World Net": 980,
+              "Total Net": 963
+            },
+            "Males": {
+              "United Kingdom Net": 17,
+              "Rest of World Net": 903,
+              "Total Net": 920
+            },
+            "All persons": {
+              "United Kingdom Net": 0,
+              "Rest of World Net": 1883,
+              "Total Net": 1883
+            }
+          }
+        },
+        "2017": {
+          "Age 0-17": {
+            "Females": {
+              "United Kingdom Net": 339,
+              "Rest of World Net": 294,
+              "Total Net": 633
+            },
+            "Males": {
+              "United Kingdom Net": 350,
+              "Rest of World Net": 75,
+              "Total Net": 425
+            },
+            "All persons": {
+              "United Kingdom Net": 689,
+              "Rest of World Net": 369,
+              "Total Net": 1058
+            }
+          },
+          "Age 18-24": {
+            "Females": {
+              "United Kingdom Net": -1430,
+              "Rest of World Net": 151,
+              "Total Net": -1279
+            },
+            "Males": {
+              "United Kingdom Net": -1212,
+              "Rest of World Net": -46,
+              "Total Net": -1258
+            },
+            "All persons": {
+              "United Kingdom Net": -2642,
+              "Rest of World Net": 105,
+              "Total Net": -2537
+            }
+          },
+          "Age 25-34": {
+            "Females": {
+              "United Kingdom Net": 513,
+              "Rest of World Net": 26,
+              "Total Net": 539
+            },
+            "Males": {
+              "United Kingdom Net": 490,
+              "Rest of World Net": -340,
+              "Total Net": 150
+            },
+            "All persons": {
+              "United Kingdom Net": 1003,
+              "Rest of World Net": -314,
+              "Total Net": 689
+            }
+          },
+          "Age 35-44": {
+            "Females": {
+              "United Kingdom Net": 308,
+              "Rest of World Net": 37,
+              "Total Net": 345
+            },
+            "Males": {
+              "United Kingdom Net": 271,
+              "Rest of World Net": 266,
+              "Total Net": 537
+            },
+            "All persons": {
+              "United Kingdom Net": 579,
+              "Rest of World Net": 303,
+              "Total Net": 882
+            }
+          },
+          "Age 45-54": {
+            "Females": {
+              "United Kingdom Net": 148,
+              "Rest of World Net": 12,
+              "Total Net": 160
+            },
+            "Males": {
+              "United Kingdom Net": 193,
+              "Rest of World Net": 217,
+              "Total Net": 410
+            },
+            "All persons": {
+              "United Kingdom Net": 341,
+              "Rest of World Net": 229,
+              "Total Net": 570
+            }
+          },
+          "Age 55-64": {
+            "Females": {
+              "United Kingdom Net": 165,
+              "Rest of World Net": 80,
+              "Total Net": 245
+            },
+            "Males": {
+              "United Kingdom Net": 173,
+              "Rest of World Net": 103,
+              "Total Net": 276
+            },
+            "All persons": {
+              "United Kingdom Net": 338,
+              "Rest of World Net": 183,
+              "Total Net": 521
+            }
+          },
+          "Age 65+": {
+            "Females": {
+              "United Kingdom Net": 133,
+              "Rest of World Net": -21,
+              "Total Net": 112
+            },
+            "Males": {
+              "United Kingdom Net": 151,
+              "Rest of World Net": -13,
+              "Total Net": 138
+            },
+            "All persons": {
+              "United Kingdom Net": 284,
+              "Rest of World Net": -34,
+              "Total Net": 250
+            }
+          },
+          "All": {
+            "Females": {
+              "United Kingdom Net": 176,
+              "Rest of World Net": 579,
+              "Total Net": 755
+            },
+            "Males": {
+              "United Kingdom Net": 416,
+              "Rest of World Net": 262,
+              "Total Net": 678
+            },
+            "All persons": {
+              "United Kingdom Net": 592,
+              "Rest of World Net": 841,
+              "Total Net": 1433
+            }
+          }
+        },
+        "2018": {
+          "Age 0-17": {
+            "Females": {
+              "United Kingdom Net": 424,
+              "Rest of World Net": 465,
+              "Total Net": 889
+            },
+            "Males": {
+              "United Kingdom Net": 382,
+              "Rest of World Net": 418,
+              "Total Net": 800
+            },
+            "All persons": {
+              "United Kingdom Net": 806,
+              "Rest of World Net": 883,
+              "Total Net": 1689
+            }
+          },
+          "Age 18-24": {
+            "Females": {
+              "United Kingdom Net": -1086,
+              "Rest of World Net": 550,
+              "Total Net": -536
+            },
+            "Males": {
+              "United Kingdom Net": -1177,
+              "Rest of World Net": 391,
+              "Total Net": -786
+            },
+            "All persons": {
+              "United Kingdom Net": -2263,
+              "Rest of World Net": 941,
+              "Total Net": -1322
+            }
+          },
+          "Age 25-34": {
+            "Females": {
+              "United Kingdom Net": 277,
+              "Rest of World Net": 515,
+              "Total Net": 792
+            },
+            "Males": {
+              "United Kingdom Net": 209,
+              "Rest of World Net": 302,
+              "Total Net": 511
+            },
+            "All persons": {
+              "United Kingdom Net": 486,
+              "Rest of World Net": 817,
+              "Total Net": 1303
+            }
+          },
+          "Age 35-44": {
+            "Females": {
+              "United Kingdom Net": 294,
+              "Rest of World Net": 251,
+              "Total Net": 545
+            },
+            "Males": {
+              "United Kingdom Net": 162,
+              "Rest of World Net": 528,
+              "Total Net": 690
+            },
+            "All persons": {
+              "United Kingdom Net": 456,
+              "Rest of World Net": 779,
+              "Total Net": 1235
+            }
+          },
+          "Age 45-54": {
+            "Females": {
+              "United Kingdom Net": 166,
+              "Rest of World Net": 113,
+              "Total Net": 279
+            },
+            "Males": {
+              "United Kingdom Net": 141,
+              "Rest of World Net": 359,
+              "Total Net": 500
+            },
+            "All persons": {
+              "United Kingdom Net": 307,
+              "Rest of World Net": 472,
+              "Total Net": 779
+            }
+          },
+          "Age 55-64": {
+            "Females": {
+              "United Kingdom Net": 133,
+              "Rest of World Net": 63,
+              "Total Net": 196
+            },
+            "Males": {
+              "United Kingdom Net": 139,
+              "Rest of World Net": 100,
+              "Total Net": 239
+            },
+            "All persons": {
+              "United Kingdom Net": 272,
+              "Rest of World Net": 163,
+              "Total Net": 435
+            }
+          },
+          "Age 65+": {
+            "Females": {
+              "United Kingdom Net": 49,
+              "Rest of World Net": -46,
+              "Total Net": 3
+            },
+            "Males": {
+              "United Kingdom Net": 102,
+              "Rest of World Net": 13,
+              "Total Net": 115
+            },
+            "All persons": {
+              "United Kingdom Net": 151,
+              "Rest of World Net": -33,
+              "Total Net": 118
+            }
+          },
+          "All": {
+            "Females": {
+              "United Kingdom Net": 257,
+              "Rest of World Net": 1911,
+              "Total Net": 2168
+            },
+            "Males": {
+              "United Kingdom Net": -42,
+              "Rest of World Net": 2111,
+              "Total Net": 2069
+            },
+            "All persons": {
+              "United Kingdom Net": 215,
+              "Rest of World Net": 4022,
+              "Total Net": 4237
+            }
+          }
+        },
+        "2019": {
+          "Age 0-17": {
+            "Females": {
+              "United Kingdom Net": 356,
+              "Rest of World Net": 484,
+              "Total Net": 840
+            },
+            "Males": {
+              "United Kingdom Net": 380,
+              "Rest of World Net": 323,
+              "Total Net": 703
+            },
+            "All persons": {
+              "United Kingdom Net": 736,
+              "Rest of World Net": 807,
+              "Total Net": 1543
+            }
+          },
+          "Age 18-24": {
+            "Females": {
+              "United Kingdom Net": -1155,
+              "Rest of World Net": 500,
+              "Total Net": -655
+            },
+            "Males": {
+              "United Kingdom Net": -1091,
+              "Rest of World Net": 381,
+              "Total Net": -710
+            },
+            "All persons": {
+              "United Kingdom Net": -2246,
+              "Rest of World Net": 881,
+              "Total Net": -1365
+            }
+          },
+          "Age 25-34": {
+            "Females": {
+              "United Kingdom Net": 571,
+              "Rest of World Net": 406,
+              "Total Net": 977
+            },
+            "Males": {
+              "United Kingdom Net": 541,
+              "Rest of World Net": 211,
+              "Total Net": 752
+            },
+            "All persons": {
+              "United Kingdom Net": 1112,
+              "Rest of World Net": 617,
+              "Total Net": 1729
+            }
+          },
+          "Age 35-44": {
+            "Females": {
+              "United Kingdom Net": 368,
+              "Rest of World Net": 404,
+              "Total Net": 772
+            },
+            "Males": {
+              "United Kingdom Net": 263,
+              "Rest of World Net": 471,
+              "Total Net": 734
+            },
+            "All persons": {
+              "United Kingdom Net": 631,
+              "Rest of World Net": 875,
+              "Total Net": 1506
+            }
+          },
+          "Age 45-54": {
+            "Females": {
+              "United Kingdom Net": 197,
+              "Rest of World Net": 145,
+              "Total Net": 342
+            },
+            "Males": {
+              "United Kingdom Net": 209,
+              "Rest of World Net": 349,
+              "Total Net": 558
+            },
+            "All persons": {
+              "United Kingdom Net": 406,
+              "Rest of World Net": 494,
+              "Total Net": 900
+            }
+          },
+          "Age 55-64": {
+            "Females": {
+              "United Kingdom Net": 148,
+              "Rest of World Net": 58,
+              "Total Net": 206
+            },
+            "Males": {
+              "United Kingdom Net": 132,
+              "Rest of World Net": 69,
+              "Total Net": 201
+            },
+            "All persons": {
+              "United Kingdom Net": 280,
+              "Rest of World Net": 127,
+              "Total Net": 407
+            }
+          },
+          "Age 65+": {
+            "Females": {
+              "United Kingdom Net": 80,
+              "Rest of World Net": -39,
+              "Total Net": 41
+            },
+            "Males": {
+              "United Kingdom Net": 115,
+              "Rest of World Net": 37,
+              "Total Net": 152
+            },
+            "All persons": {
+              "United Kingdom Net": 195,
+              "Rest of World Net": -2,
+              "Total Net": 193
+            }
+          },
+          "All": {
+            "Females": {
+              "United Kingdom Net": 565,
+              "Rest of World Net": 1958,
+              "Total Net": 2523
+            },
+            "Males": {
+              "United Kingdom Net": 549,
+              "Rest of World Net": 1841,
+              "Total Net": 2390
+            },
+            "All persons": {
+              "United Kingdom Net": 1114,
+              "Rest of World Net": 3799,
+              "Total Net": 4913
+            }
+          }
+        },
+        "2020": {
+          "Age 0-17": {
+            "Females": {
+              "United Kingdom Net": 190,
+              "Rest of World Net": -172,
+              "Total Net": 18
+            },
+            "Males": {
+              "United Kingdom Net": 239,
+              "Rest of World Net": -347,
+              "Total Net": -108
+            },
+            "All persons": {
+              "United Kingdom Net": 429,
+              "Rest of World Net": -519,
+              "Total Net": -90
+            }
+          },
+          "Age 18-24": {
+            "Females": {
+              "United Kingdom Net": -1538,
+              "Rest of World Net": -119,
+              "Total Net": -1657
+            },
+            "Males": {
+              "United Kingdom Net": -1368,
+              "Rest of World Net": -355,
+              "Total Net": -1723
+            },
+            "All persons": {
+              "United Kingdom Net": -2906,
+              "Rest of World Net": -474,
+              "Total Net": -3380
+            }
+          },
+          "Age 25-34": {
+            "Females": {
+              "United Kingdom Net": 166,
+              "Rest of World Net": -262,
+              "Total Net": -96
+            },
+            "Males": {
+              "United Kingdom Net": 60,
+              "Rest of World Net": -719,
+              "Total Net": -659
+            },
+            "All persons": {
+              "United Kingdom Net": 226,
+              "Rest of World Net": -981,
+              "Total Net": -755
+            }
+          },
+          "Age 35-44": {
+            "Females": {
+              "United Kingdom Net": 232,
+              "Rest of World Net": 100,
+              "Total Net": 332
+            },
+            "Males": {
+              "United Kingdom Net": 144,
+              "Rest of World Net": 3,
+              "Total Net": 147
+            },
+            "All persons": {
+              "United Kingdom Net": 376,
+              "Rest of World Net": 103,
+              "Total Net": 479
+            }
+          },
+          "Age 45-54": {
+            "Females": {
+              "United Kingdom Net": 49,
+              "Rest of World Net": -78,
+              "Total Net": -29
+            },
+            "Males": {
+              "United Kingdom Net": 55,
+              "Rest of World Net": 100,
+              "Total Net": 155
+            },
+            "All persons": {
+              "United Kingdom Net": 104,
+              "Rest of World Net": 22,
+              "Total Net": 126
+            }
+          },
+          "Age 55-64": {
+            "Females": {
+              "United Kingdom Net": 80,
+              "Rest of World Net": 23,
+              "Total Net": 103
+            },
+            "Males": {
+              "United Kingdom Net": 118,
+              "Rest of World Net": 102,
+              "Total Net": 220
+            },
+            "All persons": {
+              "United Kingdom Net": 198,
+              "Rest of World Net": 125,
+              "Total Net": 323
+            }
+          },
+          "Age 65+": {
+            "Females": {
+              "United Kingdom Net": 10,
+              "Rest of World Net": -101,
+              "Total Net": -91
+            },
+            "Males": {
+              "United Kingdom Net": 37,
+              "Rest of World Net": 3,
+              "Total Net": 40
+            },
+            "All persons": {
+              "United Kingdom Net": 47,
+              "Rest of World Net": -98,
+              "Total Net": -51
+            }
+          },
+          "All": {
+            "Females": {
+              "United Kingdom Net": -811,
+              "Rest of World Net": -609,
+              "Total Net": -1420
+            },
+            "Males": {
+              "United Kingdom Net": -715,
+              "Rest of World Net": -1213,
+              "Total Net": -1928
+            },
+            "All persons": {
+              "United Kingdom Net": -1526,
+              "Rest of World Net": -1822,
+              "Total Net": -3348
+            }
+          }
+        },
+        "2021": {
+          "Age 0-17": {
+            "Females": {
+              "United Kingdom Net": 218,
+              "Rest of World Net": 69,
+              "Total Net": 287
+            },
+            "Males": {
+              "United Kingdom Net": 298,
+              "Rest of World Net": -308,
+              "Total Net": -10
+            },
+            "All persons": {
+              "United Kingdom Net": 516,
+              "Rest of World Net": -239,
+              "Total Net": 277
+            }
+          },
+          "Age 18-24": {
+            "Females": {
+              "United Kingdom Net": -1929,
+              "Rest of World Net": 581,
+              "Total Net": -1348
+            },
+            "Males": {
+              "United Kingdom Net": -1647,
+              "Rest of World Net": 428,
+              "Total Net": -1219
+            },
+            "All persons": {
+              "United Kingdom Net": -3576,
+              "Rest of World Net": 1009,
+              "Total Net": -2567
+            }
+          },
+          "Age 25-34": {
+            "Females": {
+              "United Kingdom Net": 39,
+              "Rest of World Net": 666,
+              "Total Net": 705
+            },
+            "Males": {
+              "United Kingdom Net": -366,
+              "Rest of World Net": 304,
+              "Total Net": -62
+            },
+            "All persons": {
+              "United Kingdom Net": -327,
+              "Rest of World Net": 970,
+              "Total Net": 643
+            }
+          },
+          "Age 35-44": {
+            "Females": {
+              "United Kingdom Net": 347,
+              "Rest of World Net": 396,
+              "Total Net": 743
+            },
+            "Males": {
+              "United Kingdom Net": 38,
+              "Rest of World Net": 224,
+              "Total Net": 262
+            },
+            "All persons": {
+              "United Kingdom Net": 385,
+              "Rest of World Net": 620,
+              "Total Net": 1005
+            }
+          },
+          "Age 45-54": {
+            "Females": {
+              "United Kingdom Net": 135,
+              "Rest of World Net": -32,
+              "Total Net": 103
+            },
+            "Males": {
+              "United Kingdom Net": 76,
+              "Rest of World Net": -47,
+              "Total Net": 29
+            },
+            "All persons": {
+              "United Kingdom Net": 211,
+              "Rest of World Net": -79,
+              "Total Net": 132
+            }
+          },
+          "Age 55-64": {
+            "Females": {
+              "United Kingdom Net": 135,
+              "Rest of World Net": 12,
+              "Total Net": 147
+            },
+            "Males": {
+              "United Kingdom Net": 122,
+              "Rest of World Net": -108,
+              "Total Net": 14
+            },
+            "All persons": {
+              "United Kingdom Net": 257,
+              "Rest of World Net": -96,
+              "Total Net": 161
+            }
+          },
+          "Age 65+": {
+            "Females": {
+              "United Kingdom Net": 50,
+              "Rest of World Net": -145,
+              "Total Net": -95
+            },
+            "Males": {
+              "United Kingdom Net": 93,
+              "Rest of World Net": -52,
+              "Total Net": 41
+            },
+            "All persons": {
+              "United Kingdom Net": 143,
+              "Rest of World Net": -197,
+              "Total Net": -54
+            }
+          },
+          "All": {
+            "Females": {
+              "United Kingdom Net": -1005,
+              "Rest of World Net": 1547,
+              "Total Net": 542
+            },
+            "Males": {
+              "United Kingdom Net": -1386,
+              "Rest of World Net": 441,
+              "Total Net": -945
+            },
+            "All persons": {
+              "United Kingdom Net": -2391,
+              "Rest of World Net": 1988,
+              "Total Net": -403
+            }
+          }
+        },
+        "2022": {
+          "Age 0-17": {
+            "Females": {
+              "United Kingdom Net": 296,
+              "Rest of World Net": 1448,
+              "Total Net": 1744
+            },
+            "Males": {
+              "United Kingdom Net": 354,
+              "Rest of World Net": 1517,
+              "Total Net": 1871
+            },
+            "All persons": {
+              "United Kingdom Net": 650,
+              "Rest of World Net": 2965,
+              "Total Net": 3615
+            }
+          },
+          "Age 18-24": {
+            "Females": {
+              "United Kingdom Net": -2565,
+              "Rest of World Net": 445,
+              "Total Net": -2120
+            },
+            "Males": {
+              "United Kingdom Net": -1996,
+              "Rest of World Net": 452,
+              "Total Net": -1544
+            },
+            "All persons": {
+              "United Kingdom Net": -4561,
+              "Rest of World Net": 897,
+              "Total Net": -3664
+            }
+          },
+          "Age 25-34": {
+            "Females": {
+              "United Kingdom Net": 52,
+              "Rest of World Net": 489,
+              "Total Net": 541
+            },
+            "Males": {
+              "United Kingdom Net": -248,
+              "Rest of World Net": 679,
+              "Total Net": 431
+            },
+            "All persons": {
+              "United Kingdom Net": -196,
+              "Rest of World Net": 1168,
+              "Total Net": 972
+            }
+          },
+          "Age 35-44": {
+            "Females": {
+              "United Kingdom Net": 360,
+              "Rest of World Net": 340,
+              "Total Net": 700
+            },
+            "Males": {
+              "United Kingdom Net": 209,
+              "Rest of World Net": 315,
+              "Total Net": 524
+            },
+            "All persons": {
+              "United Kingdom Net": 569,
+              "Rest of World Net": 655,
+              "Total Net": 1224
+            }
+          },
+          "Age 45-54": {
+            "Females": {
+              "United Kingdom Net": 189,
+              "Rest of World Net": -25,
+              "Total Net": 164
+            },
+            "Males": {
+              "United Kingdom Net": 144,
+              "Rest of World Net": -17,
+              "Total Net": 127
+            },
+            "All persons": {
+              "United Kingdom Net": 333,
+              "Rest of World Net": -42,
+              "Total Net": 291
+            }
+          },
+          "Age 55-64": {
+            "Females": {
+              "United Kingdom Net": 150,
+              "Rest of World Net": -49,
+              "Total Net": 101
+            },
+            "Males": {
+              "United Kingdom Net": 139,
+              "Rest of World Net": -221,
+              "Total Net": -82
+            },
+            "All persons": {
+              "United Kingdom Net": 289,
+              "Rest of World Net": -270,
+              "Total Net": 19
+            }
+          },
+          "Age 65+": {
+            "Females": {
+              "United Kingdom Net": 71,
+              "Rest of World Net": -165,
+              "Total Net": -94
+            },
+            "Males": {
+              "United Kingdom Net": 139,
+              "Rest of World Net": -188,
+              "Total Net": -49
+            },
+            "All persons": {
+              "United Kingdom Net": 210,
+              "Rest of World Net": -353,
+              "Total Net": -143
+            }
+          },
+          "All": {
+            "Females": {
+              "United Kingdom Net": -1447,
+              "Rest of World Net": 2483,
+              "Total Net": 1036
+            },
+            "Males": {
+              "United Kingdom Net": -1259,
+              "Rest of World Net": 2537,
+              "Total Net": 1278
+            },
+            "All persons": {
+              "United Kingdom Net": -2706,
+              "Rest of World Net": 5020,
+              "Total Net": 2314
+            }
+          }
+        },
+        "2023": {
+          "Age 0-17": {
+            "Females": {
+              "United Kingdom Net": 310,
+              "Rest of World Net": 1449,
+              "Total Net": 1759
+            },
+            "Males": {
+              "United Kingdom Net": 371,
+              "Rest of World Net": 1477,
+              "Total Net": 1848
+            },
+            "All persons": {
+              "United Kingdom Net": 681,
+              "Rest of World Net": 2926,
+              "Total Net": 3607
+            }
+          },
+          "Age 18-24": {
+            "Females": {
+              "United Kingdom Net": -1298,
+              "Rest of World Net": 584,
+              "Total Net": -714
+            },
+            "Males": {
+              "United Kingdom Net": -1144,
+              "Rest of World Net": 596,
+              "Total Net": -548
+            },
+            "All persons": {
+              "United Kingdom Net": -2442,
+              "Rest of World Net": 1180,
+              "Total Net": -1262
+            }
+          },
+          "Age 25-34": {
+            "Females": {
+              "United Kingdom Net": 226,
+              "Rest of World Net": 1273,
+              "Total Net": 1499
+            },
+            "Males": {
+              "United Kingdom Net": 231,
+              "Rest of World Net": 1545,
+              "Total Net": 1776
+            },
+            "All persons": {
+              "United Kingdom Net": 457,
+              "Rest of World Net": 2818,
+              "Total Net": 3275
+            }
+          },
+          "Age 35-44": {
+            "Females": {
+              "United Kingdom Net": 314,
+              "Rest of World Net": 439,
+              "Total Net": 753
+            },
+            "Males": {
+              "United Kingdom Net": 170,
+              "Rest of World Net": 678,
+              "Total Net": 848
+            },
+            "All persons": {
+              "United Kingdom Net": 484,
+              "Rest of World Net": 1117,
+              "Total Net": 1601
+            }
+          },
+          "Age 45-54": {
+            "Females": {
+              "United Kingdom Net": 206,
+              "Rest of World Net": 24,
+              "Total Net": 230
+            },
+            "Males": {
+              "United Kingdom Net": 229,
+              "Rest of World Net": 66,
+              "Total Net": 295
+            },
+            "All persons": {
+              "United Kingdom Net": 435,
+              "Rest of World Net": 90,
+              "Total Net": 525
+            }
+          },
+          "Age 55-64": {
+            "Females": {
+              "United Kingdom Net": 89,
+              "Rest of World Net": -71,
+              "Total Net": 18
+            },
+            "Males": {
+              "United Kingdom Net": 126,
+              "Rest of World Net": -172,
+              "Total Net": -46
+            },
+            "All persons": {
+              "United Kingdom Net": 215,
+              "Rest of World Net": -243,
+              "Total Net": -28
+            }
+          },
+          "Age 65+": {
+            "Females": {
+              "United Kingdom Net": 45,
+              "Rest of World Net": -155,
+              "Total Net": -110
+            },
+            "Males": {
+              "United Kingdom Net": 86,
+              "Rest of World Net": -171,
+              "Total Net": -85
+            },
+            "All persons": {
+              "United Kingdom Net": 131,
+              "Rest of World Net": -326,
+              "Total Net": -195
+            }
+          },
+          "All": {
+            "Females": {
+              "United Kingdom Net": -108,
+              "Rest of World Net": 3543,
+              "Total Net": 3435
+            },
+            "Males": {
+              "United Kingdom Net": 69,
+              "Rest of World Net": 4019,
+              "Total Net": 4088
+            },
+            "All persons": {
+              "United Kingdom Net": -39,
+              "Rest of World Net": 7562,
+              "Total Net": 7523
+            }
+          }
+        },
+        "2024": {
+          "Age 0-17": {
+            "Females": {
+              "United Kingdom Net": 182,
+              "Rest of World Net": 1270,
+              "Total Net": 1452
+            },
+            "Males": {
+              "United Kingdom Net": 221,
+              "Rest of World Net": 1313,
+              "Total Net": 1534
+            },
+            "All persons": {
+              "United Kingdom Net": 403,
+              "Rest of World Net": 2583,
+              "Total Net": 2986
+            }
+          },
+          "Age 18-24": {
+            "Females": {
+              "United Kingdom Net": -1016,
+              "Rest of World Net": 766,
+              "Total Net": -250
+            },
+            "Males": {
+              "United Kingdom Net": -1024,
+              "Rest of World Net": 811,
+              "Total Net": -213
+            },
+            "All persons": {
+              "United Kingdom Net": -2040,
+              "Rest of World Net": 1577,
+              "Total Net": -463
+            }
+          },
+          "Age 25-34": {
+            "Females": {
+              "United Kingdom Net": 180,
+              "Rest of World Net": 884,
+              "Total Net": 1064
+            },
+            "Males": {
+              "United Kingdom Net": 176,
+              "Rest of World Net": 1401,
+              "Total Net": 1577
+            },
+            "All persons": {
+              "United Kingdom Net": 356,
+              "Rest of World Net": 2285,
+              "Total Net": 2641
+            }
+          },
+          "Age 35-44": {
+            "Females": {
+              "United Kingdom Net": 355,
+              "Rest of World Net": 262,
+              "Total Net": 617
+            },
+            "Males": {
+              "United Kingdom Net": 193,
+              "Rest of World Net": 699,
+              "Total Net": 892
+            },
+            "All persons": {
+              "United Kingdom Net": 548,
+              "Rest of World Net": 961,
+              "Total Net": 1509
+            }
+          },
+          "Age 45-54": {
+            "Females": {
+              "United Kingdom Net": 115,
+              "Rest of World Net": -206,
+              "Total Net": -91
+            },
+            "Males": {
+              "United Kingdom Net": 170,
+              "Rest of World Net": 94,
+              "Total Net": 264
+            },
+            "All persons": {
+              "United Kingdom Net": 285,
+              "Rest of World Net": -112,
+              "Total Net": 173
+            }
+          },
+          "Age 55-64": {
+            "Females": {
+              "United Kingdom Net": 98,
+              "Rest of World Net": -243,
+              "Total Net": -145
+            },
+            "Males": {
+              "United Kingdom Net": 124,
+              "Rest of World Net": -405,
+              "Total Net": -281
+            },
+            "All persons": {
+              "United Kingdom Net": 222,
+              "Rest of World Net": -648,
+              "Total Net": -426
+            }
+          },
+          "Age 65+": {
+            "Females": {
+              "United Kingdom Net": -4,
+              "Rest of World Net": -273,
+              "Total Net": -277
+            },
+            "Males": {
+              "United Kingdom Net": 28,
+              "Rest of World Net": -402,
+              "Total Net": -374
+            },
+            "All persons": {
+              "United Kingdom Net": 24,
+              "Rest of World Net": -675,
+              "Total Net": -651
+            }
+          },
+          "All": {
+            "Females": {
+              "United Kingdom Net": -90,
+              "Rest of World Net": 2460,
+              "Total Net": 2370
+            },
+            "Males": {
+              "United Kingdom Net": -112,
+              "Rest of World Net": 3511,
+              "Total Net": 3399
+            },
+            "All persons": {
+              "United Kingdom Net": -202,
+              "Rest of World Net": 5971,
+              "Total Net": 5769
+            }
+          }
+        }
+      }
+    }
+  },
+  "MIG01T03": {
+    "label": "Migration flows by type - Northern Ireland",
+    "updated": "2025-09-17",
+    "data": {
+      "Migration Flows": {
+        "2002": {
+          "United Kingdom Inflows": 12510,
+          "United Kingdom Outflows": 11589,
+          "United Kingdom Net": 921,
+          "Rest of World Inflows": 6488,
+          "Rest of World Outflows": 6393,
+          "Rest of World Net": 95,
+          "Total Inflows": 18998,
+          "Total Outflows": 17982,
+          "Total Net": 1016
+        },
+        "2003": {
+          "United Kingdom Inflows": 11107,
+          "United Kingdom Outflows": 11005,
+          "United Kingdom Net": 102,
+          "Rest of World Inflows": 6810,
+          "Rest of World Outflows": 6683,
+          "Rest of World Net": 127,
+          "Total Inflows": 17917,
+          "Total Outflows": 17688,
+          "Total Net": 229
+        },
+        "2004": {
+          "United Kingdom Inflows": 12245,
+          "United Kingdom Outflows": 11858,
+          "United Kingdom Net": 387,
+          "Rest of World Inflows": 8174,
+          "Rest of World Outflows": 6996,
+          "Rest of World Net": 1178,
+          "Total Inflows": 20419,
+          "Total Outflows": 18854,
+          "Total Net": 1565
+        },
+        "2005": {
+          "United Kingdom Inflows": 13298,
+          "United Kingdom Outflows": 11291,
+          "United Kingdom Net": 2007,
+          "Rest of World Inflows": 12544,
+          "Rest of World Outflows": 8861,
+          "Rest of World Net": 3683,
+          "Total Inflows": 25842,
+          "Total Outflows": 20152,
+          "Total Net": 5690
+        },
+        "2006": {
+          "United Kingdom Inflows": 12380,
+          "United Kingdom Outflows": 11510,
+          "United Kingdom Net": 870,
+          "Rest of World Inflows": 15803,
+          "Rest of World Outflows": 8797,
+          "Rest of World Net": 7006,
+          "Total Inflows": 28183,
+          "Total Outflows": 20307,
+          "Total Net": 7876
+        },
+        "2007": {
+          "United Kingdom Inflows": 12932,
+          "United Kingdom Outflows": 11142,
+          "United Kingdom Net": 1790,
+          "Rest of World Inflows": 19773,
+          "Rest of World Outflows": 10633,
+          "Rest of World Net": 9140,
+          "Total Inflows": 32705,
+          "Total Outflows": 21775,
+          "Total Net": 10930
+        },
+        "2008": {
+          "United Kingdom Inflows": 12141,
+          "United Kingdom Outflows": 10707,
+          "United Kingdom Net": 1434,
+          "Rest of World Inflows": 18261,
+          "Rest of World Outflows": 11981,
+          "Rest of World Net": 6280,
+          "Total Inflows": 30402,
+          "Total Outflows": 22688,
+          "Total Net": 7714
+        },
+        "2009": {
+          "United Kingdom Inflows": 10857,
+          "United Kingdom Outflows": 10198,
+          "United Kingdom Net": 659,
+          "Rest of World Inflows": 14404,
+          "Rest of World Outflows": 11406,
+          "Rest of World Net": 2998,
+          "Total Inflows": 25261,
+          "Total Outflows": 21604,
+          "Total Net": 3657
+        },
+        "2010": {
+          "United Kingdom Inflows": 10667,
+          "United Kingdom Outflows": 11279,
+          "United Kingdom Net": -612,
+          "Rest of World Inflows": 13877,
+          "Rest of World Outflows": 12115,
+          "Rest of World Net": 1762,
+          "Total Inflows": 24544,
+          "Total Outflows": 23394,
+          "Total Net": 1150
+        },
+        "2011": {
+          "United Kingdom Inflows": 10323,
+          "United Kingdom Outflows": 11121,
+          "United Kingdom Net": -798,
+          "Rest of World Inflows": 13401,
+          "Rest of World Outflows": 14097,
+          "Rest of World Net": -696,
+          "Total Inflows": 23724,
+          "Total Outflows": 25218,
+          "Total Net": -1494
+        },
+        "2012": {
+          "United Kingdom Inflows": 10333,
+          "United Kingdom Outflows": 12090,
+          "United Kingdom Net": -1757,
+          "Rest of World Inflows": 12922,
+          "Rest of World Outflows": 11694,
+          "Rest of World Net": 1228,
+          "Total Inflows": 23255,
+          "Total Outflows": 23784,
+          "Total Net": -529
+        },
+        "2013": {
+          "United Kingdom Inflows": 10364,
+          "United Kingdom Outflows": 11815,
+          "United Kingdom Net": -1451,
+          "Rest of World Inflows": 12736,
+          "Rest of World Outflows": 12921,
+          "Rest of World Net": -185,
+          "Total Inflows": 23100,
+          "Total Outflows": 24736,
+          "Total Net": -1636
+        },
+        "2014": {
+          "United Kingdom Inflows": 11081,
+          "United Kingdom Outflows": 11747,
+          "United Kingdom Net": -666,
+          "Rest of World Inflows": 13300,
+          "Rest of World Outflows": 10542,
+          "Rest of World Net": 2758,
+          "Total Inflows": 24381,
+          "Total Outflows": 22289,
+          "Total Net": 2092
+        },
+        "2015": {
+          "United Kingdom Inflows": 10473,
+          "United Kingdom Outflows": 11236,
+          "United Kingdom Net": -763,
+          "Rest of World Inflows": 13093,
+          "Rest of World Outflows": 9782,
+          "Rest of World Net": 3311,
+          "Total Inflows": 23566,
+          "Total Outflows": 21018,
+          "Total Net": 2548
+        },
+        "2016": {
+          "United Kingdom Inflows": 10806,
+          "United Kingdom Outflows": 10806,
+          "United Kingdom Net": 0,
+          "Rest of World Inflows": 12998,
+          "Rest of World Outflows": 11115,
+          "Rest of World Net": 1883,
+          "Total Inflows": 23804,
+          "Total Outflows": 21921,
+          "Total Net": 1883
+        },
+        "2017": {
+          "United Kingdom Inflows": 10759,
+          "United Kingdom Outflows": 10167,
+          "United Kingdom Net": 592,
+          "Rest of World Inflows": 11310,
+          "Rest of World Outflows": 10469,
+          "Rest of World Net": 841,
+          "Total Inflows": 22069,
+          "Total Outflows": 20636,
+          "Total Net": 1433
+        },
+        "2018": {
+          "United Kingdom Inflows": 10450,
+          "United Kingdom Outflows": 10235,
+          "United Kingdom Net": 215,
+          "Rest of World Inflows": 13100,
+          "Rest of World Outflows": 9078,
+          "Rest of World Net": 4022,
+          "Total Inflows": 23550,
+          "Total Outflows": 19313,
+          "Total Net": 4237
+        },
+        "2019": {
+          "United Kingdom Inflows": 11447,
+          "United Kingdom Outflows": 10333,
+          "United Kingdom Net": 1114,
+          "Rest of World Inflows": 14191,
+          "Rest of World Outflows": 10392,
+          "Rest of World Net": 3799,
+          "Total Inflows": 25638,
+          "Total Outflows": 20725,
+          "Total Net": 4913
+        },
+        "2020": {
+          "United Kingdom Inflows": 10044,
+          "United Kingdom Outflows": 11570,
+          "United Kingdom Net": -1526,
+          "Rest of World Inflows": 11181,
+          "Rest of World Outflows": 13003,
+          "Rest of World Net": -1822,
+          "Total Inflows": 21225,
+          "Total Outflows": 24573,
+          "Total Net": -3348
+        },
+        "2021": {
+          "United Kingdom Inflows": 13159,
+          "United Kingdom Outflows": 15550,
+          "United Kingdom Net": -2391,
+          "Rest of World Inflows": 13296,
+          "Rest of World Outflows": 11308,
+          "Rest of World Net": 1988,
+          "Total Inflows": 26455,
+          "Total Outflows": 26858,
+          "Total Net": -403
+        },
+        "2022": {
+          "United Kingdom Inflows": 10094,
+          "United Kingdom Outflows": 12800,
+          "United Kingdom Net": -2706,
+          "Rest of World Inflows": 16922,
+          "Rest of World Outflows": 11902,
+          "Rest of World Net": 5020,
+          "Total Inflows": 27016,
+          "Total Outflows": 24702,
+          "Total Net": 2314
+        },
+        "2023": {
+          "United Kingdom Inflows": 11738,
+          "United Kingdom Outflows": 11777,
+          "United Kingdom Net": -39,
+          "Rest of World Inflows": 18797,
+          "Rest of World Outflows": 11235,
+          "Rest of World Net": 7562,
+          "Total Inflows": 30535,
+          "Total Outflows": 23012,
+          "Total Net": 7523
+        },
+        "2024": {
+          "United Kingdom Inflows": 11387,
+          "United Kingdom Outflows": 11589,
+          "United Kingdom Net": -202,
+          "Rest of World Inflows": 16851,
+          "Rest of World Outflows": 10880,
+          "Rest of World Net": 5971,
+          "Total Inflows": 28238,
+          "Total Outflows": 22469,
+          "Total Net": 5769
+        }
+      }
+    }
   }
 }
