@@ -422,3 +422,45 @@ table tr:not(:has(th)):hover {
   color: #555555;
   background-color: #fff;
 }
+
+/* Table Styling */
+td {
+  padding: 6px 12px;  
+  border-radius: 6px;
+}
+.number {
+  text-align: right;
+}
+.change-cell {
+  text-align: right;
+}
+.arrow {
+  margin-right: 6px;
+  font-weight: bold;
+}
+.arrow.up {
+  color: rgb(0, 0, 0);
+}
+.arrow.down {
+  color: #e60000;
+}
+/* pill-style percentage background */
+.percent-wrapper {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 6px;
+  min-width: 55px;
+  text-align: right;
+}
+tbody td {
+  border-bottom: 2px solid #e5e7eb; /* light, clean line */
+}
+
+th, td {
+  padding: 6px 12px;
+}
+
+thead th {
+  border-bottom: 2px solid #e5e7eb;
+}
+
