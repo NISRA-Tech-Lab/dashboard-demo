@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head></head>
+<body style="display:none;">
+    
+<banner id="banner"></banner>
+  <!-- Top Navbar -->
+<nav id ="nav"></nav>
+
+<!-- Main Content -->
+<main>
+<div class="w-100 text-center current-page py-2">
+    This is a dashboard page template. Use this as a starting point for building your own dashboard. Edit the page.js file to add your own content and functionality. See the README.md file for instructions on how to use this template.
+</div>
+
+<div id="content" class="container-fluid">
+        
+        <div class = "py-2">
+            <!-- First row - cards -->
+            <div class="row text-center">
+                <div class="col-6 col-xl py-2">
+                    <div class="card h-100 navy-bg">
+                        <div class="card-body d-flex flex-column justify-content-center">
+                            <p>Population change since</p>
+                            <p class="display-6"><span id="pop-total"></span></p>
+                            <p><span class="last-year"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-xl py-2">
+                    <div class="card h-100 blue-bg">
+                        <div class="card-body d-flex flex-column justify-content-center">
+                            <p>More births than deaths </p>
+                            <p class="display-6"><span id="pop-total"></span></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-xl py-2">
+                    <div class="card h-100 blue-bg">
+                        <div class="card-body d-flex flex-column justify-content-center">
+                            <p>People came to live in Northern Ireland </p>
+                            <p class="display-6"><span id="pop-total"></span></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-xl py-2">
+                    <div class="card h-100 blue-bg">
+                        <div class="card-body d-flex flex-column justify-content-center">
+                            <p>People left Northern Ireland</p>
+                            <p class="display-6"><span id="pop-total"></span></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-xl py-2">
+                    <div class="card h-100 blue-bg">
+                        <div class="card-body d-flex flex-column justify-content-center">
+                            <p>Of growth came from net migration </p>
+                            <p class="display-6"><span id="pop-total"></span></p>
+                        </div>
+                    </div>
+                </div>               
+            </div>
+
+            <!-- Second row - tables and charts -->
+            <div class="row">
+                <div class="col-12 col-xl-6 py-2">
+                    <div class="card h-100">
+                        <div id="historic-line-capture">
+                            <div class="card-header">
+                                Components of population change (year ending mid-2002 to year ending mid-2024) 
+                            </div>
+                        <div class="card-body d-flex flex-column justify-content-center">
+                                <canvas id="population-age-bar"></canvas>
+                            </div>
+                        </div>
+                        <div class="card-footer"></div>
+                    </div>
+                </div>
+                <div class="col-12 col-xl-6 py-2">
+                    <div class="card h-100">
+                        <div id="emissions-table-capture">
+                        <div class="card-header">
+                            Reasons for change in working age population 2023-2024
+                        </div>
+                        <div class="card-body d-flex flex-column justify-content-center">
+                            <!-- <div class="table-responsive">
+                                 <canvas id="formatted-table" class="chart-canvas"></canvas>      
+                            </div> -->
+                            <table id="pop-table">
+                              <thead></thead>
+                              <tbody></tbody>
+                            </table>
+                            
+                        </div>
+                        </div>
+                        <div class="card-footer"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Third row - Definitions -->
+            <div id="info-boxes"></div>
+            
+        </div>
+        
+    </main>
+</div>
+
+<footer id = "footer"></footer>
+
+<script type = "module" src="src/reasons-for-change.js"></script>
+
+
+</body>
