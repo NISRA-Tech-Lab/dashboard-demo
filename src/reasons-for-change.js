@@ -6,6 +6,8 @@ import { toTitleCase } from "./utils/to-title-case.js";
 import { config } from "./config/config.js";
 import { createBarChart, createLineChart, insertTable } from "./utils/charts.js";
 import { insertExpandButtons } from "./utils/expand-buttons.js";
+import { dateFormat } from "./utils/date-format.js";
+import { downloadButton } from "./utils/download-button.js";
 
 window.addEventListener("DOMContentLoaded", async () => {
 
@@ -16,62 +18,66 @@ window.addEventListener("DOMContentLoaded", async () => {
     insertExpandButtons();
 
     // Total population
+    const MYE01T03 = await readData("MYE01T03");
+    const MYE01T03_updated = dateFormat(MYE01T03.updated);
     const MYE01T05 = await readData("MYE01T05");
     const MYE01T05_stat = "Population totals";
     updateYearSpans(MYE01T05, MYE01T05_stat);
 
-    // const pop_total = (MYE01T05.data[MYE01T05_stat][latest_year]["Unrounded"]);
-        
-    // insertValue("pop-total", pop_total.toLocaleString());
+    const MYE01T05_updated = dateFormat(MYE01T05.updated);
+    const pop_table_query = {
+        rounded_unrounded: "Unrounded"
+    };
 
-    const raw = MYE01T05["data"]["Population totals"];
+    const MYE01T06 = await readData("MYE01T06");
+    const MYE01T06_stat = "Population totals";
+    updateYearSpans(MYE01T06, MYE01T06_stat);
+    const MYE01T06_updated = dateFormat(MYE01T06.updated);
 
-    const year1 = "2024";
-    const year2 = "2023";
+    const pop_total = (MYE01T05.data[MYE01T05_stat][latest_year]["Unrounded"]);
 
-    const result = Object.keys(raw[year1]).map(lgd => ({
+    const raws = MYE01T06.data["Population totals"];
+
+    const MYE01T06_raw = MYE01T06.data["Population totals"];
+
+    const MYE01T06_data = Object.keys(MYE01T06_raw[latest_year]).map(lgd => ({
     LGD: lgd,
-    [`Population ${year1}`]: raw[year1][lgd]?.Unrounded ?? null,
-    [`Population ${year2}`]: raw[year2][lgd]?.Unrounded ?? null
+    [`Population ${latest_year}`]: MYE01T06_raw[latest_year][lgd]?.Unrounded,
+    [`Population ${last_year}`]: MYE01T06_raw[last_year][lgd]?.Unrounded
     }));
 
-    console.log("result", result);
+    console.log(MYE01T06_data);
 
-    const data = [
-        { LGD: "Antrim and Newtownabbey", 'Population 2022': 146148, 'Population 2021': 145852 },
-        { LGD: "Ards and North Down", 'Population 2022': 164223, 'Population 2021': 163827 },
-        { LGD: "Armagh City, Banbridge and Craigavon", 'Population 2022': 220271, 'Population 2021': 219127 },
-        { LGD: "Belfast", 'Population 2022': 348005, 'Population 2021': 344992 },
-        { LGD: "Causeway Coast and Glens", 'Population 2022': 141316, 'Population 2021': 141664 },
-    ];
+    const data = MYE01T06_data;
 
     data.forEach(row => {
-        const change = row['Population 2022'] - row['Population 2021'];
-        const percent = (change / row['Population 2021']) * 100;
-        // Arrow logic (same as before)
-        const arrow = change >= 0 ? "🠉" : "🠋";
-        const arrowClass = change >= 0 ? "up" : "down";
-        // Force minus sign while keeping arrows
-        const changeDisplay =
-            change >= 0
-            ? change.toLocaleString()
-            : "-" + Math.abs(change).toLocaleString();
-        // Gradient from white (0.0) → #7ca6da (0.9)
-        let bgColor = "white";
-        if (percent > 0) {
-            const max = 0.9; // your upper bound
-            const intensity = Math.min(percent / max, 1);
-            // Interpolate between white and #7ca6da
-            const r = Math.round(255 + (124 - 255) * intensity);
-            const g = Math.round(255 + (166 - 255) * intensity);
-            const b = Math.round(255 + (218 - 255) * intensity);
-            bgColor = `rgb(${r}, ${g}, ${b})`;
-        }        
-    })
+    const change = row[`Population ${latest_year}`] - row[`Population ${last_year}`];
+    const percent = (change / row[`Population ${last_year}`]) * 100;
+
+    const arrow = change >= 0 ? "🠉" : "🠋";
+    const arrowClass = change >= 0 ? "up" : "down";
+
+    const changeDisplay =
+        change >= 0
+        ? change.toLocaleString()
+        : "-" + Math.abs(change).toLocaleString();
+
+    let bgColor = "white";
+    if (percent > 0) {
+        const max = 0.9;
+        const intensity = Math.min(percent / max, 1);
+
+        const r = Math.round(255 + (124 - 255) * intensity);
+        const g = Math.round(255 + (166 - 255) * intensity);
+        const b = Math.round(255 + (218 - 255) * intensity);
+
+        bgColor = `rgb(${r}, ${g}, ${b})`;
+    }
+    });
 
     data.forEach(row => {
-        const change = row['Population 2022'] - row['Population 2021'];
-        const percent = (change / row['Population 2021']) * 100;
+        const change = row[`Population ${latest_year}`] - row[`Population ${last_year}`];
+        const percent = (change / row[`Population ${last_year}`]) * 100;
 
         row['Change'] = change;
         row['Change (%)'] = percent;
@@ -84,12 +90,12 @@ window.addEventListener("DOMContentLoaded", async () => {
             "values": data.map(row => row.LGD),
             "format": "string"
         },
-        "Population 2022": {
-            "values": data.map(row => row['Population 2022']),
+        [`Population ${latest_year}`]: {
+            "values": data.map(row => row[`Population ${latest_year}`]),
             "format": "number"
         },
-        "Population 2021": {
-            "values": data.map(row => row['Population 2021']),
+        [`Population ${last_year}`]: {
+            "values": data.map(row => row[`Population ${last_year}`]),
             "format": "number"
         },
         "Change": {
@@ -100,88 +106,25 @@ window.addEventListener("DOMContentLoaded", async () => {
             "values": data.map(row => row['Change (%)']),
             "format": "change_percent"
         }
-    };
+   };
 
     insertTable("pop-table", table_data);
 
     // Bar Chart
-//     let bardata = await readData("EXPDA");
-//     let reported_data = await readData("LDARPG");
-//     const relationship_data = await readData("DARPV");
-// console.log( bardata)
-//     const update_date = new Date(bardata.updated).toLocaleDateString("en-GB",
-//       {
-//           day: "2-digit", 
-//           month: "long",
-//           year: "numeric"
-//       });
-
-//     const relationship_update_date = new Date(relationship_data.updated).toLocaleDateString("en-GB",
-//       {
-//           day: "2-digit", 
-//           month: "long",
-//           year: "numeric"
-//       });
-
-    // let bardata = await readData("MYE01T03");
-    // console.log( bardata)
-
-    // const update_date = new Date(bardata.updated).toLocaleDateString("en-GB",
-    //   {
-    //       day: "2-digit", 
-    //       month: "long",
-    //       year: "numeric"
-    //   });
-    // console.log("update_date", update_date)
-    
-
-    //  "MYE01T03": {
-    // "label": "Mid-year population estimates - Northern Ireland",
-    // "updated": "2025-09-19",
-    // "data": {
-    //   "Mid-year population estimate": {
-    //     "1971": {
-    //       "Age 0-15": {
-    //         "Females": 236737,
-    //         "Males": 246007,
-    //         "All persons": 482744
-    //       },
-    //       "Age 16-39": {
-    //         "Females": 242884,
-    //         "Males": 248911,
-    //         "All persons": 491795
-    //       },
-    //       "Age 40-64": {
-    //         "Females": 207353,
-    //         "Males": 192443,
-    //         "All persons": 399796
-    //       },
-    //       "Age 65+": {
-    //         "Females": 98826,
-    //         "Males": 67252,
-    //         "All persons": 166078
-    //       },
-    //       "All": {
-    //         "Females": 785800,
-    //         "Males": 754613,
-    //         "All persons": 1540413
-    //       }
-    //     },
- 
-    const MYE01T03 = await readData("MYE01T03");
-    console.log(MYE01T03)
+    const pop_bar_query = {
+        rounded_unrounded: "Unrounded"
+    };
 
     const stat = "Mid-year population estimate";
     const years = Object.keys(MYE01T03.data[stat]);
-    const latest_year = years[years.length - 1];
 
     const year_data = MYE01T03.data[stat][latest_year];
 
     const age_groups = Object.keys(year_data).filter(a => a !== "All");
 
     const chart_data = {
-    "Females": age_groups.map(age => year_data[age]["Females"]),
-    "Males": age_groups.map(age => year_data[age]["Males"])
+        "Females": age_groups.map(age => year_data[age]["Females"]),
+        "Males": age_groups.map(age => year_data[age]["Males"])
     };
 
     createBarChart({
@@ -191,5 +134,39 @@ window.addEventListener("DOMContentLoaded", async () => {
         label_format: ","   // comma formatting for large numbers
     });
 
+    downloadButton("pop-bar-capture", "MYE01T03", MYE01T03_updated, pop_bar_query);
+    downloadButton("pop-table-capture", "MYE01T05", MYE01T05_updated, pop_table_query);
+
+    const COPC01T01 = await readData("COPC01T01");
+    const COPC01T01_stat = "Components of population change";
+    
+    // Total Population Change
+    const start_pop = COPC01T01.data[COPC01T01_stat][latest_year]["Starting population"];
+    const end_pop = COPC01T01.data[COPC01T01_stat][latest_year]["End population"];
+    const pop_change = end_pop - start_pop;
+    insertValue("pop-change", pop_change.toLocaleString());
+
+    // Births vs deaths 
+    const births_num = COPC01T01.data[COPC01T01_stat][latest_year]["Births"];
+    const deaths_num = COPC01T01.data[COPC01T01_stat][latest_year]["Deaths"];
+    const births_deaths = births_num - deaths_num;
+    insertValue("pop-births-deaths", births_deaths.toLocaleString());
+
+    // Inflow
+    const inflows_num = COPC01T01.data[COPC01T01_stat][latest_year]["Total Inflows"];
+    insertValue("pop-inflows", inflows_num.toLocaleString());
+
+    // Outflow
+    const outflows_num = COPC01T01.data[COPC01T01_stat][latest_year]["Total Outflows"];
+    insertValue("pop-outflows", outflows_num.toLocaleString());
+
+    // Net change
+    const net_num = COPC01T01.data[COPC01T01_stat][latest_year]["Total Net"];
+    const nat_change_num = COPC01T01.data[COPC01T01_stat][latest_year]["Natural Change"];
+    const net_change = (net_num/(net_num + nat_change_num)) * 100; 
+    insertValue("pop-net-change", net_change.toFixed(1));
+
+    document.getElementById("latest-year").textContent = latest_year;
+    document.getElementById("last-year").textContent = last_year;    
 })
 

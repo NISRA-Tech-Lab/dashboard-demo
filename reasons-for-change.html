@@ -21,8 +21,8 @@
                 <div class="col-6 col-xl py-2">
                     <div class="card h-100 navy-bg">
                         <div class="card-body d-flex flex-column justify-content-center">
+                            <p class="display-6"><span id="pop-change"></span></p>
                             <p>Population change since</p>
-                            <p class="display-6"><span id="pop-total"></span></p>
                             <p><span class="last-year"></p>
                         </div>
                     </div>
@@ -30,32 +30,32 @@
                 <div class="col-6 col-xl py-2">
                     <div class="card h-100 blue-bg">
                         <div class="card-body d-flex flex-column justify-content-center">
-                            <p>More births than deaths </p>
-                            <p class="display-6"><span id="pop-total"></span></p>
+                            <p class="display-6"><span id="pop-births-deaths"></span></p>
+                            <span> More births than deaths</span>  </p>
                         </div>
                     </div>
                 </div>
                 <div class="col-6 col-xl py-2">
                     <div class="card h-100 blue-bg">
                         <div class="card-body d-flex flex-column justify-content-center">
+                            <p class="display-6"><span id="pop-inflows"></span></p>
                             <p>People came to live in Northern Ireland </p>
-                            <p class="display-6"><span id="pop-total"></span></p>
                         </div>
                     </div>
                 </div>
                 <div class="col-6 col-xl py-2">
                     <div class="card h-100 blue-bg">
                         <div class="card-body d-flex flex-column justify-content-center">
+                            <p class="display-6"><span id="pop-outflows"></span></p>
                             <p>People left Northern Ireland</p>
-                            <p class="display-6"><span id="pop-total"></span></p>
                         </div>
                     </div>
                 </div>
                 <div class="col-6 col-xl py-2">
                     <div class="card h-100 blue-bg">
                         <div class="card-body d-flex flex-column justify-content-center">
+                            <p class="display-6"><span id="pop-net-change"></span><span class="unit-pct">%</span></p>
                             <p>Of growth came from net migration </p>
-                            <p class="display-6"><span id="pop-total"></span></p>
                         </div>
                     </div>
                 </div>               
@@ -65,32 +65,32 @@
             <div class="row">
                 <div class="col-12 col-xl-6 py-2">
                     <div class="card h-100">
-                        <div id="historic-line-capture">
+                        <div id="pop-bar-capture">
                             <div class="card-header">
                                 Components of population change (year ending mid-2002 to year ending mid-2024) 
                             </div>
                         <div class="card-body d-flex flex-column justify-content-center">
-                                <canvas id="population-age-bar"></canvas>
+                                <canvas id="population-age-bar" class="chart-canvas"></canvas>
                             </div>
                         </div>
                         <div class="card-footer"></div>
                     </div>
+                    
                 </div>
                 <div class="col-12 col-xl-6 py-2">
                     <div class="card h-100">
-                        <div id="emissions-table-capture">
+                        <div id="pop-table-capture">
                         <div class="card-header">
-                            Reasons for change in working age population 2023-2024
+                            <p>
+                                Reasons for change in working age population
+                                <span class="last-year"></span>-<span class="latest-year"></span>
+                            </p>
                         </div>
-                        <div class="card-body d-flex flex-column justify-content-center">
-                            <!-- <div class="table-responsive">
-                                 <canvas id="formatted-table" class="chart-canvas"></canvas>      
-                            </div> -->
+                        <div class="card-body d-flex flex-column justify-content-center">                            
                             <table id="pop-table">
                               <thead></thead>
                               <tbody></tbody>
-                            </table>
-                            
+                            </table>                            
                         </div>
                         </div>
                         <div class="card-footer"></div>
