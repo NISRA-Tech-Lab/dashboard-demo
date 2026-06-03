@@ -26,7 +26,9 @@ export const config = {
         "MYE01T06",  // Local Government Districts
         "MYE01T025", // Over 85s
         "COPC01T01", // Component of population change
-        "MA01T01"    // Median age
+        "MA01T01",    // Median age
+        "MIG01T02", // Net migration by age and sex
+        "MIG01T03" // Migration flows
     ],
     
     "rateit": "link-to-rateit"

@@ -21,43 +21,40 @@
                 <div class="col-6 col-xl py-2">
                     <div class="card h-100 navy-bg">
                         <div class="card-body d-flex flex-column justify-content-center">
-                            <p>Total Northern Ireland population</p>
-                            <p class="display-6"><span id="pop-total"></span></p>
-                            <p>in <span class="latest-year"></p>
+                            <p class="display-6"><span id="pop-change"></span></p>
+                            <p>population change from migration in <span class="latest-year"></p>
                         </div>
                     </div>
                 </div>
                 <div class="col-6 col-xl py-2">
                     <div class="card h-100 blue-bg">
                         <div class="card-body d-flex flex-column justify-content-center">
-                            <p>Population change since <span class="last-year"></span></p>
-                            <p class="display-6"><span id="pop-change"></span><span class="unit-pct">%</span></p>
+                            <p class="display-6"><span id="pop-change-pct"></span><span class="unit-pct">%</span></p>
+                            <p>change from <span class="last-year"></span></p>
                         </div>
                     </div>
                 </div>
                 <div class="col-6 col-xl py-2">
                     <div class="card h-100 blue-bg">
                         <div class="card-body d-flex flex-column justify-content-center">
-                            <p>Females made up</p>
-                            <p class="display-6"><span id="pop-female"></span><span class="unit-pct">%</span></p>
-                            <p>of the population</p>
+                            <p class="display-6"><span id="loss-age"></span></p>
+                            <p>was the age group with the largest net loss</p>
                         </div>
                     </div>
                 </div>
                 <div class="col-6 col-xl py-2">
                     <div class="card h-100 blue-bg">
                         <div class="card-body d-flex flex-column justify-content-center">
-                            <p>Males made up</p>
-                            <p class="display-6"><span id="pop-male"></span><span class="unit-pct">%</span></p>
-                            <p>of the population</p>
+                            <p class="display-6"><span id="gain-age"></span></p>
+                            <p>was the age group with the largest net gain</p>
                         </div>
                     </div>
                 </div>
                 <div class="col-6 col-xl py-2">
                     <div class="card h-100 blue-bg">
                         <div class="card-body d-flex flex-column justify-content-center">
-                            <p>Average year-on-year change over last 10 years</p>
-                            <p class="display-6"><span id="pop-change-10yr"></span><span class="unit-pct">%</span></p>
+                            <p class="display-6"><span id="outside-uk"></span></p>
+                            <p>came to live here from outside the UK</p>
                         </div>
                     </div>
                 </div>
@@ -67,12 +64,12 @@
             <div class="row">
                 <div class="col-12 col-xl-6 py-2">
                     <div class="card h-100">
-                        <div id="pop-line-capture">
+                        <div id="migration-bar-capture">
                             <div class="card-header">
-                                Population Estimates, <span class="first-year"></span> to <span class="latest-year"></span>
+                                Net migration by age and sex, <span class="latest-year"></span>
                             </div>
                             <div class="card-body d-flex flex-column justify-content-center">
-                                <canvas id="pop-line" class="chart-canvas"></canvas>
+                                <canvas id="migration-bar" class="chart-canvas"></canvas>
                             </div>
                         </div>
                         <div class="card-footer"></div>
@@ -80,12 +77,12 @@
                 </div>
                 <div class="col-12 col-xl-6 py-2">
                     <div class="card h-100">
-                        <div id="pop-pie-capture">
+                        <div id="migration-line-capture">
                         <div class="card-header">
-                            Population by gender, <span class="latest-year"></span>
+                            Net migration from and to the UK and the rest of the world, <span class="first-year"></span> to <span class="latest-year"></span>
                         </div>
                         <div class="card-body d-flex flex-column justify-content-center">
-                            <canvas id="pop-pie" class="chart-canvas"></canvas>
+                            <canvas id="migration-line" class="chart-canvas"></canvas>
                         </div>
                         </div>
                         <div class="card-footer"></div>
@@ -103,7 +100,7 @@
 
 <footer id = "footer"></footer>
 
-<script type = "module" src="src/population-estimates.js"></script>
+<script type = "module" src="src/migration.js"></script>
 
 
 </body>
