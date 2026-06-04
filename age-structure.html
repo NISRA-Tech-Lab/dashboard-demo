@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head></head>
+<body style="display:none;">
+    
+<banner id="banner"></banner>
+  <!-- Top Navbar -->
+<nav id ="nav"></nav>
+
+<!-- Main Content -->
+<main>
+<div class="w-100 text-center current-page py-2">
+    This is a dashboard page template. Use this as a starting point for building your own dashboard. Edit the page.js file to add your own content and functionality. See the README.md file for instructions on how to use this template.
+</div>
+
+<div id="content" class="container-fluid">
+        
+        <div class = "py-2">
+            <!-- First row - cards -->
+            <div class="row text-center">
+                <div class="col-6 col-xl py-2">
+                    <div class="card h-100 navy-bg">
+                        <div class="card-body d-flex flex-column justify-content-center">
+                            <p class="display-6"><span id="median-age"></span></p>
+                            <p>average (median) age in <span class="latest-year"></span></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-xl py-2">
+                    <div class="card h-100 navy-bg">
+                        <div class="card-body d-flex flex-column justify-content-center">
+                            <p class="display-6"><span id="age-change"></span></p>
+                            <p>change in average (median) age since <span class="comparison-year"></span></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-xl py-2">
+                    <div class="card h-100 blue-bg">
+                        <div class="card-body d-flex flex-column justify-content-center">
+                            <p class="display-6"><span id="age-change-pct"></span><span class="unit-pct">%</span></p>
+                            <p>change from <span class="last-year"></span></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-xl py-2">
+                    <div class="card h-100 blue-bg">
+                        <div class="card-body d-flex flex-column justify-content-center">
+                            <p class="display-6"><span id="over-65"></span><span class="unit-pct">%</span></p>
+                            <p>of the population were aged 65 and over in <span class="latest-year"></span></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-xl py-2">
+                    <div class="card h-100 blue-bg">
+                        <div class="card-body d-flex flex-column justify-content-center">
+                            <p class="display-6"><span id="child-pct-comparison"></span><span class="unit-pct">%</span></p>
+                            <p>of the population were children in <span class="comparison-year"></span></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-xl py-2">
+                    <div class="card h-100 blue-bg">
+                        <div class="card-body d-flex flex-column justify-content-center">
+                            <p class="display-6"><span id="child-pct"></span><span class="unit-pct">%</span></p>
+                            <p>of the population were children in <span class="latest-year"></span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Second row - tables and charts -->
+            <div class="row">
+                <div class="col-12 col-xl-4 py-2">
+                    <div class="card h-100">
+                        <div id="migration-bar-capture">
+                            <div class="card-header">
+                                Net migration by age and sex, <span class="latest-year"></span>
+                            </div>
+                            <div class="card-body d-flex flex-column justify-content-center">
+                                <canvas id="migration-bar" class="chart-canvas"></canvas>
+                            </div>
+                        </div>
+                        <div class="card-footer"></div>
+                    </div>
+                </div>
+                <div class="col-12 col-xl-4 py-2">
+                    <div class="card h-100">
+                        <div id="migration-bar-capture">
+                            <div class="card-header">
+                                Net migration by age and sex, <span class="latest-year"></span>
+                            </div>
+                            <div class="card-body d-flex flex-column justify-content-center">
+                                <canvas id="migration-bar" class="chart-canvas"></canvas>
+                            </div>
+                        </div>
+                        <div class="card-footer"></div>
+                    </div>
+                </div>
+                <div class="col-12 col-xl-4 py-2">
+                    <div class="card h-100">
+                        <div id="migration-line-capture">
+                        <div class="card-header">
+                            Net migration from and to the UK and the rest of the world, <span class="first-year"></span> to <span class="latest-year"></span>
+                        </div>
+                        <div class="card-body d-flex flex-column justify-content-center">
+                            <canvas id="migration-line" class="chart-canvas"></canvas>
+                        </div>
+                        </div>
+                        <div class="card-footer"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Third row - Definitions -->
+            <div id="info-boxes"></div>
+            
+        </div>
+        
+    </main>
+</div>
+
+<footer id = "footer"></footer>
+
+<script type = "module" src="src/age-structure.js"></script>
+
+
+</body>
