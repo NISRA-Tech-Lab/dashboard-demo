@@ -22,7 +22,7 @@ window.addEventListener("DOMContentLoaded", async () => {
 
     // ===== BUILD THE PAGE STRUCTURE =====
     // These functions insert the header, footer, navigation buttons, etc. into the HTML
-    await insertHead("Migration"); // "await" pauses here until the page head is ready
+    await insertHead("Age structure"); // "await" pauses here until the page head is ready
     insertHeader(); // Adds header to the page
     insertNavButtons(); // Adds navigation buttons
     insertFooter(); // Adds footer to the page
