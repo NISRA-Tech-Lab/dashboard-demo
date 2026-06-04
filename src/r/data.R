@@ -111,6 +111,8 @@ for (matrix in matrix_list) {
 
   all_data[[matrix]]$label <- raw_data$label
   all_data[[matrix]]$updated <- as.Date(raw_data$updated)
+  all_data[[matrix]]$subject <- raw_data$extension$subject$code
+  all_data[[matrix]]$product <- raw_data$extension$product$code
   all_data[[matrix]]$data <- data_list
 }
 

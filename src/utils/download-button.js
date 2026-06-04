@@ -1,7 +1,8 @@
 import { config } from "../config/config.js";
-import { map } from "./plot-map.js"
+import { map } from "./plot-map.js";
+import { readData } from "./read-data.js";
 
-export function downloadButton (capture_id, matrix, update_date, query, plot_type = "chart") {
+export async function downloadButton (capture_id, matrix, update_date, query, plot_type = "chart") {
 
     const capture = document.getElementById(capture_id);
     const footer = capture.parentElement.querySelector(".card-footer");
@@ -33,6 +34,8 @@ export function downloadButton (capture_id, matrix, update_date, query, plot_typ
       }
     }));
 
+    const matrix_data = await readData(matrix);
+
     const xl_query_string = csv_query_string.replace("csv", "xlsx");
 
     footerContent.innerHTML = `
@@ -43,8 +46,8 @@ export function downloadButton (capture_id, matrix, update_date, query, plot_typ
             </button>
             
             <ul class="dropdown-menu" aria-labelledby="${capture_id}-dropdown">
-                <li><a class="dropdown-item" href="https://ws-data.nisra.gov.uk/public/api.restful/PxStat.Data.Cube_API.PxAPIv1/en/155/EECGGE/${matrix}?query=${csv_query_string}">data (in CSV format)</a></li>
-                <li><a class="dropdown-item" href="https://ws-data.nisra.gov.uk/public/api.restful/PxStat.Data.Cube_API.PxAPIv1/en/155/EECGGE/${matrix}?query=${xl_query_string}">data (in Excel format)</a></li>
+                <li><a class="dropdown-item" href="https://ws-data.nisra.gov.uk/public/api.restful/PxStat.Data.Cube_API.PxAPIv1/en/${matrix_data.subject}/${matrix_data.product}/${matrix}?query=${csv_query_string}">data (in CSV format)</a></li>
+                <li><a class="dropdown-item" href="https://ws-data.nisra.gov.uk/public/api.restful/PxStat.Data.Cube_API.PxAPIv1/en/${matrix_data.subject}/${matrix_data.product}/${matrix}?query=${xl_query_string}">data (in Excel format)</a></li>
                 <li><a class="dropdown-item" href="#" id="download-${capture_id}">${plot_type} (as image)</a></li>
             </ul>
             </div>
