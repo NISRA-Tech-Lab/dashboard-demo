@@ -75,15 +75,73 @@ window.addEventListener("DOMContentLoaded", async () => {
 
     const MYE01T03 = await readData("MYE01T03");
     const MYE01T03_stat = "Mid-year population estimate";
-    const over_65 = MYE01T03.data[MYE01T03_stat][latest_year]["Age 65+"]["All persons"] / MYE01T03.data[MYE01T03_stat][latest_year]["All"]["All persons"] * 100;
+    const MYE01T03_updated = dateFormat(MYE01T03.updated);
+    const over_65_pct = MYE01T03.data[MYE01T03_stat][latest_year]["Age 65+"]["All persons"] / MYE01T03.data[MYE01T03_stat][latest_year]["All"]["All persons"] * 100;
     
-    insertValue("over-65", over_65.toFixed(1)); // Insert percentage of population aged 65 and over into page
+    insertValue("over-65", over_65_pct.toFixed(1)); // Insert percentage of population aged 65 and over into page
 
     const child_pct_comparison = MYE01T03.data[MYE01T03_stat][comparison_year]["Age 0-15"]["All persons"] / MYE01T03.data[MYE01T03_stat][comparison_year]["All"]["All persons"] * 100;
     insertValue("child-pct-comparison", child_pct_comparison.toFixed(1)); // Insert percentage of population aged 0-15 in comparison year into page
 
     const child_pct = MYE01T03.data[MYE01T03_stat][latest_year]["Age 0-15"]["All persons"] / MYE01T03.data[MYE01T03_stat][latest_year]["All"]["All persons"] * 100;
     insertValue("child-pct", child_pct.toFixed(1)); // Insert percentage of population aged 0-15 in latest year into page
+
+
+    let bar_years = [];
+    for (let i = comparison_year; i <= latest_year; i ++) {
+        if (i % 5 == 4) {
+            bar_years.push(i);
+        }
+    }
+
+    let under_15 = [];
+    let age_16_to_64 = [];
+    let over_65 = [];
+
+    for (let i = 0; i < bar_years.length; i++) {
+        const bar_year = bar_years[i];
+        const pop_total = MYE01T03.data[MYE01T03_stat][bar_year]["All"]["All persons"];
+        
+        under_15.push((MYE01T03.data[MYE01T03_stat][bar_year]["Age 0-15"]["All persons"] / pop_total * 100).toFixed(1));
+        age_16_to_64.push(((MYE01T03.data[MYE01T03_stat][bar_year]["Age 16-39"]["All persons"] + MYE01T03.data[MYE01T03_stat][bar_year]["Age 40-64"]["All persons"]) / pop_total * 100).toFixed(1));
+        over_65.push((MYE01T03.data[MYE01T03_stat][bar_year]["Age 65+"]["All persons"] / pop_total * 100).toFixed(1));        
+        
+    }
+
+    // Prepare data in the format expected by createHorizontalBarChart
+    const age_chart_data = {
+        "0 to 15 years": under_15,
+        "16 to 64 years": age_16_to_64,
+        "65 years and over": over_65
+    };
+
+    // Create the horizontal bar chart
+    createHorizontalBarChart({
+        chart_data: age_chart_data,
+        categories: bar_years,
+        canvas_id: "age-bar",
+        label_format: ",",
+        stacked: true
+    });
+
+    createHorizontalBarChart({
+        chart_data: age_chart_data,
+        categories: bar_years,
+        canvas_id: "age-bar-expanded",
+        label_format: ",",
+        stacked: true
+    });
+
+    // ===== DOWNLOAD FUNCTIONALITY =====
+    // Create query parameters that specify what data to download
+    // These tell the API: "I want the unrounded population figures"
+    const age_chart_query = {
+        "TLIST(A1)": bar_years.map(String),
+        "Sex": "All"
+    };
+
+    // Create download buttons that allow users to download the underlying data
+    downloadButton("age-bar-capture", "MYE01T03", MYE01T03_updated, age_chart_query);
 
     // ===== INFO BOXES - HELP AND METADATA =====
     // Populate the expandable info boxes with definitions and help text
