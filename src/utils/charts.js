@@ -202,7 +202,7 @@ export function createBarChart({ chart_data, categories, canvas_id, label_format
   return bar_chart;
 }
 
-export function createHorizontalBarChart({ chart_data, categories, canvas_id, label_format }) {
+export function createHorizontalBarChart({ chart_data, categories, canvas_id, label_format, stacked = false }) {
   const bar_canvas = document.getElementById(canvas_id);
 
   const baseOptions = {
@@ -212,15 +212,10 @@ export function createHorizontalBarChart({ chart_data, categories, canvas_id, la
     plugins: {
       legend: {
             onClick: () => {},          
-            title: {
-              display: true,
-              text: "Gender",
-              font: { size: 14, weight: "500", family: "'Roboto', Arial, sans-serif"}
-            } 
           },
       datalabels: {
-        anchor: "end",
-        align: "start",
+        anchor: stacked ? "center": "end",
+        align: stacked ? "center": "start",
         formatter: (v) => {
           if (label_format === "%") return `${v}%`;
           if (label_format === ",") return Number(v).toLocaleString();
@@ -239,6 +234,7 @@ export function createHorizontalBarChart({ chart_data, categories, canvas_id, la
     },
     scales: {
       x: { beginAtZero: true,
+        stacked: stacked,
         ticks : {
           precision: 0,
           maxRotation: 0,
@@ -248,6 +244,7 @@ export function createHorizontalBarChart({ chart_data, categories, canvas_id, la
        },
       y: {
         grid: { display: false },
+        stacked: stacked,
         ticks: {
           callback: function (value) {
             const label = this.getLabelForValue(value);
