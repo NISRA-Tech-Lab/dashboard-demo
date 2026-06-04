@@ -2,6 +2,8 @@
   "MYE01T05": {
     "label": "Population totals - Northern Ireland",
     "updated": "2025-09-18",
+    "subject": 153,
+    "product": "PMPE",
     "data": {
       "Population totals": {
         "1971": {
@@ -226,6 +228,8 @@
   "MYE01T03": {
     "label": "Mid-year population estimates - Northern Ireland",
     "updated": "2025-09-19",
+    "subject": 153,
+    "product": "PMPE",
     "data": {
       "Mid-year population estimate": {
         "1971": {
@@ -1692,6 +1696,8 @@
   "MYE01T06": {
     "label": "Population totals",
     "updated": "2025-09-17",
+    "subject": 153,
+    "product": "PMPE",
     "data": {
       "Population totals": {
         "2001": {
@@ -2900,6 +2906,8 @@
   "MYE01T025": {
     "label": "Mid-year population estimates - Population Aged 85 and Over - Northern Ireland",
     "updated": "2025-09-17",
+    "subject": 153,
+    "product": "PMPE",
     "data": {
       "Mid-year population estimate": {
         "2001": {
@@ -4612,6 +4620,8 @@
   "COPC01T01": {
     "label": "Components of population change - Northern Ireland",
     "updated": "2025-09-26",
+    "subject": 153,
+    "product": "PMMCC",
     "data": {
       "Components of population change": {
         "2002": {
@@ -5103,6 +5113,8 @@
   "MA01T01": {
     "label": "Median age - Northern Ireland",
     "updated": "2025-09-26",
+    "subject": 153,
+    "product": "PMPC",
     "data": {
       "Median Age": {
         "1971": {
@@ -5381,6 +5393,8 @@
   "MIG01T02": {
     "label": "Net Migration - Northern Ireland",
     "updated": "2025-09-30",
+    "subject": 153,
+    "product": "PMMCC",
     "data": {
       "Net Migration": {
         "2002": {
@@ -8563,6 +8577,8 @@
   "MIG01T03": {
     "label": "Migration flows by type - Northern Ireland",
     "updated": "2025-09-17",
+    "subject": 153,
+    "product": "PMMCC",
     "data": {
       "Migration Flows": {
         "2002": {
@@ -8824,6 +8840,8 @@
   "MYE01T08": {
     "label": "Mid-year population estimates - Northern Ireland",
     "updated": "2025-09-17",
+    "subject": 153,
+    "product": "PMPE",
     "data": {
       "Mid-year population estimate": {
         "1971": {
