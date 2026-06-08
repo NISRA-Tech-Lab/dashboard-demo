@@ -104,9 +104,6 @@ window.addEventListener("DOMContentLoaded", async () => {
     // .slice(-26) keeps only the last 26 items (approximately 26 years of data)
     const pop_line_years = Object.keys(MYE01T05.data[MYE01T05_stat]).slice(-26);
 
-    // This variable is currently unused but could be used for filtering specific years
-    const line_chart_years = [2015, 2016, 2017, 2018, 2019, 2020];
-
     // ===== WHY USE A LOOP HERE? =====
     // We need to extract one value from each year and collect them into an array
     // A loop is perfect for repetitive tasks like this
@@ -137,7 +134,7 @@ window.addEventListener("DOMContentLoaded", async () => {
         years: pop_line_years, // The x-axis values (years)
         lines: line_chart_lines, // The data values for each line
         labels: line_chart_labels, // The legend labels
-        canvas_id: "pop-line" // Which HTML element to draw the chart in
+        canvas_id: "pop-line", // Which HTML element to draw the chart in
     });
 
     createLineChart({
