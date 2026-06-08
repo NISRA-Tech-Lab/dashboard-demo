@@ -8,7 +8,7 @@ import { insertValue } from "./utils/insert-value.js"; // Places values into HTM
 import { latest_year, updateYearSpans, first_year, last_year } from "./utils/update-years.js"; // Handles year-related calculations
 import { toTitleCase } from "./utils/to-title-case.js"; // Converts text to Title Case format
 import { config } from "./config/config.js"; // Configuration settings
-import { createBarChart, createHorizontalBarChart, createLineChart, createPieChart } from "./utils/charts.js"; // Creates different chart types
+import { createBarChart, createHorizontalBarChart, createLineChart, createPieChart, createPyramidChart } from "./utils/charts.js"; // Creates different chart types
 import { insertExpandButtons } from "./utils/expand-buttons.js"; // Adds expandable sections
 import { downloadButton } from "./utils/download-button.js"; // Creates download buttons for data
 import { dateFormat } from "./utils/date-format.js"; // Formats dates nicely
@@ -132,6 +132,42 @@ window.addEventListener("DOMContentLoaded", async () => {
         stacked: true
     });
 
+    // Population Pyramid
+    const MYE01T08 = await readData("MYE01T08");
+    const MYE01T08_stat = "Mid-year population estimate";
+    const MYE01T08_updated = dateFormat(MYE01T08.updated); // Format the last-update date nicely
+
+    let ages = Object.keys(MYE01T08.data[MYE01T08_stat][latest_year])
+        .filter(x => x != "All");
+    
+    let male_values = [];
+    let female_values = [];
+
+    for (let i = 0; i < ages.length; i ++) {
+        const age = ages[i];
+        male_values.push(MYE01T08.data[MYE01T08_stat][latest_year][age]["Males"]);
+        female_values.push(MYE01T08.data[MYE01T08_stat][latest_year][age]["Females"]);
+    }
+
+    const pop_chart_data = {
+        "Males": male_values,
+        "Females": female_values
+    }
+
+    createPyramidChart({
+        chart_data: pop_chart_data,
+        categories: ages.map(x => x === "90" ? "90+" : x),
+        canvas_id: "pop-pyramid",
+        year: latest_year
+    });
+
+    createPyramidChart({
+        chart_data: pop_chart_data,
+        categories: ages.map(x => x === "90" ? "90+" : x),
+        canvas_id: "pop-pyramid-expanded",
+        year: latest_year
+    });
+
     // ===== DOWNLOAD FUNCTIONALITY =====
     // Create query parameters that specify what data to download
     // These tell the API: "I want the unrounded population figures"
@@ -140,8 +176,14 @@ window.addEventListener("DOMContentLoaded", async () => {
         "Sex": "All"
     };
 
+    const pop_pyramid_query = {
+        "TLIST(A1)": latest_year,
+        "Sex": ["1", "2"]
+    }
+
     // Create download buttons that allow users to download the underlying data
     downloadButton("age-bar-capture", "MYE01T03", MYE01T03_updated, age_chart_query);
+    downloadButton("pop-pyramid-capture", "MYE01T08", MYE01T08_updated, pop_pyramid_query);
 
     // ===== INFO BOXES - HELP AND METADATA =====
     // Populate the expandable info boxes with definitions and help text
