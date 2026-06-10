@@ -60,11 +60,8 @@ window.addEventListener("DOMContentLoaded", async () => {
     // Formula: (current - previous) / previous * 100 = percent change
     const pop_change_value = (pop_total - pop_total_last) / pop_total_last * 100;
     
-    // Format the change with an arrow symbol (↑ for increase, ↓ for decrease, no arrow for zero)  
-    // If positive, show increase arrow
-    // If negative, show decrease arrow with absolute value (remove minus sign)
-    // If zero, show value with no arrow
-    const pop_change = pop_change_value > 0 ? `↑ ${pop_change_value.toFixed(1)}` : pop_change_value < 0 ? `↓ ${Math.abs(pop_change_value).toFixed(1)}` : `${pop_change_value.toFixed(1)}`;
+    // Format the change with an arrow symbol (+ for increase, - for decrease, no symbol for zero)  
+    const pop_change = pop_change_value > 0 ? `+ ${pop_change_value.toFixed(1)}` : pop_change_value < 0 ? `- ${Math.abs(pop_change_value).toFixed(1)}` : `${pop_change_value.toFixed(1)}`;
 
     insertValue("pop-change", pop_change); // Display the formatted change on the page
 
@@ -92,8 +89,8 @@ window.addEventListener("DOMContentLoaded", async () => {
     // Formula: ((current - 10yr_ago) / 10yr_ago) / 10 * 100 = average annual percent change
     const pop_change_10yr_value = (pop_total - pop_total_first) / pop_total_first / 10 * 100;
     
-    // Format with arrow symbol (↑ for increase, ↓ for decrease, no arrow for zero)
-    const pop_change_10yr = pop_change_10yr_value > 0 ? `↑ ${pop_change_10yr_value.toFixed(1)}` : pop_change_10yr_value < 0 ? `↓ ${Math.abs(pop_change_10yr_value).toFixed(1)}` : `${pop_change_10yr_value.toFixed(1)}`;
+    // Format with arrow symbol (+ for increase, - for decrease, no symbol for zero)
+    const pop_change_10yr = pop_change_10yr_value > 0 ? `+ ${pop_change_10yr_value.toFixed(1)}` : pop_change_10yr_value < 0 ? `- ${Math.abs(pop_change_10yr_value).toFixed(1)}` : `${pop_change_10yr_value.toFixed(1)}`;
     insertValue("pop-change-10yr", pop_change_10yr);
 
     // ===== LINE CHART - HISTORICAL TREND =====

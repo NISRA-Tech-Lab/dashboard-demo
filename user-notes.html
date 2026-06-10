@@ -19,103 +19,27 @@
         <div class="card">
             <div class="card-header">
                 <h2 class="card-title">User Notes</h2>
-                <ul class="nav nav-tabs card-header-tabs" role="tablist">
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link active" id="data-tab" data-bs-toggle="tab" data-bs-target="#notes" type="button" role="tab" aria-controls="notes" aria-selected="true">
-                            Notes
-                        </button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="meta-data-tab" data-bs-toggle="tab" data-bs-target="#meta-data" type="button" role="tab" aria-controls="meta-data" aria-selected="false">
-                            Meta Data
-                        </button>
-                    </li>                    
-                </ul>
             </div>
-            <div class="card-body tab-content">
-                <div class="tab-pane fade show active" id="notes" role="tabpanel" aria-labelledby="notes-tab">
-                    <h3>Notes</h3>
-<p><strong>Introduction:</strong> This dashboard presents data for Northern Ireland, from the Greenhouse Gas (GHG) Inventory. The GHG inventory provides the official estimates of emissions for the UK and each DA from 1990 to the latest available year. The inventory fulfils the United Nations Framework Convention on Climate Change (UNFCCC) reporting requirements under the Kyoto Protocol. The GHG inventory helps in understanding the amount of GHGs emitted and what sectors they originate from. The Inventory covers the emissions of the following seven gases which contribute to global warming:</p>
+            <div class="card-body">
 
-<ul>
-    <li>Carbon dioxide (CO2)</li>
-    <li>Methane (CH4)</li>
-    <li>Nitrous oxide (N2O)</li>
-    <li>Hydrofluorocarbons (HFCs)</li>
-    <li>Perfluorocarbons (PFCs)</li>
-    <li>Sulphur hexafluoride (SF6)</li>
-    <li>Nitrogen trifluoride (NF3)</li>
-</ul>
+                <p>Dashboards should include following essential information:</p>
+                <ul>
+                    <li>when dashboard was last updated</li>
+                    <li>when will dashboard next be updated and how often</li>
+                    <li>data source(s)</li>
+                    <li>where data can be downloaded</li>
+                    <li>any missing or suppressed data clearly explained</li>
+                    <li>quality assurance information</li>
+                    <li>contact information</li>
+                    <li>link to <a href="https://datavis.nisra.gov.uk/dissemination/accessibility-statement-visualisations.html" target="_blank" rel="noopener" title="NISRA Data Viz Accessibility Statement (opens in new window)" >data viz accessibility statement</a></li>
+                </ul>
 
-<p>The last four of these gases are the Fluorinated, or F-gases.</p>
 
-<p><strong>Global Warming Potential:</strong> Depending on their molecular weights, radiative properties and residence times in the atmosphere, each GHG has a different capacity to cause global warming. The Global warming potential, GWP, provides a measure of how much heat a GHG traps in the atmosphere, when that gas is compared to CO2. In order to compare emissions between GHGs consistently, each gas is weighted by its GWP. The GWP defines how potent a GHG is compared to CO2 (which has a GWP of 1) while all other GHGs have larger GWPs, reflecting their greater global warming effect per unit.</p>
 
-<p><strong>CO2 Equivalent:</strong> The values in this dashboard are presented in CO2 equivalent units (CO2e). This is the emissions value, weighted using the appropriate GWP for the gas type. This standardises emissions from different gases, allowing comparison. More information on GWPs is available at: UK greenhouse gas emissions: other technical reports</p>
+                
 
-<p>When comparing emissions over time, the ‘base year’ of 1990 is used for carbon dioxide, methane and nitrous oxide and 1995 for the fluorinated gases. When comparing emissions between England, Scotland, Wales and Northern Ireland in the comparisons tab, a log-scale is used. A log-scale allows data with a wide range of values to be compared on a single graph.</p>
 
-<p><strong>Replacement of National Communication sectors with Territorial Emissions Statistics sectors:</strong> Previous Northern Ireland Greenhouse Gas emissions statistics categorised emissions estimates into National Communication (NC) sectors. Following consultation with key stakeholders, it was proposed that the emissions estimates be categorised into Territorial Emissions Statistics (TES) sectors in order to better meet users’ needs. A breakdown of how emissions sources from NC sectors have been reallocated to TES sectors is provided below.</p>
 
-<table class="table table-bordered">
-    <thead>
-        <tr>
-            <th>TES Sector</th>
-            <th>Emissions sources in scope according to their NC sector allocation</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>Agriculture</td>
-            <td>Agriculture – The coverage of the Agriculture sector is unchanged. However, there have been some changes to the categories within the Agriculture sector.</td>
-        </tr>
-        <tr>
-            <td>Buildings and Product Uses</td>
-            <td>Business – Includes emissions from combustion on commercial sites previously allocated to the Business sector. Also includes emissions from product uses in Business such as nitrous oxide (N2O) use as an anaesthetic, or stationary refrigeration and air conditioning.<br>Public – Includes all emissions previously allocated to the Public sector.<br>Residential – Includes emissions from residential fuel combustion and product uses such as recreational N2O use, aerosols, and metered dose inhalers previously allocated to the Residential sector.<br>Industrial Processes – Includes emissions from the use of N2O in industry previously allocated to the Industrial Processes sector.</td>
-        </tr>
-        <tr>
-            <td>Domestic transport</td>
-            <td>Transport – Includes all emissions previously allocated to the transport sector.<br>Business – Includes F-gas emissions from mobile air conditioning and transport refrigeration previously categorised as part of the Business sector.</td>
-        </tr>
-        <tr>
-            <td>Electricity Supply</td>
-            <td>Energy Supply – Includes emissions from power stations previously allocated to the Energy Supply sector.</td>
-        </tr>
-        <tr>
-            <td>Fuel Supply</td>
-            <td>Energy Supply – Includes emissions from fuel production and fuel supply activities such as mining, refining, manufacturing and distributing fuels previously allocated to the Energy Supply sector.</td>
-        </tr>
-        <tr>
-            <td>Industry</td>
-            <td>Business – Most Industry sector emissions carry over from the Business sector (manufacturing and construction, plus industrial refrigeration and air conditioning).<br>Industrial Processes – Most emissions previously categorised as part of the Industrial Processes sector have been reallocated to the Industry sector.<br>Energy Supply – Emissions from coke production previously categorised as part of the Energy Supply sector have been reallocated to the Industry sector.</td>
-        </tr>
-        <tr>
-            <td>Land use change</td>
-            <td>Land use change – Coverage unchanged, but categories updated to align better with land use policy (e.g., separation of forestry and peatlands, new categories for emissions/removals).</td>
-        </tr>
-        <tr>
-            <td>Waste</td>
-            <td>Waste management – Includes all emissions previously allocated to the Waste management sector.<br>Business – Includes emissions from accidental fires previously allocated to the Business sector.<br>Residential – Includes emissions from household composting, small-scale waste burning, and accidental fires previously allocated to the Residential sector.</td>
-        </tr>
-    </tbody>
-</table>
-
-<p><strong>Progress against draft ‘Programme for Government’ Wellbeing Framework:</strong> Greenhouse gas emissions have been included as an indicator under the ‘Cleaner Environment’ domain within the draft Programme for Government Wellbeing Framework. See Programme for Government for further information.</p>
-                </div>
-                <div class="tab-pane fade" id="meta-data" role="tabpanel" aria-labelledby="meta-data-tab">
-<h3>MetaData</h3>
-        <p>The data in this dashboard come from <a href="https://naei.energysecurity.gov.uk/reports/greenhouse-gas-inventories-england-scotland-wales-northern-ireland-1990-2023" target="_blank" rel="noopener">Greenhouse Gas Inventories for England Scotland, Wales and Northern Ireland</a></p>
-        <p>The GHG inventory data are produced annually by Ricardo Energy and Environment, on behalf of the Department for Energy Security & Net Zero, the Scottish Government, the Welsh Assembly Government and the Northern Ireland Department of Agriculture, Environment and Rural Affairs. Each year the GHG inventory is extended and updated. The entire historical data series, from 1990 to the latest year, is revised to incorporate methodological improvements and new data. This takes into account revisions to the datasets used in its compilation.</p>
-        <p>The GHG emission estimates are based on a wide range of data sources and sources of uncertainty include statistical differences, assumptions, proxy datasets and expert judgement. In addition, the natural variability in the processes that are being modelled introduce uncertainty. For example, carbon content of fuels and farming practices under different climatic conditions and soil types. Uncertainty estimates for Northern Ireland emissions are available for the base year, the latest year (2023) and for the percentage change between the two years. For the base year, a close approximation of the 95% confidence interval is ±9%, and for 2023 it is ±6%. For the percentage reduction between the base year and 2023, the 95% confidence interval ranges from 24% to 41%.</p>
-        <p>There remains greater uncertainty around emissions in Northern Ireland compared to other parts of the United Kingdom due to the relative importance of methane and nitrous oxide emissions in the agriculture sector. Emissions of this gas are more difficult to estimate than carbon dioxide, and the agriculture sector makes up a larger share of Northern Irelan'’s emissions than in other parts of the UK. More information is available in <a href="https://www.gov.uk/government/publications/uk-greenhouse-gas-emissions-statistics-user-guidance" target="_blank" rel="noopener">An introduction to the UK's greenhouse gas inventory</a> and <a href="https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/996190/uk-emissions-statistics-frequently-asked-questions.pdf" target="_blank" rel="noopener">UK Greenhouse Gas Emissions Statistics: FAQs</a>.</p>
-        <strong>Contact Details</strong>
-        <p>DAERA Statistics & Analytical Services Branch is keen to hear your feedback.</p>
-        <p>Please e-mail comments to <a href="mailto:env.stats@daera-ni.gov.uk">env.stats@daera-ni.gov.uk</a></p>
-        <p>Further information can be found on the <a href="https://www.daera-ni.gov.uk/landing-pages/statistics" target="_blank" rel="noopener">DAERA Statistics website</a>.</p>
-        <p>Date of Publication:</p>
-        <p>Published: Annually</p>
-        <p>Time period covered - Greenhouse Gas Inventory: 1990-<span class="latest-year"></span></p>
-                </div>
             </div>
         </div>
        </div>
