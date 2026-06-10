@@ -8,6 +8,7 @@ import { createBarChart, createLineChart, insertTable } from "./utils/charts.js"
 import { insertExpandButtons } from "./utils/expand-buttons.js";
 import { dateFormat } from "./utils/date-format.js";
 import { downloadButton } from "./utils/download-button.js";
+import { populateInfoBoxes } from "./utils/info-boxes.js"; // Populates info/help boxes
 
 window.addEventListener("DOMContentLoaded", async () => {
 
@@ -25,10 +26,7 @@ window.addEventListener("DOMContentLoaded", async () => {
     updateYearSpans(MYE01T05, MYE01T05_stat);
 
     const MYE01T05_updated = dateFormat(MYE01T05.updated);
-    const pop_table_query = {
-        rounded_unrounded: "Unrounded"
-    };
-
+    
     const MYE01T06 = await readData("MYE01T06");
     const MYE01T06_stat = "Population totals";
     updateYearSpans(MYE01T06, MYE01T06_stat);
@@ -109,12 +107,10 @@ window.addEventListener("DOMContentLoaded", async () => {
    };
 
     insertTable("pop-table", table_data);
+    insertTable("pop-table-chart-expanded", table_data);
 
     // Bar Chart
-    const pop_bar_query = {
-        rounded_unrounded: "Unrounded"
-    };
-
+    
     const stat = "Mid-year population estimate";
     const years = Object.keys(MYE01T03.data[stat]);
 
@@ -134,6 +130,29 @@ window.addEventListener("DOMContentLoaded", async () => {
         label_format: ","   // comma formatting for large numbers
     });
 
+    createBarChart({
+        chart_data,
+        categories: age_groups,
+        canvas_id: "population-age-bar-expanded",
+        label_format: ","   // comma formatting for large numbers
+    });
+
+
+    // ===== DOWNLOAD FUNCTIONALITY =====
+    // Create query parameters that specify what data to download
+    // These tell the API: "I want the unrounded population figures"    
+    const pop_table_query = {
+        rounded_unrounded: "Unrounded"
+    };
+
+    // These parameters request: "Latest year, all age groups, both male (1) and female (2)"
+    const pop_bar_query = {
+        "TLIST(A1)": latest_year, // Latest year only
+        "Sex": ["1", "2"],  // Genders (1=Male, 2=Female)
+        "broadage4": age_groups // All age groups combined 
+    };
+
+    // Create download buttons that allow users to download the underlying data
     downloadButton("pop-bar-capture", "MYE01T03", MYE01T03_updated, pop_bar_query);
     downloadButton("pop-table-capture", "MYE01T05", MYE01T05_updated, pop_table_query);
 
@@ -165,6 +184,26 @@ window.addEventListener("DOMContentLoaded", async () => {
     const nat_change_num = COPC01T01.data[COPC01T01_stat][latest_year]["Natural Change"];
     const net_change = (net_num/(net_num + nat_change_num)) * 100; 
     insertValue("pop-net-change", net_change.toFixed(1));
+
+    // ===== INFO BOXES - HELP AND METADATA =====
+    // Populate the expandable info boxes with definitions and help text
+    // Takes 3 arrays: box titles, and their corresponding content
+    populateInfoBoxes(
+        ["Definitions", "Source", "What does the data mean?"], // Box titles
+        [
+            // Content for "Definitions" box
+            `<p>The data used to populate this page comes from the NISRA Data Portal...</p>`,
+            
+            // Content for "Source" box  
+            `<h3>Line chart functionality</h3>
+            <p>The function <em>createLineChart</em> is used to generate the line chart...</p>
+            <h3>Pie chart functionality</h3>
+            <p>The function <em>createPieChart</em> is used to generate the pie chart...</p>`,
+
+            // Content for "What does the data mean?" box
+            `<p>Accessibility and best practice information goes here...</p>`
+        ]
+    );
 
     document.getElementById("latest-year").textContent = latest_year;
     document.getElementById("last-year").textContent = last_year;    
