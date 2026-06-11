@@ -222,20 +222,17 @@ window.addEventListener("DOMContentLoaded", async () => {
         }]
       },
       options: {
+        maintainAspectRatio: false,
         plugins: {
-          legend: { display: false },
-
-          // Tooltip for hover labels
-          
-tooltip: {
-  enabled: true,   // 
-  callbacks: {
-    label: function(ctx) {
-      return `${ctx.raw.label}: ${ctx.raw.value.toLocaleString()}`;
-    }
-  }
-}
-
+          legend: { display: false },          
+        tooltip: {
+          enabled: true,   // 
+          callbacks: {
+            label: function(ctx) {
+              return `${ctx.raw.label}: ${ctx.raw.value.toLocaleString()}`;
+            }
+          }
+        }
         }
       }
     });
