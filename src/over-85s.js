@@ -271,9 +271,17 @@ tooltip: {
     canvas_id: "pop-tree-map-expanded"
   });
 
-  // ===== DOWNLOAD FUNCTIONALITY =====
+  // ===== DOWNLOAD FUNCTIONALITY =====  
+
+  // Create a list of the last ten years
+  const ten_yrs_ago = latest_year - 10
+  const year_range = [];
+  for (let y = ten_yrs_ago; y <= latest_year; y++) {
+    year_range.push(String(y));
+  }
+
   const pop_stacked_query = {
-      "TLIST(A1)": latest_year, // Latest year only
+      "TLIST(A1)": year_range, // Latest year only
       "broadage4": "All", // All age groups combined
       "Sex": ["1", "2"] // Genders (1=Male, 2=Female)
   };
@@ -281,11 +289,11 @@ tooltip: {
   const pop_treemap_query = {
       "TLIST(A1)": latest_year, // Latest year only
       "broadage7": ["1, 2", "3", "4"], // All age groups combined
-      "Sex": ["1"]
+      "Sex": "All" // All people
   };
 
   // Create download buttons that allow users to download the underlying data
-  downloadButton("stacked-bar-capture", "MYE01T25", MYE01T025_updated, pop_stacked_query);
+  downloadButton("stacked-bar-capture", "MYE01T025", MYE01T025_updated, pop_stacked_query);
   downloadButton("tree-map-capture", "MYE01T03", MYE01T03_updated, pop_treemap_query);
 
   // Population over 85 
