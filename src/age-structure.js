@@ -251,6 +251,14 @@ window.addEventListener("DOMContentLoaded", async () => {
         showPoints: false
     });
 
+    createLineChart({
+        years: median_line_years, // The x-axis values (years)
+        lines: line_chart_lines, // The data values for each line
+        labels: line_chart_labels, // The legend labels
+        canvas_id: "median-line-expanded", // Which HTML element to draw the chart in
+        showPoints: false
+    });
+
     // ===== DOWNLOAD FUNCTIONALITY =====
     // Create query parameters that specify what data to download
 

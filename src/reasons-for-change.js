@@ -29,7 +29,6 @@ window.addEventListener("DOMContentLoaded", async () => {
     
     const MYE01T06 = await readData("MYE01T06");
     const MYE01T06_stat = "Population totals";
-    updateYearSpans(MYE01T06, MYE01T06_stat);
     const MYE01T06_updated = dateFormat(MYE01T06.updated);
 
     const pop_total = (MYE01T05.data[MYE01T05_stat][latest_year]["Unrounded"]);
@@ -39,12 +38,10 @@ window.addEventListener("DOMContentLoaded", async () => {
     const MYE01T06_raw = MYE01T06.data["Population totals"];
 
     const MYE01T06_data = Object.keys(MYE01T06_raw[latest_year]).map(lgd => ({
-    LGD: lgd,
-    [`Population ${latest_year}`]: MYE01T06_raw[latest_year][lgd]?.Unrounded,
-    [`Population ${last_year}`]: MYE01T06_raw[last_year][lgd]?.Unrounded
+        LGD: lgd,
+        [`Population ${latest_year}`]: MYE01T06_raw[latest_year][lgd]?.Unrounded,
+        [`Population ${last_year}`]: MYE01T06_raw[last_year][lgd]?.Unrounded
     }));
-
-    console.log(MYE01T06_data);
 
     const data = MYE01T06_data;
 
@@ -81,8 +78,6 @@ window.addEventListener("DOMContentLoaded", async () => {
         row['Change (%)'] = percent;
     });
 
-    console.log(data)
-
     const table_data = {
         "LGD": {
             "values": data.map(row => row.LGD),
@@ -107,7 +102,7 @@ window.addEventListener("DOMContentLoaded", async () => {
    };
 
     insertTable("pop-table", table_data);
-    insertTable("pop-table-chart-expanded", table_data);
+    insertTable("pop-table-expanded", table_data);
 
     // Bar Chart
     
@@ -205,7 +200,7 @@ window.addEventListener("DOMContentLoaded", async () => {
         ]
     );
 
-    document.getElementById("latest-year").textContent = latest_year;
-    document.getElementById("last-year").textContent = last_year;    
+    
+    
 })
 
