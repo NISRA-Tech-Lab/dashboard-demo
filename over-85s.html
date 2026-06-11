@@ -3,6 +3,9 @@
 <head></head>
 <body style="display:none;">
     
+    
+
+
 <banner id="banner"></banner>
   <!-- Top Navbar -->
 <nav id ="nav"></nav>
@@ -21,41 +24,45 @@
                 <div class="col-6 col-xl py-2">
                     <div class="card h-100 navy-bg">
                         <div class="card-body d-flex flex-column justify-content-center">
-                            <p class="display-6"><span id="pop-change"></span></p>
-                            <p>population change since</p>
-                            <p><span class="last-year"></p>
+                            <p class="display-6"><span id="pop-over85"></span></p>
+                            <p>people aged 85 and over in</p>
+                            <p><span class="latest-year"></p>
                         </div>
                     </div>
                 </div>
                 <div class="col-6 col-xl py-2">
                     <div class="card h-100 blue-bg">
                         <div class="card-body d-flex flex-column justify-content-center">
-                            <p class="display-6"><span id="pop-births-deaths"></span></p>
-                            <span> more births than deaths</span>  </p>
+                            <p class="display-6"><span id="pop-over85-10yrs"></span></p>
+                            <p>people aged 85 and over in</p>
+                            <p><span class="tenyrs_previous"></p>                           
                         </div>
                     </div>
                 </div>
                 <div class="col-6 col-xl py-2">
                     <div class="card h-100 blue-bg">
                         <div class="card-body d-flex flex-column justify-content-center">
-                            <p class="display-6"><span id="pop-inflows"></span></p>
-                            <p>people came to live in Northern Ireland </p>
+                            <p class="display-6"><span id="female-over85"></span><span class="unit-pct">%</span></p>
+                            <p>over 85’s were female in </p>
+                            <p><span class="tenyrs_previous"></p>
                         </div>
                     </div>
                 </div>
                 <div class="col-6 col-xl py-2">
                     <div class="card h-100 blue-bg">
                         <div class="card-body d-flex flex-column justify-content-center">
-                            <p class="display-6"><span id="pop-outflows"></span></p>
-                            <p>people left Northern Ireland</p>
+                            <p class="display-6"><span id="male-over85"></span><span class="unit-pct">%</span></p>
+                            <p>over 85’s were male in </p>
+                            <p><span class="latest-year"></p>
                         </div>
                     </div>
                 </div>
                 <div class="col-6 col-xl py-2">
                     <div class="card h-100 blue-bg">
                         <div class="card-body d-flex flex-column justify-content-center">
-                            <p class="display-6"><span id="pop-net-change"></span><span class="unit-pct">%</span></p>
-                            <p>of growth came from net migration </p>
+                            <p class="display-6"><span id="male-over85-10yrs"></span><span class="unit-pct">%</span></p>
+                            <p>were male in </p>
+                            <p><span class="tenyrs-previous"></p>
                         </div>
                     </div>
                 </div>               
@@ -65,13 +72,12 @@
             <div class="row">
                 <div class="col-12 col-xl-6 py-2">
                     <div class="card h-100">
-                        <div id="pop-bar-capture">
+                        <div id="stacked-bar-capture">
                             <div class="card-header">
-                                Age and Gender Breakdown of Northern Ireland, 
-                                <span class="latest-year"></span> 
+                                Gender of over 85s (mid-2014 to mid-2024)
                             </div>
                         <div class="card-body d-flex flex-column justify-content-center">
-                                <canvas id="population-age-bar" class="chart-canvas"></canvas>
+                                <canvas id="pop-stacked-bar" class="chart-canvas"></canvas>
                             </div>
                         </div>
                         <div class="card-footer"></div>
@@ -80,20 +86,13 @@
                 </div>
                 <div class="col-12 col-xl-6 py-2">
                     <div class="card h-100">
-                        <div id="pop-table-capture">
-                        <div class="card-header">
-                            <p>
-                                Population change by LGD,
-                                <span class="last-year"></span>-<span class="latest-year"></span>
-                            </p>
-                        </div>
-                        <div class="card-body d-flex flex-column justify-content-center">                            
-                            <table id="pop-table">
-                              <thead></thead>
-                              <tbody></tbody>
-                            </table>
-                            <canvas id="pop-table-chart" class="chart-canvas"></canvas>
-                        </div>
+                        <div id="tree-map-capture">
+                            <div class="card-header">
+                                Population by Age Group, <span class="latest-year"></span>
+                            </div>
+                        <div class="card-body d-flex flex-column justify-content-center">
+                                <canvas id="pop-tree-map" class="chart-canvas"></canvas>
+                            </div>
                         </div>
                         <div class="card-footer"></div>
                     </div>
@@ -110,7 +109,7 @@
 
 <footer id = "footer"></footer>
 
-<script type = "module" src="src/reasons-for-change.js"></script>
+<script type = "module" src="src/over-85s.js"></script>
 
 
 </body>
