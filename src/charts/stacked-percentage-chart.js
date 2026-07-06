@@ -1,4 +1,6 @@
-export function createStackedPercentageChart({
+import { chart_colours, text_colours } from "../config/colours.js";
+
+export function stackedPercentageChart({
       labels,        
       stacked_values,    
       years,

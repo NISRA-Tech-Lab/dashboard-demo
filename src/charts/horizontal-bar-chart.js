@@ -1,4 +1,7 @@
-export function createHorizontalBarChart({ chart_data, categories, canvas_id, label_format, stacked = false }) {
+import { chart_colours } from "../config/colours.js";
+import { yAxisLabelPlugin } from "../utils/yAxisLabelPlugin.js";
+
+export function horizontalBarChart({ chart_data, categories, canvas_id, label_format, stacked = false }) {
   const bar_canvas = document.getElementById(canvas_id);
 
   const baseOptions = {

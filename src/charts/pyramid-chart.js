@@ -1,4 +1,7 @@
-export function createPyramidChart({ chart_data, categories, canvas_id, year }) {
+import { chart_colours } from "../config/colours.js";
+import { wrapLabel } from "../utils/wrap-label.js";
+
+export function pyramidChart({ chart_data, categories, canvas_id, year }) {
   const bar_canvas = document.getElementById(canvas_id);
 
   const keys = Object.keys(chart_data);
