@@ -6,7 +6,7 @@ import { downloadButton } from "./utils/download-button.js";
 import { config } from "./config/config.js";
 import { updateYearSpans, latest_year } from "./utils/update-years.js";
 import { dateFormat } from "./utils/date-format.js";
-import { insertTable } from "./utils/charts.js";
+import { insertTable } from "./utils/insert-table.js"
 
 window.addEventListener("DOMContentLoaded", async () => {
 

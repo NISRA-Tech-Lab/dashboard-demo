@@ -8,7 +8,9 @@ import { insertValue } from "./utils/insert-value.js"; // Places values into HTM
 import { latest_year, updateYearSpans, first_year, last_year } from "./utils/update-years.js"; // Handles year-related calculations
 import { toTitleCase } from "./utils/to-title-case.js"; // Converts text to Title Case format
 import { config } from "./config/config.js"; // Configuration settings
-import { createBarChart, createHorizontalBarChart, createLineChart, createPieChart, createPyramidChart } from "./utils/charts.js"; // Creates different chart types
+import { horizontalBarChart } from "./charts/horizontal-bar-chart.js";
+import { lineChart } from "./charts/line-chart.js";
+import { createPyramidChart } from "./charts/pyramid-chart.js";
 import { insertExpandButtons } from "./utils/expand-buttons.js"; // Adds expandable sections
 import { downloadButton } from "./utils/download-button.js"; // Creates download buttons for data
 import { dateFormat } from "./utils/date-format.js"; // Formats dates nicely
@@ -145,7 +147,7 @@ window.addEventListener("DOMContentLoaded", async () => {
     };
 
     // Create the chart twice: once for the main view and once for the expanded/modal view
-    createHorizontalBarChart({
+    horizontalBarChart({
         chart_data: age_chart_data,
         categories: bar_years,
         canvas_id: "age-bar",
@@ -153,7 +155,7 @@ window.addEventListener("DOMContentLoaded", async () => {
         stacked: true
     });
 
-    createHorizontalBarChart({
+    horizontalBarChart({
         chart_data: age_chart_data,
         categories: bar_years,
         canvas_id: "age-bar-expanded",
@@ -243,7 +245,7 @@ window.addEventListener("DOMContentLoaded", async () => {
     ];
 
     // Create the line chart
-    createLineChart({
+    lineChart({
         years: median_line_years, // The x-axis values (years)
         lines: line_chart_lines, // The data values for each line
         labels: line_chart_labels, // The legend labels
@@ -251,7 +253,7 @@ window.addEventListener("DOMContentLoaded", async () => {
         showPoints: false
     });
 
-    createLineChart({
+    lineChart({
         years: median_line_years, // The x-axis values (years)
         lines: line_chart_lines, // The data values for each line
         labels: line_chart_labels, // The legend labels

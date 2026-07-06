@@ -8,7 +8,8 @@ import { insertValue } from "./utils/insert-value.js"; // Places values into HTM
 import { latest_year, updateYearSpans, first_year, last_year } from "./utils/update-years.js"; // Handles year-related calculations
 import { toTitleCase } from "./utils/to-title-case.js"; // Converts text to Title Case format
 import { config } from "./config/config.js"; // Configuration settings
-import { createBarChart, createHorizontalBarChart, createLineChart, createPieChart } from "./utils/charts.js"; // Creates different chart types
+import { lineChart } from "./charts/line-chart.js"; // Creates different chart types
+import { horizontalBarChart} from "./charts/horizontal-bar-chart.js";
 import { insertExpandButtons } from "./utils/expand-buttons.js"; // Adds expandable sections
 import { downloadButton } from "./utils/download-button.js"; // Creates download buttons for data
 import { dateFormat } from "./utils/date-format.js"; // Formats dates nicely
@@ -116,14 +117,14 @@ window.addEventListener("DOMContentLoaded", async () => {
     };
 
     // Create the horizontal bar chart
-    createHorizontalBarChart({
+    horizontalBarChart({
         chart_data: migration_chart_data,
         categories: age_groups,
         canvas_id: "migration-bar",
         label_format: ","
     });
 
-    createHorizontalBarChart({
+    horizontalBarChart({
         chart_data: migration_chart_data,
         categories: age_groups,
         canvas_id: "migration-bar-expanded",
@@ -156,7 +157,7 @@ window.addEventListener("DOMContentLoaded", async () => {
     }
 
     // Create the line chart
-    createLineChart({
+    lineChart({
         years: migration_years,
         lines: [uk_net_line, row_net_line, total_net_line],
         labels: ["United Kingdom Net", "Rest of World Net", "Total Net"],
@@ -165,7 +166,7 @@ window.addEventListener("DOMContentLoaded", async () => {
         showPoints: false
     });
 
-    createLineChart({
+    lineChart({
         years: migration_years,
         lines: [uk_net_line, row_net_line, total_net_line],
         labels: ["United Kingdom Net", "Rest of World Net", "Total Net"],

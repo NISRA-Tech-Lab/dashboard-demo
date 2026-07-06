@@ -4,7 +4,9 @@ import { insertValue } from "./utils/insert-value.js";
 import { latest_year, updateYearSpans, first_year, last_year } from "./utils/update-years.js";
 import { toTitleCase } from "./utils/to-title-case.js";
 import { config } from "./config/config.js";
-import { createBarChart, createLineChart, insertTable } from "./utils/charts.js";
+// import { createBarChart, createLineChart, insertTable } from "./utils/charts.js";
+import { barChart } from "./charts/bar-chart.js";
+import { insertTable } from "./utils/insert-table.js";
 import { insertExpandButtons } from "./utils/expand-buttons.js";
 import { dateFormat } from "./utils/date-format.js";
 import { downloadButton } from "./utils/download-button.js";
@@ -118,14 +120,14 @@ window.addEventListener("DOMContentLoaded", async () => {
         "Males": age_groups.map(age => year_data[age]["Males"])
     };
 
-    createBarChart({
+    barChart({
         chart_data,
         categories: age_groups,
         canvas_id: "population-age-bar",
         label_format: ","   // comma formatting for large numbers
     });
 
-    createBarChart({
+    barChart({
         chart_data,
         categories: age_groups,
         canvas_id: "population-age-bar-expanded",
