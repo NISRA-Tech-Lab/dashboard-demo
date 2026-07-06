@@ -10,7 +10,7 @@ import { toTitleCase } from "./utils/to-title-case.js"; // Converts text to Titl
 import { config } from "./config/config.js"; // Configuration settings
 import { horizontalBarChart } from "./charts/horizontal-bar-chart.js";
 import { lineChart } from "./charts/line-chart.js";
-import { createPyramidChart } from "./charts/pyramid-chart.js";
+import { pyramidChart } from "./charts/pyramid-chart.js";
 import { insertExpandButtons } from "./utils/expand-buttons.js"; // Adds expandable sections
 import { downloadButton } from "./utils/download-button.js"; // Creates download buttons for data
 import { dateFormat } from "./utils/date-format.js"; // Formats dates nicely
@@ -194,14 +194,14 @@ window.addEventListener("DOMContentLoaded", async () => {
     };
 
     // Create the population pyramid twice: once normal, once expanded
-    createPyramidChart({
+    pyramidChart({
         chart_data: pop_chart_data,
         categories: ages.map(x => x === "90" ? "90+" : x),
         canvas_id: "pop-pyramid",
         year: latest_year
     });
 
-    createPyramidChart({
+    pyramidChart({
         chart_data: pop_chart_data,
         categories: ages.map(x => x === "90" ? "90+" : x),
         canvas_id: "pop-pyramid-expanded",
