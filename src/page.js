@@ -4,7 +4,8 @@ import { insertValue } from "./utils/insert-value.js";
 import { latest_year, updateYearSpans, first_year } from "./utils/update-years.js";
 import { toTitleCase } from "./utils/to-title-case.js";
 import { config } from "./config/config.js";
-import { createBarChart, createLineChart } from "./utils/charts.js";
+import { lineChart } from "./charts/line-chart.js";
+import { barChart } from "./charts/bar-chart.js";
 import { insertExpandButtons } from "./utils/expand-buttons.js";
 
 window.addEventListener("DOMContentLoaded", async () => {
@@ -50,14 +51,14 @@ window.addEventListener("DOMContentLoaded", async () => {
         [0.8, 0.9, 1.0, 1.1, 1.2, 1.3]
     ];
     const line_chart_labels = ["Sector 1", "Sector 2"];
-    createLineChart({
+    lineChart({
         years: line_chart_years,
         lines: line_chart_lines,
         labels: line_chart_labels,
         canvas_id: "line-example"
     });
 
-    createLineChart({
+    lineChart({
         years: line_chart_years,
         lines: line_chart_lines,
         labels: line_chart_labels,
@@ -69,13 +70,13 @@ window.addEventListener("DOMContentLoaded", async () => {
     const bar_chart_categories = ["Category A", "Category B"];
     const bar_chart_data = {"Type 1": [10, 15, 3], "Type 2": [5, 7, 2]};
 
-    createBarChart({
+    barChart({
         categories: bar_chart_categories,
         chart_data: bar_chart_data,
         canvas_id: "bar-example"
     });
 
-    createBarChart({
+    barChart({
         categories: bar_chart_categories,
         chart_data: bar_chart_data,
         canvas_id: "bar-example-expanded"
