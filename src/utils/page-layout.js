@@ -8,7 +8,8 @@ export function insertHeader () {
     banner.classList.add("navbar");
     banner.classList.add("p-0");
     banner.style.backgroundColor = "#00205b";
-    banner.innerHTML = `<div class="container-fluid d-flex flex-column align-items-stretch p-0">
+    banner.innerHTML = `<div id="skip-link" class="container-fluid bg-warning py-2 d-none"><a class="text-black" href="#content">Skip to main content</a></div>
+    <div class="container-fluid d-flex flex-column align-items-stretch p-0">
     <!-- Banner row (full width) -->
     <div aria-label="Feedback" class="w-100" style="background-color:#3878c5;">
         <div class="text-white text-center py-2 px-3">
@@ -18,32 +19,40 @@ export function insertHeader () {
         </div>
     </div>
   <!-- Main navbar row -->
-<div role="banner" class="d-flex row align-items-center justify-content-between w-100 py-3 px-2">
+  <div role="banner" class="d-flex row align-items-center justify-content-between w-100 py-3 px-2">
 
-  <!-- Left: NISRA logo -->
-  <div class="col-12 col-xl-4 d-flex justify-content-center justify-content-xl-start">
-    <a class="navbar-brand ps-2 d-flex align-items-center" href="https://www.nisra.gov.uk/" target="_blank" rel="noopener noreferrer">
-      <img src="assets/img/logo/nisra-only-white.svg"
-           alt="NISRA logo" height="60" class="me-3" role="img" title="NISRA Website (opens in new tab)">
-    </a>
+    <!-- Left: NISRA logo -->
+    <div class="col-12 col-xl-4 d-flex justify-content-center justify-content-xl-start">
+      <a class="navbar-brand ps-2 d-flex align-items-center" href="https://www.nisra.gov.uk/" target="_blank" rel="noopener noreferrer">
+        <img src="assets/img/logo/nisra-only-white.svg"
+            alt="NISRA logo" height="60" class="me-3" role="img" title="NISRA Website (opens in new tab)">
+      </a>
+    </div>
+
+    <!-- Center: Page title -->
+    <div class="col-12 col-xl-4 d-flex justify-content-center">
+      <h1 class="mb-0 text-white fs-2 app-title text-center">${config.title}</h1>
+    </div>
+
+    <!-- Right: Department logo -->
+    <div class="col-12 col-xl-4 d-flex justify-content-center justify-content-xl-end">
+      <a class="navbar-brand pe-2 d-flex align-items-center" href="${departments[config.department].url}" target="_blank" rel="noopener noreferrer">
+        <img id="banner-logo" src="assets/img/logo/dep_white/${config.department}.svg"
+            alt="${departments[config.department].name} logo" height="60" class="ms-3" title="${departments[config.department].name} Website (opens in new tab)" role="img">
+      </a>
+    </div>
+
   </div>
 
-  <!-- Center: Page title -->
-  <div class="col-12 col-xl-4 d-flex justify-content-center">
-    <h1 class="mb-0 text-white fs-2 app-title text-center">${config.title}</h1>
-  </div>
+  `
 
-  <!-- Right: Department logo -->
-  <div class="col-12 col-xl-4 d-flex justify-content-center justify-content-xl-end">
-    <a class="navbar-brand pe-2 d-flex align-items-center" href="${departments[config.department].url}" target="_blank" rel="noopener noreferrer">
-      <img id="banner-logo" src="assets/img/logo/dep_white/${config.department}.svg"
-           alt="${departments[config.department].name} logo" height="60" class="ms-3" title="${departments[config.department].name} Website (opens in new tab)" role="img">
-    </a>
-  </div>
+  window.addEventListener("keydown", (e) => {
+    if (e.keyCode === 9) {
+      document.getElementById("skip-link").classList.add("d-flex");
+      document.getElementById("skip-link").classList.remove("d-none");
+    }
+  })
 
-</div>
-
-`
 }
 
 export function insertNavButtons() {
