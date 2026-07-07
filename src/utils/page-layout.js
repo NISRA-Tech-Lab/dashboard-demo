@@ -208,14 +208,6 @@ export function insertFooter () {
         <li class="list-inline-item"><a href="https://datavis.nisra.gov.uk/dissemination/accessibility-statement-visualisations.html">Accessibility Statement</a></li>
       </ul>
     </div>`
-    
-    function adjustFooterMargin() {
-      const margin_needed = (window.innerHeight - document.getElementById("banner").clientHeight - document.getElementById("nav").clientHeight - document.getElementsByTagName("main")[0].clientHeight - footer.clientHeight);
-      footer.style.marginTop = (margin_needed) > 0 ? `${margin_needed}px` : "0px";
-    }
-
-    adjustFooterMargin();
-    window.addEventListener("resize", adjustFooterMargin); 
 
 }
 
