@@ -175,7 +175,7 @@ table tr:not(:has(th)):hover {
 }
 
 .btn-primary {
-  background-color: #3878c5;
+  background-color: #732777;
 }
 
 .current-page {
@@ -244,12 +244,14 @@ table tr:not(:has(th)):hover {
 }
 
 .nav-btn {
-  background-color: #3878c5;
+  background-color: #68a41e;
   border: 2px solid #00205B;
+  padding: 0.5rem 1rem;
+  color: #000;
 }
 
 .nav-btn:hover {
-  background-color: #6B7EA0;
+  background-color: #cedc20;
   cursor: pointer;
 }
 
@@ -265,7 +267,7 @@ table tr:not(:has(th)):hover {
 
 /* Only when expanded (i.e., NOT collapsed) */
 .accordion-button:not(.collapsed) {
-  background-color: #00205B;
+  background-color: #00205b;
   color: #fff;
 }
 
@@ -275,10 +277,10 @@ table tr:not(:has(th)):hover {
 }
 
 .accordion-button {
-  border-left: 2px solid #00205B;
-  border-top: 2px solid #00205B;
-  border-bottom: 2px solid #00205B;
-  color: #00205B;
+  border-left: 2px solid #00205b;
+  border-top: 2px solid #00205b;
+  border-bottom: 2px solid #00205b;
+  color: #000;
   font-size: 0.75em;
 }
 
