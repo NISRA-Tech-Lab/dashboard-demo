@@ -191,16 +191,19 @@ window.addEventListener("DOMContentLoaded", async () => {
         ["Definitions", "Source", "What does the data mean?"], // Box titles
         [
             // Content for "Definitions" box
-            `<p>The data used to populate this page comes from the NISRA Data Portal...</p>`,
+            `<p>The page layout is built in <code>population-estimates.html</code> using Bootstrap 5 grid classes such as <code>row</code> and <code>col</code> so the content can adapt to different screen sizes and remain mobile friendly.</p>
+            <p>For guidance on the Bootstrap layout system, see <a href="https://getbootstrap.com/docs/5.3/layout/grid/" target="_blank" rel="noopener noreferrer">Bootstrap 5 grid documentation</a>.</p>
+            <p>The page has also been checked for accessibility so the content is easier to use with assistive technologies.</p>`,
             
             // Content for "Source" box  
-            `<h3>Line chart functionality</h3>
-            <p>The function <em>createLineChart</em> is used to generate the line chart...</p>
-            <h3>Pie chart functionality</h3>
-            <p>The function <em>createPieChart</em> is used to generate the pie chart...</p>`,
+            `<p>The top cards on this page are populated from this script using data from the NISRA Data Portal.</p>
+            <p>The main datasets used are <strong>MYE01T05</strong> for population totals and <strong>MYE01T03</strong> for the gender breakdown. The card values also use <strong>COPC01T01</strong> for the components of population change and <strong>MA01T01</strong> for median age.</p>
+            <p>Values are selected by following the structure and column order shown in the data matrix on the NISRA Data Portal, so the correct row and column are pulled for each card.</p>`,
 
             // Content for "What does the data mean?" box
-            `<p>Accessibility and best practice information goes here...</p>`
+            `<p>This page uses two charting functions.</p>
+            <p><strong>lineChart()</strong> is used to draw the historical population trend and requires the years to plot on the x-axis, the population values for each line, the labels for each line, and the canvas ID where the chart should appear.</p>
+            <p><strong>pieChart()</strong> is used for the gender breakdown and requires the chart labels, the values for each slice, and the canvas ID for the chart container.</p>`
         ]
     );
 

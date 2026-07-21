@@ -206,16 +206,19 @@ window.addEventListener("DOMContentLoaded", async () => {
       ["Definitions", "Source", "What does the data mean?"], // Box titles
       [
           // Content for "Definitions" box
-          `<p>The data used to populate this page comes from the NISRA Data Portal...</p>`,
+          `<p>The layout for this page is built in the dashboard HTML template using Bootstrap 5 grid classes such as <code>row</code> and <code>col</code> so the charts and summary cards can adapt to different screen sizes and remain mobile friendly.</p>
+          <p>For guidance on the Bootstrap layout system, see <a href="https://getbootstrap.com/docs/5.3/layout/grid/" target="_blank" rel="noopener noreferrer">Bootstrap 5 grid documentation</a>.</p>
+          <p>The page has also been checked for accessibility so the content is easier to use with assistive technologies.</p>`,
           
           // Content for "Source" box  
-          `<h3>Line chart functionality</h3>
-          <p>The function <em>createLineChart</em> is used to generate the line chart...</p>
-          <h3>Pie chart functionality</h3>
-          <p>The function <em>createPieChart</em> is used to generate the pie chart...</p>`,
+          `<p>The top cards on this page are populated from this script using data from the NISRA Data Portal.</p>
+          <p>The main datasets used are <strong>MYE01T025</strong> for the over-85 population figures and <strong>MYE01T03</strong> for the age-group breakdown used in the tree map.</p>
+          <p>Values are selected by following the structure and column order shown in the relevant data matrix on the NISRA Data Portal.</p>`,
 
           // Content for "What does the data mean?" box
-          `<p>Accessibility and best practice information goes here...</p>`
+          `<p>This page uses two charting functions.</p>
+          <p><strong>stackedPercentageChart()</strong> is used for the stacked percentage chart and requires the labels, the stacked values for each series, the years, and the canvas ID.</p>
+          <p><strong>treemapChart()</strong> is used for the age-group tree map and requires the raw data, the statistic name, the year, the category list, the group key, and the canvas ID.</p>`
       ]
   );
 

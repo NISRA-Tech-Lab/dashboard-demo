@@ -293,16 +293,20 @@ window.addEventListener("DOMContentLoaded", async () => {
         ["Definitions", "Source", "What does the data mean?"], // Box titles
         [
             // Content for "Definitions" box
-            `<p>The data used to populate this page comes from the NISRA Data Portal...</p>`,
+            `<p>The layout for this page is built in the dashboard HTML template using Bootstrap 5 grid classes such as <code>row</code> and <code>col</code> so the cards and charts can adapt to different screen sizes and remain mobile friendly.</p>
+            <p>For guidance on the Bootstrap layout system, see <a href="https://getbootstrap.com/docs/5.3/layout/grid/" target="_blank" rel="noopener noreferrer">Bootstrap 5 grid documentation</a>.</p>
+            <p>The page has also been checked for accessibility so the content is easier to use with assistive technologies.</p>`,
             
             // Content for "Source" box  
-            `<h3>Line chart functionality</h3>
-            <p>The function <em>createLineChart</em> is used to generate the line chart...</p>
-            <h3>Pie chart functionality</h3>
-            <p>The function <em>createPieChart</em> is used to generate the pie chart...</p>`,
+            `<p>The top cards on this page are populated from this script using data from the NISRA Data Portal.</p>
+            <p>The main datasets used are <strong>MA01T01</strong> for median age, <strong>MYE01T03</strong> for age-group percentages, and <strong>MYE01T08</strong> for the population pyramid.</p>
+            <p>Values are selected by following the structure and column order shown in the relevant data matrix on the NISRA Data Portal.</p>`,
 
             // Content for "What does the data mean?" box
-            `<p>Accessibility and best practice information goes here...</p>`
+            `<p>This page uses three charting functions.</p>
+            <p><strong>horizontalBarChart()</strong> is used for the age-group trend chart and requires chart data, category labels, a canvas ID, and an optional stacked flag.</p>
+            <p><strong>pyramidChart()</strong> is used for the population pyramid and requires the male and female values, age labels, and the canvas ID where the chart should appear.</p>
+            <p><strong>lineChart()</strong> is used for the median age trend and requires the years, the values for each line, the line labels, and the canvas ID.</p>`
         ]
     );
 
