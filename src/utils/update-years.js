@@ -11,9 +11,11 @@ export function updateYearSpans(data, stat = null) {
         filteredData = data.filter(row => row["Statistic"] === stat);
     }
 
-    years = filteredData
+    const all_years = filteredData
         .sort((a, b) => a.Year - b.Year)
         .map(row => row.Year);
+
+    years = [...new Set(all_years)];
     
     first_year = years[0];
     latest_year = years[years.length - 1];

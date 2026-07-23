@@ -36,11 +36,10 @@ window.addEventListener("DOMContentLoaded", async () => {
     // Step 1: Fetch the data from the data source (JSON file or database)
     // MIG01T02 is the code for the net migration dataset
     // "await" pauses execution until the data finishes loading
-    const MIG01T02 = await readData("MIG01T02");
-    const MIG01T02_stat = "Net Migration"; // This is the specific statistic within the dataset we want
-    updateYearSpans(MIG01T02, MIG01T02_stat); // Updates year labels on the page
+    const [MIG01T02, MIG01T02_meta] = await readData("MIG01T02");
+    updateYearSpans(MIG01T02); // Updates year labels on the page
 
-    const MIG01T02_updated = dateFormat(MIG01T02.updated); // Format the last-update date nicely
+    const MIG01T02_updated = dateFormat(MIG01T02_meta.updated); // Format the last-update date nicely
 
     // Step 2: Extract the value from the nested data structure
     // MIG01T02.data is a large object organized like: {statistic_name: {year: {metric: value}}}
@@ -52,7 +51,11 @@ window.addEventListener("DOMContentLoaded", async () => {
     //     }
     //   }
 
-    const pop_change_value = MIG01T02.data[MIG01T02_stat][latest_year]["All"]["All persons"]["Total Net"];
+    const pop_change_value = MIG01T02
+        .filter(row => row["Year"] == latest_year &&
+                       row["Broad age band (7 cat)"] == "All" &&
+                       row["Sex"] == "All persons")
+        .map(col => col["Total Net"])
     
     // Format the net migration value with a plus or minus sign and commas
     const pop_change = pop_change_value > 0 ? `+ ${pop_change_value.toLocaleString()}` : pop_change_value < 0 ? `- ${Math.abs(pop_change_value).toLocaleString()}` : `${pop_change_value}`;
@@ -62,7 +65,12 @@ window.addEventListener("DOMContentLoaded", async () => {
 
     // ----- PERCENTAGE POPULATION CHANGE CARD -----
     // Calculate how much the population changed from last year to this year
-    const pop_change_last = MIG01T02.data[MIG01T02_stat][last_year]["All"]["All persons"]["Total Net"];
+    const pop_change_last = MIG01T02
+        .filter(row => row["Year"] == last_year &&
+                       row["Broad age band (7 cat)"] == "All" &&
+                       row["Sex"] == "All persons")
+        .map(col => col["Total Net"])
+
     const pop_change_pct_value = ((pop_change_value - pop_change_last) / Math.abs(pop_change_last)) * 100; // Percentage change formula
     const pop_change_pct = pop_change_pct_value > 0 ? `+ ${pop_change_pct_value.toFixed(0)}` : pop_change_pct_value < 0 ? `- ${Math.abs(pop_change_pct_value).toFixed(0)}` : `${pop_change_pct_value.toFixed(0)}`;
     insertValue("pop-change-pct", pop_change_pct);
@@ -70,63 +78,66 @@ window.addEventListener("DOMContentLoaded", async () => {
     // ----- LARGEST NET LOSS/GAIN CARDS -----
     // Get the list of age groups from the current year, excluding the summary "All" row
     // These age groups will be used for the chart labels and for finding the largest gain/loss
-    const age_groups = Object.keys(MIG01T02.data[MIG01T02_stat][latest_year]).filter(key => key !== "All");
-    let age_nets = {};
 
-    // Use a loop to extract the net migration value for each age group
-    // This keeps the same logic for every group and avoids writing the same code over and over
-    for (let i = 0; i < age_groups.length; i++) {
-        const age_group = age_groups[i];
-        const net_value = MIG01T02.data[MIG01T02_stat][latest_year][age_group]["All persons"]["Total Net"];
-        age_nets[age_group] = net_value;
-    }
+    const age_group_data = MIG01T02
+        .filter(
+            row => row["Year"] == latest_year &&
+            row["Sex"] == "All persons" &&
+            row["Broad age band (7 cat)"] != "All"
+        )
+    
+    const net_values = age_group_data
+        .map(col => col["Total Net"]);
 
-    insertValue("gain-age", getMaxEntry(age_nets).key);
-    insertValue("loss-age", getMaxEntry(age_nets, "min").key);    
+    const max_net = Math.max(...net_values);
+    const min_net = Math.min(...net_values);
+
+    const max_age = age_group_data
+        .filter(row => row["Total Net"] == max_net)
+        .map(col => col["Broad age band (7 cat)"])
+
+    const min_age = age_group_data
+        .filter(row => row["Total Net"] == min_net)
+        .map(col => col["Broad age band (7 cat)"])
+
+    insertValue("gain-age", max_age);
+    insertValue("loss-age", min_age);    
 
     // ----- INWARD MIGRATION FROM OUTSIDE UK CARD -----
-    const MIG01T03 = await readData("MIG01T03");
-    const MIG01T03_stat = "Migration Flows";
+    const [MIG01T03, MIG01T03_meta] = await readData("MIG01T03");
 
-    const MIG01T03_updated = dateFormat(MIG01T03.updated); // Format the last-update date nicely
-    // Find the latest year key in the migration flows dataset
-    const MIG01T03_latest_year = Object.keys(MIG01T03.data[MIG01T03_stat]).slice(-1)[0];
-    
-    const row_inflows = MIG01T03.data[MIG01T03_stat][MIG01T03_latest_year]["Rest of World Inflows"];
+    const MIG01T03_updated = dateFormat(MIG01T03_meta.updated); // Format the last-update date nicely
+
+    const row_inflows = MIG01T03
+        .filter(row => row["Year"] == latest_year)
+        .map(col => col["Rest of World Inflows"])
+
 
     insertValue("outside-uk", row_inflows.toLocaleString());
 
     // ----- NET MIGRATION BY AGE AND SEX - HORIZONTAL BAR CHART -----
-    // Extract data for Males and Females by age group
-    const female_migration_by_age = [];
-    const male_migration_by_age = [];
-
-    for (let i = 0; i < age_groups.length; i++) {
-        const age_group = age_groups[i];
-        const female_net = MIG01T02.data[MIG01T02_stat][latest_year][age_group]["Females"]["Total Net"];
-        const male_net = MIG01T02.data[MIG01T02_stat][latest_year][age_group]["Males"]["Total Net"];
-        
-        female_migration_by_age.push(female_net);
-        male_migration_by_age.push(male_net);
-    }
-
-    // Prepare data in the format expected by createHorizontalBarChart
-    const migration_chart_data = {
-        "Females": female_migration_by_age,
-        "Males": male_migration_by_age
-    };
+    const migration_chart_data = MIG01T02
+        .filter(
+            row => row["Year"] == latest_year &&
+            row["Broad age band (7 cat)"] != "All" &&
+            row["Sex"] != "All persons"
+        );
 
     // Create the horizontal bar chart
     horizontalBarChart({
-        chart_data: migration_chart_data,
-        categories: age_groups,
+        data: migration_chart_data,
+        value: "Total Net",
+        bars: "Sex",
+        categories: "Broad age band (7 cat)",
         canvas_id: "migration-bar",
         label_format: ","
     });
 
     horizontalBarChart({
-        chart_data: migration_chart_data,
-        categories: age_groups,
+        data: migration_chart_data,
+        value: "Total Net",
+        bars: "Sex",
+        categories: "Broad age band (7 cat)",
         canvas_id: "migration-bar-expanded",
         label_format: ","
     });
@@ -134,32 +145,19 @@ window.addEventListener("DOMContentLoaded", async () => {
     // ----- Net migration from and to the UK and the rest of the world -----
     // Extract years and net migration values for UK, Rest of World, and Total
     // Sort the years so the chart draws them in chronological order from left to right
-    const migration_years = Object.keys(MIG01T03.data[MIG01T03_stat]).sort();
-    
-    const uk_net_line = [];
-    const row_net_line = [];
-    const total_net_line = [];
+    // const migration_years = Object.keys(MIG01T03.data[MIG01T03_stat]).sort();
+    const migration_years = MIG01T03.map(col => col["Year"]);
 
-    // ===== WHY USE A LOOP HERE? =====
-    // We need to extract one value from each year and collect them into arrays
-    // A loop is perfect for repetitive tasks like this
-    // Instead of writing:
-    //   uk_net_line[0] = data[2015]
-    //   uk_net_line[1] = data[2016]
-    //   ... (this would be tedious with many years!)
-    // We use a loop to do it automatically
-    for (let i = 0; i < migration_years.length; i++) {
-        const year = migration_years[i];
-        
-        uk_net_line.push(MIG01T03.data[MIG01T03_stat][year]["United Kingdom Net"]);
-        row_net_line.push(MIG01T03.data[MIG01T03_stat][year]["Rest of World Net"]);
-        total_net_line.push(MIG01T03.data[MIG01T03_stat][year]["Total Net"]);
-    }
+    const lines = [
+        MIG01T03.map(col => col["United Kingdom Net"]),
+        MIG01T03.map(col => col["Rest of World Net"]),
+        MIG01T03.map(col => col["Total Net"])
+    ];
 
     // Create the line chart
     lineChart({
         years: migration_years,
-        lines: [uk_net_line, row_net_line, total_net_line],
+        lines: lines,
         labels: ["United Kingdom Net", "Rest of World Net", "Total Net"],
         unit: "",
         canvas_id: "migration-line",
@@ -168,7 +166,7 @@ window.addEventListener("DOMContentLoaded", async () => {
 
     lineChart({
         years: migration_years,
-        lines: [uk_net_line, row_net_line, total_net_line],
+        lines: lines,
         labels: ["United Kingdom Net", "Rest of World Net", "Total Net"],
         unit: "",
         canvas_id: "migration-line-expanded",

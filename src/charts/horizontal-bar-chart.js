@@ -1,8 +1,25 @@
 import { chart_colours } from "../config/colours.js";
 import { yAxisLabelPlugin } from "../utils/yAxisLabelPlugin.js";
 
-export function horizontalBarChart({ chart_data, categories, canvas_id, label_format, stacked = false }) {
+export function horizontalBarChart({ data, value, bars, categories, canvas_id, label_format, stacked = false }) {
   const bar_canvas = document.getElementById(canvas_id);
+
+  let bar_categories = data
+    .map(col => col[categories]);
+
+  bar_categories = [...new Set(bar_categories)];
+
+  let chart_data_keys = data
+    .map(col => col[bars]);
+  
+  chart_data_keys = [...new Set(chart_data_keys)]
+
+  let chart_data = {};
+  chart_data_keys.forEach(key => {
+    chart_data[key] = data
+      .filter(row => row[bars] == key)
+      .map(col => col[value])
+  })
 
   const baseOptions = {
     indexAxis: "y",
@@ -75,7 +92,7 @@ export function horizontalBarChart({ chart_data, categories, canvas_id, label_fo
   const bar_chart = new Chart(ctx, {
     type: "bar",
     data: {
-      labels: categories,
+      labels: bar_categories,
       datasets: chart_datasets
     },
     options: baseOptions,
