@@ -118,6 +118,8 @@ for (matrix in matrix_list) {
     select(all_of(cols_to_keep)) |> 
     pivot_wider(names_from = all_of(pivot_col), values_from = "VALUE")
   
+  names(csv_wide) <- gsub(" Label", "", names(csv_wide))
+  
   write.csv(csv_wide, paste0("public/data/", matrix, ".csv"), row.names = FALSE)
 }
 

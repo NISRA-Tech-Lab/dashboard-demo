@@ -3,8 +3,17 @@ export let first_year;
 export let latest_year;
 export let last_year;
 
-export function updateYearSpans(data, stat) {
-    years = Object.keys(data.data[stat]);
+export function updateYearSpans(data, stat = null) {
+
+    let filteredData = data;
+
+    if (stat !== null) {
+        filteredData = data.filter(row => row["Statistic"] === stat);
+    }
+
+    years = filteredData
+        .sort((a, b) => a.Year - b.Year)
+        .map(row => row.Year);
     
     first_year = years[0];
     latest_year = years[years.length - 1];
