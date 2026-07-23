@@ -36,7 +36,6 @@ window.addEventListener("DOMContentLoaded", async () => {
     // MYE01T05 is the code for "Population totals" dataset
     // "await" pauses execution until the data finishes loading
     const [MYE01T05, MYE01T05_meta] = await readData("MYE01T05");
-    const MYE01T05_stat = "Population totals"; // This is the specific statistic within the dataset we want
     updateYearSpans(MYE01T05); // Updates year labels on the page
 
     const MYE01T05_updated = dateFormat(MYE01T05_meta.updated); // Format the last-update date nicely
@@ -73,7 +72,6 @@ window.addEventListener("DOMContentLoaded", async () => {
     // ----- GENDER BREAKDOWN CARDS (Female and Male) -----
     // Fetch a different dataset that has gender breakdowns
     const [MYE01T03, MYE01T03_meta] = await readData("MYE01T03");
-    const MYE01T03_stat = "Mid-year population estimate";
     const MYE01T03_updated = dateFormat(MYE01T03_meta.updated);
 
     // Extract female population and calculate percentage of total
@@ -81,8 +79,7 @@ window.addEventListener("DOMContentLoaded", async () => {
     // "All" means all age groups combined
     const female_pop = MYE01T03
         .filter(row => row["Year"] == latest_year &&
-                       row["Broad age band (4 cat)"] == "All"
-        )
+                       row["Broad age band (4 cat)"] == "All")
         .map(col => col["Females"]);
     
     const female_pop_pct = female_pop / pop_total * 100; // Divide by total to get percentage

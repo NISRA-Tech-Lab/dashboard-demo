@@ -1,8 +1,19 @@
 import { chart_colours } from "../config/colours.js";
 import { yAxisLabelPlugin } from "../utils/yAxisLabelPlugin.js";
 
-export function barChart({ chart_data, categories, canvas_id, label_format }) {
+export function barChart({ data, values, categories, canvas_id, label_format }) {
   const bar_canvas = document.getElementById(canvas_id);
+
+  const bar_categories = data
+    .map(col => col[categories]);
+
+  let chart_data = {};
+  values.forEach(v => {
+    chart_data[v] = bar_categories
+    .map(cat => data
+      .filter(row => row[categories] == cat)
+      .map(col => col[v]))
+  })
 
   const baseOptions = {
     indexAxis: "x",
@@ -80,7 +91,7 @@ export function barChart({ chart_data, categories, canvas_id, label_format }) {
   const bar_chart = new Chart(ctx, {
     type: "bar",
     data: {
-      labels: categories,
+      labels: bar_categories,
       datasets: chart_datasets
     },
     options: baseOptions,

@@ -35,9 +35,8 @@ window.addEventListener("DOMContentLoaded", async () => {
     // Step 1: Fetch the data from the data source (JSON file or database)
     // COPC01T01 is the code for the components of population change dataset
     // "await" pauses execution until the data finishes loading
-    const COPC01T01 = await readData("COPC01T01");
-    const COPC01T01_stat = "Components of population change"; // This is the specific statistic within the dataset we want
-    updateYearSpans(COPC01T01, COPC01T01_stat); // Updates year labels on the page
+    const [COPC01T01, COPC01T01_meta] = await readData("COPC01T01");
+    updateYearSpans(COPC01T01); // Updates year labels on the page
 
     // Step 2: Extract the value from the nested data structure
     // COPC01T01.data is a large object organized like: {statistic_name: {year: {metric: value}}}
@@ -48,64 +47,75 @@ window.addEventListener("DOMContentLoaded", async () => {
     //       2022: { "Starting population": 23456, "End population": 23457 }
     //     }
     //   }
-    const start_pop = COPC01T01.data[COPC01T01_stat][latest_year]["Starting population"];
-    const end_pop = COPC01T01.data[COPC01T01_stat][latest_year]["End population"];
+
+    const COPC01T01_latest_year = COPC01T01
+        .filter(row => row["Year"] == latest_year);
+    
+    const start_pop = COPC01T01_latest_year
+        .map(col => col["Starting population"])
+
+    const end_pop = COPC01T01_latest_year
+        .map(col => col["End population"])
+    
     const pop_change = end_pop - start_pop;
 
     // Step 3: Display on page - toLocaleString() adds commas (e.g., 1,234,567)
     insertValue("pop-change", pop_change.toLocaleString());
 
     // ----- BIRTHS VS DEATHS CARD -----
-    const births_num = COPC01T01.data[COPC01T01_stat][latest_year]["Births"];
-    const deaths_num = COPC01T01.data[COPC01T01_stat][latest_year]["Deaths"];
+    const births_num = COPC01T01_latest_year
+        .map(col => col["Births"])
+
+    const deaths_num = COPC01T01_latest_year
+        .map(col => col["Deaths"])
+
     const births_deaths = births_num - deaths_num;
     insertValue("pop-births-deaths", births_deaths.toLocaleString());
 
     // ----- INFLOW CARD -----
-    const inflows_num = COPC01T01.data[COPC01T01_stat][latest_year]["Total Inflows"];
+    const inflows_num = COPC01T01_latest_year
+        .map(col => col["Total Inflows"])
+
     insertValue("pop-inflows", inflows_num.toLocaleString());
 
     // ----- OUTFLOW CARD -----
-    const outflows_num = COPC01T01.data[COPC01T01_stat][latest_year]["Total Outflows"];
+    const outflows_num = COPC01T01_latest_year
+        .map(col => col["Total Outflows"])
+    
     insertValue("pop-outflows", outflows_num.toLocaleString());
 
     // ----- NET CHANGE CARD -----
     // Calculate how much the population changed from last year to this year
-    const net_num = COPC01T01.data[COPC01T01_stat][latest_year]["Total Net"];
-    const nat_change_num = COPC01T01.data[COPC01T01_stat][latest_year]["Natural Change"];
-    const net_change = (net_num / (net_num + nat_change_num)) * 100; 
+    const net_num = COPC01T01_latest_year
+        .map(col => col["Total Net"])
+
+    const net_change = (net_num / pop_change) * 100; 
     insertValue("pop-net-change", net_change.toFixed(1));
 
     // ----- BAR CHART - AGE BREAKDOWN -----
     // Create a chart showing how the population is split by age group and sex
 
-    const MYE01T03 = await readData("MYE01T03");
-    const MYE01T03_stat = "Mid-year population estimate";
-    const MYE01T03_updated = dateFormat(MYE01T03.updated);
+    const [MYE01T03, MYE01T03_meta] = await readData("MYE01T03");
+    const MYE01T03_updated = dateFormat(MYE01T03_meta.updated);
     
-    // Get the data for the latest year
-    const year_data = MYE01T03.data[MYE01T03_stat][latest_year];
-
-    // Remove the summary "All" group so the chart only shows age bands
-    const age_groups = Object.keys(year_data).filter(a => a !== "All");
-
-    // Build two arrays of values: one for females and one for males
-    const chart_data = {
-        "Females": age_groups.map(age => year_data[age]["Females"]),
-        "Males": age_groups.map(age => year_data[age]["Males"])
-    };
+    // Get the data for the latest year and filter out "All category"
+    const chart_data = MYE01T03
+        .filter(row => row["Year"] == latest_year &&
+                       row["Broad age band (4 cat)"] != "All")
 
     // Create the bar chart twice: once for the main view and once for the expanded view
     barChart({
-        chart_data,
-        categories: age_groups,
+        data: chart_data,
+        values: ["Females", "Males"],
+        categories: "Broad age band (4 cat)",
         canvas_id: "population-age-bar",
         label_format: ","   // comma formatting for large numbers
     });
 
     barChart({
-        chart_data,
-        categories: age_groups,
+        data: chart_data,
+        values: ["Females", "Males"],
+        categories: "Broad age band (4 cat)",
         canvas_id: "population-age-bar-expanded",
         label_format: ","   // comma formatting for large numbers
     });
@@ -114,57 +124,46 @@ window.addEventListener("DOMContentLoaded", async () => {
     // Step 1: Fetch the data from the data source (JSON file or database)
     // MYE01T06 is the code for the population totals dataset
     // "await" pauses execution until the data finishes loading
-    const MYE01T06 = await readData("MYE01T06");
-    const MYE01T06_stat = "Population totals";
-    const MYE01T06_updated = dateFormat(MYE01T06.updated);
+    const [MYE01T06, MYE01T06_meta] = await readData("MYE01T06");
+    // const MYE01T06_stat = "Population totals";
+    const MYE01T06_updated = dateFormat(MYE01T06_meta.updated);
+
+    MYE01T06.forEach(row => {
+        const row_year = row["Year"];
+        const row_lgd = row["Local Government District"];
+        if (row_year == latest_year) {
+            row["last_year_pop"] = MYE01T06
+                .filter(row => row["Year"] == last_year && row["Local Government District"] == row_lgd)
+                .map(col => col["Unrounded"])
+            row["change"] = row["Unrounded"] - row["last_year_pop"]
+            row["change_pct"] = row["change"] / row["last_year_pop"] * 100
+        }
+    })
 
     // Step 2: Extract the values from the nested data structure
-    const lgds = Object.keys(MYE01T06.data[MYE01T06_stat][latest_year]);
-
-    let latest_year_pop = [];
-    let last_year_pop = [];
-    let change = [];
-    let change_pct = [];
-
-    // ===== WHY USE A LOOP HERE? =====
-    // We need to extract one value from each local authority and collect them into arrays
-    // A loop is perfect for repetitive tasks like this
-    // Instead of writing:
-    //   latest_year_pop[0] = data[2015]
-    //   latest_year_pop[1] = data[2016]
-    //   ... (this would be tedious with many areas!)
-    // We use a loop to do it automatically
-    for (let i = 0; i < lgds.length; i++) {
-        const latest_year_value = MYE01T06.data[MYE01T06_stat][latest_year][lgds[i]]["Unrounded"];
-        latest_year_pop.push(latest_year_value);
-
-        const last_year_value = MYE01T06.data[MYE01T06_stat][last_year][lgds[i]]["Unrounded"];
-        last_year_pop.push(last_year_value);
-
-        const change_value = latest_year_value - last_year_value;
-        change.push(change_value);
-        change_pct.push(change_value / last_year_value * 100);
-    }
+    // const lgds = Object.keys(MYE01T06.data[MYE01T06_stat][latest_year]); 
+    const MYE01T06_latest_year = MYE01T06
+        .filter(row => row["Year"] == latest_year);
 
     const table_data = {
         "Local Government District": {
-            "values": lgds,
+            "values": MYE01T06_latest_year.map(col => col["Local Government District"]),
             "format": "string"
         },
         [`Population ${latest_year}`]: {
-            "values": latest_year_pop,
+            "values": MYE01T06_latest_year.map(col => col["Unrounded"]),
             "format": "number"
         },
         [`Population ${last_year}`]: {
-            "values": last_year_pop,
+            "values": MYE01T06_latest_year.map(col => col["last_year_pop"]),
             "format": "number"
         },
         "Change": {
-            "values": change,
+            "values": MYE01T06_latest_year.map(col => col["change"]),
             "format": "change"
         },
         "Change (%)": {
-            "values": change_pct,
+            "values": MYE01T06_latest_year.map(col => col["change_pct"]),
             "format": "change_percent"
         }
     };
@@ -182,10 +181,11 @@ window.addEventListener("DOMContentLoaded", async () => {
     };
 
     // These parameters request: "Latest year, all age groups, both male (1) and female (2)"
+    // console.log(chart_data.map(col => col["Broad age band (4 cat)"]))
     const pop_bar_query = {
         "TLIST(A1)": latest_year, // Latest year only
         "Sex": ["1", "2"],  // Genders (1=Male, 2=Female)
-        "broadage4": age_groups // All age groups combined 
+        "broadage4": ["1", "2", "3", "4"] // All age groups combined 
     };
 
     // Create download buttons that allow users to download the underlying data
