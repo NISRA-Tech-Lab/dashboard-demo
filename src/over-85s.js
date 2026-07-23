@@ -27,7 +27,7 @@ window.addEventListener("DOMContentLoaded", async () => {
     const MYE01T025 = await readData("MYE01T025");
     const MYE01T025_stat = "Mid-year population estimate"; // This is the specific statistic within the dataset we want
     updateYearSpans(MYE01T025, MYE01T025_stat); // Updates year labels on the page
-    const tenyrs_previous = latest_year - 10
+    const comparison_year = latest_year - 10
 
     const MYE01T025_updated = dateFormat(MYE01T025.updated);
 
@@ -38,7 +38,7 @@ window.addEventListener("DOMContentLoaded", async () => {
     insertValue("pop-over85", total_over85.toLocaleString());
 
     // Population over 85 ten years ago
-    const pop_over85_10yrs = MYE01T025.data[MYE01T025_stat][tenyrs_previous]["All persons"];
+    const pop_over85_10yrs = MYE01T025.data[MYE01T025_stat][comparison_year]["All persons"];
     const total_over85_10yrs = Object.values(pop_over85_10yrs)
       .reduce((sum, val) => sum + val, 0);
     insertValue("pop-over85-10yrs", total_over85_10yrs.toLocaleString());
@@ -58,11 +58,16 @@ window.addEventListener("DOMContentLoaded", async () => {
     insertValue("male-over85", male_over85_pct.toFixed(1));
 
     // Male Population over 85 ten years ago
-    const pop_over85_male_10yrs = MYE01T025.data[MYE01T025_stat][tenyrs_previous]["Males"];
+    const pop_over85_male_10yrs = MYE01T025.data[MYE01T025_stat][comparison_year]["Males"];
     const total_over85_male_10yrs = Object.values(pop_over85_male_10yrs)
       .reduce((sum, val) => sum + val, 0);
     const male_over85_pct_10yrs = (total_over85_male_10yrs / total_over85_10yrs) * 100;
-  insertValue("male-over85-10yrs", male_over85_pct_10yrs.toFixed(1));
+    insertValue("male-over85-10yrs", male_over85_pct_10yrs.toFixed(1));
+    
+    const comparison_spans = document.getElementsByClassName("comparison-year");
+    for (let i = 0; i < comparison_spans.length; i ++) {
+      comparison_spans[i].textContent = comparison_year;
+    }
 
 
     const raw = MYE01T025.data[MYE01T025_stat];
@@ -71,7 +76,7 @@ window.addEventListener("DOMContentLoaded", async () => {
     // Define the year range
     
 
-    const years = Object.keys(raw).filter(y => y >= tenyrs_previous && y <= latest_year);
+    const years = Object.keys(raw).filter(y => y >= comparison_year && y <= latest_year);
 
     const genders = ["Females", "Males"];
 
