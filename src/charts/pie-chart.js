@@ -1,6 +1,10 @@
 import { chart_colours } from "../config/colours.js";
 
-export function pieChart({labels, values, canvas_id, type = "pie"}) {
+export function pieChart({data, canvas_id, type = "pie"}) {
+
+    const labels = Object.keys(data);
+    const values = Object.values(data);
+
     const total = values.reduce((sum, value) => sum + Number(value), 0);
     const percentThreshold = 0.06; // 6%
 

@@ -19,7 +19,7 @@ window.addEventListener("DOMContentLoaded", async () => {
 
     // ===== BUILD THE PAGE STRUCTURE =====
     // These functions insert the header, navigation, and page title into the HTML
-    await insertHead("Maps"); // "await" pauses here until the page head is ready
+    await insertHead("Local populations"); // "await" pauses here until the page head is ready
     insertHeader(); // Adds header to the page
     insertNavButtons(); // Adds navigation buttons
 

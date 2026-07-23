@@ -15,7 +15,7 @@ export async function readData (matrix) {
 
         const csv_data = result.data;
 
-        return [data[matrix], csv_data];
+        return [csv_data, data[matrix]];
 
     } catch (error) {
         console.error("Failed to load data:", error);

@@ -28,7 +28,7 @@ window.addEventListener("DOMContentLoaded", async () => {
     // ----- HEADLINE POPULATION CARD -----
     // Step 1: Fetch the dataset that contains the headline population total
     // MYE01T05 is the code for the population totals dataset
-    const [MYE01T05_meta, MYE01T05] = await readData("MYE01T05");
+    const [MYE01T05, MYE01T05_meta] = await readData("MYE01T05");
     updateYearSpans(MYE01T05); // Updates year labels across the page
 
     // Step 2: Extract the headline figure and display it with commas for readability
@@ -41,7 +41,7 @@ window.addEventListener("DOMContentLoaded", async () => {
     // ----- REASONS FOR CHANGE CARD -----
     // Step 1: Fetch the components of population change dataset
     // This lets us compare natural change and net migration
-    const [COPC01T01_meta, COPC01T01] = await readData("COPC01T01");
+    const [COPC01T01, COPC01T01_meta] = await readData("COPC01T01");
 
     // Step 2: Extract the values we want to compare
     const natural_change = COPC01T01
@@ -83,9 +83,8 @@ window.addEventListener("DOMContentLoaded", async () => {
 
     // ----- MEDIAN AGE CARD -----
     // Fetch the median age dataset and display the latest value
-    const [MA01T01_meta, MA01T01] = await readData("MA01T01");
-    const MA01T01_stat = "Median Age";
-    // const headline_4 = MA01T01.data[MA01T01_stat][latest_year]["All persons"].toFixed(0);
+    const [MA01T01, MA01T01_meta] = await readData("MA01T01");
+
     const headline_4 = MA01T01
         .filter(row => row["Year"] == latest_year)
         .map(col => col["All persons"])
@@ -94,8 +93,7 @@ window.addEventListener("DOMContentLoaded", async () => {
 
     // ----- PEOPLE AGED 85+ CARD -----
     // Fetch the age breakdown dataset and add up all the values for people aged 85 and over
-    const [MYE01T025_meta, MYE01T025] = await readData("MYE01T025");
-    const MYE01T025_stat = "Mid-year population estimate";
+    const [MYE01T025, MYE01T025_meta] = await readData("MYE01T025");
 
     const all_over_85 = Object.entries(
         MYE01T025.find(
@@ -117,7 +115,7 @@ window.addEventListener("DOMContentLoaded", async () => {
 
     // ----- FASTEST-GROWING LGD CARD -----
     // Fetch the population totals dataset again so we can compare local government districts
-    const [MYE01T06_meta, MYE01T06] = await readData("MYE01T06");
+    const [MYE01T06, MYE01T06_meta] = await readData("MYE01T06");
 
     // ===== WHY USE A LOOP HERE? =====
     // We need to calculate a percentage change for each local authority in turn

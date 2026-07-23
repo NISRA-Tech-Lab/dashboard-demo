@@ -35,11 +35,11 @@ window.addEventListener("DOMContentLoaded", async () => {
     // Step 1: Fetch the data from the data source (JSON file or database)
     // MYE01T05 is the code for "Population totals" dataset
     // "await" pauses execution until the data finishes loading
-    const MYE01T05 = await readData("MYE01T05");
+    const [MYE01T05, MYE01T05_meta] = await readData("MYE01T05");
     const MYE01T05_stat = "Population totals"; // This is the specific statistic within the dataset we want
-    updateYearSpans(MYE01T05, MYE01T05_stat); // Updates year labels on the page
+    updateYearSpans(MYE01T05); // Updates year labels on the page
 
-    const MYE01T05_updated = dateFormat(MYE01T05.updated); // Format the last-update date nicely
+    const MYE01T05_updated = dateFormat(MYE01T05_meta.updated); // Format the last-update date nicely
 
     // Step 2: Extract the value from the nested data structure
     // MYE01T05.data is a large object organized like: {statistic_name: {year: {metric: value}}}
@@ -50,14 +50,18 @@ window.addEventListener("DOMContentLoaded", async () => {
     //       2022: { "Unrounded": 1245678, "Rounded": 1245680 }
     //     }
     //   }
-    const pop_total = (MYE01T05.data[MYE01T05_stat][latest_year]["Unrounded"]);
+    const pop_total = MYE01T05
+        .filter(row => row["Year"] == latest_year)
+        .map(col => col["Unrounded"]);
     
     // Step 3: Display on page - toLocaleString() adds commas (e.g., 1,234,567)
     insertValue("pop-total", pop_total.toLocaleString());
 
     // ----- POPULATION CHANGE CARD -----
     // Calculate how much the population changed from last year to this year
-    const pop_total_last = MYE01T05.data[MYE01T05_stat][last_year]["Unrounded"];
+    const pop_total_last =  MYE01T05
+        .filter(row => row["Year"] == last_year)
+        .map(col => col["Unrounded"])
     // Formula: (current - previous) / previous * 100 = percent change
     const pop_change_value = (pop_total - pop_total_last) / pop_total_last * 100;
     
@@ -68,25 +72,36 @@ window.addEventListener("DOMContentLoaded", async () => {
 
     // ----- GENDER BREAKDOWN CARDS (Female and Male) -----
     // Fetch a different dataset that has gender breakdowns
-    const MYE01T03 = await readData("MYE01T03");
+    const [MYE01T03, MYE01T03_meta] = await readData("MYE01T03");
     const MYE01T03_stat = "Mid-year population estimate";
-    const MYE01T03_updated = dateFormat(MYE01T03.updated);
+    const MYE01T03_updated = dateFormat(MYE01T03_meta.updated);
 
     // Extract female population and calculate percentage of total
     // The data structure is: data[statistic][year]["All"]["Females"]
     // "All" means all age groups combined
-    const female_pop = MYE01T03.data[MYE01T03_stat][latest_year]["All"]["Females"];
+    const female_pop = MYE01T03
+        .filter(row => row["Year"] == latest_year &&
+                       row["Broad age band (4 cat)"] == "All"
+        )
+        .map(col => col["Females"]);
+    
     const female_pop_pct = female_pop / pop_total * 100; // Divide by total to get percentage
     insertValue("pop-female", female_pop_pct.toFixed(1)); // Display with 1 decimal place
 
     // Same process for male population
-    const male_pop = MYE01T03.data[MYE01T03_stat][latest_year]["All"]["Males"];
+    const male_pop = MYE01T03
+        .filter(row => row["Year"] == latest_year &&
+                       row["Broad age band (4 cat)"] == "All"
+        )
+        .map(col => col["Males"])
     const male_pop_pct = male_pop / pop_total * 100;
     insertValue("pop-male", male_pop_pct.toFixed(1));
 
     // ----- AVERAGE ANNUAL CHANGE OVER 10 YEARS -----
     // Look back 10 years and calculate average yearly change
-    const pop_total_first = MYE01T05.data[MYE01T05_stat][latest_year - 10]["Unrounded"];
+    const pop_total_first = MYE01T05
+        .filter(row => row["Year"] == latest_year - 10)
+        .map(col => col["Unrounded"])
     // Formula: ((current - 10yr_ago) / 10yr_ago) / 10 * 100 = average annual percent change
     const pop_change_10yr_value = (pop_total - pop_total_first) / pop_total_first / 10 * 100;
     
@@ -100,7 +115,10 @@ window.addEventListener("DOMContentLoaded", async () => {
     // Get all the years available in the data
     // Object.keys() extracts all property names (the years) from the data object
     // .slice(-26) keeps only the last 26 items (approximately 26 years of data)
-    const pop_line_years = Object.keys(MYE01T05.data[MYE01T05_stat]).slice(-26);
+
+    const pop_line_years = MYE01T05
+        .map(col => col["Year"])
+        .slice(-26);
 
     // ===== WHY USE A LOOP HERE? =====
     // We need to extract one value from each year and collect them into an array
@@ -110,14 +128,18 @@ window.addEventListener("DOMContentLoaded", async () => {
     //   pop_values[1] = data[2016]
     //   ... (this would be tedious with 26 years!)
     // We use a loop to do it automatically
-    let pop_values = []; // Start with an empty array to hold our values
-    for (let i = 0; i < pop_line_years.length; i++) { // i starts at 0, increases by 1 each time
-        const year = pop_line_years[i]; // Get the year at position i
-        // Extract the population value for this year
-        const value = MYE01T05.data[MYE01T05_stat][year]["Unrounded"];
-        pop_values.push(value); // Add this value to the end of our array
-    }
+    // let pop_values = []; // Start with an empty array to hold our values
+    // for (let i = 0; i < pop_line_years.length; i++) { // i starts at 0, increases by 1 each time
+    //     const year = pop_line_years[i]; // Get the year at position i
+    //     // Extract the population value for this year
+    //     const value = MYE01T05.data[MYE01T05_stat][year]["Unrounded"];
+    //     pop_values.push(value); // Add this value to the end of our array
+    // }
     // After the loop, pop_values contains: [value_yr1, value_yr2, value_yr3, ...]
+
+    const pop_values = MYE01T05
+        .map(col => col["Unrounded"])
+        .slice(-26)
 
     // Organize the data for the chart function
     // We put our values array inside another array because the chart can show multiple lines
@@ -145,24 +167,26 @@ window.addEventListener("DOMContentLoaded", async () => {
     // ===== PIE CHART - GENDER BREAKDOWN =====
     // Create a pie chart showing the split between female and male population
 
-    // Create arrays with the category labels and their corresponding values
-    const genders = ["Female", "Male"]; // Labels for the pie slices
-    // Extract the actual population numbers for females and males from the data
-    const pie_values = [
-        MYE01T03.data[MYE01T03_stat][latest_year]["All"]["Females"],
-        MYE01T03.data[MYE01T03_stat][latest_year]["All"]["Males"]
-    ];
+    const pie_data = MYE01T03
+        .filter(
+            row => row["Year"] == latest_year &&
+                   row["Broad age band (4 cat)"] == "All"
+        )
+        .map(col => (
+            {
+                "Males": col["Males"],
+                "Females": col["Females"]
+            }
+        ))[0];
 
     // Create the pie chart twice: once normal, once expanded
     pieChart({
-        labels: genders, // What to label each slice
-        values: pie_values, // The size of each slice (based on population numbers)
+        data: pie_data, // The size of each slice (based on population numbers)
         canvas_id: "pop-pie" // Which HTML element to draw into
     });
 
     pieChart({
-        labels: genders,
-        values: pie_values,
+        data: pie_data,
         canvas_id: "pop-pie-expanded" // The expanded version
     });
 
