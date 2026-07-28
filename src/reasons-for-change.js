@@ -35,8 +35,8 @@ window.addEventListener("DOMContentLoaded", async () => {
     // Step 1: Fetch the data from the data source (JSON file or database)
     // COPC01T01 is the code for the components of population change dataset
     // "await" pauses execution until the data finishes loading
-    const [COPC01T01, COPC01T01_meta] = await readData("COPC01T01");
-    updateYearSpans(COPC01T01); // Updates year labels on the page
+    const [pop_change_data, pop_change_meta] = await readData("COPC01T01");
+    updateYearSpans(pop_change_data); // Updates year labels on the page
 
     // Step 2: Extract the value from the nested data structure
     // COPC01T01.data is a large object organized like: {statistic_name: {year: {metric: value}}}
@@ -48,13 +48,13 @@ window.addEventListener("DOMContentLoaded", async () => {
     //     }
     //   }
 
-    const COPC01T01_latest_year = COPC01T01
+    const pop_change_latest_year = pop_change_data
         .filter(row => row["Year"] == latest_year);
     
-    const start_pop = COPC01T01_latest_year
+    const start_pop = pop_change_latest_year
         .map(col => col["Starting population"])
 
-    const end_pop = COPC01T01_latest_year
+    const end_pop = pop_change_latest_year
         .map(col => col["End population"])
     
     const pop_change = end_pop - start_pop;
@@ -63,30 +63,30 @@ window.addEventListener("DOMContentLoaded", async () => {
     insertValue("pop-change", pop_change.toLocaleString());
 
     // ----- BIRTHS VS DEATHS CARD -----
-    const births_num = COPC01T01_latest_year
+    const births_num = pop_change_latest_year
         .map(col => col["Births"])
 
-    const deaths_num = COPC01T01_latest_year
+    const deaths_num = pop_change_latest_year
         .map(col => col["Deaths"])
 
     const births_deaths = births_num - deaths_num;
     insertValue("pop-births-deaths", births_deaths.toLocaleString());
 
     // ----- INFLOW CARD -----
-    const inflows_num = COPC01T01_latest_year
+    const inflows_num = pop_change_latest_year
         .map(col => col["Total Inflows"])
 
     insertValue("pop-inflows", inflows_num.toLocaleString());
 
     // ----- OUTFLOW CARD -----
-    const outflows_num = COPC01T01_latest_year
+    const outflows_num = pop_change_latest_year
         .map(col => col["Total Outflows"])
     
     insertValue("pop-outflows", outflows_num.toLocaleString());
 
     // ----- NET CHANGE CARD -----
     // Calculate how much the population changed from last year to this year
-    const net_num = COPC01T01_latest_year
+    const net_num = pop_change_latest_year
         .map(col => col["Total Net"])
 
     const net_change = (net_num / pop_change) * 100; 
@@ -95,15 +95,13 @@ window.addEventListener("DOMContentLoaded", async () => {
     // ----- BAR CHART - AGE BREAKDOWN -----
     // Create a chart showing how the population is split by age group and sex
 
-    const [MYE01T03, MYE01T03_meta] = await readData("MYE01T03");
-    const MYE01T03_updated = dateFormat(MYE01T03_meta.updated);
+    const [gender_pop_data, gender_pop_meta] = await readData("MYE01T03");
+    const gender_pop_updated = dateFormat(gender_pop_meta.updated);
     
     // Get the data for the latest year and filter out "All category"
-    const chart_data = MYE01T03
+    const chart_data = gender_pop_data
         .filter(row => row["Year"] == latest_year &&
                        row["Broad age band (4 cat)"] != "All")
-
-    console.log(chart_data)
 
     // Create the bar chart twice: once for the main view and once for the expanded view
     barChart({
@@ -124,17 +122,17 @@ window.addEventListener("DOMContentLoaded", async () => {
 
     // ----- TABLE OF POPULATION CHANGES BY LOCAL GOVERNMENT DISTRICT -----
     // Step 1: Fetch the data from the data source (JSON file or database)
-    // MYE01T06 is the code for the population totals dataset
+    // pop_by_lgd_data is the code for the population totals dataset
     // "await" pauses execution until the data finishes loading
-    const [MYE01T06, MYE01T06_meta] = await readData("MYE01T06");
-    // const MYE01T06_stat = "Population totals";
-    const MYE01T06_updated = dateFormat(MYE01T06_meta.updated);
+    const [pop_by_lgd_data, pop_by_lgd_meta] = await readData("MYE01T06");
+    // const pop_by_lgd_data_stat = "Population totals";
+    const pop_by_lgd_updated = dateFormat(pop_by_lgd_meta.updated);
 
-    MYE01T06.forEach(row => {
+    pop_by_lgd_data.forEach(row => {
         const row_year = row["Year"];
         const row_lgd = row["Local Government District"];
         if (row_year == latest_year) {
-            row["last_year_pop"] = MYE01T06
+            row["last_year_pop"] = pop_by_lgd_data
                 .filter(row => row["Year"] == last_year && row["Local Government District"] == row_lgd)
                 .map(col => col["Unrounded"])
             row["change"] = row["Unrounded"] - row["last_year_pop"]
@@ -143,29 +141,29 @@ window.addEventListener("DOMContentLoaded", async () => {
     })
 
     // Step 2: Extract the values from the nested data structure
-    // const lgds = Object.keys(MYE01T06.data[MYE01T06_stat][latest_year]); 
-    const MYE01T06_latest_year = MYE01T06
+    // const lgds = Object.keys(pop_by_lgd_data.data[pop_by_lgd_data_stat][latest_year]); 
+    const pop_by_lgd_latest_year = pop_by_lgd_data
         .filter(row => row["Year"] == latest_year);
 
     const table_data = {
         "Local Government District": {
-            "values": MYE01T06_latest_year.map(col => col["Local Government District"]),
+            "values": pop_by_lgd_latest_year.map(col => col["Local Government District"]),
             "format": "string"
         },
         [`Population ${latest_year}`]: {
-            "values": MYE01T06_latest_year.map(col => col["Unrounded"]),
+            "values": pop_by_lgd_latest_year.map(col => col["Unrounded"]),
             "format": "number"
         },
         [`Population ${last_year}`]: {
-            "values": MYE01T06_latest_year.map(col => col["last_year_pop"]),
+            "values": pop_by_lgd_latest_year.map(col => col["last_year_pop"]),
             "format": "number"
         },
         "Change": {
-            "values": MYE01T06_latest_year.map(col => col["change"]),
+            "values": pop_by_lgd_latest_year.map(col => col["change"]),
             "format": "change"
         },
         "Change (%)": {
-            "values": MYE01T06_latest_year.map(col => col["change_pct"]),
+            "values": pop_by_lgd_latest_year.map(col => col["change_pct"]),
             "format": "change_percent"
         }
     };
@@ -191,8 +189,8 @@ window.addEventListener("DOMContentLoaded", async () => {
     };
 
     // Create download buttons that allow users to download the underlying data
-    downloadButton("pop-bar-capture", "MYE01T03", MYE01T03_updated, pop_bar_query);
-    downloadButton("pop-table-capture", "MYE01T06", MYE01T06_updated, pop_table_query);
+    downloadButton("pop-bar-capture", "MYE01T03", gender_pop_updated, pop_bar_query);
+    downloadButton("pop-table-capture", "MYE01T06", pop_by_lgd_updated, pop_table_query);
 
     // ===== INFO BOXES - HELP AND METADATA =====
     // Populate the expandable info boxes with definitions and help text
@@ -207,7 +205,7 @@ window.addEventListener("DOMContentLoaded", async () => {
             
             // Content for "Source" box  
             `<p>The top cards, chart, and table on this page are populated from this script using data from the NISRA Data Portal.</p>
-            <p>The main datasets used are <strong>COPC01T01</strong> for components of population change, <strong>MYE01T03</strong> for the age breakdown chart, and <strong>MYE01T06</strong> for the local authority table.</p>
+            <p>The main datasets used are <strong>COPC01T01</strong> for components of population change, <strong>gender_pop</strong> for the age breakdown chart, and <strong>pop_by_lgd_data</strong> for the local authority table.</p>
             <p>Values are selected by following the structure and column order shown in the relevant data matrix on the NISRA Data Portal.</p>`,
 
             // Content for "What does the data mean?" box

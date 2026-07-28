@@ -35,21 +35,21 @@ window.addEventListener("DOMContentLoaded", async () => {
     // Step 1: Fetch the data from the data source (JSON file or database)
     // MYE01T05 is the code for "Population totals" dataset
     // "await" pauses execution until the data finishes loading
-    const [MYE01T05, MYE01T05_meta] = await readData("MYE01T05");
-    updateYearSpans(MYE01T05); // Updates year labels on the page
+    const [pop_totals_data, pop_totals_data_meta] = await readData("MYE01T05");
+    updateYearSpans(pop_totals_data); // Updates year labels on the page
 
-    const MYE01T05_updated = dateFormat(MYE01T05_meta.updated); // Format the last-update date nicely
+    const pop_totals_data_updated = dateFormat(pop_totals_data_meta.updated); // Format the last-update date nicely
 
     // Step 2: Extract the value from the nested data structure
-    // MYE01T05.data is a large object organized like: {statistic_name: {year: {metric: value}}}
+    // pop_totals_data.data is a large object organized like: {statistic_name: {year: {metric: value}}}
     // Example structure:
-    //   MYE01T05.data = {
+    //   pop_totals_data.data = {
     //     "Population totals": {
     //       2021: { "Unrounded": 1234567, "Rounded": 1234570 },
     //       2022: { "Unrounded": 1245678, "Rounded": 1245680 }
     //     }
     //   }
-    const pop_total = MYE01T05
+    const pop_total = pop_totals_data
         .filter(row => row["Year"] == latest_year)
         .map(col => col["Unrounded"]);
     
@@ -58,7 +58,7 @@ window.addEventListener("DOMContentLoaded", async () => {
 
     // ----- POPULATION CHANGE CARD -----
     // Calculate how much the population changed from last year to this year
-    const pop_total_last =  MYE01T05
+    const pop_total_last =  pop_totals_data
         .filter(row => row["Year"] == last_year)
         .map(col => col["Unrounded"])
     // Formula: (current - previous) / previous * 100 = percent change
@@ -71,13 +71,13 @@ window.addEventListener("DOMContentLoaded", async () => {
 
     // ----- GENDER BREAKDOWN CARDS (Female and Male) -----
     // Fetch a different dataset that has gender breakdowns
-    const [MYE01T03, MYE01T03_meta] = await readData("MYE01T03");
-    const MYE01T03_updated = dateFormat(MYE01T03_meta.updated);
+    const [gender_pop_data, gender_pop_meta] = await readData("MYE01T03");
+    const gender_pop_updated = dateFormat(gender_pop_meta.updated);
 
     // Extract female population and calculate percentage of total
     // The data structure is: data[statistic][year]["All"]["Females"]
     // "All" means all age groups combined
-    const female_pop = MYE01T03
+    const female_pop = gender_pop_data
         .filter(row => row["Year"] == latest_year &&
                        row["Broad age band (4 cat)"] == "All")
         .map(col => col["Females"]);
@@ -86,7 +86,7 @@ window.addEventListener("DOMContentLoaded", async () => {
     insertValue("pop-female", female_pop_pct.toFixed(1)); // Display with 1 decimal place
 
     // Same process for male population
-    const male_pop = MYE01T03
+    const male_pop = gender_pop_data
         .filter(row => row["Year"] == latest_year &&
                        row["Broad age band (4 cat)"] == "All"
         )
@@ -96,7 +96,7 @@ window.addEventListener("DOMContentLoaded", async () => {
 
     // ----- AVERAGE ANNUAL CHANGE OVER 10 YEARS -----
     // Look back 10 years and calculate average yearly change
-    const pop_total_first = MYE01T05
+    const pop_total_first = pop_totals_data
         .filter(row => row["Year"] == latest_year - 10)
         .map(col => col["Unrounded"])
     // Formula: ((current - 10yr_ago) / 10yr_ago) / 10 * 100 = average annual percent change
@@ -113,7 +113,7 @@ window.addEventListener("DOMContentLoaded", async () => {
     // Object.keys() extracts all property names (the years) from the data object
     // .slice(-26) keeps only the last 26 items (approximately 26 years of data)
 
-    const pop_line_years = MYE01T05
+    const pop_line_years = pop_totals_data
         .map(col => col["Year"])
         .slice(-26);
 
@@ -129,12 +129,12 @@ window.addEventListener("DOMContentLoaded", async () => {
     // for (let i = 0; i < pop_line_years.length; i++) { // i starts at 0, increases by 1 each time
     //     const year = pop_line_years[i]; // Get the year at position i
     //     // Extract the population value for this year
-    //     const value = MYE01T05.data[MYE01T05_stat][year]["Unrounded"];
+    //     const value = pop_totals_data.data[pop_totals_data_stat][year]["Unrounded"];
     //     pop_values.push(value); // Add this value to the end of our array
     // }
     // After the loop, pop_values contains: [value_yr1, value_yr2, value_yr3, ...]
 
-    const pop_values = MYE01T05
+    const pop_values = pop_totals_data
         .map(col => col["Unrounded"])
         .slice(-26)
 
@@ -164,7 +164,7 @@ window.addEventListener("DOMContentLoaded", async () => {
     // ===== PIE CHART - GENDER BREAKDOWN =====
     // Create a pie chart showing the split between female and male population
 
-    const pie_data = MYE01T03
+    const pie_data = gender_pop_data
         .filter(
             row => row["Year"] == latest_year &&
                    row["Broad age band (4 cat)"] == "All"
@@ -202,8 +202,8 @@ window.addEventListener("DOMContentLoaded", async () => {
     };
 
     // Create download buttons that allow users to download the underlying data
-    downloadButton("pop-line-capture", "MYE01T05", MYE01T05_updated, pop_line_query);
-    downloadButton("pop-pie-capture", "MYE01T03", MYE01T03_updated, pop_pie_query);
+    downloadButton("pop-line-capture", "MYE01T05", pop_totals_data_updated, pop_line_query);
+    downloadButton("pop-pie-capture", "MYE01T03", gender_pop_updated, pop_pie_query);
 
     // ===== INFO BOXES - HELP AND METADATA =====
     // Populate the expandable info boxes with definitions and help text
@@ -218,7 +218,7 @@ window.addEventListener("DOMContentLoaded", async () => {
             
             // Content for "Source" box  
             `<p>The top cards on this page are populated from this script using data from the NISRA Data Portal.</p>
-            <p>The main datasets used are <strong>MYE01T05</strong> for population totals and <strong>MYE01T03</strong> for the gender breakdown. The card values also use <strong>COPC01T01</strong> for the components of population change and <strong>MA01T01</strong> for median age.</p>
+            <p>The main datasets used are <strong>pop_totals_data</strong> for population totals and <strong>MYE01T03</strong> for the gender breakdown. The card values also use <strong>COPC01T01</strong> for the components of population change and <strong>MA01T01</strong> for median age.</p>
             <p>Values are selected by following the structure and column order shown in the data matrix on the NISRA Data Portal, so the correct row and column are pulled for each card.</p>`,
 
             // Content for "What does the data mean?" box

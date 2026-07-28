@@ -27,12 +27,12 @@ window.addEventListener("DOMContentLoaded", async () => {
 
     // ----- HEADLINE POPULATION CARD -----
     // Step 1: Fetch the dataset that contains the headline population total
-    // MYE01T05 is the code for the population totals dataset
-    const [MYE01T05, MYE01T05_meta] = await readData("MYE01T05");
-    updateYearSpans(MYE01T05); // Updates year labels across the page
+    // pop_totals_data is the code for the population totals dataset
+    const [pop_totals_data, pop_totals_meta] = await readData("MYE01T05");
+    updateYearSpans(pop_totals_data); // Updates year labels across the page
 
     // Step 2: Extract the headline figure and display it with commas for readability
-    const headline_1 = MYE01T05
+    const headline_1 = pop_totals_data
         .filter(row => row["Year"] == latest_year)
         .map(col => col["Unrounded"]);
 
@@ -41,22 +41,22 @@ window.addEventListener("DOMContentLoaded", async () => {
     // ----- REASONS FOR CHANGE CARD -----
     // Step 1: Fetch the components of population change dataset
     // This lets us compare natural change and net migration
-    const [COPC01T01, COPC01T01_meta] = await readData("COPC01T01");
+    const [pop_change_data, pop_change_meta] = await readData("COPC01T01");
 
     // Step 2: Extract the values we want to compare
-    const natural_change = COPC01T01
+    const natural_change = pop_change_data
         .filter(row => row["Year"] == latest_year)
         .map(col => col["Natural Change"]);
         
-    const net_migration = COPC01T01
+    const net_migration = pop_change_data
         .filter(row => row["Year"] == latest_year)
         .map(col => col["Total Net"]);
 
-    const end_population = COPC01T01
+    const end_population = pop_change_data
         .filter(row => row["Year"] == latest_year)
         .map(col => col["End population"]);
 
-    const starting_population = COPC01T01
+    const starting_population = pop_change_data
         .filter(row => row["Year"] == latest_year)
         .map(col => col["Starting population"]);
 
@@ -83,9 +83,9 @@ window.addEventListener("DOMContentLoaded", async () => {
 
     // ----- MEDIAN AGE CARD -----
     // Fetch the median age dataset and display the latest value
-    const [MA01T01, MA01T01_meta] = await readData("MA01T01");
+    const [median_age_data, median_age_meta] = await readData("MA01T01");
 
-    const headline_4 = MA01T01
+    const headline_4 = median_age_data
         .filter(row => row["Year"] == latest_year)
         .map(col => col["All persons"])
 
@@ -93,10 +93,10 @@ window.addEventListener("DOMContentLoaded", async () => {
 
     // ----- PEOPLE AGED 85+ CARD -----
     // Fetch the age breakdown dataset and add up all the values for people aged 85 and over
-    const [MYE01T025, MYE01T025_meta] = await readData("MYE01T025");
+    const [over_85_data, over_85_meta] = await readData("MYE01T025");
 
     const all_over_85 = Object.entries(
-        MYE01T025.find(
+        over_85_data.find(
             row => row["Year"] == latest_year && row["Sex"] == "All persons"
         )
     )
@@ -115,29 +115,29 @@ window.addEventListener("DOMContentLoaded", async () => {
 
     // ----- FASTEST-GROWING LGD CARD -----
     // Fetch the population totals dataset again so we can compare local government districts
-    const [MYE01T06, MYE01T06_meta] = await readData("MYE01T06");
+    const [pop_by_lgd_data, pop_by_lgd_meta] = await readData("MYE01T06");
 
     // ===== WHY USE A LOOP HERE? =====
     // We need to calculate a percentage change for each local authority in turn
     // The loop saves us from writing the same calculation many times by hand
-    Object.keys(MYE01T06).forEach(row => {
-        const row_year = MYE01T06[row]["Year"];
-        const row_lgd = MYE01T06[row]["Local Government District"];
+    Object.keys(pop_by_lgd_data).forEach(row => {
+        const row_year = pop_by_lgd_data[row]["Year"];
+        const row_lgd = pop_by_lgd_data[row]["Local Government District"];
         if (row_year == latest_year) {
-            const unrounded_10 = MYE01T06
+            const unrounded_10 = pop_by_lgd_data
                 .filter(row => row["Year"] == latest_year - 10 && row["Local Government District"] == row_lgd)
                 .map(col => col["Unrounded"]);
-            MYE01T06[row]["10 year growth"] = (MYE01T06[row].Unrounded - unrounded_10) / unrounded_10 * 100;
+            pop_by_lgd_data[row]["10 year growth"] = (pop_by_lgd_data[row].Unrounded - unrounded_10) / unrounded_10 * 100;
         }
     })
 
     const max_LGD_value = Math.max(
-        ...MYE01T06
+        ...pop_by_lgd_data
             .filter(row => row["Year"] == latest_year && row["Local Government District"] != "Northern Ireland")
             .map(col => col["10 year growth"])
     );
 
-    const headline_6_place = MYE01T06
+    const headline_6_place = pop_by_lgd_data
         .filter(row => row["Year"] == latest_year && row["10 year growth"] == max_LGD_value)
         .map(col => col["Local Government District"])
     

@@ -36,13 +36,13 @@ window.addEventListener("DOMContentLoaded", async () => {
     // Step 1: Fetch the data from the data source (JSON file or database)
     // MIG01T02 is the code for the net migration dataset
     // "await" pauses execution until the data finishes loading
-    const [MIG01T02, MIG01T02_meta] = await readData("MIG01T02");
-    updateYearSpans(MIG01T02); // Updates year labels on the page
+    const [migration_data, migration_meta] = await readData("MIG01T02");
+    updateYearSpans(migration_data); // Updates year labels on the page
 
-    const MIG01T02_updated = dateFormat(MIG01T02_meta.updated); // Format the last-update date nicely
+    const migration_updated = dateFormat(migration_meta.updated); // Format the last-update date nicely
 
     // Step 2: Extract the value from the nested data structure
-    // MIG01T02.data is a large object organized like: {statistic_name: {year: {metric: value}}}
+    // migration_data.data is a large object organized like: {statistic_name: {year: {metric: value}}}
     // Example structure:
     //   MIG01T02.data = {
     //     "Net Migration": {
@@ -51,7 +51,7 @@ window.addEventListener("DOMContentLoaded", async () => {
     //     }
     //   }
 
-    const pop_change_value = MIG01T02
+    const pop_change_value = migration_data
         .filter(row => row["Year"] == latest_year &&
                        row["Broad age band (7 cat)"] == "All" &&
                        row["Sex"] == "All persons")
@@ -65,7 +65,7 @@ window.addEventListener("DOMContentLoaded", async () => {
 
     // ----- PERCENTAGE POPULATION CHANGE CARD -----
     // Calculate how much the population changed from last year to this year
-    const pop_change_last = MIG01T02
+    const pop_change_last = migration_data
         .filter(row => row["Year"] == last_year &&
                        row["Broad age band (7 cat)"] == "All" &&
                        row["Sex"] == "All persons")
@@ -79,7 +79,7 @@ window.addEventListener("DOMContentLoaded", async () => {
     // Get the list of age groups from the current year, excluding the summary "All" row
     // These age groups will be used for the chart labels and for finding the largest gain/loss
 
-    const age_group_data = MIG01T02
+    const age_group_data = migration_data
         .filter(
             row => row["Year"] == latest_year &&
             row["Sex"] == "All persons" &&
@@ -104,11 +104,11 @@ window.addEventListener("DOMContentLoaded", async () => {
     insertValue("loss-age", min_age);    
 
     // ----- INWARD MIGRATION FROM OUTSIDE UK CARD -----
-    const [MIG01T03, MIG01T03_meta] = await readData("MIG01T03");
+    const [migration_flows_data, migration_flows_meta] = await readData("MIG01T03");
 
-    const MIG01T03_updated = dateFormat(MIG01T03_meta.updated); // Format the last-update date nicely
+    const migration_flows_updated = dateFormat(migration_flows_meta.updated); // Format the last-update date nicely
 
-    const row_inflows = MIG01T03
+    const row_inflows = migration_flows_data
         .filter(row => row["Year"] == latest_year)
         .map(col => col["Rest of World Inflows"])
 
@@ -116,7 +116,7 @@ window.addEventListener("DOMContentLoaded", async () => {
     insertValue("outside-uk", row_inflows.toLocaleString());
 
     // ----- NET MIGRATION BY AGE AND SEX - HORIZONTAL BAR CHART -----
-    const migration_chart_data = MIG01T02
+    const migration_chart_data = migration_data
         .filter(
             row => row["Year"] == latest_year &&
             row["Broad age band (7 cat)"] != "All" &&
@@ -147,13 +147,13 @@ window.addEventListener("DOMContentLoaded", async () => {
     // ----- Net migration from and to the UK and the rest of the world -----
     // Extract years and net migration values for UK, Rest of World, and Total
     // Sort the years so the chart draws them in chronological order from left to right
-    // const migration_years = Object.keys(MIG01T03.data[MIG01T03_stat]).sort();
-    const migration_years = MIG01T03.map(col => col["Year"]);
+    // const migration_years = Object.keys(migration_flows_data.data[migration_flows_data_stat]).sort();
+    const migration_years = migration_flows_data.map(col => col["Year"]);
 
     const lines = [
-        MIG01T03.map(col => col["United Kingdom Net"]),
-        MIG01T03.map(col => col["Rest of World Net"]),
-        MIG01T03.map(col => col["Total Net"])
+        migration_flows_data.map(col => col["United Kingdom Net"]),
+        migration_flows_data.map(col => col["Rest of World Net"]),
+        migration_flows_data.map(col => col["Total Net"])
     ];
 
     // Create the line chart
@@ -195,8 +195,8 @@ window.addEventListener("DOMContentLoaded", async () => {
     }
 
     // Create download buttons that allow users to download the underlying data
-    downloadButton("migration-bar-capture", "MIG01T02", MIG01T02_updated, migration_bar_query);
-    downloadButton("migration-line-capture", "MIG01T03", MIG01T03_updated, migration_line_query);
+    downloadButton("migration-bar-capture", "MIG01T02", migration_updated, migration_bar_query);
+    downloadButton("migration-line-capture", "MIG01T03", migration_flows_updated, migration_line_query);
 
 
     // ===== INFO BOXES - HELP AND METADATA =====
@@ -212,7 +212,7 @@ window.addEventListener("DOMContentLoaded", async () => {
             
             // Content for "Source" box  
             `<p>The top cards and charts on this page are populated from this script using data from the NISRA Data Portal.</p>
-            <p>The main datasets used are <strong>MIG01T02</strong> for net migration values and <strong>MIG01T03</strong> for the time-series view of migration flows.</p>
+            <p>The main datasets used are <strong>migration_data</strong> for net migration values and <strong>migration_flows_data</strong> for the time-series view of migration flows.</p>
             <p>Values are selected by following the structure and column order shown in the relevant data matrix on the NISRA Data Portal.</p>`,
 
             // Content for "What does the data mean?" box
