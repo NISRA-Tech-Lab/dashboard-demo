@@ -1,55 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
 <head></head>
-<body style="display:none;">
+<body style="display:none;" class="d-flex flex-column min-vh-100">
     
 <banner id="banner"></banner>
   <!-- Top Navbar -->
 <nav id ="nav"></nav>
 
 <!-- Main Content -->
-<main>
-<div class="w-100 text-center current-page py-2">
-    
-</div>
+<main class="flex-grow-1">
 
-<div id="content" class="container-fluid">
+    <div id="content" class="container mt-4">
+
+        <h2 class="h1">User notes</h2>
+
+        <ul class="mt-2">
+            <li>When this data was released. Expectations for future updates?</ol>
+            <li>Data source(s)</ol>
+            <li>Where data can be downloaded</ol>
+            <li>Any missing or suppressed data clearly explained</ol>
+            <li>Quality assurance information</ol>
+            <li>Contact information</ol>
+            <li>Link to accessibility statement</ol>
+            <li>Link to publication and data pages</ol>
+        </ul>
         
-       <div class="col-12 my-3">
-        <div class="card">
-            <div class="card-header">
-                <h2 class="card-title">User Notes</h2>
-            </div>
-            <div class="card-body">
-
-                <p>Dashboards should include following essential information:</p>
-                <ul>
-                    <li>when dashboard was last updated</li>
-                    <li>when will dashboard next be updated and how often</li>
-                    <li>data source(s)</li>
-                    <li>where data can be downloaded</li>
-                    <li>any missing or suppressed data clearly explained</li>
-                    <li>quality assurance information</li>
-                    <li>contact information</li>
-                    <li>link to <a href="https://datavis.nisra.gov.uk/dissemination/accessibility-statement-visualisations.html" target="_blank" rel="noopener" title="NISRA Data Viz Accessibility Statement (opens in new window)" >data viz accessibility statement</a></li>
-                </ul>
-
-
-
-                
-
-
-
-            </div>
-        </div>
-       </div>
+    </div>
         
-    </main>
-</div>
+</main>
 
 <footer id = "footer"></footer>
 
 <script type = "module" src="src/user-notes.js"></script>
-
 
 </body>
