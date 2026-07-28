@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head></head>
+<body style="display:none;">
+    
+<banner id="banner"></banner>
+  <!-- Top Navbar -->
+<nav id ="nav"></nav>
+
+<!-- Main Content -->
+<main>
+<div class="w-100 text-center current-page py-2">
+    This is a dashboard page template. Use this as a starting point for building your own dashboard. Edit the page.js file to add your own content and functionality. See the README.md file for instructions on how to use this template.
+</div>
+
+<div id="content" class="container-fluid">
+        
+        <div class = "py-2">
+            <!-- First row - cards -->
+            <div class="row text-center">
+                <div class="col-6 col-xl py-2">
+                    <div class="card h-100 navy-bg">
+                        <div class="card-body d-flex flex-column justify-content-center">
+                            <p class="display-6"><span id="pop-change"></span></p>
+                            <p>population change since</p>
+                            <p><span class="last-year"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-xl py-2">
+                    <div class="card h-100 blue-bg">
+                        <div class="card-body d-flex flex-column justify-content-center">
+                            <p class="display-6"><span id="pop-births-deaths"></span></p>
+                            <span> more births than deaths</span>  </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-xl py-2">
+                    <div class="card h-100 blue-bg">
+                        <div class="card-body d-flex flex-column justify-content-center">
+                            <p class="display-6"><span id="pop-inflows"></span></p>
+                            <p>people came to live in Northern Ireland </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-xl py-2">
+                    <div class="card h-100 blue-bg">
+                        <div class="card-body d-flex flex-column justify-content-center">
+                            <p class="display-6"><span id="pop-outflows"></span></p>
+                            <p>people left Northern Ireland</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-xl py-2">
+                    <div class="card h-100 blue-bg">
+                        <div class="card-body d-flex flex-column justify-content-center">
+                            <p class="display-6"><span id="pop-net-change"></span><span class="unit-pct">%</span></p>
+                            <p>of growth came from net migration </p>
+                        </div>
+                    </div>
+                </div>               
+            </div>
+
+            <!-- Second row - tables and charts -->
+            <div class="row">
+                <div class="col-12 col-xl-6 py-2">
+                    <div class="card h-100">
+                        <div id="pop-bar-capture">
+                            <div class="card-header">
+                                Age and Gender Breakdown of Northern Ireland, 
+                                <span class="latest-year"></span> 
+                            </div>
+                        <div class="card-body d-flex flex-column justify-content-center">
+                                <canvas id="population-age-bar" class="chart-canvas"></canvas>
+                            </div>
+                        </div>
+                        <div class="card-footer"></div>
+                    </div>
+                    
+                </div>
+                <div class="col-12 col-xl-6 py-2">
+                    <div class="card h-100">
+                        <div id="pop-table-capture">
+                        <div class="card-header">
+                            <p>
+                                Population change by LGD,
+                                <span class="last-year"></span>-<span class="latest-year"></span>
+                            </p>
+                        </div>
+                        <div class="card-body d-flex flex-column justify-content-center">
+                            
+                            <table id="pop-table" class="table">
+                              <thead></thead>
+                              <tbody></tbody>
+                            </table>
+                                                
+                        </div>
+                    </div>
+                        <div class="card-footer"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Third row - Definitions -->
+            <div id="info-boxes"></div>
+            
+        </div>
+        
+    </main>
+</div>
+
+<footer id = "footer"></footer>
+
+<script type = "module" src="src/reasons-for-change.js"></script>
+
+
+</body>
