@@ -1,14 +1,28 @@
 import { chart_colours } from "../config/colours.js";
 import { wrapLabel } from "../utils/wrap-label.js";
 
-export function pyramidChart({ chart_data, categories, canvas_id, year }) {
+export function pyramidChart({ data, categories, values, canvas_id, year }) {
   const bar_canvas = document.getElementById(canvas_id);
 
+  let chart_data = {};
+
+  values.forEach(
+    value => {
+      chart_data[value] = data
+        .filter(row => row["Year"] == year)
+        .map(col => col[value]);
+    }
+  )
+
+  const category_labels = data
+    .filter(row => row["Year"] == year)
+    .map(col => col[categories])
+  
   const keys = Object.keys(chart_data);
 
   const chart_datasets = keys.map((key, i) => ({
     label: `${key} ${year}`,
-    data: i === 1
+    data: i === 0
       ? chart_data[key].map(value => value * -1)
       : chart_data[key],
     backgroundColor: chart_colours[i % chart_colours.length],
@@ -22,7 +36,7 @@ export function pyramidChart({ chart_data, categories, canvas_id, year }) {
     layout: { padding: { right: 40 } },
     plugins: {
   legend: {
-    reverse: true,
+    reverse: false,
     onClick: () => {},
     },
     tooltip: {
@@ -62,7 +76,7 @@ export function pyramidChart({ chart_data, categories, canvas_id, year }) {
           precision: 0,
           callback: function (value) {
             const label = this.getLabelForValue(value);
-            return wrapLabel(label, 18);
+            return label;
           }
         }
       }
@@ -74,7 +88,7 @@ export function pyramidChart({ chart_data, categories, canvas_id, year }) {
   const bar_chart = new Chart(ctx, {
     type: "bar",
     data: {
-      labels: categories,
+      labels: category_labels,
       datasets: chart_datasets
     },
     options: baseOptions

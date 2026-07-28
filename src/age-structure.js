@@ -37,9 +37,9 @@ window.addEventListener("DOMContentLoaded", async () => {
     // Step 1: Fetch the data from the data source (JSON file or database)
     // MA01T01 is the code for the median age dataset
     // "await" pauses execution until the data finishes loading
-    const MA01T01 = await readData("MA01T01");
+    const [median_age_data, median_age_meta] = await readData("MA01T01");
     const MA01T01_stat = "Median Age"; // This is the specific statistic within the dataset we want
-    updateYearSpans(MA01T01, MA01T01_stat); // Updates year labels on the page
+    updateYearSpans(median_age_data); // Updates year labels on the page
 
     // Set a comparison year 25 years before the latest year
     const comparison_year = latest_year - 25;
@@ -50,7 +50,7 @@ window.addEventListener("DOMContentLoaded", async () => {
         span.textContent = comparison_year;
     }
 
-    const MA01T01_updated = dateFormat(MA01T01.updated); // Format the last-update date nicely
+    const median_age_updated = dateFormat(median_age_meta.updated); // Format the last-update date nicely
 
     // Step 2: Extract the value from the nested data structure
     // MA01T01.data is a large object organized like: {statistic_name: {year: {sex: value}}}
@@ -61,14 +61,21 @@ window.addEventListener("DOMContentLoaded", async () => {
     //       2022: { "All persons": 40.3, "Males": 39.4, "Females": 41.2 }
     //     }
     //   }
-    const median_age = MA01T01.data[MA01T01_stat][latest_year]["All persons"];
+
+    const median_age = median_age_data
+        .filter(row => row["Year"] == latest_year)
+        .map(col => col["All persons"])
+
 
     // Step 3: Display on page
     insertValue("median-age", median_age);
 
     // ----- MEDIAN AGE CHANGE CARD -----
     // Calculate how much the median age has changed since the comparison year
-    const comparison_age = MA01T01.data[MA01T01_stat][comparison_year]["All persons"];
+    const comparison_age = median_age_data
+        .filter(row => row["Year"] == comparison_year)
+        .map(col => col["All persons"])
+
     const age_change_value = median_age - comparison_age;
 
     // Format the change with a plus sign if the value is positive
@@ -77,7 +84,10 @@ window.addEventListener("DOMContentLoaded", async () => {
 
     // ----- MEDIAN AGE PERCENTAGE CHANGE CARD -----
     // Calculate the percentage change in median age from last year to this year
-    const last_age = MA01T01.data[MA01T01_stat][last_year]["All persons"];
+    const last_age = median_age_data
+        .filter(row => row["Year"] == last_year)
+        .map(col => col["All persons"])
+
     const age_change_pct_value = ((median_age - last_age) / last_age) * 100;
 
     // Format the percentage change with a plus sign if the value is positive
@@ -86,20 +96,55 @@ window.addEventListener("DOMContentLoaded", async () => {
 
     // ----- AGE GROUP PERCENTAGE CARDS -----
     // Fetch a different dataset that has population breakdowns by broad age group and sex
-    const MYE01T03 = await readData("MYE01T03");
-    const MYE01T03_stat = "Mid-year population estimate";
-    const MYE01T03_updated = dateFormat(MYE01T03.updated);
+    const [pop_age_data, pop_age_meta] = await readData("MYE01T03");
+    const pop_age_updated = dateFormat(pop_age_meta.updated);
 
     // Calculate the percentage of the population aged 65 and over in the latest year
-    const over_65_pct = MYE01T03.data[MYE01T03_stat][latest_year]["Age 65+"]["All persons"] / MYE01T03.data[MYE01T03_stat][latest_year]["All"]["All persons"] * 100;
+    const over_65_pop = pop_age_data
+        .filter(row =>
+            row["Year"] == latest_year &&
+            row["Broad age band (4 cat)"] == "Age 65+"
+        )
+        .map(col => col["All persons"])
+    
+    const all_pop  = pop_age_data
+        .filter(row =>
+            row["Year"] == latest_year &&
+            row["Broad age band (4 cat)"] == "All"
+        )
+        .map(col => col["All persons"])
+
+    const over_65_pct = over_65_pop / all_pop * 100;
     insertValue("over-65", over_65_pct.toFixed(1)); // Display with 1 decimal place
 
     // Calculate the percentage of the population aged 0 to 15 in the comparison year
-    const child_pct_comparison = MYE01T03.data[MYE01T03_stat][comparison_year]["Age 0-15"]["All persons"] / MYE01T03.data[MYE01T03_stat][comparison_year]["All"]["All persons"] * 100;
+
+    const child_pop_comparison = pop_age_data
+        .filter(row =>
+            row["Year"] == comparison_year &&
+            row["Broad age band (4 cat)"] == "Age 0-15"
+        )
+        .map(col => col["All persons"])
+
+    const all_pop_comparison = pop_age_data
+        .filter(row =>
+            row["Year"] == comparison_year &&
+            row["Broad age band (4 cat)"] == "All"
+        )
+        .map(col => col["All persons"])
+
+    const child_pct_comparison = child_pop_comparison / all_pop_comparison * 100;
     insertValue("child-pct-comparison", child_pct_comparison.toFixed(1));
 
     // Calculate the percentage of the population aged 0 to 15 in the latest year
-    const child_pct = MYE01T03.data[MYE01T03_stat][latest_year]["Age 0-15"]["All persons"] / MYE01T03.data[MYE01T03_stat][latest_year]["All"]["All persons"] * 100;
+    const child_pop = pop_age_data
+        .filter(row =>
+            row["Year"] == latest_year &&
+            row["Broad age band (4 cat)"] == "Age 0-15"
+        )
+        .map(col => col["All persons"])
+
+    const child_pct = child_pop / all_pop * 100;
     insertValue("child-pct", child_pct.toFixed(1));
 
     // ===== HORIZONTAL BAR CHART - AGE GROUP CHANGE OVER TIME =====
@@ -112,54 +157,45 @@ window.addEventListener("DOMContentLoaded", async () => {
         if (i % 5 == 4) {
             bar_years.push(i);
         }
-    }
+    }    
 
-    // Create empty arrays to hold the percentage values for each age group
-    let under_15 = [];
-    let age_16_to_64 = [];
-    let over_65 = [];
+    pop_age_data.forEach(row => {
+        const age_group = row["Broad age band (4 cat)"];
+        const year = row["Year"];
+        const pop_total = pop_age_data
+            .filter(row =>
+                row["Year"] == year &&
+                row["Broad age band (4 cat)"] == "All"
+            )
+            .map(col => col["All persons"]);
+        row["pop_pct"] = (row["All persons"] / pop_total * 100).toFixed(1);
+    })
 
-    // ===== WHY USE A LOOP HERE? =====
-    // We need to calculate values for several years and collect them into arrays
-    // A loop is perfect for repetitive tasks like this
-    // Instead of writing:
-    //   under_15[0] = data[2004]
-    //   under_15[1] = data[2009]
-    //   ... (this would be tedious with many years!)
-    // We use a loop to do it automatically
-    for (let i = 0; i < bar_years.length; i++) {
-        const bar_year = bar_years[i];
 
-        // Get the total population for this year so each age group can be converted into a percentage
-        const pop_total = MYE01T03.data[MYE01T03_stat][bar_year]["All"]["All persons"];
-        
-        // Calculate each age group's percentage of the total population and add it to the relevant array
-        under_15.push((MYE01T03.data[MYE01T03_stat][bar_year]["Age 0-15"]["All persons"] / pop_total * 100).toFixed(1));
-        age_16_to_64.push(((MYE01T03.data[MYE01T03_stat][bar_year]["Age 16-39"]["All persons"] + MYE01T03.data[MYE01T03_stat][bar_year]["Age 40-64"]["All persons"]) / pop_total * 100).toFixed(1));
-        over_65.push((MYE01T03.data[MYE01T03_stat][bar_year]["Age 65+"]["All persons"] / pop_total * 100).toFixed(1));        
-    }
-
-    // Prepare data in the format expected by createHorizontalBarChart
-    const age_chart_data = {
-        "0 to 15 years": under_15,
-        "16 to 64 years": age_16_to_64,
-        "65 years and over": over_65
-    };
+    const age_chart_data = pop_age_data
+        .filter(row =>
+            bar_years.includes(row["Year"]) &&
+            row["Broad age band (4 cat)"] != "All"
+        )
 
     // Create the chart twice: once for the main view and once for the expanded/modal view
     horizontalBarChart({
-        chart_data: age_chart_data,
-        categories: bar_years,
+        data: age_chart_data,
+        value: "pop_pct",
+        categories: "Year",
+        bars: "Broad age band (4 cat)",
         canvas_id: "age-bar",
-        label_format: ",",
+        label_format: "%",
         stacked: true
     });
 
     horizontalBarChart({
-        chart_data: age_chart_data,
-        categories: bar_years,
+        data: age_chart_data,
+        value: "pop_pct",
+        categories: "Year",
+        bars: "Broad age band (4 cat)",
         canvas_id: "age-bar-expanded",
-        label_format: ",",
+        label_format: "%",
         stacked: true
     });
 
@@ -167,43 +203,33 @@ window.addEventListener("DOMContentLoaded", async () => {
     // Create a population pyramid showing the number of males and females at each age
 
     // Fetch a dataset that has population counts by single year of age and sex
-    const MYE01T08 = await readData("MYE01T08");
-    const MYE01T08_stat = "Mid-year population estimate";
-    const MYE01T08_updated = dateFormat(MYE01T08.updated); // Format the last-update date nicely
+    const [pop_single_age_data, pop_single_age_meta] = await readData("MYE01T08");
+    const pop_single_age_updated = dateFormat(pop_single_age_meta.updated); // Format the last-update date nicely
 
-    // Get all available ages from the latest year, excluding the summary "All" row
-    const ages = Object.keys(MYE01T08.data[MYE01T08_stat][latest_year])
-        .filter(x => x != "All");
-    
-    // Create empty arrays to hold male and female population values
-    let male_values = [];
-    let female_values = [];
+    // Loop over each row of pop_single_age_data and replace "90" with "90+"
+    pop_single_age_data.forEach(row => {
+        const age = row["Single year of age"];
+        if (age == 90) {
+            row["Single year of age"] = "90+";
+        }
+    })
 
-    // Use a loop to extract the male and female population value for each age
-    // This keeps the same logic for every age and avoids writing the same code over and over
-    for (let i = 0; i < ages.length; i ++) {
-        const age = ages[i];
-        male_values.push(MYE01T08.data[MYE01T08_stat][latest_year][age]["Males"]);
-        female_values.push(MYE01T08.data[MYE01T08_stat][latest_year][age]["Females"]);
-    }
-
-    // Prepare data in the format expected by createPyramidChart
-    const pop_chart_data = {
-        "Males": male_values,
-        "Females": female_values
-    };
+    const pop_chart_data = pop_single_age_data
+        .filter(row => row["Single year of age"] != "All")
 
     // Create the population pyramid twice: once normal, once expanded
     pyramidChart({
-        chart_data: pop_chart_data,
-        categories: ages.map(x => x === "90" ? "90+" : x),
+        data: pop_chart_data,
+        categories: "Single year of age",
+        values: ["Females", "Males"],
         canvas_id: "pop-pyramid",
         year: latest_year
     });
 
     pyramidChart({
-        chart_data: pop_chart_data,
-        categories: ages.map(x => x === "90" ? "90+" : x),
+        data: pop_chart_data,
+        categories: "Single year of age",
+        values: ["Females", "Males"],
         canvas_id: "pop-pyramid-expanded",
         year: latest_year
     });
@@ -214,20 +240,23 @@ window.addEventListener("DOMContentLoaded", async () => {
     // Get all the years available in the data
     // Object.keys() extracts all property names (the years) from the data object
     // .slice(-26) keeps only the last 26 items (approximately 26 years of data)
-    const median_line_years = Object.keys(MA01T01.data[MA01T01_stat]).slice(-26);
-    
-    // Create empty arrays to hold the median age values for all persons, males and females
-    let median_values = [];
-    let median_male = [];
-    let median_female = [];
+    // const median_line_years = Object.keys(MA01T01.data[MA01T01_stat]).slice(-26);
 
-    // Use a loop to extract one value from each year and collect them into arrays
-    for (let i = 0; i < median_line_years.length; i ++) {
-        const year = median_line_years[i];
-        median_values.push(MA01T01.data[MA01T01_stat][year]["All persons"]);
-        median_male.push(MA01T01.data[MA01T01_stat][year]["Males"]);
-        median_female.push(MA01T01.data[MA01T01_stat][year]["Females"]);
-    }
+    const median_line_years = median_age_data
+        .map(col => col["Year"])
+        .slice(-26);
+
+    const median_values = median_age_data
+        .map(col => col["All persons"])
+        .slice(-26);
+
+    const median_male = median_age_data
+        .map(col => col["Males"])
+        .slice(-26);
+
+    const median_female = median_age_data
+        .map(col => col["Females"])
+        .slice(-26)
 
     // Organize the data for the chart function
     // Each array becomes one line on the chart
@@ -282,9 +311,9 @@ window.addEventListener("DOMContentLoaded", async () => {
     };
 
     // Create download buttons that allow users to download the underlying data
-    downloadButton("age-bar-capture", "MYE01T03", MYE01T03_updated, age_chart_query);
-    downloadButton("pop-pyramid-capture", "MYE01T08", MYE01T08_updated, pop_pyramid_query);
-    downloadButton("median-line-capture", "MA01T01", MA01T01_updated, median_line_query);
+    downloadButton("age-bar-capture", "MYE01T03", pop_age_updated, age_chart_query);
+    downloadButton("pop-pyramid-capture", "MYE01T08", pop_single_age_updated, pop_pyramid_query);
+    downloadButton("median-line-capture", "MA01T01", median_age_updated, median_line_query);
 
     // ===== INFO BOXES - HELP AND METADATA =====
     // Populate the expandable info boxes with definitions and help text
