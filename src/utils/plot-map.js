@@ -5,9 +5,10 @@ let geojsonData;
 
 const palette = ["#d6e4f6", "#8db2e0", "#3878c5", "#22589c", "#00205b"];
 
-export async function plotMap(elementId, map_data) {
-  const areas = Object.keys(map_data);
-  const values = areas.map(area => map_data[area]).filter(v => v != null);
+export async function plotMap({elementId, area, data, value}) {
+
+  const values = data
+    .map(col => col[value]);
 
   const range_min = Math.floor(Math.min(...values));
   const range_max = Math.ceil(Math.max(...values));
@@ -17,7 +18,9 @@ export async function plotMap(elementId, map_data) {
 
   const features = geojsonData.features.map((feature, idx) => {
     const areaName = String(feature.properties.LGDNAME);
-    const rawValue = map_data[areaName];
+    const rawValue = data
+      .filter(row => row[area] == areaName)
+      .map(col => col[value])[0];
 
     return {
       ...feature,

@@ -25,30 +25,40 @@ window.addEventListener("DOMContentLoaded", async () => {
 
     // ===== LOAD AND PREPARE MAP DATA =====
     // Step 1: Fetch the population totals dataset
-    const MYE01T06 = await readData("MYE01T06");
-    const MYE01T06_stat = "Population totals"; // This is the specific statistic within the dataset we want
-    const MYE01T06_updated = dateFormat(MYE01T06.updated); // Format the last-update date nicely
+    const [pop_by_lgd_data, pop_by_lgd_meta] = await readData("MYE01T06");
+    const MYE01T06_updated = dateFormat(pop_by_lgd_meta.updated); // Format the last-update date nicely
 
     // Step 2: Update the year labels shown across the page
-    updateYearSpans(MYE01T06, MYE01T06_stat);
+    updateYearSpans(pop_by_lgd_data);
+
+    const map_data = pop_by_lgd_data
+        .filter(row =>
+            row["Year"] == latest_year &&
+            row["Local Government District"] != "Northern Ireland"
+        )
 
     // Step 3: Collect the local government district names and their latest population values
     // We remove Northern Ireland so the map only shows the local areas we want to highlight
-    const areas = Object.keys(MYE01T06.data[MYE01T06_stat][latest_year])
-        .filter(x => x !== "Northern Ireland");
+    // const areas = Object.keys(MYE01T06.data[MYE01T06_stat][latest_year])
+    //     .filter(x => x !== "Northern Ireland");
 
-    let map_data = {};
+    // let map_data = {};
 
     // ===== WHY USE A LOOP HERE? =====
     // We need to turn the raw nested data into a simpler map-friendly object
     // A loop lets us do this for every area without writing a long list of repeated lines
-    for (let i = 0; i < areas.length; i++) {
-        map_data[areas[i]] = MYE01T06.data[MYE01T06_stat][latest_year][areas[i]].Unrounded;
-    }
+    // for (let i = 0; i < areas.length; i++) {
+    //     map_data[areas[i]] = MYE01T06.data[MYE01T06_stat][latest_year][areas[i]].Unrounded;
+    // }
 
     // ===== DRAW THE MAP =====
     // Send the prepared data to the map helper so it can render the visual
-    plotMap("map-container", map_data);
+    plotMap({
+        elementId: "map-container",
+        data: map_data,
+        area: "Local Government District",
+        value: "Unrounded"
+    });
 
     // ===== DOWNLOAD FUNCTIONALITY =====
     // Create query parameters that tell the API which data to download for the map
@@ -64,11 +74,11 @@ window.addEventListener("DOMContentLoaded", async () => {
     // Build a simple table showing each area and its population value
     const table_data = {
         "LGD": {
-            "values": Object.keys(map_data),
+            "values": map_data.map(col => col["Local Government District"]),
             "format": "string"
         },
         [`Population ${latest_year}`]: {
-            "values": Object.values(map_data),
+            "values": map_data.map(col => col["Unrounded"]),
             "format": "number"
         }
     };
