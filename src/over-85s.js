@@ -1,232 +1,326 @@
-import { insertHeader, insertFooter, insertHead, insertNavButtons } from "./utils/page-layout.js";
-import { readData } from "./utils/read-data.js";
-import { insertValue } from "./utils/insert-value.js";
-import { latest_year, updateYearSpans, first_year, last_year } from "./utils/update-years.js";
-import { toTitleCase } from "./utils/to-title-case.js";
-import { config } from "./config/config.js";
-import { stackedPercentageChart } from "./charts/stacked-percentage-chart.js";
-import { treemapChart } from "./charts/treemap-chart.js";
-import { insertExpandButtons } from "./utils/expand-buttons.js";
-import { dateFormat } from "./utils/date-format.js";
-import { downloadButton } from "./utils/download-button.js";
-import { chart_colours, text_colours } from "./config/colours.js";
-import { populateInfoBoxes } from "./utils/info-boxes.js";
-import { sectorNameTidy } from "./utils/to-title-case.js";
-import { reshapeForTreemap } from "./utils/reshape-for-treemap.js";
+// ===== IMPORTS =====
+// Import the reusable functions used to build the page, load data,
+// create charts, format dates, and insert values into the HTML
 
+import { insertHeader, insertFooter, insertHead, insertNavButtons } from "./utils/page-layout.js"; // Builds the shared page structure
+import { readData } from "./utils/read-data.js"; // Loads a CSV dataset together with its metadata
+import { insertValue } from "./utils/insert-value.js"; // Inserts a value into a specified HTML element
+import { latest_year, updateYearSpans } from "./utils/update-years.js"; // Provides and updates year-related values
+import { treemapChart } from "./charts/treemap-chart.js"; // Creates tree map charts
+import { insertExpandButtons } from "./utils/expand-buttons.js"; // Adds controls for expanding chart sections
+import { dateFormat } from "./utils/date-format.js"; // Formats dataset update dates for display
+import { downloadButton } from "./utils/download-button.js"; // Adds buttons for downloading the underlying data
+import { populateInfoBoxes } from "./utils/info-boxes.js"; // Populates expandable information boxes
+import { barChart } from "./charts/bar-chart.js"; // Creates vertical or horizontal bar charts
+
+// ===== MAIN EXECUTION =====
+// Run the page setup and data-processing code after the initial HTML
+// document has finished loading
+//
+// Declaring the function as async allows await to be used while page
+// components and datasets are loaded
 window.addEventListener("DOMContentLoaded", async () => {
 
-    await insertHead("Home");
+    // ===== BUILD THE PAGE STRUCTURE =====
+    // Insert the shared head, header, navigation, footer, and chart
+    // expansion controls used across the dashboard
+    await insertHead("Over 85s");
     insertHeader();
     insertNavButtons();
     insertFooter();
     insertExpandButtons();
 
-    // Total population
+    // ===== LOAD THE OVER-85 DATA =====
+    // readData() returns two items:
+    //
+    //   1. The parsed CSV rows
+    //   2. The metadata entry for the matrix
+    //
+    // Array destructuring assigns these to over_85_data and over_85_meta
+    //
+    // The CSV rows work similarly to an R data frame:
+    //
+    //   JavaScript array of objects   ≈ R data frame
+    //   one object                    ≈ one row
+    //   one object property           ≈ one column
+    const [over_85_data, over_85_meta] = await readData("MYE01T025");
 
-    const MYE01T025 = await readData("MYE01T025");
-    const MYE01T025_stat = "Mid-year population estimate"; // This is the specific statistic within the dataset we want
-    updateYearSpans(MYE01T025, MYE01T025_stat); // Updates year labels on the page
+    // Read the available years from the CSV rows and update year labels
+    // shown throughout the page
+    updateYearSpans(over_85_data);
+
+    // Set the comparison year to ten years before the latest available year
     const comparison_year = latest_year - 10
 
-    const MYE01T025_updated = dateFormat(MYE01T025.updated);
+    // Format the matrix update date stored in the metadata
+    const over_85_updated = dateFormat(over_85_meta.updated);
 
-    // Population over 85 
-    const pop_over85 = MYE01T025.data[MYE01T025_stat][latest_year]["All persons"];
-    const total_over85 = Object.values(pop_over85)
-      .reduce((sum, val) => sum + val, 0);
-    insertValue("pop-over85", total_over85.toLocaleString());
+    // ===== CALCULATE THE TOTAL AGED 85 AND OVER FOR EACH ROW =====
+    // Add a new over_85 property to every CSV row
+    //
+    // Object.keys(row) returns the column names in the current row
+    //
+    // filter() keeps only columns whose names contain "Age"
+    //
+    // map() extracts the values from those age columns
+    //
+    // reduce() adds the age values together to produce a single total
+    //
+    // In dplyr terms, this is conceptually similar to mutate() combined
+    // with rowSums() across selected columns
+    over_85_data.forEach(row => {
+      row["over_85"] = Object.keys(row)
+        .filter(key => key.includes("Age"))
+        .map(key => row[key])
+        .reduce((sum, value) => sum + value, 0)
+    })
 
-    // Population over 85 ten years ago
-    const pop_over85_10yrs = MYE01T025.data[MYE01T025_stat][comparison_year]["All persons"];
-    const total_over85_10yrs = Object.values(pop_over85_10yrs)
-      .reduce((sum, val) => sum + val, 0);
-    insertValue("pop-over85-10yrs", total_over85_10yrs.toLocaleString());
+    // ===== LATEST OVER-85 POPULATION CARD =====
+    // Filter to the latest-year All persons row and extract the calculated
+    // over_85 value
+    //
+    // This is similar to:
+    //
+    //   over_85_data |>
+    //     filter(
+    //       Year == latest_year,
+    //       Sex == "All persons"
+    //     ) |>
+    //     pull(over_85)
+    const pop_over_85 = over_85_data
+      .filter(row =>
+        row["Year"] == latest_year &&
+        row["Sex"] == "All persons"
+      )
+      .map(col => col["over_85"]);
 
-    // Female Population over 85 ten years ago
-    const pop_over85_female = MYE01T025.data[MYE01T025_stat][latest_year]["Females"];
-    const total_over85_female = Object.values(pop_over85_female)
-      .reduce((sum, val) => sum + val, 0);
-    const female_over85_pct = (total_over85_female / total_over85) * 100;
-    insertValue("female-over85", female_over85_pct.toFixed(1));
+    // Display the total using locale-aware thousands separators
+    insertValue("pop-over-85", pop_over_85.toLocaleString());
 
-    // Male Population over 85
-    const pop_over85_male = MYE01T025.data[MYE01T025_stat][latest_year]["Males"];
-    const total_over85_male = Object.values(pop_over85_male)
-      .reduce((sum, val) => sum + val, 0);
-    const male_over85_pct = (total_over85_male / total_over85) * 100;
-    insertValue("male-over85", male_over85_pct.toFixed(1));
+    // ===== OVER-85 POPULATION TEN YEARS EARLIER =====
+    // Filter to the comparison-year All persons row and extract the
+    // calculated over_85 value
+    const pop_over_85_comparison = over_85_data
+      .filter(row =>
+        row["Year"] == comparison_year &&
+        row["Sex"] == "All persons"
+      )
+      .map(col => col["over_85"]);
+      
+    // Display the comparison-year total
+    insertValue("pop-over85-10yrs", pop_over_85_comparison.toLocaleString());
 
-    // Male Population over 85 ten years ago
-    const pop_over85_male_10yrs = MYE01T025.data[MYE01T025_stat][comparison_year]["Males"];
-    const total_over85_male_10yrs = Object.values(pop_over85_male_10yrs)
-      .reduce((sum, val) => sum + val, 0);
-    const male_over85_pct_10yrs = (total_over85_male_10yrs / total_over85_10yrs) * 100;
-    insertValue("male-over85-10yrs", male_over85_pct_10yrs.toFixed(1));
+    // ===== FEMALE SHARE OF THE OVER-85 POPULATION =====
+    // Filter to the comparison-year female row and extract the over_85 total
+    const pop_over_85_female = over_85_data
+      .filter(row =>
+        row["Year"] == comparison_year &&
+        row["Sex"] == "Females"
+      )
+      .map(col => col["over_85"]);
+
+    // Calculate the female value as a percentage of the latest-year
+    // All persons over-85 total
+    const female_over_85_pct = (pop_over_85_female / pop_over_85_comparison) * 100;
+
+    // Display the result rounded to one decimal place
+    insertValue("female-over-85", female_over_85_pct.toFixed(1));
+
+    // ===== MALE SHARE OF THE LATEST OVER-85 POPULATION =====
+    // Filter to the latest-year male row and extract the over_85 total
+    const pop_over_85_male = over_85_data
+      .filter(row =>
+        row["Year"] == latest_year &&
+        row["Sex"] == "Males"
+      )
+      .map(col => col["over_85"]);
+
+    // Calculate males as a percentage of the latest-year All persons total
+    const male_over85_pct = (pop_over_85_male / pop_over_85) * 100;
+
+    // Display the percentage rounded to one decimal place
+    insertValue("male-over-85", male_over85_pct.toFixed(1));
+
+    // ===== MALE SHARE TEN YEARS EARLIER =====
+    // Filter to the comparison-year male row and extract the over_85 total
+    const pop_over_85_male_10yrs = over_85_data
+      .filter(row =>
+        row["Year"] == comparison_year &&
+        row["Sex"] == "Males"
+      )
+      .map(col => col["over_85"]);
+
+    // Calculate males as a percentage of the comparison-year
+    // All persons total
+    const male_over_85_pct_10yrs = (pop_over_85_male_10yrs / pop_over_85_comparison) * 100;
+
+    // Display the percentage rounded to one decimal place
+    insertValue("male-over-85-10yrs", male_over_85_pct_10yrs.toFixed(1));
     
+    // ===== UPDATE COMPARISON-YEAR LABELS =====
+    // Find all HTML elements with class="comparison-year"
     const comparison_spans = document.getElementsByClassName("comparison-year");
+
+    // Insert the calculated comparison year into each matching element
     for (let i = 0; i < comparison_spans.length; i ++) {
       comparison_spans[i].textContent = comparison_year;
     }
 
 
-    const raw = MYE01T025.data[MYE01T025_stat];
     
-    // Stacked bar chart
-    // Define the year range
+    // ===== STACKED BAR CHART: MALE AND FEMALE SHARES =====
+    // Filter the over-85 dataset to:
+    //
+    //   male and female rows only
+    //   years from the comparison year onwards
+    //
+    // The All persons rows are excluded because the chart segments should
+    // contain only the male and female components
+    const over_85_bar_data = over_85_data
+      .filter(row =>
+        row["Sex"] != "All persons" &&
+        row["Year"] >= comparison_year
+      );
     
 
-    const years = Object.keys(raw).filter(y => y >= comparison_year && y <= latest_year);
+  // Draw the standard stacked chart
+  //
+  // barChart() receives the male and female over-85 population counts
+  //
+  // Because stacked is true and label_format is "%", barChart()
+  // calculates the total for each year and converts each sex value
+  // into its percentage share before drawing the chart
+  //
+  // This is conceptually similar to:
+  //
+  //   over_85_bar_data |>
+  //     group_by(Year) |>
+  //     mutate(
+  //       percentage = over_85 / sum(over_85) * 100
+  //     )
+  barChart({
+    data: over_85_bar_data,
+    value: "over_85",
+    categories: "Year",
+    bars: "Sex",
+    canvas_id: "pop-stacked-bar",
+    label_format: "%",
+    stacked: true
+  })
 
-    const genders = ["Females", "Males"];
+  // Draw a second copy of the chart for the expanded view
+  barChart({
+    data: over_85_bar_data,
+    value: "over_85",
+    categories: "Year",
+    bars: "Sex",
+    canvas_id: "pop-stacked-bar-expanded",
+    label_format: "%",
+    stacked: true
+  })
 
-    const female_values = years.map(year =>
-        Object.values(raw[year]["Females"])
-            .reduce((sum, val) => sum + val, 0)
-    );
+  // ===== TREE MAP: BROAD AGE STRUCTURE =====
+  // Load the broad-age population matrix and its metadata
+  const [pop_age_data, pop_age_meta] = await readData("MYE01T03");
+  
+  // Update the year labels using the years available in the broad-age CSV
+  updateYearSpans(pop_age_data);
 
-    const male_values = years.map(year =>
-        Object.values(raw[year]["Males"])
-            .reduce((sum, val) => sum + val, 0)
-    );
-
-    const chart_data = {
-      "Females": female_values,
-      "Males": male_values
-    };    
-    
-    const percentages = years.map((year, i) => {
-      const total = female_values[i] + male_values[i];
-      return {
-        female: (female_values[i] / total) * 100,
-        male: (male_values[i] / total) * 100
-      };
-    });
-
-    const female_pct = percentages.map(d => Number(d.female.toFixed(1)));
-    const male_pct = percentages.map(d => Number(d.male.toFixed(1)));
-
-    const chart_datas = {
-      labels: years,   
-      datasets: [
-          {
-              label: "Males",
-              data: male_values,
-              backgroundColor: chart_colours[0]
-          },
-          {
-              label: "Females",
-              data: female_values,
-              backgroundColor: chart_colours[1]
-          }
-      ]
-    };
-
-  const labels = ["Female", "Male"];
-
-  const stacked_values = [
-    female_values,
-    male_values
-  ];
-
-
-
-  stackedPercentageChart({
-    labels: genders,
-    stacked_values,
-    years,
-    canvas_id: "pop-stacked-bar"
-  });
-
-  stackedPercentageChart({
-    labels: genders,
-    stacked_values,
-    years,
-    canvas_id: "pop-stacked-bar-expanded"
-  });
-
-  // Tree map
-
-  const MYE01T03 = await readData("MYE01T03");
-  const MYE01T03_stat = "Mid-year population estimate";
-  updateYearSpans(MYE01T03, MYE01T03_stat); // Updates year labels on the page
-  const MYE01T03_updated = dateFormat(MYE01T03.updated);
-
-  const Age_Groups = [
-    "Age 0-15",
-    "Age 16-39",
-    "Age 40-64",
-    "Age 65+"
-  ];  
-
+  // Format the matrix update date stored in the metadata
+  const pop_age_updated = dateFormat(pop_age_meta.updated);
+  
+  // Filter to the latest-year broad age groups and remove the All summary row
+  //
+  // The remaining rows represent the individual age-band rectangles
+  // displayed in the tree map
+  const treemap_data = pop_age_data
+    .filter(row =>
+      row["Broad age band (4 cat)"] != "All" &&
+      row["Year"] == latest_year
+    )
+  
+  // Draw the standard tree map
+  //
+  // categories identifies the column containing the age-band labels
+  // value identifies the numeric population column used to size each rectangle
   treemapChart({
-    raw_data: MYE01T03.data,
-    stat: MYE01T03_stat,
-    year: latest_year,
-    categories: Age_Groups,
-    group_key: "All persons",
+    data: treemap_data,
+    categories: "Broad age band (4 cat)",
+    value: "All persons",
     canvas_id: "pop-tree-map"
   });
 
+  // Draw a second copy of the tree map for the expanded view
   treemapChart({
-    raw_data: MYE01T03.data,
-    stat: "Mid-year population estimate",
-    year: latest_year,
-    categories: Age_Groups,
-    group_key: "All persons",
+    data: treemap_data,
+    categories: "Broad age band (4 cat)",
+    value: "All persons",
     canvas_id: "pop-tree-map-expanded"
   });
 
-  // ===== DOWNLOAD FUNCTIONALITY =====  
+  // ===== DOWNLOAD FUNCTIONALITY =====
+  // Define the source-matrix filters associated with each chart
 
-  // Create a list of the last ten years
+  // Build an array containing the latest year and the ten preceding years
+  //
+  // String() converts each numeric year into text because the download
+  // query expects matrix category codes as strings
   const ten_yrs_ago = latest_year - 10
   const year_range = [];
+
   for (let y = ten_yrs_ago; y <= latest_year; y++) {
     year_range.push(String(y));
   }
 
+  // Request the years and male/female categories used in the stacked chart
   const pop_stacked_query = {
-      "TLIST(A1)": year_range, // Latest year only
-      "broadage4": "All", // All age groups combined
-      "Sex": ["1", "2"] // Genders (1=Male, 2=Female)
+      "TLIST(A1)": year_range, // The complete eleven-year range shown in the chart
+      "broadage4": "All", // All age groups represented in the MYE01T025 matrix
+      "Sex": ["1", "2"] // Male and female categories
   };
 
+  // Request the latest-year broad age groups used in the tree map
   const pop_treemap_query = {
       "TLIST(A1)": latest_year, // Latest year only
-      "broadage7": ["1, 2", "3", "4"], // All age groups combined
-      "Sex": "All" // All people
+      "broadage7": ["1, 2", "3", "4"], // Broad age-group categories displayed in the tree map
+      "Sex": "All" // All persons
   };
 
-  // Create download buttons that allow users to download the underlying data
-  downloadButton("stacked-bar-capture", "MYE01T025", MYE01T025_updated, pop_stacked_query);
-  downloadButton("tree-map-capture", "MYE01T03", MYE01T03_updated, pop_treemap_query);
+  // Add a download button for the stacked male/female chart
+  downloadButton("stacked-bar-capture", "MYE01T025", over_85_updated, pop_stacked_query);
+
+  // Add a download button for the broad-age tree map
+  downloadButton("tree-map-capture", "MYE01T03", pop_age_updated, pop_treemap_query);
 
   
   
-  // ===== INFO BOXES - HELP AND METADATA =====
-  // Populate the expandable info boxes with definitions and help text
-  // Takes 3 arrays: box titles, and their corresponding content
+  // ===== INFO BOXES: HELP AND CONTEXT =====
+  // Populate the expandable information boxes displayed below the page content
+  //
+  // The first array contains the box headings
+  // The second array contains the corresponding HTML content
   populateInfoBoxes(
-      ["Definitions", "Source", "What does the data mean?"], // Box titles
+      ["Definitions", "Source", "What does the data mean?"], // Information-box headings
       [
-          // Content for "Definitions" box
+          // ----- DEFINITIONS BOX -----
+          // Explain how the page layout is built and made responsive
           `<p>The layout for this page is built in the dashboard HTML template using Bootstrap 5 grid classes such as <code>row</code> and <code>col</code> so the charts and summary cards can adapt to different screen sizes and remain mobile friendly.</p>
           <p>For guidance on the Bootstrap layout system, see <a href="https://getbootstrap.com/docs/5.3/layout/grid/" target="_blank" rel="noopener noreferrer">Bootstrap 5 grid documentation</a>.</p>
           <p>The page has also been checked for accessibility so the content is easier to use with assistive technologies.</p>`,
           
-          // Content for "Source" box  
-          `<p>The top cards on this page are populated from this script using data from the NISRA Data Portal.</p>
-          <p>The main datasets used are <strong>MYE01T025</strong> for the over-85 population figures and <strong>MYE01T03</strong> for the age-group breakdown used in the tree map.</p>
-          <p>Values are selected by following the structure and column order shown in the relevant data matrix on the NISRA Data Portal.</p>`,
+          // ----- SOURCE BOX -----
+          // Identify the matrices used to populate the cards and charts
+          `<p>The cards and charts on this page are populated by this script using data from the NISRA Data Portal.</p>
+          <p>The main datasets are <strong>MYE01T025</strong> for population aged 85 and over and <strong>MYE01T03</strong> for the broad age-group breakdown used in the tree map.</p>
+          <p>Each matrix is loaded as a CSV-style table. Rows are filtered using fields such as year, sex, and age group, while the required population columns are selected or combined for the cards and charts.</p>`,
 
-          // Content for "What does the data mean?" box
+          // ----- DATA MEANING BOX -----
+          // Explain the inputs expected by the chart functions used on this page
           `<p>This page uses two charting functions.</p>
-          <p><strong>stackedPercentageChart()</strong> is used for the stacked percentage chart and requires the labels, the stacked values for each series, the years, and the canvas ID.</p>
-          <p><strong>treemapChart()</strong> is used for the age-group tree map and requires the raw data, the statistic name, the year, the category list, the group key, and the canvas ID.</p>`
+          <p><strong>barChart()</strong> draws the male and female stacked chart. It receives the filtered CSV rows, the calculated over-85 value column, the year category column, the sex column used to create the separate segments, the canvas ID, and the stacking and label settings. When the chart is stacked and the label format is set to a percentage, the function converts the male and female counts into percentage shares for each year.</p>
+          <p><strong>treemapChart()</strong> draws the broad age-group tree map. It receives the filtered latest-year rows, the column containing the age-group labels, the population column used to size each rectangle, and the canvas ID.</p>`
       ]
   );
 
 
-})
-
+}) // End of DOMContentLoaded event listener

@@ -1,314 +1,539 @@
 // ===== IMPORTS =====
-// Import utility functions that will help build the page layout and populate it with data
-// These are small, reusable functions stored in separate files to keep code organized
+// Import the utility functions used to build the page, load datasets,
+// create charts, and insert values into the HTML
+//
+// Keeping these functions in separate modules makes this script easier to read
+// and allows the same functionality to be reused across other pages
 
-import { insertHeader, insertFooter, insertHead, insertNavButtons } from "./utils/page-layout.js"; // Functions to build page structure
-import { readData } from "./utils/read-data.js"; // Fetches data from external source (e.g., JSON file)
-import { insertValue } from "./utils/insert-value.js"; // Places values into HTML elements on the page
-import { latest_year, updateYearSpans, first_year, last_year } from "./utils/update-years.js"; // Handles year-related calculations
-import { toTitleCase } from "./utils/to-title-case.js"; // Converts text to Title Case format
-import { config } from "./config/config.js"; // Configuration settings
-import { horizontalBarChart } from "./charts/horizontal-bar-chart.js";
-import { lineChart } from "./charts/line-chart.js";
-import { pyramidChart } from "./charts/pyramid-chart.js";
-import { insertExpandButtons } from "./utils/expand-buttons.js"; // Adds expandable sections
-import { downloadButton } from "./utils/download-button.js"; // Creates download buttons for data
-import { dateFormat } from "./utils/date-format.js"; // Formats dates nicely
-import { populateInfoBoxes } from "./utils/info-boxes.js"; // Populates info/help boxes
-import { getMaxEntry } from "./utils/get-max-entry.js"; // Finds the key with the maximum value in an object
+import { insertHeader, insertFooter, insertHead, insertNavButtons } from "./utils/page-layout.js"; // Builds the shared page structure
+import { readData } from "./utils/read-data.js"; // Loads a matrix CSV together with its associated metadata
+import { insertValue } from "./utils/insert-value.js"; // Inserts a value into a specified HTML element
+import { latest_year, updateYearSpans, last_year } from "./utils/update-years.js"; // Provides and updates year-related values
+import { barChart } from "./charts/bar-chart.js"; // Creates vertical or horizontal bar charts
+import { lineChart } from "./charts/line-chart.js"; // Creates line charts
+import { pyramidChart } from "./charts/pyramid-chart.js"; // Creates population pyramid charts
+import { insertExpandButtons } from "./utils/expand-buttons.js"; // Adds controls for expanding chart sections
+import { downloadButton } from "./utils/download-button.js"; // Adds buttons for downloading the underlying data
+import { dateFormat } from "./utils/date-format.js"; // Formats dataset update dates for display
+import { populateInfoBoxes } from "./utils/info-boxes.js"; // Populates expandable information boxes
 
 // ===== MAIN EXECUTION =====
-// This runs AFTER the entire HTML page has loaded (DOMContentLoaded event)
-// The "async" keyword allows us to use "await" inside this function to pause and wait for data to load
+// This function runs after the initial HTML document has finished loading
+//
+// Declaring the function as "async" allows await to be used while datasets
+// and shared page components are loaded
 window.addEventListener("DOMContentLoaded", async () => {
 
     // ===== BUILD THE PAGE STRUCTURE =====
-    // These functions insert the header, footer, navigation buttons, etc. into the HTML
-    await insertHead("Age structure"); // "await" pauses here until the page head is ready
-    insertHeader(); // Adds header to the page
-    insertNavButtons(); // Adds navigation buttons
-    insertFooter(); // Adds footer to the page
-    insertExpandButtons(); // Adds buttons that allow sections to expand/collapse
+    // Insert the shared elements used across the website, including the page head,
+    // header, navigation buttons, footer, and chart expansion controls
+    await insertHead("Age structure"); // Wait until the document head has been prepared
+    insertHeader(); // Adds the page header
+    insertNavButtons(); // Adds the navigation buttons
+    insertFooter(); // Adds the page footer
+    insertExpandButtons(); // Adds controls for opening expanded chart views
 
     // ===== POPULATE PAGE WITH DATA =====
-    // This section: fetches data → extracts specific values → calculates if needed → displays on page
+    // Each matrix is now stored in two parts:
+    //
+    //   1. A CSV file containing observations as rows and columns
+    //   2. An entry in data.json containing metadata such as the matrix label,
+    //      update date, subject code, and product code
+    //
+    // readData() returns both parts as a two-item array. Array destructuring is
+    // used below to assign meaningful names to the CSV data and its metadata.
+    //
+    // The CSV observations are represented as an array of row objects. This is
+    // similar to working with a data frame or tibble in R:
+    //
+    //   JavaScript array       R data frame
+    //   ----------------       ------------
+    //   one object             one row
+    //   one object property    one column
+    //   array of objects       complete data frame
+    //
+    // JavaScript array methods can therefore be chained together in a pipeline
+    // resembling common dplyr operations:
+    //
+    //   filter()     resembles filter()
+    //   map()        resembles pull(), select(), or transmute()
+    //   forEach()    can be used like mutate() when changing each row
+    //   includes()   resembles %in%
+
+    // ===== MEDIAN AGE CARDS =====
 
     // ----- MEDIAN AGE CARD -----
-    // Step 1: Fetch the data from the data source (JSON file or database)
-    // MA01T01 is the code for the median age dataset
-    // "await" pauses execution until the data finishes loading
-    const MA01T01 = await readData("MA01T01");
-    const MA01T01_stat = "Median Age"; // This is the specific statistic within the dataset we want
-    updateYearSpans(MA01T01, MA01T01_stat); // Updates year labels on the page
+    // Load the median-age matrix
+    //
+    // MA01T01.csv contains one row per year, with separate columns for:
+    //
+    //   All persons
+    //   Males
+    //   Females
+    //
+    // The MA01T01 entry in data.json contains the corresponding metadata
+    const [median_age_data, median_age_meta] = await readData("MA01T01");
 
-    // Set a comparison year 25 years before the latest year
+    // Read the available years from the CSV rows and update year references
+    // displayed throughout the page
+    updateYearSpans(median_age_data);
+
+    // Set a comparison year 25 years before the latest available year
+    //
+    // Calculating this dynamically means the code does not need to contain a
+    // fixed calendar year
     const comparison_year = latest_year - 25;
 
-    // Update all HTML elements with class="comparison-year" to show the comparison year
-    const comparison_spans = document.getElementsByClassName("comparison-year");
+    // Find every HTML element with class="comparison-year"
+    //
+    // getElementsByClassName() returns a collection because the comparison year
+    // may appear in several cards, headings, or explanatory sentences
+    const comparison_spans =
+        document.getElementsByClassName("comparison-year");
+
+    // Update each matching HTML element with the calculated comparison year
     for (let span of comparison_spans) {
         span.textContent = comparison_year;
     }
 
-    const MA01T01_updated = dateFormat(MA01T01.updated); // Format the last-update date nicely
+    // Format the matrix update date stored separately in the metadata
+    const median_age_updated = dateFormat(median_age_meta.updated);
 
-    // Step 2: Extract the value from the nested data structure
-    // MA01T01.data is a large object organized like: {statistic_name: {year: {sex: value}}}
-    // Example structure:
-    //   MA01T01.data = {
-    //     "Median Age": {
-    //       2021: { "All persons": 40.1, "Males": 39.2, "Females": 41.0 },
-    //       2022: { "All persons": 40.3, "Males": 39.4, "Females": 41.2 }
-    //     }
-    //   }
-    const median_age = MA01T01.data[MA01T01_stat][latest_year]["All persons"];
+    // Filter to the latest-year row and extract the All persons column
+    //
+    // This is similar to:
+    //
+    //   median_age_data |>
+    //     filter(Year == latest_year) |>
+    //     pull(`All persons`)
+    const median_age = median_age_data
+        .filter(row => row["Year"] == latest_year)
+        .map(col => col["All persons"]);
 
-    // Step 3: Display on page
+    // Display the latest median age in the relevant card
     insertValue("median-age", median_age);
 
-    // ----- MEDIAN AGE CHANGE CARD -----
-    // Calculate how much the median age has changed since the comparison year
-    const comparison_age = MA01T01.data[MA01T01_stat][comparison_year]["All persons"];
+    // ----- MEDIAN AGE CHANGE OVER 25 YEARS CARD -----
+    // Select the median age for the comparison year
+    const comparison_age = median_age_data
+        .filter(row => row["Year"] == comparison_year)
+        .map(col => col["All persons"]);
+
+    // Calculate the numeric difference between the latest median age and the
+    // median age 25 years earlier
     const age_change_value = median_age - comparison_age;
 
-    // Format the change with a plus sign if the value is positive
-    const age_change = age_change_value > 0 ? `+${age_change_value.toFixed(1)}` : age_change_value.toFixed(1);
+    // Format the change with a plus sign when the result is positive
+    //
+    // toFixed(1) rounds the value to one decimal place
+    const age_change =
+        age_change_value > 0
+            ? `+${age_change_value.toFixed(1)}`
+            : age_change_value.toFixed(1);
+
     insertValue("age-change", age_change);
 
-    // ----- MEDIAN AGE PERCENTAGE CHANGE CARD -----
-    // Calculate the percentage change in median age from last year to this year
-    const last_age = MA01T01.data[MA01T01_stat][last_year]["All persons"];
-    const age_change_pct_value = ((median_age - last_age) / last_age) * 100;
+    // ----- ANNUAL MEDIAN AGE PERCENTAGE CHANGE CARD -----
+    // Select the All persons median age for the preceding year
+    const last_age = median_age_data
+        .filter(row => row["Year"] == last_year)
+        .map(col => col["All persons"]);
 
-    // Format the percentage change with a plus sign if the value is positive
-    const age_change_pct = age_change_pct_value > 0 ? `+${age_change_pct_value.toFixed(1)}` : age_change_pct_value.toFixed(1);
+    // Calculate percentage change using:
+    //
+    //   latest median age - previous median age
+    //   ---------------------------------------- × 100
+    //             previous median age
+    const age_change_pct_value =
+        ((median_age - last_age) / last_age) *
+        100;
+
+    // Add a plus sign to positive results and display one decimal place
+    const age_change_pct =
+        age_change_pct_value > 0
+            ? `+${age_change_pct_value.toFixed(1)}`
+            : age_change_pct_value.toFixed(1);
+
     insertValue("age-change-pct", age_change_pct);
 
-    // ----- AGE GROUP PERCENTAGE CARDS -----
-    // Fetch a different dataset that has population breakdowns by broad age group and sex
-    const MYE01T03 = await readData("MYE01T03");
-    const MYE01T03_stat = "Mid-year population estimate";
-    const MYE01T03_updated = dateFormat(MYE01T03.updated);
+    // ===== AGE-GROUP PERCENTAGE CARDS =====
+    // Load the broad-age population matrix
+    //
+    // MYE01T03 contains one row for each combination of year and broad age band.
+    // The population measures are stored in columns such as:
+    //
+    //   All persons
+    //   Males
+    //   Females
+    const [pop_age_data, pop_age_meta] = await readData("MYE01T03");
 
-    // Calculate the percentage of the population aged 65 and over in the latest year
-    const over_65_pct = MYE01T03.data[MYE01T03_stat][latest_year]["Age 65+"]["All persons"] / MYE01T03.data[MYE01T03_stat][latest_year]["All"]["All persons"] * 100;
-    insertValue("over-65", over_65_pct.toFixed(1)); // Display with 1 decimal place
+    // Format the update date stored in the matrix metadata
+    const pop_age_updated = dateFormat(pop_age_meta.updated);
 
-    // Calculate the percentage of the population aged 0 to 15 in the comparison year
-    const child_pct_comparison = MYE01T03.data[MYE01T03_stat][comparison_year]["Age 0-15"]["All persons"] / MYE01T03.data[MYE01T03_stat][comparison_year]["All"]["All persons"] * 100;
-    insertValue("child-pct-comparison", child_pct_comparison.toFixed(1));
+    // ----- POPULATION AGED 65 AND OVER -----
+    // Filter to the latest-year Age 65+ row and extract the All persons value
+    const over_65_pop = pop_age_data
+        .filter(row =>
+            row["Year"] == latest_year &&
+            row["Broad age band (4 cat)"] == "Age 65+"
+        )
+        .map(col => col["All persons"]);
 
-    // Calculate the percentage of the population aged 0 to 15 in the latest year
-    const child_pct = MYE01T03.data[MYE01T03_stat][latest_year]["Age 0-15"]["All persons"] / MYE01T03.data[MYE01T03_stat][latest_year]["All"]["All persons"] * 100;
+    // Filter to the latest-year summary row and extract the total population
+    //
+    // The "All" age-band row provides the denominator for percentage calculations
+    const all_pop = pop_age_data
+        .filter(row =>
+            row["Year"] == latest_year &&
+            row["Broad age band (4 cat)"] == "All"
+        )
+        .map(col => col["All persons"]);
+
+    // Calculate the percentage of the latest-year population aged 65 and over
+    const over_65_pct = over_65_pop / all_pop * 100;
+
+    // Display the percentage rounded to one decimal place
+    insertValue("over-65", over_65_pct.toFixed(1));
+
+    // ----- CHILD POPULATION IN THE COMPARISON YEAR -----
+    // Select the population aged 0 to 15 in the comparison year
+    const child_pop_comparison = pop_age_data
+        .filter(row =>
+            row["Year"] == comparison_year &&
+            row["Broad age band (4 cat)"] == "Age 0-15"
+        )
+        .map(col => col["All persons"]);
+
+    // Select the total population for the same comparison year
+    const all_pop_comparison = pop_age_data
+        .filter(row =>
+            row["Year"] == comparison_year &&
+            row["Broad age band (4 cat)"] == "All"
+        )
+        .map(col => col["All persons"]);
+
+    // Calculate the percentage of the comparison-year population aged 0 to 15
+    const child_pct_comparison =
+        child_pop_comparison /
+        all_pop_comparison *
+        100;
+
+    insertValue(
+        "child-pct-comparison",
+        child_pct_comparison.toFixed(1)
+    );
+
+    // ----- CHILD POPULATION IN THE LATEST YEAR -----
+    // Select the latest-year population aged 0 to 15
+    const child_pop = pop_age_data
+        .filter(row =>
+            row["Year"] == latest_year &&
+            row["Broad age band (4 cat)"] == "Age 0-15"
+        )
+        .map(col => col["All persons"]);
+
+    // Use the previously selected latest-year total as the denominator
+    const child_pct = child_pop / all_pop * 100;
+
     insertValue("child-pct", child_pct.toFixed(1));
 
-    // ===== HORIZONTAL BAR CHART - AGE GROUP CHANGE OVER TIME =====
-    // Create a chart showing the population share of different age groups over time
+    // ===== HORIZONTAL STACKED BAR CHART: AGE STRUCTURE OVER TIME =====
+    // Create a chart showing the population values for broad age groups at
+    // selected points between the comparison year and the latest year
 
-    // Build a list of years from the comparison year to the latest year
-    // The "if" statement keeps selected years only, so the chart is easier to read
+    // Build an array of selected years
+    //
+    // The loop visits every year in the 25-year period, while the modulo test
+    // keeps only years that follow the chosen five-year pattern
+    //
+    // The % operator returns the remainder after division. For example:
+    //
+    //   2004 % 5 gives 4
+    //   2009 % 5 gives 4
+    //
+    // These years are retained to keep the chart readable
     let bar_years = [];
-    for (let i = comparison_year; i <= latest_year; i ++) {
+
+    for (let i = comparison_year; i <= latest_year; i++) {
         if (i % 5 == 4) {
             bar_years.push(i);
         }
     }
 
-    // Create empty arrays to hold the percentage values for each age group
-    let under_15 = [];
-    let age_16_to_64 = [];
-    let over_65 = [];
+    // Filter the broad-age data to:
+    //
+    //   rows whose Year appears in bar_years
+    //   individual age bands rather than the "All" summary category
+    //
+    // includes() checks whether the row's year appears in the selected-year array.
+    // This is similar to using %in% in R:
+    //
+    //   pop_age_data |>
+    //     filter(
+    //       Year %in% bar_years,
+    //       `Broad age band (4 cat)` != "All"
+    //     )
+    const age_chart_data = pop_age_data
+        .filter(row =>
+            bar_years.includes(row["Year"]) &&
+            row["Broad age band (4 cat)"] != "All"
+        );
 
-    // ===== WHY USE A LOOP HERE? =====
-    // We need to calculate values for several years and collect them into arrays
-    // A loop is perfect for repetitive tasks like this
-    // Instead of writing:
-    //   under_15[0] = data[2004]
-    //   under_15[1] = data[2009]
-    //   ... (this would be tedious with many years!)
-    // We use a loop to do it automatically
-    for (let i = 0; i < bar_years.length; i++) {
-        const bar_year = bar_years[i];
-
-        // Get the total population for this year so each age group can be converted into a percentage
-        const pop_total = MYE01T03.data[MYE01T03_stat][bar_year]["All"]["All persons"];
-        
-        // Calculate each age group's percentage of the total population and add it to the relevant array
-        under_15.push((MYE01T03.data[MYE01T03_stat][bar_year]["Age 0-15"]["All persons"] / pop_total * 100).toFixed(1));
-        age_16_to_64.push(((MYE01T03.data[MYE01T03_stat][bar_year]["Age 16-39"]["All persons"] + MYE01T03.data[MYE01T03_stat][bar_year]["Age 40-64"]["All persons"]) / pop_total * 100).toFixed(1));
-        over_65.push((MYE01T03.data[MYE01T03_stat][bar_year]["Age 65+"]["All persons"] / pop_total * 100).toFixed(1));        
-    }
-
-    // Prepare data in the format expected by createHorizontalBarChart
-    const age_chart_data = {
-        "0 to 15 years": under_15,
-        "16 to 64 years": age_16_to_64,
-        "65 years and over": over_65
-    };
-
-    // Create the chart twice: once for the main view and once for the expanded/modal view
-    horizontalBarChart({
-        chart_data: age_chart_data,
-        categories: bar_years,
+    // Pass the population counts for each broad age band to barChart()
+    //
+    // Because stacked is true and label_format is "%", barChart() calculates the
+    // total population for each year and converts each age-band value into its
+    // percentage share before drawing the chart
+    //
+    // This is conceptually similar to grouping by Year in dplyr and calculating:
+    //
+    //   age_chart_data |>
+    //     group_by(Year) |>
+    //     mutate(percentage = `All persons` / sum(`All persons`) * 100)
+    barChart({
+        data: age_chart_data,
+        value: "All persons",
+        categories: "Year",
+        bars: "Broad age band (4 cat)",
         canvas_id: "age-bar",
-        label_format: ",",
-        stacked: true
+        label_format: "%",
+        stacked: true,
+        align: "horizontal"
     });
 
-    horizontalBarChart({
-        chart_data: age_chart_data,
-        categories: bar_years,
+    // Draw a second copy of the chart for the expanded view
+    barChart({
+        data: age_chart_data,
+        value: "All persons",
+        categories: "Year",
+        bars: "Broad age band (4 cat)",
         canvas_id: "age-bar-expanded",
-        label_format: ",",
-        stacked: true
+        label_format: "%",
+        stacked: true,
+        align: "horizontal"
     });
 
     // ===== POPULATION PYRAMID =====
-    // Create a population pyramid showing the number of males and females at each age
+    // Create a population pyramid showing male and female population counts
+    // for each single year of age
 
-    // Fetch a dataset that has population counts by single year of age and sex
-    const MYE01T08 = await readData("MYE01T08");
-    const MYE01T08_stat = "Mid-year population estimate";
-    const MYE01T08_updated = dateFormat(MYE01T08.updated); // Format the last-update date nicely
+    // Load the single-year-of-age population matrix
+    //
+    // MYE01T08 contains age rows with separate numeric columns for males and females
+    const [pop_single_age_data, pop_single_age_meta] =
+        await readData("MYE01T08");
 
-    // Get all available ages from the latest year, excluding the summary "All" row
-    const ages = Object.keys(MYE01T08.data[MYE01T08_stat][latest_year])
-        .filter(x => x != "All");
-    
-    // Create empty arrays to hold male and female population values
-    let male_values = [];
-    let female_values = [];
+    // Format the update date stored in the matrix metadata
+    const pop_single_age_updated =
+        dateFormat(pop_single_age_meta.updated);
 
-    // Use a loop to extract the male and female population value for each age
-    // This keeps the same logic for every age and avoids writing the same code over and over
-    for (let i = 0; i < ages.length; i ++) {
-        const age = ages[i];
-        male_values.push(MYE01T08.data[MYE01T08_stat][latest_year][age]["Males"]);
-        female_values.push(MYE01T08.data[MYE01T08_stat][latest_year][age]["Females"]);
-    }
+    // Visit every row and replace the final age label, 90, with 90+
+    //
+    // This changes the displayed category label so users understand that the
+    // final group includes everyone aged 90 and over
+    //
+    // Adding or changing a property on each row is conceptually similar to:
+    //
+    //   pop_single_age_data |>
+    //     mutate(
+    //       `Single year of age` =
+    //         if_else(`Single year of age` == 90, "90+", ...)
+    //     )
+    pop_single_age_data.forEach(row => {
+        const age = row["Single year of age"];
 
-    // Prepare data in the format expected by createPyramidChart
-    const pop_chart_data = {
-        "Males": male_values,
-        "Females": female_values
-    };
+        if (age == 90) {
+            row["Single year of age"] = "90+";
+        }
+    });
 
-    // Create the population pyramid twice: once normal, once expanded
+    // Remove the "All" summary row so the pyramid contains only individual ages
+    const pop_chart_data = pop_single_age_data
+        .filter(row => row["Single year of age"] != "All");
+
+    // Draw the standard population pyramid
+    //
+    // pyramidChart() receives the row-based data directly:
+    //
+    //   categories identifies the age-label column
+    //   values identifies the female and male numeric columns
     pyramidChart({
-        chart_data: pop_chart_data,
-        categories: ages.map(x => x === "90" ? "90+" : x),
+        data: pop_chart_data,
+        categories: "Single year of age",
+        values: ["Females", "Males"],
         canvas_id: "pop-pyramid",
         year: latest_year
     });
 
+    // Draw a second copy of the pyramid for the expanded view
     pyramidChart({
-        chart_data: pop_chart_data,
-        categories: ages.map(x => x === "90" ? "90+" : x),
+        data: pop_chart_data,
+        categories: "Single year of age",
+        values: ["Females", "Males"],
         canvas_id: "pop-pyramid-expanded",
         year: latest_year
     });
 
-    // ===== LINE CHART - MEDIAN AGE TREND =====
-    // Create a chart showing how median age has changed over the years
+    // ===== LINE CHART: MEDIAN AGE TREND =====
+    // Create a chart showing how median age has changed over the most recent
+    // 26 observations
 
-    // Get all the years available in the data
-    // Object.keys() extracts all property names (the years) from the data object
-    // .slice(-26) keeps only the last 26 items (approximately 26 years of data)
-    const median_line_years = Object.keys(MA01T01.data[MA01T01_stat]).slice(-26);
-    
-    // Create empty arrays to hold the median age values for all persons, males and females
-    let median_values = [];
-    let median_male = [];
-    let median_female = [];
+    // Pull the Year column from each row
+    //
+    // slice(-26) retains the final 26 values in the array
+    const median_line_years = median_age_data
+        .map(col => col["Year"])
+        .slice(-26);
 
-    // Use a loop to extract one value from each year and collect them into arrays
-    for (let i = 0; i < median_line_years.length; i ++) {
-        const year = median_line_years[i];
-        median_values.push(MA01T01.data[MA01T01_stat][year]["All persons"]);
-        median_male.push(MA01T01.data[MA01T01_stat][year]["Males"]);
-        median_female.push(MA01T01.data[MA01T01_stat][year]["Females"]);
-    }
+    // Pull the All persons median-age column for the same 26 rows
+    const median_values = median_age_data
+        .map(col => col["All persons"])
+        .slice(-26);
 
-    // Organize the data for the chart function
-    // Each array becomes one line on the chart
+    // Pull the male median-age column for the same 26 rows
+    const median_male = median_age_data
+        .map(col => col["Males"])
+        .slice(-26);
+
+    // Pull the female median-age column for the same 26 rows
+    const median_female = median_age_data
+        .map(col => col["Females"])
+        .slice(-26);
+
+    // Organise the numeric arrays into the structure expected by lineChart()
+    //
+    // Each inner array becomes a separate line:
+    //
+    //   line 1: all persons
+    //   line 2: males
+    //   line 3: females
+    //
+    // Because all values are extracted from the same ordered rows and use the
+    // same slice, they remain aligned with median_line_years
     const line_chart_lines = [
         median_values,
         median_male,
         median_female
     ];
 
-    // Labels for each line (shown in the legend)
+    // Define the labels displayed in the chart legend
+    //
+    // The label order must match the order of the arrays above
     const line_chart_labels = [
         "Median age",
         "Males",
         "Females"
     ];
 
-    // Create the line chart
+    // Draw the standard median-age line chart
     lineChart({
-        years: median_line_years, // The x-axis values (years)
-        lines: line_chart_lines, // The data values for each line
-        labels: line_chart_labels, // The legend labels
-        canvas_id: "median-line", // Which HTML element to draw the chart in
-        showPoints: false
+        years: median_line_years, // Values displayed along the x-axis
+        lines: line_chart_lines, // Arrays containing each median-age series
+        labels: line_chart_labels, // Labels displayed in the legend
+        canvas_id: "median-line", // HTML canvas where the chart is drawn
+        showPoints: false // Draw lines without a marker for every observation
     });
 
+    // Draw a second copy of the line chart for the expanded view
     lineChart({
-        years: median_line_years, // The x-axis values (years)
-        lines: line_chart_lines, // The data values for each line
-        labels: line_chart_labels, // The legend labels
-        canvas_id: "median-line-expanded", // Which HTML element to draw the chart in
+        years: median_line_years,
+        lines: line_chart_lines,
+        labels: line_chart_labels,
+        canvas_id: "median-line-expanded",
         showPoints: false
     });
 
     // ===== DOWNLOAD FUNCTIONALITY =====
-    // Create query parameters that specify what data to download
+    // Define the source-matrix filters associated with each chart
+    //
+    // These query objects describe the subset of the original NISRA matrices
+    // users should receive when downloading the underlying data
 
-    // These parameters request: selected years and all persons for the broad age group chart
+    // Request the selected years and the All persons category used by the
+    // broad-age chart
+    //
+    // map(String) converts each numeric year into a string because the download
+    // query expects year category codes as text
     const age_chart_query = {
         "TLIST(A1)": bar_years.map(String),
         "Sex": "All"
     };
 
-    // These parameters request: latest year, both male (1) and female (2)
+    // Request the latest year and both male and female categories used by the
+    // population pyramid
     const pop_pyramid_query = {
         "TLIST(A1)": latest_year,
         "Sex": ["1", "2"]
     };
 
-    // These parameters request: all years shown in the median age line chart
+    // Request all years displayed in the median-age line chart
     const median_line_query = {
         "TLIST(A1)": median_line_years
     };
 
-    // Create download buttons that allow users to download the underlying data
-    downloadButton("age-bar-capture", "MYE01T03", MYE01T03_updated, age_chart_query);
-    downloadButton("pop-pyramid-capture", "MYE01T08", MYE01T08_updated, pop_pyramid_query);
-    downloadButton("median-line-capture", "MA01T01", MA01T01_updated, median_line_query);
+    // Add a download button for the broad-age chart
+    downloadButton(
+        "age-bar-capture",
+        "MYE01T03",
+        pop_age_updated,
+        age_chart_query
+    );
 
-    // ===== INFO BOXES - HELP AND METADATA =====
-    // Populate the expandable info boxes with definitions and help text
-    // Takes 3 arrays: box titles, and their corresponding content
+    // Add a download button for the population pyramid
+    downloadButton(
+        "pop-pyramid-capture",
+        "MYE01T08",
+        pop_single_age_updated,
+        pop_pyramid_query
+    );
+
+    // Add a download button for the median-age line chart
+    downloadButton(
+        "median-line-capture",
+        "MA01T01",
+        median_age_updated,
+        median_line_query
+    );
+
+    // ===== INFO BOXES: HELP AND CONTEXT =====
+    // Populate the expandable information boxes displayed below the page content
+    //
+    // populateInfoBoxes() receives:
+    //
+    //   1. An array containing the box headings
+    //   2. An array containing the corresponding HTML content
+    //
+    // Items at the same array position belong together:
+    //
+    //   headings[0] is paired with content[0]
+    //   headings[1] is paired with content[1]
+    //   headings[2] is paired with content[2]
     populateInfoBoxes(
-        ["Definitions", "Source", "What does the data mean?"], // Box titles
         [
-            // Content for "Definitions" box
+            "Definitions",
+            "Source",
+            "What does the data mean?"
+        ],
+        [
+            // ----- DEFINITIONS BOX -----
+            // Explain how the page layout is constructed and made responsive
             `<p>The layout for this page is built in the dashboard HTML template using Bootstrap 5 grid classes such as <code>row</code> and <code>col</code> so the cards and charts can adapt to different screen sizes and remain mobile friendly.</p>
             <p>For guidance on the Bootstrap layout system, see <a href="https://getbootstrap.com/docs/5.3/layout/grid/" target="_blank" rel="noopener noreferrer">Bootstrap 5 grid documentation</a>.</p>
             <p>The page has also been checked for accessibility so the content is easier to use with assistive technologies.</p>`,
-            
-            // Content for "Source" box  
-            `<p>The top cards on this page are populated from this script using data from the NISRA Data Portal.</p>
-            <p>The main datasets used are <strong>MA01T01</strong> for median age, <strong>MYE01T03</strong> for age-group percentages, and <strong>MYE01T08</strong> for the population pyramid.</p>
-            <p>Values are selected by following the structure and column order shown in the relevant data matrix on the NISRA Data Portal.</p>`,
 
-            // Content for "What does the data mean?" box
+            // ----- SOURCE BOX -----
+            // Identify the matrices used to populate the cards and charts
+            `<p>The cards and charts on this page are populated by this script using data from the NISRA Data Portal.</p>
+            <p>The main datasets are <strong>MA01T01</strong> for median age, <strong>MYE01T03</strong> for broad age-group population values, and <strong>MYE01T08</strong> for population by single year of age and sex.</p>
+            <p>Each matrix is loaded as a CSV-style table. Rows are filtered using dimensions such as year and age group, while the required population or median-age columns are selected for the cards and charts.</p>`,
+
+            // ----- DATA MEANING BOX -----
+            // Explain the inputs expected by the three chart utilities
             `<p>This page uses three charting functions.</p>
-            <p><strong>horizontalBarChart()</strong> is used for the age-group trend chart and requires chart data, category labels, a canvas ID, and an optional stacked flag.</p>
-            <p><strong>pyramidChart()</strong> is used for the population pyramid and requires the male and female values, age labels, and the canvas ID where the chart should appear.</p>
-            <p><strong>lineChart()</strong> is used for the median age trend and requires the years, the values for each line, the line labels, and the canvas ID.</p>`
+            <p><strong>barChart()</strong> draws the stacked horizontal broad-age chart. It receives the filtered data rows, the numeric value column, the year category column, the column defining the separate age-band segments, the canvas ID, the label format, and the chart layout settings.</p>
+            <p><strong>pyramidChart()</strong> draws the population pyramid. It receives the single-age rows, the column containing the age labels, the female and male value columns, the canvas ID, and the displayed year.</p>
+            <p><strong>lineChart()</strong> draws the median-age trend. It receives the years, the arrays of values for each line, the corresponding line labels, the canvas ID, and the point-display setting.</p>`
         ]
     );
 
 }); // End of DOMContentLoaded event listener
-
