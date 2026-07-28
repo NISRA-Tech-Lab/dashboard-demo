@@ -244,10 +244,10 @@ table tr:not(:has(th)):hover {
 }
 
 .nav-btn {
-  background-color: #68a41e;
+  background-color: #3878c5;
   border: 2px solid #00205B;
   padding: 0.5rem 1rem;
-  color: #000;
+  color: #fff;
 }
 
 .nav-btn:hover {
