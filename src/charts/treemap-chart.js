@@ -1,20 +1,22 @@
 import { chart_colours, text_colours } from "../config/colours.js";
 
 export function treemapChart({
-      raw_data,     
-      stat,         
-      year,         
+      data,     
       categories,   
-      group_key,    
+      value,    
       canvas_id,
     }) {
 
-    // Build chart data dynamically
-    const data_for_year = raw_data[stat][year];
+    const category_labels = data
+      .map(col => col[categories]);
 
-    const tree = categories.map(category => ({
+    console.log(data)
+
+    const tree = category_labels.map(category => ({
       label: category,
-      value: data_for_year[category][group_key]
+      value: data
+        .filter(row => row[categories] == category)
+        .map(col => col[value])
     }));
 
     new Chart(document.getElementById(canvas_id), {

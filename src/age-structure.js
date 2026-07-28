@@ -8,7 +8,7 @@ import { insertValue } from "./utils/insert-value.js"; // Places values into HTM
 import { latest_year, updateYearSpans, first_year, last_year } from "./utils/update-years.js"; // Handles year-related calculations
 import { toTitleCase } from "./utils/to-title-case.js"; // Converts text to Title Case format
 import { config } from "./config/config.js"; // Configuration settings
-import { horizontalBarChart } from "./charts/horizontal-bar-chart.js";
+import { barChart } from "./charts/bar-chart.js";
 import { lineChart } from "./charts/line-chart.js";
 import { pyramidChart } from "./charts/pyramid-chart.js";
 import { insertExpandButtons } from "./utils/expand-buttons.js"; // Adds expandable sections
@@ -158,45 +158,33 @@ window.addEventListener("DOMContentLoaded", async () => {
             bar_years.push(i);
         }
     }    
-
-    pop_age_data.forEach(row => {
-        const age_group = row["Broad age band (4 cat)"];
-        const year = row["Year"];
-        const pop_total = pop_age_data
-            .filter(row =>
-                row["Year"] == year &&
-                row["Broad age band (4 cat)"] == "All"
-            )
-            .map(col => col["All persons"]);
-        row["pop_pct"] = (row["All persons"] / pop_total * 100).toFixed(1);
-    })
-
-
     const age_chart_data = pop_age_data
         .filter(row =>
             bar_years.includes(row["Year"]) &&
             row["Broad age band (4 cat)"] != "All"
-        )
+        ) 
 
     // Create the chart twice: once for the main view and once for the expanded/modal view
-    horizontalBarChart({
+    barChart({
         data: age_chart_data,
-        value: "pop_pct",
+        value: "All persons",
         categories: "Year",
         bars: "Broad age band (4 cat)",
         canvas_id: "age-bar",
         label_format: "%",
-        stacked: true
+        stacked: true,
+        align: "horizontal"
     });
 
-    horizontalBarChart({
+    barChart({
         data: age_chart_data,
-        value: "pop_pct",
+        value: "All persons",
         categories: "Year",
         bars: "Broad age band (4 cat)",
         canvas_id: "age-bar-expanded",
         label_format: "%",
-        stacked: true
+        stacked: true,
+        align: "horizontal"
     });
 
     // ===== POPULATION PYRAMID =====

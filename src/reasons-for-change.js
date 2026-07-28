@@ -103,10 +103,12 @@ window.addEventListener("DOMContentLoaded", async () => {
         .filter(row => row["Year"] == latest_year &&
                        row["Broad age band (4 cat)"] != "All")
 
+    console.log(chart_data)
+
     // Create the bar chart twice: once for the main view and once for the expanded view
     barChart({
         data: chart_data,
-        values: ["Females", "Males"],
+        value: ["Females", "Males"],
         categories: "Broad age band (4 cat)",
         canvas_id: "population-age-bar",
         label_format: ","   // comma formatting for large numbers
@@ -114,7 +116,7 @@ window.addEventListener("DOMContentLoaded", async () => {
 
     barChart({
         data: chart_data,
-        values: ["Females", "Males"],
+        value: ["Females", "Males"],
         categories: "Broad age band (4 cat)",
         canvas_id: "population-age-bar-expanded",
         label_format: ","   // comma formatting for large numbers

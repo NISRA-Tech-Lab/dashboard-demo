@@ -5,6 +5,7 @@ import { latest_year, updateYearSpans, first_year, last_year } from "./utils/upd
 import { toTitleCase } from "./utils/to-title-case.js";
 import { config } from "./config/config.js";
 import { stackedPercentageChart } from "./charts/stacked-percentage-chart.js";
+// import { barChart } from "./charts/bar-chart.js";
 import { treemapChart } from "./charts/treemap-chart.js";
 import { insertExpandButtons } from "./utils/expand-buttons.js";
 import { dateFormat } from "./utils/date-format.js";
@@ -13,6 +14,7 @@ import { chart_colours, text_colours } from "./config/colours.js";
 import { populateInfoBoxes } from "./utils/info-boxes.js";
 import { sectorNameTidy } from "./utils/to-title-case.js";
 import { reshapeForTreemap } from "./utils/reshape-for-treemap.js";
+import { barChart } from "./charts/bar-chart.js";
 
 window.addEventListener("DOMContentLoaded", async () => {
 
@@ -24,45 +26,73 @@ window.addEventListener("DOMContentLoaded", async () => {
 
     // Total population
 
-    const MYE01T025 = await readData("MYE01T025");
+    const [over_85_data, over_85_meta] = await readData("MYE01T025");
     const MYE01T025_stat = "Mid-year population estimate"; // This is the specific statistic within the dataset we want
-    updateYearSpans(MYE01T025, MYE01T025_stat); // Updates year labels on the page
+    updateYearSpans(over_85_data); // Updates year labels on the page
     const comparison_year = latest_year - 10
 
-    const MYE01T025_updated = dateFormat(MYE01T025.updated);
+    const over_85_updated = dateFormat(over_85_meta.updated);
+
+    over_85_data.forEach(row => {
+      row["over_85"] = Object.keys(row)
+        .filter(key => key.includes("Age"))
+        .map(key => row[key])
+        .reduce((sum, value) => sum + value, 0)
+    })
 
     // Population over 85 
-    const pop_over85 = MYE01T025.data[MYE01T025_stat][latest_year]["All persons"];
-    const total_over85 = Object.values(pop_over85)
-      .reduce((sum, val) => sum + val, 0);
-    insertValue("pop-over85", total_over85.toLocaleString());
+    // Filter data for latest year, select columns that match the substring "Age" and sum
+    const pop_over_85 = over_85_data
+      .filter(row =>
+        row["Year"] == latest_year &&
+        row["Sex"] == "All persons"
+      )
+      .map(col => col["over_85"]);
+
+    insertValue("pop-over-85", pop_over_85.toLocaleString());
 
     // Population over 85 ten years ago
-    const pop_over85_10yrs = MYE01T025.data[MYE01T025_stat][comparison_year]["All persons"];
-    const total_over85_10yrs = Object.values(pop_over85_10yrs)
-      .reduce((sum, val) => sum + val, 0);
-    insertValue("pop-over85-10yrs", total_over85_10yrs.toLocaleString());
+    const pop_over_85_comparison = over_85_data
+      .filter(row =>
+        row["Year"] == comparison_year &&
+        row["Sex"] == "All persons"
+      )
+      .map(col => col["over_85"]);
+      
+    insertValue("pop-over85-10yrs", pop_over_85_comparison.toLocaleString());
 
     // Female Population over 85 ten years ago
-    const pop_over85_female = MYE01T025.data[MYE01T025_stat][latest_year]["Females"];
-    const total_over85_female = Object.values(pop_over85_female)
-      .reduce((sum, val) => sum + val, 0);
-    const female_over85_pct = (total_over85_female / total_over85) * 100;
-    insertValue("female-over85", female_over85_pct.toFixed(1));
+    const pop_over_85_female = over_85_data
+      .filter(row =>
+        row["Year"] == comparison_year &&
+        row["Sex"] == "Females"
+      )
+      .map(col => col["over_85"]);
+
+    const female_over_85_pct = (pop_over_85_female / pop_over_85) * 100;
+    insertValue("female-over-85", female_over_85_pct.toFixed(1));
 
     // Male Population over 85
-    const pop_over85_male = MYE01T025.data[MYE01T025_stat][latest_year]["Males"];
-    const total_over85_male = Object.values(pop_over85_male)
-      .reduce((sum, val) => sum + val, 0);
-    const male_over85_pct = (total_over85_male / total_over85) * 100;
-    insertValue("male-over85", male_over85_pct.toFixed(1));
+    const pop_over_85_male = over_85_data
+      .filter(row =>
+        row["Year"] == latest_year &&
+        row["Sex"] == "Males"
+      )
+      .map(col => col["over_85"]);
+
+    const male_over85_pct = (pop_over_85_male / pop_over_85) * 100;
+    insertValue("male-over-85", male_over85_pct.toFixed(1));
 
     // Male Population over 85 ten years ago
-    const pop_over85_male_10yrs = MYE01T025.data[MYE01T025_stat][comparison_year]["Males"];
-    const total_over85_male_10yrs = Object.values(pop_over85_male_10yrs)
-      .reduce((sum, val) => sum + val, 0);
-    const male_over85_pct_10yrs = (total_over85_male_10yrs / total_over85_10yrs) * 100;
-    insertValue("male-over85-10yrs", male_over85_pct_10yrs.toFixed(1));
+    const pop_over_85_male_10yrs = over_85_data
+      .filter(row =>
+        row["Year"] == comparison_year &&
+        row["Sex"] == "Males"
+      )
+      .map(col => col["over_85"]);
+
+    const male_over_85_pct_10yrs = (pop_over_85_male_10yrs / pop_over_85_comparison) * 100;
+    insertValue("male-over-85-10yrs", male_over_85_pct_10yrs.toFixed(1));
     
     const comparison_spans = document.getElementsByClassName("comparison-year");
     for (let i = 0; i < comparison_spans.length; i ++) {
@@ -70,110 +100,61 @@ window.addEventListener("DOMContentLoaded", async () => {
     }
 
 
-    const raw = MYE01T025.data[MYE01T025_stat];
     
     // Stacked bar chart
     // Define the year range
+
+    const over_85_bar_data = over_85_data
+      .filter(row =>
+        row["Sex"] != "All persons" &&
+        row["Year"] >= comparison_year
+      );
     
 
-    const years = Object.keys(raw).filter(y => y >= comparison_year && y <= latest_year);
+  barChart({
+    data: over_85_bar_data,
+    value: "over_85",
+    categories: "Year",
+    bars: "Sex",
+    canvas_id: "pop-stacked-bar",
+    label_format: "%",
+    stacked: true
+  })
 
-    const genders = ["Females", "Males"];
-
-    const female_values = years.map(year =>
-        Object.values(raw[year]["Females"])
-            .reduce((sum, val) => sum + val, 0)
-    );
-
-    const male_values = years.map(year =>
-        Object.values(raw[year]["Males"])
-            .reduce((sum, val) => sum + val, 0)
-    );
-
-    const chart_data = {
-      "Females": female_values,
-      "Males": male_values
-    };    
-    
-    const percentages = years.map((year, i) => {
-      const total = female_values[i] + male_values[i];
-      return {
-        female: (female_values[i] / total) * 100,
-        male: (male_values[i] / total) * 100
-      };
-    });
-
-    const female_pct = percentages.map(d => Number(d.female.toFixed(1)));
-    const male_pct = percentages.map(d => Number(d.male.toFixed(1)));
-
-    const chart_datas = {
-      labels: years,   
-      datasets: [
-          {
-              label: "Males",
-              data: male_values,
-              backgroundColor: chart_colours[0]
-          },
-          {
-              label: "Females",
-              data: female_values,
-              backgroundColor: chart_colours[1]
-          }
-      ]
-    };
-
-  const labels = ["Female", "Male"];
-
-  const stacked_values = [
-    female_values,
-    male_values
-  ];
-
-
-
-  stackedPercentageChart({
-    labels: genders,
-    stacked_values,
-    years,
-    canvas_id: "pop-stacked-bar"
-  });
-
-  stackedPercentageChart({
-    labels: genders,
-    stacked_values,
-    years,
-    canvas_id: "pop-stacked-bar-expanded"
-  });
+  barChart({
+    data: over_85_bar_data,
+    value: "over_85",
+    categories: "Year",
+    bars: "Sex",
+    canvas_id: "pop-stacked-bar-expanded",
+    label_format: "%",
+    stacked: true
+  })
 
   // Tree map
 
-  const MYE01T03 = await readData("MYE01T03");
-  const MYE01T03_stat = "Mid-year population estimate";
-  updateYearSpans(MYE01T03, MYE01T03_stat); // Updates year labels on the page
-  const MYE01T03_updated = dateFormat(MYE01T03.updated);
-
-  const Age_Groups = [
-    "Age 0-15",
-    "Age 16-39",
-    "Age 40-64",
-    "Age 65+"
-  ];  
-
+  const [pop_age_data, pop_age_meta] = await readData("MYE01T03");
+  
+  updateYearSpans(pop_age_data); // Updates year labels on the page
+  const pop_age_updated = dateFormat(pop_age_meta.updated);
+  
+  const treemap_data = pop_age_data
+    .filter(row =>
+      row["Broad age band (4 cat)"] != "All" &&
+      row["Year"] == latest_year
+    )
+  
   treemapChart({
-    raw_data: MYE01T03.data,
-    stat: MYE01T03_stat,
-    year: latest_year,
-    categories: Age_Groups,
-    group_key: "All persons",
+    data: treemap_data,
+    categories: "Broad age band (4 cat)",
+    value: "All persons",
     canvas_id: "pop-tree-map"
   });
 
   treemapChart({
-    raw_data: MYE01T03.data,
-    stat: "Mid-year population estimate",
-    year: latest_year,
-    categories: Age_Groups,
-    group_key: "All persons",
+    data: treemap_data,
+    categories: "Broad age band (4 cat)",
+    value: "All persons",
     canvas_id: "pop-tree-map-expanded"
   });
 
@@ -199,8 +180,8 @@ window.addEventListener("DOMContentLoaded", async () => {
   };
 
   // Create download buttons that allow users to download the underlying data
-  downloadButton("stacked-bar-capture", "MYE01T025", MYE01T025_updated, pop_stacked_query);
-  downloadButton("tree-map-capture", "MYE01T03", MYE01T03_updated, pop_treemap_query);
+  downloadButton("stacked-bar-capture", "MYE01T025", over_85_updated, pop_stacked_query);
+  downloadButton("tree-map-capture", "MYE01T03", pop_age_updated, pop_treemap_query);
 
   
   

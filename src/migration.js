@@ -9,7 +9,7 @@ import { latest_year, updateYearSpans, first_year, last_year } from "./utils/upd
 import { toTitleCase } from "./utils/to-title-case.js"; // Converts text to Title Case format
 import { config } from "./config/config.js"; // Configuration settings
 import { lineChart } from "./charts/line-chart.js"; // Creates different chart types
-import { horizontalBarChart} from "./charts/horizontal-bar-chart.js";
+import { barChart} from "./charts/bar-chart.js";
 import { insertExpandButtons } from "./utils/expand-buttons.js"; // Adds expandable sections
 import { downloadButton } from "./utils/download-button.js"; // Creates download buttons for data
 import { dateFormat } from "./utils/date-format.js"; // Formats dates nicely
@@ -124,22 +124,24 @@ window.addEventListener("DOMContentLoaded", async () => {
         );
 
     // Create the horizontal bar chart
-    horizontalBarChart({
+    barChart({
         data: migration_chart_data,
         value: "Total Net",
         bars: "Sex",
         categories: "Broad age band (7 cat)",
         canvas_id: "migration-bar",
-        label_format: ","
+        label_format: ",",
+        align: "horizontal"
     });
 
-    horizontalBarChart({
+    barChart({
         data: migration_chart_data,
         value: "Total Net",
         bars: "Sex",
         categories: "Broad age band (7 cat)",
         canvas_id: "migration-bar-expanded",
-        label_format: ","
+        label_format: ",",
+        align: "horizontal"
     });
 
     // ----- Net migration from and to the UK and the rest of the world -----
