@@ -1,4 +1,94 @@
+// ===== INSERT A FORMATTED HTML TABLE =====
+//
+// Populate an existing HTML table using a structured table object.
+//
+// Unlike the chart helpers, this function does not use the CSV rows directly.
+// Instead, it expects the data to have already been rearranged into a
+// column-oriented structure where each column stores:
+//
+//   • an array of values
+//   • the formatting that should be applied to those values
+//
+// This structure is similar to a named list in R where each list element
+// represents one column of a data frame together with some metadata.
+//
+// PARAMETERS
+//
+// tableId
+//   The ID of the HTML table to populate.
+//
+//   The table is expected to already contain:
+//
+//     • a <thead>
+//     • a <tbody>
+//
+//   Example:
+//
+//     tableId: "summary-table"
+//
+// table_data
+//   An object describing each column of the table.
+//
+//   Each property name becomes a column heading.
+//
+//   Each property should contain:
+//
+//     values
+//       An array containing one value for every row.
+//
+//     format
+//       A string describing how the values should be displayed.
+//
+//   Supported formats are:
+//
+//     "string"
+//       Display text exactly as supplied.
+//
+//     "number"
+//       Display numbers using the browser's locale formatting.
+//
+//     "change"
+//       Display numbers with an up/down arrow indicating whether the value is
+//       positive or negative.
+//
+//     "change_percent"
+//       Display a percentage value inside a coloured background.
+//
+//   Example:
+//
+//     {
+//       Area: {
+//         values: ["Belfast", "Armagh"],
+//         format: "string"
+//       },
+//       Population: {
+//         values: [345418, 174792],
+//         format: "number"
+//       }
+//     }
+//
+// IMPORTANT INPUT REQUIREMENTS
+//
+//   • every column should contain the same number of values
+//   • each column should define a supported format
+//   • the target table should already exist in the page
+//
+// RETURNS
+//
+// This function does not explicitly return a value.
+//
+// SIDE EFFECTS
+//
+// The function:
+//
+//   • clears the existing table contents
+//   • creates a new header row
+//   • creates a new table body
+//   • inserts formatted HTML into some cells
+//   • applies CSS classes and alignment to selected cells
 export function insertTable(tableId, table_data) {
+
+  // ===== PREPARE THE TABLE =====
   const table = document.getElementById(tableId);
   const thead = table.querySelector("thead");
   const tbody = table.querySelector("tbody");
@@ -9,6 +99,7 @@ export function insertTable(tableId, table_data) {
   const columns = Object.keys(table_data);
   const rowCount = table_data[columns[0]].values.length;
 
+  // ===== BUILD THE TABLE HEADER =====
   const headerRow = document.createElement("tr");
   
   columns.forEach(col => {
@@ -28,6 +119,7 @@ export function insertTable(tableId, table_data) {
 
   thead.appendChild(headerRow);
 
+  // ===== FORMAT CHANGE VALUES =====
   function formatChange(value) {
     const arrow = value >= 0 ? "🠉" : "🠋";
     const arrowClass = value >= 0 ? "up" : "down";
@@ -42,6 +134,7 @@ export function insertTable(tableId, table_data) {
     `;
   }
 
+  // ===== FORMAT PERCENTAGE VALUES =====
   function formatPercent(value) {
     let bgColor = "white";
 
@@ -63,7 +156,7 @@ export function insertTable(tableId, table_data) {
     `;
   }
 
-  // Rows
+  // ===== BUILD THE TABLE ROWS =====
   for (let i = 0; i < rowCount; i++) {
     const tr = document.createElement("tr");
 
