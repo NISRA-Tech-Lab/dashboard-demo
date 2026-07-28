@@ -1,7 +1,125 @@
 import { chart_colours } from "../config/colours.js";
 import { yAxisLabelPlugin } from "../utils/yAxisLabelPlugin.js";
+import { wrapLabel } from "../utils/wrap-label.js";
 
+// ===== BAR CHART =====
+//
+// Create a reusable Chart.js bar chart from row-based data.
+//
+// The function can produce:
+//
+//   • a standard bar chart
+//   • a grouped bar chart
+//   • a stacked bar chart
+//   • a vertical or horizontal chart
+//
+// DATA STRUCTURE
+//
+// data should be an array of row objects, like the result returned by
+// Papa Parse when a CSV file is loaded.
+//
+// This is broadly similar to an R data frame:
+//
+//   JavaScript array of objects   ≈ R data frame
+//   one object                    ≈ one row
+//   one object property           ≈ one column
+//
+// PARAMETERS
+//
+// data
+//   The array of rows used to create the chart.
+//
+//   Example:
+//
+//     [
+//       { Year: 2023, Sex: "Males", Population: 100 },
+//       { Year: 2023, Sex: "Females", Population: 120 }
+//     ]
+//
+// value
+//   Identifies the numeric values to plot.
+//
+//   When bars is supplied, value should be a column name:
+//
+//     value: "Population"
+//
+//   When bars is null, value should be an array containing the names of
+//   the numeric columns that should become separate chart series:
+//
+//     value: ["Males", "Females"]
+//
+// bars
+//   Optional. The column used to divide the data into separate bar series.
+//
+//   For example:
+//
+//     bars: "Sex"
+//
+//   creates separate datasets for values such as "Males" and "Females".
+//
+//   The default is null. When bars is null, the column names supplied in
+//   value are used as the chart series instead.
+//
+// categories
+//   The column containing the chart categories.
+//
+//   For example:
+//
+//     categories: "Year"
+//
+//   The unique values in this column become the labels on the category axis.
+//
+// canvas_id
+//   The ID of the HTML <canvas> element where the chart will be drawn.
+//
+//   Example:
+//
+//     canvas_id: "population-chart"
+//
+// label_format
+//   Controls how values are displayed in the chart labels.
+//
+//     "%"  adds a percentage sign
+//     ","  displays numbers with locale-aware thousands separators
+//
+//   When label_format is "%" and stacked is true, the function also converts
+//   the supplied values into percentages within each category before drawing
+//   the chart.
+//
+// stacked
+//   Controls whether the datasets are stacked.
+//
+//     false  draws separate or grouped bars
+//     true   draws stacked bars
+//
+//   The default is false.
+//
+// align
+//   Controls the direction of the bars.
+//
+//     "vertical"    categories are shown on the x-axis
+//     "horizontal"  categories are shown on the y-axis
+//
+//   The default is "vertical".
+//
+// RETURNS
+//
+// Returns the completed Chart.js chart object.
+//
+// This allows the calling script to keep a reference to the chart if it later
+// needs to update, resize, or destroy it.
+//
+// SIDE EFFECTS
+//
+// The function:
+//
+//   • finds the specified canvas element in the page
+//   • creates a Chart.js chart inside that canvas
+//   • converts values to percentages when both stacked and percentage
+//     formatting are requested
 export function barChart({ data, value, bars = null, categories, canvas_id, label_format, stacked = false, align = "vertical" }) {
+
+  // ===== PREPARE THE CATEGORIES AND SERIES =====
   const bar_canvas = document.getElementById(canvas_id);
 
   let bar_categories = data
@@ -31,6 +149,9 @@ export function barChart({ data, value, bars = null, categories, canvas_id, labe
     });
   }
 
+  // ===== CALCULATE STACKED PERCENTAGES =====
+  // For each category, calculate the total across all series and convert
+  // each value into its percentage share of that total
   if (label_format == "%" && stacked == true) {
     for (let i = 0; i < bar_categories.length; i ++) {
       let bar_sum = 0;
@@ -44,6 +165,7 @@ export function barChart({ data, value, bars = null, categories, canvas_id, labe
     }
   }
 
+  // ===== CONFIGURE THE CHART =====
   const baseOptions = {
     indexAxis: align === "horizontal" ? "y" : "x",
     maintainAspectRatio: false,
@@ -99,6 +221,7 @@ export function barChart({ data, value, bars = null, categories, canvas_id, labe
 
   };
 
+  // ===== BUILD THE DATASETS =====
   const ctx = bar_canvas.getContext("2d");
   
   let chart_datasets = [];
@@ -112,6 +235,7 @@ export function barChart({ data, value, bars = null, categories, canvas_id, labe
     };
   }
 
+  // ===== DRAW AND RETURN THE CHART =====
   const bar_chart = new Chart(ctx, {
     type: "bar",
     data: {

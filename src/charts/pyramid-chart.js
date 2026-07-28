@@ -1,7 +1,106 @@
 import { chart_colours } from "../config/colours.js";
-import { wrapLabel } from "../utils/wrap-label.js";
 
+// ===== POPULATION PYRAMID =====
+//
+// Create a horizontal population pyramid using Chart.js.
+//
+// The function filters the supplied row-based data to one year, extracts the
+// requested population series, and plots the first series on the left-hand
+// side and the second series on the right-hand side.
+//
+// DATA STRUCTURE
+//
+// data
+//   An array of row objects, usually created from a CSV file by Papa Parse.
+//
+//   This is broadly similar to an R data frame:
+//
+//     JavaScript array of objects   ≈ R data frame
+//     one object                    ≈ one row
+//     one object property           ≈ one column
+//
+//   The data must include:
+//
+//     • a "Year" column
+//     • the category column named in categories
+//     • each numeric column named in values
+//
+//   Example:
+//
+//     [
+//       { Year: 2023, Age: 0, Females: 12000, Males: 12500 },
+//       { Year: 2023, Age: 1, Females: 11800, Males: 12300 }
+//     ]
+//
+// categories
+//   The column containing the labels shown on the vertical axis.
+//
+//   For a population pyramid, this is usually a single-year-of-age column.
+//
+//   Example:
+//
+//     categories: "Single year of age"
+//
+// values
+//   An array containing the names of the two numeric population columns.
+//
+//   Example:
+//
+//     values: ["Females", "Males"]
+//
+//   The first series is multiplied by -1 so that it appears on the left-hand
+//   side of the pyramid. The second series remains positive and appears on the
+//   right-hand side.
+//
+// canvas_id
+//   The ID of the HTML <canvas> element where the chart will be drawn.
+//
+//   Example:
+//
+//     canvas_id: "population-pyramid"
+//
+// year
+//   The year to display.
+//
+//   The function uses this parameter in two ways:
+//
+//     • it filters the data to rows where Year matches the supplied year
+//     • it adds the year to each legend label
+//
+// IMPORTANT INPUT REQUIREMENTS
+//
+//   • data should contain rows for the requested year
+//   • values should normally contain exactly two numeric column names
+//   • the order of values determines which series appears on the left
+//     and which appears on the right
+//   • canvas_id should match an existing <canvas> element in the HTML
+//
+// DISPLAY BEHAVIOUR
+//
+// The first population series is stored as negative values so Chart.js draws
+// it to the left of zero. Axis labels and tooltips use Math.abs() so users see
+// positive population figures on both sides.
+//
+// The horizontal axis displays values in thousands, while tooltips display
+// the full population value with thousands separators.
+//
+// RETURNS
+//
+// Returns the completed Chart.js chart object.
+//
+// This allows the calling script to keep a reference to the chart if it later
+// needs to update, resize, or destroy it.
+//
+// SIDE EFFECTS
+//
+// The function:
+//
+//   • filters the supplied rows to the requested year
+//   • creates a Chart.js bar chart inside the specified canvas
+//   • reverses the vertical axis so the age categories appear in pyramid order
 export function pyramidChart({ data, categories, values, canvas_id, year }) {
+
+  // ===== PREPARE THE SELECTED YEAR'S DATA =====
   const bar_canvas = document.getElementById(canvas_id);
 
   let chart_data = {};
@@ -18,6 +117,7 @@ export function pyramidChart({ data, categories, values, canvas_id, year }) {
     .filter(row => row["Year"] == year)
     .map(col => col[categories])
   
+  // ===== BUILD THE LEFT- AND RIGHT-HAND SERIES =====
   const keys = Object.keys(chart_data);
 
   const chart_datasets = keys.map((key, i) => ({
@@ -30,6 +130,7 @@ export function pyramidChart({ data, categories, values, canvas_id, year }) {
     categoryPercentage: 1
   }));
 
+  // ===== CONFIGURE THE CHART =====
   const baseOptions = {
     indexAxis: "y",
     maintainAspectRatio: false,
@@ -83,6 +184,7 @@ export function pyramidChart({ data, categories, values, canvas_id, year }) {
     }
   };
 
+  // ===== DRAW AND RETURN THE CHART =====
   const ctx = bar_canvas.getContext("2d");
 
   const bar_chart = new Chart(ctx, {

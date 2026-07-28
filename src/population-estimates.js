@@ -259,7 +259,8 @@ window.addEventListener("DOMContentLoaded", async () => {
         years: pop_line_years, // Values displayed along the x-axis
         lines: line_chart_lines, // Population values plotted on the chart
         labels: line_chart_labels, // Labels used in the chart legend
-        canvas_id: "pop-line" // HTML canvas where the chart will be drawn
+        canvas_id: "pop-line", // HTML canvas where the chart will be drawn
+        unit: ""
     });
 
     // Draw a second version of the same chart for the expanded view
@@ -267,7 +268,8 @@ window.addEventListener("DOMContentLoaded", async () => {
         years: pop_line_years,
         lines: line_chart_lines,
         labels: line_chart_labels,
-        canvas_id: "pop-line-expanded"
+        canvas_id: "pop-line-expanded",
+        unit: ""
     });
 
     // ===== PIE CHART: GENDER BREAKDOWN =====
