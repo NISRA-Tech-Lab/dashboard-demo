@@ -179,7 +179,7 @@ table tr:not(:has(th)):hover {
 }
 
 .current-page {
-  background-color: #d9d9d9;
+  background-color: #d6d6d6;
   color: #000;
 }
 
@@ -244,14 +244,17 @@ table tr:not(:has(th)):hover {
 }
 
 .nav-btn {
-  background-color: #3878c5;
-  border: 2px solid #00205B;
+  background-color: #00205b;
+  border-left: 2px solid #d6d6d6;
+  border-top: 2px solid #d6d6d6;
+  border-bottom: 14px solid #68a41e;
   padding: 0.5rem 1rem;
   color: #fff;
 }
 
 .nav-btn:hover {
-  background-color: #cedc20;
+  background-color: #68a41e;
+  color: #000;
   cursor: pointer;
 }
 

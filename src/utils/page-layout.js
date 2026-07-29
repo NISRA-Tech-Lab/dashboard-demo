@@ -11,10 +11,10 @@ export function insertHeader () {
     banner.innerHTML = `<div id="skip-link" class="container-fluid bg-warning py-2 d-none"><a class="text-black" href="#content">Skip to main content</a></div>
     <div class="container-fluid d-flex flex-column align-items-stretch p-0">
     <!-- Banner row (full width) -->
-    <div aria-label="Feedback" class="w-100" style="background-color:#68a41e;">
-        <div class="text-black text-center py-2 px-3">
+    <div aria-label="Feedback" class="w-100" style="background-color:#3878c5;">
+        <div class="text-white text-center py-2 px-3">
             We welcome feedback from users through our 
-                <a href="https://dttselfserve.nidirect.gov.uk/NISRA/RateIt#/${config.rateit}" target="_blank" rel="noopener noreferrer" style="color:#000">short survey</a>
+                <a href="https://dttselfserve.nidirect.gov.uk/NISRA/RateIt#/${config.rateit}" target="_blank" rel="noopener noreferrer" style="color:#fff">short survey</a>
             
         </div>
     </div>
