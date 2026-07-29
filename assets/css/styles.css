@@ -129,7 +129,7 @@ main a[target="_blank"]::after {
 .footer a:hover,
 .footer a:focus {
   color: #fff;
-  text-decoration-thickness: 2px;
+  text-decoration-thickness: 3px;
 }
 .footer-links { list-style: none; padding-left: 0; }
 .footer-links .list-inline-item { margin: 0 .5rem; }
@@ -151,6 +151,9 @@ banner a {
   color: #fff;
 }
 
+a:hover, a:focus {
+  text-decoration-thickness: 3px;
+}
 nav a{
   color: #fff;
   text-decoration: none;
@@ -179,9 +182,16 @@ table tr:not(:has(th)):hover {
 }
 
 .current-page {
-  background-color: #d6d6d6;
+  /* background-color: #d6d6d6; */
+  background-color: #68a41e;
   color: #000;
 }
+
+.current-page-strapline {
+  background-color: #d9d9d9;
+  color: #000;
+}
+
 
 .card-body p {
   margin: 0;
