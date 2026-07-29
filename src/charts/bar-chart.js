@@ -102,6 +102,9 @@ import { wrapLabel } from "../utils/wrap-label.js";
 //
 //   The default is "vertical".
 //
+// y_label
+//   Text to display along top of y axis
+//
 // RETURNS
 //
 // Returns the completed Chart.js chart object.
@@ -117,7 +120,7 @@ import { wrapLabel } from "../utils/wrap-label.js";
 //   • creates a Chart.js chart inside that canvas
 //   • converts values to percentages when both stacked and percentage
 //     formatting are requested
-export function barChart({ data, value, bars = null, categories, canvas_id, label_format, stacked = false, align = "vertical" }) {
+export function barChart({ data, value, bars = null, categories, canvas_id, label_format, stacked = false, align = "vertical", y_label }) {
 
   // ===== PREPARE THE CATEGORIES AND SERIES =====
   const bar_canvas = document.getElementById(canvas_id);
@@ -177,16 +180,11 @@ export function barChart({ data, value, bars = null, categories, canvas_id, labe
       datalabels: {
         anchor: stacked ? "center": "end",
         align: stacked ? "center": "start",
-        formatter: (v) => {
-          if (label_format === "%") return `${v}%`;
-          if (label_format === ",") return Number(v).toLocaleString();
-          return v;
-        },
         color: "#ffffff",
         clamp: true
       },      
         yAxisLabel: {
-          text: "Population",
+          text: y_label,
           maxChars: 12,
           font: { size: 14, weight: "500", family: "'Roboto', Arial, sans-serif" },
           offset: 18,
