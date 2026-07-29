@@ -240,7 +240,8 @@ window.addEventListener("DOMContentLoaded", async () => {
         categories: "Broad age band (7 cat)",
         canvas_id: "migration-bar",
         label_format: ",",
-        align: "horizontal"
+        align: "horizontal",
+        y_label: "Age"
     });
 
     // Draw a second copy of the chart for the expanded view
@@ -251,7 +252,8 @@ window.addEventListener("DOMContentLoaded", async () => {
         categories: "Broad age band (7 cat)",
         canvas_id: "migration-bar-expanded",
         label_format: ",",
-        align: "horizontal"
+        align: "horizontal",
+        y_label: "Age"
     });
 
     // ===== LINE CHART: MIGRATION FLOWS OVER TIME =====

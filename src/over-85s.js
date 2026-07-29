@@ -205,7 +205,8 @@ window.addEventListener("DOMContentLoaded", async () => {
     bars: "Sex",
     canvas_id: "pop-stacked-bar",
     label_format: "%",
-    stacked: true
+    stacked: true,
+    y_label: "%"
   })
 
   // Draw a second copy of the chart for the expanded view
@@ -216,7 +217,8 @@ window.addEventListener("DOMContentLoaded", async () => {
     bars: "Sex",
     canvas_id: "pop-stacked-bar-expanded",
     label_format: "%",
-    stacked: true
+    stacked: true,
+    y_label: "%"
   })
 
   // ===== TREE MAP: BROAD AGE STRUCTURE =====

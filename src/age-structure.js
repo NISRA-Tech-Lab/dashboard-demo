@@ -298,7 +298,8 @@ window.addEventListener("DOMContentLoaded", async () => {
         canvas_id: "age-bar",
         label_format: "%",
         stacked: true,
-        align: "horizontal"
+        align: "horizontal",
+        y_label: "Year"
     });
 
     // Draw a second copy of the chart for the expanded view
@@ -310,7 +311,8 @@ window.addEventListener("DOMContentLoaded", async () => {
         canvas_id: "age-bar-expanded",
         label_format: "%",
         stacked: true,
-        align: "horizontal"
+        align: "horizontal",
+        y_label: "Year"
     });
 
     // ===== POPULATION PYRAMID =====
