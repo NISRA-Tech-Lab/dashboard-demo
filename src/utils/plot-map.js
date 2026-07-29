@@ -190,11 +190,14 @@ export async function plotMap({elementId, area, data, value}) {
     center: [-6.7, 54.7],
     zoom: window.innerWidth < 1200 ? 6 : 7.5,
     attributionControl: false,
+    dragRotate: false,
     preserveDrawingBuffer: true,
     canvasContextAttributes: {
       preserveDrawingBuffer: true
     }
   });
+
+  map.dragPan.disable();
 
   // ===== ADD THE MAP CONTROLS =====
   map.addControl(
