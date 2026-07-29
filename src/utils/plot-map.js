@@ -5,19 +5,155 @@ let geojsonData;
 
 const palette = ["#d6e4f6", "#8db2e0", "#3878c5", "#22589c", "#00205b"];
 
-export async function plotMap(elementId, map_data) {
-  const areas = Object.keys(map_data);
-  const values = areas.map(area => map_data[area]).filter(v => v != null);
+// ===== PLOT A CHOROPLETH MAP =====
+//
+// Draw an interactive MapLibre choropleth map.
+//
+// A choropleth map colours geographic areas according to a numeric value.
+// Larger values receive darker colours, while smaller values receive lighter
+// colours.
+//
+// DATA STRUCTURE
+//
+// data
+//   An array of row objects, usually created by Papa Parse from a CSV file.
+//
+//   This is broadly comparable to an R data frame:
+//
+//     • the array is similar to the complete data frame
+//     • each object is similar to one row
+//     • each object property is similar to one column
+//
+//   Example:
+//
+//     [
+//       {
+//         "Area": "Belfast",
+//         "Population": 345418
+//       },
+//       {
+//         "Area": "Mid and East Antrim",
+//         "Population": 139274
+//       }
+//     ]
+//
+// The function matches each data row to a geographic feature using the area
+// name.
+//
+// PARAMETERS
+//
+// The function receives one configuration object containing:
+//
+// elementId
+//   The ID of the HTML element in which the MapLibre map should be created.
+//
+//   Example:
+//
+//     elementId: "map-container"
+//
+// area
+//   The name of the CSV column containing the geographic area names.
+//
+//   The values in this column are matched against the LGDNAME property in the
+//   geographic boundary file.
+//
+//   Example:
+//
+//     area: "Area"
+//
+// data
+//   The CSV rows used to colour the map.
+//
+// value
+//   The name of the numeric CSV column used to calculate the map colours.
+//
+//   Example:
+//
+//     value: "Population"
+//
+// MAP SHAPES
+//
+// The geographic boundaries are loaded by loadShapes().
+//
+// The loaded GeoJSON is stored in geojsonData so that the shape file only
+// needs to be downloaded once during the page session.
+//
+// Each GeoJSON feature is given additional properties:
+//
+//   nisra_label
+//     The area name displayed in the popup.
+//
+//   nisra_value
+//     The value matched from the CSV rows.
+//
+//   nisra_fill
+//     The colour assigned to the area.
+//
+//   nisra_hasValue
+//     Whether the area has a usable value.
+//
+// COLOUR SCALE
+//
+// The minimum and maximum values in the selected CSV column are used to
+// calculate the overall range.
+//
+// Each value is normalised to a position between the minimum and maximum,
+// then passed to getColour().
+//
+// Missing values are displayed using:
+//
+//   #eeeeee
+//
+// MAP BEHAVIOUR
+//
+// The function:
+//
+//   • removes an existing map before drawing a new one
+//   • creates a new MapLibre map
+//   • adds zoom controls
+//   • adds the geographic boundaries as a GeoJSON source
+//   • adds a filled polygon layer
+//   • adds a boundary outline layer
+//   • highlights an area when the pointer moves over it
+//   • displays the area's name and value in a popup
+//
+// RETURNS
+//
+// Returns a Promise because the shape file may need to be loaded
+// asynchronously.
+//
+// The function does not explicitly return a value.
+//
+// The created MapLibre object is assigned to the exported map variable.
+//
+// SIDE EFFECTS
+//
+// The function:
+//
+//   • may download the geographic boundary file
+//   • adds NISRA-specific properties to copied GeoJSON features
+//   • removes any existing map instance
+//   • creates a new MapLibre map
+//   • adds map sources, layers, controls and event listeners
+//   • updates the exported map variable
+export async function plotMap({elementId, area, data, value}) {
+
+  // ===== PREPARE THE VALUE RANGE =====
+  const values = data
+    .map(col => col[value]);
 
   const range_min = Math.floor(Math.min(...values));
   const range_max = Math.ceil(Math.max(...values));
   const range = range_max - range_min || 1;
 
+  // ===== LOAD AND PREPARE THE MAP SHAPES =====
   if (!geojsonData) geojsonData = await loadShapes();
 
   const features = geojsonData.features.map((feature, idx) => {
     const areaName = String(feature.properties.LGDNAME);
-    const rawValue = map_data[areaName];
+    const rawValue = data
+      .filter(row => row[area] == areaName)
+      .map(col => col[value])[0];
 
     return {
       ...feature,
@@ -39,11 +175,13 @@ export async function plotMap(elementId, map_data) {
     features
   };
 
+  // ===== REMOVE ANY EXISTING MAP =====
   if (map) {
     map.remove();
     map = null;
   }
 
+  // ===== CREATE THE MAP =====
   map = new maplibregl.Map({
     container: elementId,
     style: "public/map/style-omt.json",
@@ -56,6 +194,7 @@ export async function plotMap(elementId, map_data) {
     }
   });
 
+  // ===== ADD THE MAP CONTROLS =====
   map.addControl(
     new maplibregl.NavigationControl({
       showZoom: true,
@@ -65,6 +204,7 @@ export async function plotMap(elementId, map_data) {
     "top-right"
   );
 
+  // ===== ADD THE MAP SOURCE AND LAYERS =====
   map.on("load", () => {
     map.setMinZoom(map.getZoom() - 1);
     map.setMaxZoom(map.getZoom() + 4);
@@ -117,18 +257,122 @@ export async function plotMap(elementId, map_data) {
       }
     });
 
+    // ===== ADD THE HOVER INTERACTION =====
     addHoverPopup(map);
   });
 }
 
+// ===== SELECT A MAP COLOUR =====
+//
+// Convert a normalised numeric value into one of the colours in the map
+// palette.
+//
+// PARAMETER
+//
+// norm
+//   A numeric value normally ranging from 0 to 1.
+//
+//   A value near 0 receives a lighter colour.
+//
+//   A value near 1 receives a darker colour.
+//
+//   Example:
+//
+//     getColour(0)
+//     getColour(0.5)
+//     getColour(1)
+//
+// VALUES OUTSIDE THE EXPECTED RANGE
+//
+// Negative or missing values return a light grey colour.
+//
+// Values greater than 1 are limited to the darkest colour.
+//
+// The calculated colour position is also restricted to an array index between
+// 0 and 4.
+//
+// RETURNS
+//
+// Returns a CSS colour string.
+//
+// Examples:
+//
+//   "#d6e4f6"
+//   "#3878c5"
+//   "#00205b"
+//
+// SIDE EFFECTS
+//
+// None.
 function getColour(norm) {
+
+  // ===== MATCH THE VALUE TO THE COLOUR PALETTE =====
   if (norm == null || norm < 0) return "#d3d3d3";
 
   const idx = Math.max(0, Math.min(4, Math.round(norm * 4)));
   return palette[idx];
 }
 
+// ===== ADD A HOVER POPUP TO THE MAP =====
+//
+// Add pointer interaction to the map's filled geographic areas.
+//
+// When the pointer moves over an area, the function:
+//
+//   • changes the cursor to a pointer
+//   • highlights the current feature
+//   • removes highlighting from the previous feature
+//   • displays the area's label and value in a popup
+//
+// When the pointer leaves the layer, the function:
+//
+//   • resets the cursor
+//   • removes the hover state
+//   • closes the popup
+//
+// PARAMETER
+//
+// map
+//   The MapLibre map object that contains the "shapes-fill" layer.
+//
+//   The map is expected to contain:
+//
+//     • a source named "shapes"
+//     • a layer named "shapes-fill"
+//     • feature properties named nisra_label and nisra_value
+//
+// VALUE DISPLAY
+//
+// Numeric values are formatted using the British English locale.
+//
+// Example:
+//
+//   345418
+//
+// becomes:
+//
+//   345,418
+//
+// Missing values are displayed as:
+//
+//   Not available
+//
+// RETURNS
+//
+// This function does not explicitly return a value.
+//
+// SIDE EFFECTS
+//
+// The function:
+//
+//   • creates a MapLibre popup
+//   • attaches mousemove and mouseleave event listeners
+//   • changes the map canvas cursor
+//   • updates MapLibre feature-state values
+//   • displays and removes popup content
 function addHoverPopup(map) {
+
+  // ===== PREPARE THE HOVER STATE AND POPUP =====
   let hoveredId = null;
 
   const popup = new maplibregl.Popup({
@@ -138,6 +382,7 @@ function addHoverPopup(map) {
     className: "nisra-popup"
   });
 
+  // ===== SHOW THE HOVERED AREA =====
   map.on("mousemove", "shapes-fill", e => {
     map.getCanvas().style.cursor = "pointer";
 
@@ -162,6 +407,7 @@ function addHoverPopup(map) {
       .addTo(map);
   });
 
+  // ===== CLEAR THE HOVERED AREA =====
   map.on("mouseleave", "shapes-fill", () => {
     map.getCanvas().style.cursor = "";
 

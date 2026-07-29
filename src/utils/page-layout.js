@@ -1,16 +1,92 @@
 import { config } from "../config/config.js";
 import { departments } from "../config/departments.js";
 
+// ===== INSERT THE PAGE HEADER =====
+//
+// Build and insert the main application header.
+//
+// The header contains:
+//
+//   • an accessibility skip link
+//   • a feedback banner
+//   • the NISRA logo
+//   • the application title
+//   • the relevant government department logo
+//
+// Most of the displayed values are taken from the shared configuration
+// objects imported at the top of this file.
+//
+// CONFIGURATION USED
+//
+// config.title
+//   The application title displayed in the centre of the header.
+//
+// config.department
+//   The code used to identify the relevant department.
+//
+// config.rateit
+//   The identifier added to the NISRA feedback survey URL.
+//
+// departments
+//   An object containing department information.
+//
+//   The selected department entry is expected to contain:
+//
+//     name
+//       The full department name.
+//
+//     url
+//       The department website address.
+//
+// EXPECTED HTML
+//
+// The page should contain an element with the ID:
+//
+//   banner
+//
+// The function replaces the contents of that element with the generated
+// header.
+//
+// ACCESSIBILITY BEHAVIOUR
+//
+// The skip link is initially hidden.
+//
+// When the user presses the Tab key, the skip link becomes visible. Selecting
+// it moves keyboard focus towards the main page content.
+//
+// The skip link points to:
+//
+//   #content
+//
+// Therefore, the page's main content area should contain an element with the
+// ID "content".
+//
+// RETURNS
+//
+// This function does not explicitly return a value.
+//
+// SIDE EFFECTS
+//
+// The function:
+//
+//   • adds classes and styles to the #banner element
+//   • replaces the banner's HTML
+//   • adds a keydown listener to the window
+//   • adds a click listener to the skip link
+//   • updates the browser URL after the skip link is selected
 export function insertHeader () {
 
+    // ===== PREPARE THE BANNER =====
     const banner = document.getElementById("banner");
 
     banner.classList.add("navbar");
     banner.classList.add("p-0");
     banner.style.backgroundColor = "#00205b";
+
+    // ===== INSERT THE HEADER CONTENT =====
     banner.innerHTML = `<div id="skip-link" class="container-fluid bg-warning py-2 d-none"><a class="text-black" href="#content">Skip to main content</a></div>
     <div class="container-fluid d-flex flex-column align-items-stretch p-0">
-    <!-- Banner row (full width) -->
+    <!-- Feedback banner -->
     <div aria-label="Feedback" class="w-100" style="background-color:#3878c5;">
         <div class="text-white text-center py-2 px-3">
             We welcome feedback from users through our 
@@ -18,10 +94,10 @@ export function insertHeader () {
             
         </div>
     </div>
-  <!-- Main navbar row -->
+  <!-- Main navigation banner -->
   <div role="banner" class="d-flex row align-items-center justify-content-between w-100 py-3 px-2">
 
-    <!-- Left: NISRA logo -->
+    <!-- NISRA logo -->
     <div class="col-12 col-xl-4 d-flex justify-content-center justify-content-xl-start">
       <a class="navbar-brand ps-2 d-flex align-items-center" href="https://www.nisra.gov.uk/" target="_blank" rel="noopener noreferrer">
         <img src="assets/img/logo/nisra-only-white.svg"
@@ -29,12 +105,12 @@ export function insertHeader () {
       </a>
     </div>
 
-    <!-- Center: Page title -->
+    <!-- Application title -->
     <div class="col-12 col-xl-4 d-flex justify-content-center">
       <h1 class="mb-0 text-white fs-2 app-title text-center">${config.title}</h1>
     </div>
 
-    <!-- Right: Department logo -->
+    <!-- Department logo -->
     <div class="col-12 col-xl-4 d-flex justify-content-center justify-content-xl-end">
       <a class="navbar-brand pe-2 d-flex align-items-center" href="${departments[config.department].url}" target="_blank" rel="noopener noreferrer">
         <img id="banner-logo" src="assets/img/logo/dep_white/${config.department}.svg"
@@ -46,6 +122,7 @@ export function insertHeader () {
 
   `
 
+  // ===== CONFIGURE THE SKIP LINK =====
   const skip_link = document.getElementById("skip-link");
 
   window.addEventListener("keydown", (e) => {
@@ -63,7 +140,82 @@ export function insertHeader () {
 
 }
 
+// ===== INSERT THE NAVIGATION BUTTONS =====
+//
+// Build the application's main page navigation.
+//
+// The function creates two versions of the navigation:
+//
+//   • a dropdown menu for screens smaller than Bootstrap's large breakpoint
+//   • a horizontal row of buttons for large screens and above
+//
+// Both versions are generated from config.navigation.
+//
+// CONFIGURATION USED
+//
+// config.navigation
+//   An array of navigation-link objects.
+//
+//   Each item is expected to contain:
+//
+//     href
+//       The HTML page to open.
+//
+//     text
+//       The text shown to the user.
+//
+//   Example:
+//
+//     {
+//       href: "population.html",
+//       text: "Population"
+//     }
+//
+// config.show_projections
+//   Controls whether the link to projections.html is included.
+//
+//   When this is false, the projections link is removed from the navigation.
+//
+// EXPECTED HTML
+//
+// The page should contain an element with the ID:
+//
+//   nav
+//
+// The generated navigation is appended to the element's existing HTML.
+//
+// CURRENT-PAGE BEHAVIOUR
+//
+// The function reads the current filename from window.location.pathname.
+//
+// For example:
+//
+//   population.html
+//
+// becomes:
+//
+//   population
+//
+// The corresponding desktop button receives the "current-page" class so that
+// it can be styled differently.
+//
+// The mobile dropdown uses Bootstrap's "active" class for the current page.
+//
+// RETURNS
+//
+// This function does not explicitly return a value.
+//
+// SIDE EFFECTS
+//
+// The function:
+//
+//   • reads the current browser path
+//   • filters the configured navigation links
+//   • appends navigation HTML to the #nav element
+//   • adds current-page styling to the active desktop link
 export function insertNavButtons() {
+
+  // ===== PREPARE THE NAVIGATION LINKS =====
   const nav = document.getElementById("nav");
 
   const links = config.navigation.filter(l => l.href !== "projections.html" || config.show_projections);
@@ -72,12 +224,11 @@ export function insertNavButtons() {
   const file = pathname.slice(pathname.lastIndexOf("/") + 1) || "index.html";
   const pageKey = file.replace(".html", "");
 
-  // Desktop: row of buttons (lg+). Mobile: hamburger dropdown (<lg).
+  // ===== INSERT THE MOBILE AND DESKTOP NAVIGATION =====
   nav.innerHTML += `
     <div class="container-fluid px-1">
 
-      <!-- Mobile only -->
-
+      <!-- Mobile navigation -->
       <div class="d-lg-none w-100 text-center pb-2 mt-1">
         <div class="dropdown d-inline-block">
           <button class="btn btn-primary dropdown-toggle"
@@ -89,7 +240,6 @@ export function insertNavButtons() {
             <i class="bi bi-list" aria-hidden="true"></i></span>
           </button>
 
-          <!-- optional: keep menu centered under button -->
           <ul class="dropdown-menu start-50 translate-middle-x">
             ${links
             .map(
@@ -107,8 +257,7 @@ export function insertNavButtons() {
         </div>
       </div>
 
-
-      <!-- Desktop only -->
+      <!-- Desktop navigation -->
       <div class="d-none d-lg-block">
         <div class="row g-2">
           ${links
@@ -125,7 +274,7 @@ export function insertNavButtons() {
     </div>
   `;
 
-  // Apply current-page styling to the DESKTOP buttons (to match your existing CSS)
+  // ===== HIGHLIGHT THE CURRENT DESKTOP PAGE =====
   const currentDesktop = document.getElementById(`${pageKey}-btn`);
   if (currentDesktop) {
     currentDesktop.classList.add("current-page");
@@ -135,8 +284,60 @@ export function insertNavButtons() {
 }
 
 
+// ===== INSERT THE PAGE FOOTER =====
+//
+// Build and insert the shared application footer.
+//
+// The footer contains:
+//
+//   • links to NISRA data tools
+//   • corporate links
+//   • social-media links
+//   • copyright, privacy and accessibility links
+//
+// The function also adjusts the footer's top margin so that it sits near the
+// bottom of the browser window on pages with limited content.
+//
+// EXPECTED HTML
+//
+// The page should contain:
+//
+//   • an element with the ID "footer"
+//   • an element with the ID "banner"
+//   • an element with the ID "nav"
+//   • a <main> element
+//
+// The heights of these elements are used when calculating whether additional
+// space is required above the footer.
+//
+// RESPONSIVE BEHAVIOUR
+//
+// The footer margin is recalculated:
+//
+//   • when the function first runs
+//   • whenever the browser window is resized
+//
+// When the page content is shorter than the available screen height, a positive
+// top margin is applied to the footer.
+//
+// When the page content is already taller than the screen, the top margin is
+// set to zero.
+//
+// RETURNS
+//
+// This function does not explicitly return a value.
+//
+// SIDE EFFECTS
+//
+// The function:
+//
+//   • adds classes to the #footer element
+//   • replaces the footer's HTML
+//   • calculates and changes the footer's top margin
+//   • adds a resize event listener to the window
 export function insertFooter () {
 
+    // ===== PREPARE THE FOOTER =====
     const footer = document.getElementById("footer");
 
     footer.classList.add("footer");
@@ -144,8 +345,9 @@ export function insertFooter () {
     footer.classList.add("bg-nisra");
     footer.classList.add("text-nisra");
     
+    // ===== INSERT THE FOOTER CONTENT =====
     footer.innerHTML = `<div class="container">
-      <!-- 3 column section -->
+      <!-- Main footer links -->
       <div class="row mb-3">
         <div class="col-md-4">
           <h3 class="h5">Data Tools</h3>
@@ -195,7 +397,7 @@ export function insertFooter () {
         </div>
       </div>
 
-      <!-- Horizontal list with separators -->
+      <!-- Legal and accessibility links -->
       <ul class="list-inline footer-links text-center mb-0">
         <li class="list-inline-item"><a href="https://www.nisra.gov.uk/crown-copyright">© Crown Copyright</a></li>
         <li class="list-inline-item">|</li>
@@ -208,13 +410,95 @@ export function insertFooter () {
         <li class="list-inline-item"><a href="https://datavis.nisra.gov.uk/dissemination/accessibility-statement-visualisations.html">Accessibility Statement</a></li>
       </ul>
     </div>`
+    
+    // ===== KEEP THE FOOTER NEAR THE BOTTOM OF THE PAGE =====
+    function adjustFooterMargin() {
+      const margin_needed = (window.innerHeight - document.getElementById("banner").clientHeight - document.getElementById("nav").clientHeight - document.getElementsByTagName("main")[0].clientHeight - footer.clientHeight);
+      footer.style.marginTop = (margin_needed) > 0 ? `${margin_needed}px` : "0px";
+    }
+
+    adjustFooterMargin();
+    window.addEventListener("resize", adjustFooterMargin); 
 
 }
 
+// ===== INSERT THE DOCUMENT HEAD AND LOAD SHARED LIBRARIES =====
+//
+// Replace the document's <head> contents and load the external stylesheets and
+// JavaScript libraries required by the application.
+//
+// The function sets:
+//
+//   • character encoding
+//   • responsive viewport settings
+//   • the page title
+//   • fonts
+//   • Bootstrap styles
+//   • Bootstrap Icons
+//   • favicon files
+//   • MapLibre styles
+//   • the application's own stylesheet
+//
+// It then loads the shared JavaScript libraries one after another.
+//
+// PARAMETER
+//
+// title
+//   The title of the current page.
+//
+//   It is combined with config.title to create the browser-tab title.
+//
+//   Example:
+//
+//     config.title: "Population Explorer"
+//     title: "Migration"
+//
+//   Result:
+//
+//     Population Explorer - Migration
+//
+// LIBRARIES LOADED
+//
+// The function loads:
+//
+//   • Bootstrap
+//   • Chart.js
+//   • Chart.js Annotation
+//   • Chart.js Data Labels
+//   • MapLibre GL
+//   • html2canvas
+//   • Chart.js Treemap
+//   • Papa Parse
+//
+// The scripts are awaited in sequence. This helps ensure that libraries which
+// depend on earlier scripts are not loaded before their dependencies.
+//
+// RETURNS
+//
+// Returns a Promise because the external scripts are loaded asynchronously.
+//
+// The Promise resolves after all scripts have loaded and the body's inline
+// style attribute has been removed.
+//
+// ERRORS
+//
+// If one of the scripts fails to load, the Promise returned by loadScript()
+// rejects and insertHead() stops at that point.
+//
+// SIDE EFFECTS
+//
+// The function:
+//
+//   • replaces all existing content inside document.head
+//   • changes the browser-tab title
+//   • loads external stylesheets and scripts
+//   • exposes the loaded libraries through their global browser objects
+//   • removes the body's inline style attribute
 export async function insertHead(title) {
+
+  // ===== INSERT THE DOCUMENT METADATA AND STYLESHEETS =====
   const head = document.head;
 
-  // Clear existing head safely if you really need to
   head.innerHTML = `
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -237,7 +521,7 @@ export async function insertHead(title) {
     <link rel="stylesheet" href="assets/css/styles.css">
   `;
 
-  // helper to load scripts in order
+  // ===== DEFINE THE SCRIPT LOADER =====
   const loadScript = (src) =>
     new Promise((resolve, reject) => {
       const s = document.createElement("script");
@@ -248,6 +532,7 @@ export async function insertHead(title) {
       head.appendChild(s);
     });
 
+  // ===== LOAD THE SHARED JAVASCRIPT LIBRARIES =====
   await loadScript("https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js");
   await loadScript("https://cdn.jsdelivr.net/npm/chart.js/dist/chart.umd.min.js");
   await loadScript("https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-annotation/3.0.1/chartjs-plugin-annotation.min.js");
@@ -255,9 +540,9 @@ export async function insertHead(title) {
   await loadScript("https://unpkg.com/maplibre-gl@5.6.2/dist/maplibre-gl.js");
   await loadScript("https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js");
   await loadScript("https://cdn.jsdelivr.net/npm/chartjs-chart-treemap/dist/chartjs-chart-treemap.min.js");
+  await loadScript("https://cdn.jsdelivr.net/npm/papaparse@5.5.3/papaparse.min.js");
 
+  // ===== REVEAL THE PAGE BODY =====
   document.body.removeAttribute("style");
 
 }
-
-
