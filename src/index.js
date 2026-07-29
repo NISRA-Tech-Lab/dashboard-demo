@@ -1,6 +1,14 @@
+<<<<<<< HEAD
 // ===== IMPORTS =====
 // Import the utility functions used to build the page and populate it with data
 // Keeping these functions in separate files makes the main script easier to read and maintain
+=======
+import { insertHeader, insertFooter, insertHead, insertNavButtons } from "./utils/page-layout.js";
+import { readData } from "./utils/read-data.js";
+import { insertValue } from "./utils/insert-value.js";
+import { latest_year, updateYearSpans, first_year } from "./utils/update-years.js";
+import { config } from "./config/config.js";
+>>>>>>> template/main
 
 import { insertHeader, insertFooter, insertHead, insertNavButtons } from "./utils/page-layout.js"; // Functions that build the shared page structure
 import { readData } from "./utils/read-data.js"; // Loads a matrix CSV and its associated metadata
