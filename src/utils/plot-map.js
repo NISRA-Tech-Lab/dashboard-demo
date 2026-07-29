@@ -146,6 +146,8 @@ export async function plotMap({elementId, area, data, value}) {
   const range_max = Math.ceil(Math.max(...values));
   const range = range_max - range_min || 1;
 
+  createLegend(range_min, range_max);
+
   // ===== LOAD AND PREPARE THE MAP SHAPES =====
   if (!geojsonData) geojsonData = await loadShapes();
 
@@ -418,4 +420,111 @@ function addHoverPopup(map) {
 
     popup.remove();
   });
+}
+
+// ===== CREATE A MAP LEGEND =====
+//
+// Create a colour legend that explains the choropleth shading used on the map.
+//
+// The legend uses the same colour palette as the map polygons, displaying:
+//
+//   • the minimum value on the left
+//   • the maximum value on the right
+//   • a row of colour blocks between them
+//
+// The legend is rendered into the HTML element with ID:
+//
+//   map-legend
+//
+// This element is expected to exist on the page before the function is called.
+//
+// COLOUR SCALE
+//
+// The colour blocks are created using the shared palette array.
+//
+// Colours are displayed from lightest to darkest, matching the way values
+// are assigned to areas by getColour().
+//
+// PARAMETERS
+//
+// minValue
+//   The lowest value found in the selected data column.
+//
+// maxValue
+//   The highest value found in the selected data column.
+//
+// VALUE DISPLAY
+//
+// Values are formatted using the British English locale.
+//
+// Example:
+//
+//   345678
+//
+// becomes:
+//
+//   345,678
+//
+// RETURNS
+//
+// This function does not explicitly return a value.
+//
+// SIDE EFFECTS
+//
+// The function:
+//
+//   • clears any existing legend content
+//   • creates legend rows and colour blocks
+//   • updates the map-legend HTML element
+//   • displays the minimum and maximum values
+function createLegend(minValue, maxValue) {
+
+    const legend = document.getElementById("map-legend");
+    if (!legend) return;
+
+    legend.innerHTML = "";
+    legend.classList.add("map-legend");
+
+    const legend_row_1 = document.createElement("div");
+    legend_row_1.classList.add("row");
+
+    const min_value = document.createElement("div");
+    min_value.id = "legend-min";
+    min_value.classList.add("legend-min");
+    min_value.textContent = Number(minValue).toLocaleString("en-GB");
+
+    const unit_value = document.createElement("div");
+    unit_value.classList.add("legend-unit");
+
+    const max_value = document.createElement("div");
+    max_value.id = "legend-max";
+    max_value.classList.add("legend-max");
+    max_value.textContent = Number(maxValue).toLocaleString("en-GB");
+
+    legend_row_1.appendChild(min_value);
+    legend_row_1.appendChild(unit_value);
+    legend_row_1.appendChild(max_value);
+
+    legend.appendChild(legend_row_1);
+
+    const legend_row_2 = document.createElement("div");
+    legend_row_2.classList.add("row");
+
+    for (let i = 0; i < palette.length; i++) {
+
+        const colour_block = document.createElement("div");
+
+        colour_block.style.backgroundColor = palette[i];
+        colour_block.style.opacity = "0.8";
+
+        colour_block.classList.add("colour-block");
+
+        if (i === palette.length - 1) {
+            colour_block.style.borderRight = "1px #555555 solid";
+        }
+
+        legend_row_2.appendChild(colour_block);
+    }
+
+    legend.appendChild(legend_row_2);
 }
