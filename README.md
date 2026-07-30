@@ -123,9 +123,10 @@ This regenerates `public/data/data.json` from the data sources.
 
 ## 7. Adding a New Page
 
-1. Duplicate an existing HTML file to use as a template
-2. Create a matching JS module in `src/` with the same name
-3. Import utilities as needed:
+1. Take a copy of the page.html file and rename accordingly
+3. Create a matching JS module in `src/` with the same name
+4. Go to `src/config/config.js` and add the page link and name to the `navigation` array.
+5. Import utilities as needed:
 ```js
 import { readData } from './utils/read-data.js';
 import { createBarChart } from './utils/charts.js';
