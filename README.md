@@ -29,8 +29,7 @@ repo-root/
 │   ├── utils/             # Reusable helper functions
 │   ├── *.js               # Page-specific scripts
 │   └── r/                 # R scripts for data preparation
-│       ├── data.R
-│       └── pivot_long.R
+│       └── data.R
 ├── *.html                 # Dashboard pages
 └── dashboard-template.Rproj # RStudio project file
 ```
@@ -135,10 +134,7 @@ Each file in `src/utils/` provides reusable helper functions:
 - **load-shapes.js**: Fetches and loads GeoJSON shapes
 - **download-button.js**: Adds CSV/data download functionality
 - **expand-buttons.js**: Inserts expand/collapse controls
-- **reshape-for-treemap.js**: Reformats data for treemap visualizations
-- **to-title-case.js**: Converts strings to title case
 - **wrap-label.js**: Wraps long chart labels for readability
-- **get-nested.js**: Safely accesses nested object properties
 
 For detailed function signatures and usage examples, see the [dashboard-demo repository](https://github.com/NISRA-Tech-Lab/dashboard-demo).
 
@@ -163,7 +159,8 @@ For detailed function signatures and usage examples, see the [dashboard-demo rep
 3. In the corresponding JS file:
    - Import chart utilities:
 ```js
-import { createBarChart, createLineChart } from "./utils/charts.js";
+import { barChart } from "./charts/bar-chart.js";
+import { lineChart } from "./charts/line-chart.js";
 import { readData } from "./utils/read-data.js";
 ```
    - Fetch data and prepare chart data:
@@ -173,7 +170,7 @@ const chartData = {/* formatted data for chart */};
 ```
    - Render the chart:
 ```js
-createBarChart({ chart_data: chartData, canvas_id: "my-chart" });
+barChart({ chart_data: chartData, canvas_id: "my-chart", .... });
 ```
 
 For complete examples, see the [dashboard-demo repository](https://github.com/NISRA-Tech-Lab/dashboard-demo).
