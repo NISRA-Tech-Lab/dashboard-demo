@@ -88,17 +88,25 @@ for (matrix in matrix_list) {
   raw_data <- fetch_dataset(matrix, api_key)
 
   raw_json <- raw_data$json
+  dimensions <- raw_json$dimension
+  
+  variables <- map(names(dimensions), function(var) {
+    list(
+      code = var,
+      name = dimensions[[var]]$label,
+      values = dimensions[[var]]$category$label
+    )
+  })
 
   all_data[[matrix]]$label <- raw_json$label
   all_data[[matrix]]$updated <- as.Date(raw_json$updated)
   all_data[[matrix]]$subject <- raw_json$extension$subject$code
   all_data[[matrix]]$product <- raw_json$extension$product$code
+  all_data[[matrix]]$variables <- variables
 
   raw_csv <- raw_data$csv
 
   cols_to_keep <- c()
-
-  dimensions <- raw_json$dimension
 
   for (i in seq_along(dimensions)) {
     dimension_name <- names(dimensions[i])

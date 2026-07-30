@@ -97,8 +97,6 @@ export function treemapChart({
     const category_labels = data
       .map(col => col[categories]);
 
-    console.log(data)
-
     const tree = category_labels.map(category => ({
       label: category,
       value: data
