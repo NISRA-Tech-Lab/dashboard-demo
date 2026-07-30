@@ -21,7 +21,7 @@ window.addEventListener("DOMContentLoaded", async () => {
     const headline_2 = 12.34;
     insertValue("headline-2", headline_2)
 
-    const headline_3 = 1.23;
+    const headline_3 = -1.23;
     insertValue("headline-3", headline_3);
 
     const example_4_area = "Example Area";

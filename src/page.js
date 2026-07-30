@@ -65,20 +65,38 @@ window.addEventListener("DOMContentLoaded", async () => {
     });
 
     // Bar chart example - replace with dynamic data as needed
+    const bar_chart_data = [
+        {
+            "category": "Category A",
+            "Type 1": 10,
+            "Type 2": 15,
+            "Type 3": 3
+        },
+        {
+            "category": "Category B",
+            "Type 1": 5,
+            "Type 2": 7,
+            "Type 3": 2
+        }
 
-    const bar_chart_categories = ["Category A", "Category B"];
-    const bar_chart_data = {"Type 1": [10, 15, 3], "Type 2": [5, 7, 2]};
+    ]
 
     barChart({
-        categories: bar_chart_categories,
-        chart_data: bar_chart_data,
-        canvas_id: "bar-example"
+       data: bar_chart_data,
+       value: ["Type 1", "Type 2", "Type 3"],
+       categories: "category",
+       canvas_id: "bar-example",
+       label_format: ",",
+       y_label: "Value"
     });
 
     barChart({
-        categories: bar_chart_categories,
-        chart_data: bar_chart_data,
-        canvas_id: "bar-example-expanded"
+       data: bar_chart_data,
+       value: ["Type 1", "Type 2", "Type 3"],
+       categories: "category",
+       canvas_id: "bar-example-expanded",
+       label_format: ",",
+       y_label: "Value"
     });
 
 
