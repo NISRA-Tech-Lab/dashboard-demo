@@ -255,8 +255,8 @@ table tr:not(:has(th)):hover {
 
 .nav-btn {
   background-color: #00205b;
-  border-left: 2px solid #d6d6d6;
-  border-top: 2px solid #d6d6d6;
+  /* border-left: 2px solid #d6d6d6; */
+  /* border-top: 2px solid #3878c5; */
   border-bottom: 14px solid #68a41e;
   padding: 0.5rem 1rem;
   color: #fff;
