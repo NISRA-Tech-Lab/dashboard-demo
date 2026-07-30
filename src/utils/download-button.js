@@ -99,6 +99,8 @@ import { readData } from "./read-data.js";
 //   • triggers browser downloads when the user selects an option
 export async function downloadButton (capture_id, matrix, update_date, query, plot_type = "chart") {
 
+    // ===== READ THE MATRIX METADATA =====
+    const [, matrix_meta] = await readData(matrix);
     // ===== PREPARE THE CARD FOOTER =====
     const capture = document.getElementById(capture_id);
     const footer = capture.parentElement.querySelector(".card-footer");
@@ -113,11 +115,33 @@ export async function downloadButton (capture_id, matrix, update_date, query, pl
     // ===== BUILD THE PXSTAT QUERY =====
     let query_long = [];
     for (let i = 0; i < Object.keys(query).length; i ++) {
+      
+      const key = Object.keys(query)[i];
+      const key_code = matrix_meta["variables"]
+        .filter(x => x["name"] == key)
+        .map(x => x["code"])[0];
+
+      let values = Object.values(query)[i];
+      if (!Array.isArray(values)) values = [values];
+      
+      let value_codes = [];
+      for (let j = 0; j < values.length; j ++) {
+        const value_code = Object.entries(
+          matrix_meta["variables"]
+          .filter(x => x["name"] == key)
+          .map(x => x["values"])[0])
+        .filter(x => x[1] == values[j])
+        .map(x => x[0])[0]
+
+        value_codes.push(value_code);
+
+      }
+
       query_long.push({
-        "code": Object.keys(query)[i],
+        "code": key_code,
         "selection": {
           "filter": "item",
-          "values": Array.isArray(Object.values(query)[i]) ? Object.values(query)[i] : [Object.values(query)[i]]
+          "values": value_codes
         }
       })
     }
@@ -131,8 +155,6 @@ export async function downloadButton (capture_id, matrix, update_date, query, pl
       }
     }));
 
-    // ===== READ THE MATRIX METADATA =====
-    const [, matrix_meta] = await readData(matrix);
 
     const xl_query_string = csv_query_string.replace("csv", "xlsx");
 

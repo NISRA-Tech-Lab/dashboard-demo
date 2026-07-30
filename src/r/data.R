@@ -2,6 +2,10 @@ library(dplyr)
 library(purrr)
 library(jsonlite)
 library(V8)
+library(tidyr)
+
+if (!dir.exists("public")) dir.create("public")
+if (!dir.exists("public/data")) dir.create("public/data")
 
 config_file <- readLines("src/config/config.js", warn = FALSE) %>%
   sub("export ", "", .) %>%
@@ -27,7 +31,8 @@ fetch_dataset <- function(matrix,
   repeat {
     result <- tryCatch(
       {
-        url <- paste0(
+
+        json_url <- paste0(
           "https://",
           "ws-data.nisra.gov.uk/public/api.restful/",
           "PxStat.Data.Cube_API.ReadDataset/",
@@ -36,14 +41,24 @@ fetch_dataset <- function(matrix,
           api_key
         )
 
-        json_data <- fromJSON(txt = url)
+        csv_url <- paste0(
+          "https://",
+          "ws-data.nisra.gov.uk/public/api.restful/",
+          "PxStat.Data.Cube_API.ReadDataset/",
+          matrix,
+          "/CSV/1.0/en?apiKey=",
+          api_key
+        )
+
+        json_data <- fromJSON(txt = json_url)
+        csv_data <- read.csv(csv_url, check.names = FALSE)
 
         # Check if API itself returned "error" field
-        if ("error" %in% names(json_data)) {
+        if ("error" %in% names(csv_data)) {
           stop("API returned error field")
         }
 
-        return(json_data)  # ✅ success, return immediately
+        return(list(json = json_data, csv = csv_data))
       },
       error = function(e) {
         message(sprintf("Error fetching %s (attempt %d): %s",
@@ -72,52 +87,49 @@ for (matrix in matrix_list) {
 
   raw_data <- fetch_dataset(matrix, api_key)
 
-  dimensions <- names(raw_data$dimension)
-  size <- raw_data$size
+  raw_json <- raw_data$json
+  dimensions <- raw_json$dimension
+  
+  variables <- map(names(dimensions), function(var) {
+    list(
+      code = var,
+      name = dimensions[[var]]$label,
+      values = dimensions[[var]]$category$label
+    )
+  })
 
-  reshaped_data <- data.frame(value = as.numeric(raw_data$value))
+  all_data[[matrix]]$label <- raw_json$label
+  all_data[[matrix]]$updated <- as.Date(raw_json$updated)
+  all_data[[matrix]]$subject <- raw_json$extension$subject$code
+  all_data[[matrix]]$product <- raw_json$extension$product$code
+  all_data[[matrix]]$variables <- variables
+
+  raw_csv <- raw_data$csv
+
+  cols_to_keep <- c()
 
   for (i in seq_along(dimensions)) {
-    dimension_cats <- unlist(
-      raw_data$dimension[[dimensions[[i]]]]$category$label
-    )
-
-    dimension_col <- c()
-
-    for (cat in dimension_cats) {
-      if (i == length(dimensions)) {
-        dimension_col <- c(dimension_col, cat)
-      } else {
-        dimension_col <- c(
-          dimension_col,
-          rep(cat, prod(size[(i + 1):length(size)]))
-        )
-      }
-
+    dimension_name <- names(dimensions[i])
+    dimension_label <- dimensions[[i]]$label
+    if (tolower(dimension_name) == tolower(dimension_label)) {
+      cols_to_keep <- c(cols_to_keep, paste(dimension_label, "Label"))
+    } else {
+      cols_to_keep <- c(cols_to_keep, dimension_label)
     }
-
-    reshaped_data[[dimensions[i]]] <- dimension_col
   }
 
-  reshaped_data <- reshaped_data %>%
-    relocate(value, .after = dimensions[[length(dimensions)]])
+  pivot_col <- tail(cols_to_keep, 1)
 
-  data_list <- list()
+  cols_to_keep <- c(cols_to_keep, "VALUE")
 
-  for (i in seq_len(nrow(reshaped_data))) {
-    keys <- map(dimensions, ~ reshaped_data[[.x]][i])
-    pluck(data_list, !!!keys) <- reshaped_data$value[i]
-  }
+  csv_wide <- raw_csv %>% 
+    select(all_of(cols_to_keep)) %>% 
+    pivot_wider(names_from = all_of(pivot_col), values_from = "VALUE")
 
-  all_data[[matrix]]$label <- raw_data$label
-  all_data[[matrix]]$updated <- as.Date(raw_data$updated)
-  all_data[[matrix]]$subject <- raw_data$extension$subject$code
-  all_data[[matrix]]$product <- raw_data$extension$product$code
-  all_data[[matrix]]$data <- data_list
+  names(csv_wide) <- gsub(" Label", "", names(csv_wide))
+
+  write.csv(csv_wide, paste0("public/data/", matrix, ".csv"), row.names = FALSE)
 }
 
 
-
-if (!dir.exists("public")) dir.create("public")
-if (!dir.exists("public/data")) dir.create("public/data")
 write_json(all_data, "public/data/data.json", pretty = TRUE, auto_unbox = TRUE)
