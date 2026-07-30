@@ -173,12 +173,14 @@ window.addEventListener("DOMContentLoaded", async () => {
     // Filter to the row containing the largest value and extract its age-band label
     const max_age = age_group_data
         .filter(row => row["Total Net"] == max_net)
-        .map(col => col["Broad age band (7 cat)"]);
+        .map(col => col["Broad age band (7 cat)"]
+        .replace("Age ", ""));
 
     // Filter to the row containing the smallest value and extract its age-band label
     const min_age = age_group_data
         .filter(row => row["Total Net"] == min_net)
-        .map(col => col["Broad age band (7 cat)"]);
+        .map(col => col["Broad age band (7 cat)"]
+        .replace("Age ", ""));
 
     insertValue("gain-age", max_age);
     insertValue("loss-age", min_age);
