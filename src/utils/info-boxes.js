@@ -98,7 +98,7 @@ export function populateInfoBoxes(labels, content) {
   for (let i = 0; i < labels.length; i++) {
     let button_style = "";
     if (i === labels.length - 1) {
-      button_style += "border-right: 2px solid #00205B; border-top-right-radius: 0.5rem; border-bottom-right-radius: 0.5rem;";
+      button_style += "border-right: 2px solid var(--nisra_navy); border-top-right-radius: 0.5rem; border-bottom-right-radius: 0.5rem;";
     }
     if (i === 0) {
       button_style += "border-top-left-radius: 0.5rem; border-bottom-left-radius: 0.5rem;";
@@ -135,7 +135,7 @@ export function populateInfoBoxes(labels, content) {
 
             <div id="infoCollapse" class="accordion-collapse collapse" data-active-index="">
               <div class="accordion-body">
-                <h2 id="infoTitle" style="color:#00205B;"></h2>
+                <h2 id="infoTitle" style="color:var(--nisra_navy);"></h2>
                 <div id="infoBody"></div>
               </div>
             </div>
