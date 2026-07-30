@@ -49,7 +49,7 @@ The JS module:
 - Builds charts, maps, and interactive elements
 - Wires up event listeners and interactions
 
-This modular approach keeps your code organized and reusable across multiple pages.
+This modular approach keeps your code organised and reusable across multiple pages.
 
 ---
 
@@ -58,19 +58,39 @@ This modular approach keeps your code organized and reusable across multiple pag
 For a complete, fully-worked example with production-ready implementations, see the [dashboard-demo repository](https://github.com/NISRA-Tech-Lab/dashboard-demo). This demonstrates how to:
 - Structure data for different chart types
 - Implement interactive features
-- Customize layouts and branding
+- Customise layouts and branding
 - Apply accessibility standards
 
 ---
 
-## 5. Getting Started (Recommended Workflow)
+## 5. Getting Started 
 
-### Step 1: Fork This Repository
+### Option A - Forking the repository (Recommended option)
+
+Using this option will allow your dashboard to keep up to date with function updates as new branding guidance and accessibility guidelines are implemented in the template.
+
+If your dashboard repo must remain private then use Option B.
+
+#### Step 1a: Fork This Repository
 - Go to [NISRA-Tech-Lab/dashboard-template](https://github.com/NISRA-Tech-Lab/dashboard-template)
 - Click the **Fork** button (top-right) to create your own copy
-- This allows you to pull future updates from the template while maintaining your own customizations
+- This allows you to pull future updates from the template while maintaining your own customisations
 
-### Step 2: Clone Your Fork in VS Code
+### Option B - Using this repository as a template
+
+This option creates a full copy of the template on your branch's Github organisation page, however functional changes made to the template will not be tracked and this may require more manual coding changes in future to ensure that your dashboard aligns with future branding and accessibility updates.
+
+It is only recommended to use this option if your code must remain private. (eg, you are developing a product with not yet published data)
+
+#### Step 1b: Use template
+- Click the **Use this template** button in the top right of the page.
+- Choose "Create a new repository" from the dropdown
+- Change the owner to your branch's organisation and enter the name of the dashboard
+- Click "Create repository"
+
+---
+
+#### Step 2: Clone Your Fork in VS Code
 - Open VS Code → `View > Command Palette` → `Git: Clone`
 - Paste your fork's URL:
 ```
