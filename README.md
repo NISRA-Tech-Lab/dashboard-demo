@@ -72,11 +72,11 @@ The overall structure is intentionally very similar to the Dashboard Template so
 Almost every dashboard page consists of two files with the same name.
 
 ```
-population.html
-population.js
+population-estimates.html
+population-estimates.js
 
-births.html
-births.js
+age-structure.html
+age-structure.js
 
 migration.html
 migration.js
