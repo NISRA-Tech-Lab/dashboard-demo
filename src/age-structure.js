@@ -103,8 +103,8 @@ window.addEventListener("DOMContentLoaded", async () => {
     //
     // This is similar to:
     //
-    //   median_age_data |>
-    //     filter(Year == latest_year) |>
+    //   median_age <- median_age_data %>%
+    //     filter(Year == latest_year) %>%
     //     pull(`All persons`)
     const median_age = median_age_data
         .filter(row => row["Year"] == latest_year)
@@ -268,7 +268,7 @@ window.addEventListener("DOMContentLoaded", async () => {
     // includes() checks whether the row's year appears in the selected-year array.
     // This is similar to using %in% in R:
     //
-    //   pop_age_data |>
+    //   age_chart_data <- pop_age_data %>%
     //     filter(
     //       Year %in% bar_years,
     //       `Broad age band (4 cat)` != "All"
@@ -287,8 +287,8 @@ window.addEventListener("DOMContentLoaded", async () => {
     //
     // This is conceptually similar to grouping by Year in dplyr and calculating:
     //
-    //   age_chart_data |>
-    //     group_by(Year) |>
+    //   age_chart_data %>%
+    //     group_by(Year) %>%
     //     mutate(percentage = `All persons` / sum(`All persons`) * 100)
     barChart({
         data: age_chart_data,
@@ -336,7 +336,7 @@ window.addEventListener("DOMContentLoaded", async () => {
     //
     // Adding or changing a property on each row is conceptually similar to:
     //
-    //   pop_single_age_data |>
+    //   pop_single_age_data <- pop_single_age_data %>%
     //     mutate(
     //       `Single year of age` =
     //         if_else(`Single year of age` == 90, "90+", ...)

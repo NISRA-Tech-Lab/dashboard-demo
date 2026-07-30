@@ -50,7 +50,7 @@ window.addEventListener("DOMContentLoaded", async () => {
     updateYearSpans(over_85_data);
 
     // Set the comparison year to ten years before the latest available year
-    const comparison_year = latest_year - 10
+    const comparison_year = latest_year - 10;
 
     // Format the matrix update date stored in the metadata
     const over_85_updated = dateFormat(over_85_meta.updated);
@@ -81,11 +81,11 @@ window.addEventListener("DOMContentLoaded", async () => {
     //
     // This is similar to:
     //
-    //   over_85_data |>
+    //   pop_over_85 <- over_85_data %>%
     //     filter(
     //       Year == latest_year,
     //       Sex == "All persons"
-    //     ) |>
+    //     ) %>%
     //     pull(over_85)
     const pop_over_85 = over_85_data
       .filter(row =>
@@ -193,8 +193,8 @@ window.addEventListener("DOMContentLoaded", async () => {
   //
   // This is conceptually similar to:
   //
-  //   over_85_bar_data |>
-  //     group_by(Year) |>
+  //   over_85_bar_data %>%
+  //     group_by(Year) %>%
   //     mutate(
   //       percentage = over_85 / sum(over_85) * 100
   //     )

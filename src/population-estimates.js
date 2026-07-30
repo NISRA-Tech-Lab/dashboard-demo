@@ -78,8 +78,8 @@ window.addEventListener("DOMContentLoaded", async () => {
     //
     // This is similar to the following dplyr pipeline:
     //
-    //   pop_totals_data |>
-    //     filter(Year == latest_year) |>
+    //   pop_total <- pop_totals_data %>%
+    //     filter(Year == latest_year) %>%
     //     pull(Unrounded)
     const pop_total = pop_totals_data
         .filter(row => row["Year"] == latest_year)
@@ -145,11 +145,11 @@ window.addEventListener("DOMContentLoaded", async () => {
     //
     // This is similar to:
     //
-    //   gender_pop_data |>
+    //   female_pop <- gender_pop_data %>%
     //     filter(
     //       Year == latest_year,
     //       `Broad age band (4 cat)` == "All"
-    //     ) |>
+    //     ) %>%
     //     pull(Females)
     const female_pop = gender_pop_data
         .filter(row =>

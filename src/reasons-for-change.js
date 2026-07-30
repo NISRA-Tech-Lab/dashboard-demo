@@ -77,7 +77,7 @@ window.addEventListener("DOMContentLoaded", async () => {
     //
     // This is similar to:
     //
-    //   pop_change_latest_year <- pop_change_data |>
+    //   pop_change_latest_year <- pop_change_data %>%
     //     filter(Year == latest_year)
     const pop_change_latest_year = pop_change_data
         .filter(row => row["Year"] == latest_year);
@@ -86,7 +86,7 @@ window.addEventListener("DOMContentLoaded", async () => {
     //
     // map() selects the requested column from each retained row, similar to:
     //
-    //   pop_change_latest_year |>
+    //   start_pop <- pop_change_latest_year %>%
     //     pull(`Starting population`)
     const start_pop = pop_change_latest_year
         .map(col => col["Starting population"]);
@@ -173,7 +173,7 @@ window.addEventListener("DOMContentLoaded", async () => {
     //
     // This is similar to:
     //
-    //   chart_data <- gender_pop_data |>
+    //   chart_data <- gender_pop_data %>%
     //     filter(
     //       Year == latest_year,
     //       `Broad age band (4 cat)` != "All"

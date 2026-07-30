@@ -85,12 +85,12 @@ window.addEventListener("DOMContentLoaded", async () => {
     //
     // This is similar to:
     //
-    //   migration_data |>
+    //   pop_change_value <- migration_data %>%
     //     filter(
     //       Year == latest_year,
     //       `Broad age band (7 cat)` == "All",
     //       Sex == "All persons"
-    //     ) |>
+    //     ) %>%
     //     pull(`Total Net`)
     const pop_change_value = migration_data
         .filter(row =>
@@ -161,7 +161,7 @@ window.addEventListener("DOMContentLoaded", async () => {
     //
     // This is similar to:
     //
-    //   age_group_data |>
+    //   age_group_data %>%
     //     pull(`Total Net`)
     const net_values = age_group_data
         .map(col => col["Total Net"]);

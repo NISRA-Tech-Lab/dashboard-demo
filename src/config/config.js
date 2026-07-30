@@ -29,7 +29,7 @@ export const config = {
         "MA01T01",   // Median age
         "MIG01T02",  // Net migration by age and sex
         "MIG01T03",  // Migration flows
-        "MYE01T08" // Single year of age
+        "MYE01T08"   // Single year of age
     ],
     
     "rateit": "link-to-rateit"

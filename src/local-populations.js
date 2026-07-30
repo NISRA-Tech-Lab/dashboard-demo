@@ -60,7 +60,7 @@ window.addEventListener("DOMContentLoaded", async () => {
     //
     // This is similar to:
     //
-    //   pop_by_lgd_data |>
+    //   map_data <- pop_by_lgd_data %>%
     //     filter(
     //       Year == latest_year,
     //       `Local Government District` != "Northern Ireland"

@@ -45,8 +45,9 @@ window.addEventListener("DOMContentLoaded", async () => {
     // Step 2: Filter the data frame to the latest year
     //
     // This pipeline is similar to:
-    //   filter(Year == latest_year) |>
-    //   pull(Unrounded)
+    //   headline_1 <- pop_totals_data %>%
+    //      filter(Year == latest_year) %>%
+    //      pull(Unrounded)
     //
     // filter() keeps the matching row and map() extracts its Unrounded value
     const headline_1 = pop_totals_data

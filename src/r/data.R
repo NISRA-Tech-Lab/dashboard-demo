@@ -31,7 +31,7 @@ fetch_dataset <- function(matrix,
   repeat {
     result <- tryCatch(
       {
-        
+
         json_url <- paste0(
           "https://",
           "ws-data.nisra.gov.uk/public/api.restful/",
@@ -40,7 +40,7 @@ fetch_dataset <- function(matrix,
           "/JSON-stat/2.0/en?apiKey=",
           api_key
         )
-        
+
         csv_url <- paste0(
           "https://",
           "ws-data.nisra.gov.uk/public/api.restful/",
@@ -58,7 +58,7 @@ fetch_dataset <- function(matrix,
           stop("API returned error field")
         }
 
-        return(list(json = json_data, csv = csv_data))  # ✅ success, return immediately
+        return(list(json = json_data, csv = csv_data))
       },
       error = function(e) {
         message(sprintf("Error fetching %s (attempt %d): %s",
@@ -86,20 +86,20 @@ all_data <- list()
 for (matrix in matrix_list) {
 
   raw_data <- fetch_dataset(matrix, api_key)
-  
+
   raw_json <- raw_data$json
 
   all_data[[matrix]]$label <- raw_json$label
   all_data[[matrix]]$updated <- as.Date(raw_json$updated)
   all_data[[matrix]]$subject <- raw_json$extension$subject$code
   all_data[[matrix]]$product <- raw_json$extension$product$code
-  
+
   raw_csv <- raw_data$csv
-  
+
   cols_to_keep <- c()
-  
+
   dimensions <- raw_json$dimension
-  
+
   for (i in seq_along(dimensions)) {
     dimension_name <- names(dimensions[i])
     dimension_label <- dimensions[[i]]$label
@@ -109,17 +109,17 @@ for (matrix in matrix_list) {
       cols_to_keep <- c(cols_to_keep, dimension_label)
     }
   }
-  
+
   pivot_col <- tail(cols_to_keep, 1)
-  
+
   cols_to_keep <- c(cols_to_keep, "VALUE")
-  
-  csv_wide <- raw_csv |> 
-    select(all_of(cols_to_keep)) |> 
+
+  csv_wide <- raw_csv %>% 
+    select(all_of(cols_to_keep)) %>% 
     pivot_wider(names_from = all_of(pivot_col), values_from = "VALUE")
-  
+
   names(csv_wide) <- gsub(" Label", "", names(csv_wide))
-  
+
   write.csv(csv_wide, paste0("public/data/", matrix, ".csv"), row.names = FALSE)
 }
 
