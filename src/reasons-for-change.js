@@ -334,8 +334,8 @@ window.addEventListener("DOMContentLoaded", async () => {
     // rounded_unrounded restricts the download to the Unrounded measure used
     // in the displayed table
     const pop_table_query = {
-        "TLIST(A1)": [last_year, latest_year],
-        rounded_unrounded: "Unrounded"
+        "Year": [last_year, latest_year],
+        "Rounded or unrounded": "Unrounded"
     };
 
     // Request the latest-year male and female values for the four broad age bands
@@ -345,9 +345,9 @@ window.addEventListener("DOMContentLoaded", async () => {
     //   Sex values 1 and 2 represent the male and female categories
     //   broadage4 values 1 to 4 represent the four individual age bands
     const pop_bar_query = {
-        "TLIST(A1)": latest_year, // Restrict the download to the latest year
-        "Sex": ["1", "2"], // Select both sex categories
-        "broadage4": ["1", "2", "3", "4"] // Select the four non-summary age bands
+        "Year": latest_year, // Restrict the download to the latest year
+        "Sex": ["Females", "Males"], // Select both sex categories
+        "Broad age band (4 cat)": ["Age 0-15", "Age 16-39", "Age 40-64", "Age 65+"] // Select the four non-summary age bands
     };
 
     // Add a download button for the data underlying the age breakdown chart

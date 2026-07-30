@@ -276,16 +276,15 @@ window.addEventListener("DOMContentLoaded", async () => {
 
   // Request the years and male/female categories used in the stacked chart
   const pop_stacked_query = {
-      "TLIST(A1)": year_range, // The complete eleven-year range shown in the chart
-      "broadage4": "All", // All age groups represented in the MYE01T025 matrix
-      "Sex": ["1", "2"] // Male and female categories
+      "Year": year_range, // The complete eleven-year range shown in the chart
+      "Sex": ["Females", "Males"] // Male and female categories
   };
 
   // Request the latest-year broad age groups used in the tree map
   const pop_treemap_query = {
-      "TLIST(A1)": latest_year, // Latest year only
-      "broadage7": ["1, 2", "3", "4"], // Broad age-group categories displayed in the tree map
-      "Sex": "All" // All persons
+      "Year": latest_year, // Latest year only
+      "Broad age band (4 cat)": ["Age 0-15", "Age 16-39", "Age 40-64", "Age 65+"], // Broad age-group categories displayed in the tree map
+      "Sex": "All persons" // All persons
   };
 
   // Add a download button for the stacked male/female chart
@@ -294,8 +293,6 @@ window.addEventListener("DOMContentLoaded", async () => {
   // Add a download button for the broad-age tree map
   downloadButton("tree-map-capture", "MYE01T03", pop_age_updated, pop_treemap_query);
 
-  
-  
   // ===== INFO BOXES: HELP AND CONTEXT =====
   // Populate the expandable information boxes displayed below the page content
   //

@@ -323,16 +323,16 @@ window.addEventListener("DOMContentLoaded", async () => {
 
     // Request the unrounded population series used by the line chart
     const pop_line_query = {
-        rounded_unrounded: "Unrounded"
+        "Rounded or Unrounded": "Unrounded"
     };
 
     // Request the latest year, the combined age category, and both sex categories
     //
     // TLIST(A1), broadage4, and Sex are dimension codes used by the source matrix
     const pop_pie_query = {
-        "TLIST(A1)": latest_year, // Restrict the download to the latest year
-        "broadage4": "All", // Select all broad age groups combined
-        "Sex": ["1", "2"] // Select male and female categories
+        "Year": latest_year, // Restrict the download to the latest year
+        "Broad age band (4 cat)": "All", // Select all broad age groups combined
+        "Sex": ["Females", "Males"] // Select male and female categories
     };
 
     // Add a download button for the data underlying the line chart

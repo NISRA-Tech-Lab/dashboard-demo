@@ -93,8 +93,8 @@ window.addEventListener("DOMContentLoaded", async () => {
     // The query requests the latest available year and the unrounded
     // population measure used in the visualisation
     const map_query = {
-        "TLIST(A1)": latest_year,
-        rounded_unrounded: "Unrounded"
+        "Year": latest_year,
+        "Rounded or unrounded": "Unrounded"
     };
 
     // Add a download button for the data underlying the map

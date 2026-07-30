@@ -333,18 +333,18 @@ window.addEventListener("DOMContentLoaded", async () => {
     //   broadage7 values identify the individual age bands
     //   TOTNET identifies the Total Net measure
     const migration_bar_query = {
-        "TLIST(A1)": latest_year,
-        "broadage7": ["1, 2", "3", "4", "5", "6", "7"],
-        "Sex": ["1", "2"],
-        "type": "TOTNET"
+        "Year": latest_year,
+        "Broad age band (7 cat)": ["Age 0-17", "Age 18-24", "Age 25-34", "Age 35-44", "Age 45-54", "Age 55-64", "Age 65+"],
+        "Sex": ["Females", "Males"],
+        "Type": "Total Net"
     };
 
     // Request the three net migration series displayed on the line chart
     const migration_line_query = {
-        "type9": [
-            "UKNET",
-            "ROWNET",
-            "TOTNET"
+        "Type": [
+            "United Kingdom Net",
+            "Rest of World Net",
+            "Total Net"
         ]
     };
 

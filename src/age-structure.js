@@ -457,20 +457,20 @@ window.addEventListener("DOMContentLoaded", async () => {
     // map(String) converts each numeric year into a string because the download
     // query expects year category codes as text
     const age_chart_query = {
-        "TLIST(A1)": bar_years.map(String),
-        "Sex": "All"
+        "Year": bar_years.map(String),
+        "Sex": "All persons"
     };
 
     // Request the latest year and both male and female categories used by the
     // population pyramid
     const pop_pyramid_query = {
-        "TLIST(A1)": latest_year,
-        "Sex": ["1", "2"]
+        "Year": latest_year,
+        "Sex": ["Females", "Males"]
     };
 
     // Request all years displayed in the median-age line chart
     const median_line_query = {
-        "TLIST(A1)": median_line_years
+        "Year": median_line_years
     };
 
     // Add a download button for the broad-age chart
