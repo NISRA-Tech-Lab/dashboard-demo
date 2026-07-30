@@ -457,7 +457,7 @@ td {
   font-weight: bold;
 }
 .arrow.up {
-  color: rgb(0, 0, 0);
+  color: var(--nisra_green);
 }
 .arrow.down {
   color: #e60000;
