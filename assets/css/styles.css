@@ -9,6 +9,17 @@ body {
   background-color: #f2f5f8;
 }
 
+/* ===========================
+   Global NISRA colours
+   =========================== */
+:root {
+  --nisra_blue: #3878c5;
+	--nisra_navy: #00205b;
+	--nisra_purple: #732777;
+  --nisra_slate: #3b3b3b;
+  --nisra_green: #68a41e;
+}
+
 /* Headings per style guide */
 h1 { font-size: 28px; line-height: 1.285; font-weight: 700; }
 @media (min-width: 992px) { h1 { font-size: 30px; line-height: 1.3; } }
@@ -118,9 +129,9 @@ main a[target="_blank"]::after {
    Footer
    =========================== */
 .footer {
-  background-color: #00205b;
+  background-color: var(--nisra_navy);
   color: #fff;
-  border-top: 4px solid #3878c5;
+  border-top: 4px solid var(--nisra_blue);
 }
 .footer a {
   color: #fff;
@@ -175,7 +186,7 @@ table tr:not(:has(th)):hover {
 }
 
 .btn-primary {
-  background-color: #3878c5;
+  background-color: var(--nisra_blue);
 }
 
 .current-page {
@@ -189,7 +200,7 @@ table tr:not(:has(th)):hover {
 }
 
 .blue-bg {
-  background-color: #3878c5;
+  background-color: var(--nisra_blue);
   color: #fff;
 }
 
@@ -203,8 +214,8 @@ table tr:not(:has(th)):hover {
 
 .home {
   background-color: #fff;
-  color: #00205B;
-  border: 2px solid #00205B;
+  color: var(--nisra_navy);
+  border: 2px solid var(--nisra_navy);
 }
 
 .blue-bg a, .purple-bg a {
@@ -212,16 +223,16 @@ table tr:not(:has(th)):hover {
 }
 
 .purple-bg {
-  background-color: #732777;
+  background-color: var(--nisra_purple);
   color: #fff;
 }
 
 .purple-border {
-  border: 2px solid #732777;
+  border: 2px solid var(--nisra_purple);
 }
 
 .green-border {
-  border: 2px solid #68A41E;
+  border: 2px solid var(--nisra_green);
 }
 
 .light-purple-bg {
@@ -230,7 +241,7 @@ table tr:not(:has(th)):hover {
 }
 
 .green-bg {
-  background-color: #68A41E;
+  background-color: var(--nisra_green);
 }
 
 .green-bg a {
@@ -239,13 +250,13 @@ table tr:not(:has(th)):hover {
 
 /* Your custom background */
 .navy-bg {
-  background-color: #00205B !important;
+  background-color: var(--nisra_navy) !important;
   color: #fff !important;
 }
 
 .nav-btn {
-  background-color: #3878c5;
-  border: 2px solid #00205B;
+  background-color: var(--nisra_blue);
+  border: 2px solid var(--nisra_navy);
 }
 
 .nav-btn:hover {
@@ -265,7 +276,7 @@ table tr:not(:has(th)):hover {
 
 /* Only when expanded (i.e., NOT collapsed) */
 .accordion-button:not(.collapsed) {
-  background-color: #00205B;
+  background-color: var(--nisra_navy);
   color: #fff;
 }
 
@@ -275,15 +286,15 @@ table tr:not(:has(th)):hover {
 }
 
 .accordion-button {
-  border-left: 2px solid #00205B;
-  border-top: 2px solid #00205B;
-  border-bottom: 2px solid #00205B;
-  color: #00205B;
+  border-left: 2px solid var(--nisra_navy);
+  border-top: 2px solid var(--nisra_navy);
+  border-bottom: 2px solid var(--nisra_navy);
+  color: var(--nisra_navy);
   font-size: 0.75em;
 }
 
 #info-card {
-  border: 2px solid #00205B;
+  border: 2px solid var(--nisra_navy);
 }
 
 
