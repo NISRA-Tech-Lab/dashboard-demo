@@ -15,6 +15,7 @@ export const config = {
     "department": "DoF",
 
     // Data portal tables to use in the dashboard.
+    // Re-run "src/r/data.R" script after each update to list below
     "matrix": [
         "EXAMPLETABLE1",
         "EXAMPLETABLE2"
