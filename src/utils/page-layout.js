@@ -295,33 +295,14 @@ export function insertNavButtons() {
 //   • social-media links
 //   • copyright, privacy and accessibility links
 //
-// The function also adjusts the footer's top margin so that it sits near the
-// bottom of the browser window on pages with limited content.
-//
 // EXPECTED HTML
 //
 // The page should contain:
 //
 //   • an element with the ID "footer"
-//   • an element with the ID "banner"
-//   • an element with the ID "nav"
-//   • a <main> element
 //
 // The heights of these elements are used when calculating whether additional
 // space is required above the footer.
-//
-// RESPONSIVE BEHAVIOUR
-//
-// The footer margin is recalculated:
-//
-//   • when the function first runs
-//   • whenever the browser window is resized
-//
-// When the page content is shorter than the available screen height, a positive
-// top margin is applied to the footer.
-//
-// When the page content is already taller than the screen, the top margin is
-// set to zero.
 //
 // RETURNS
 //
@@ -333,8 +314,6 @@ export function insertNavButtons() {
 //
 //   • adds classes to the #footer element
 //   • replaces the footer's HTML
-//   • calculates and changes the footer's top margin
-//   • adds a resize event listener to the window
 export function insertFooter () {
 
     // ===== PREPARE THE FOOTER =====
@@ -410,15 +389,6 @@ export function insertFooter () {
         <li class="list-inline-item"><a href="https://datavis.nisra.gov.uk/dissemination/accessibility-statement-visualisations.html">Accessibility Statement</a></li>
       </ul>
     </div>`
-    
-    // ===== KEEP THE FOOTER NEAR THE BOTTOM OF THE PAGE =====
-    function adjustFooterMargin() {
-      const margin_needed = (window.innerHeight - document.getElementById("banner").clientHeight - document.getElementById("nav").clientHeight - document.getElementsByTagName("main")[0].clientHeight - footer.clientHeight);
-      footer.style.marginTop = (margin_needed) > 0 ? `${margin_needed}px` : "0px";
-    }
-
-    adjustFooterMargin();
-    window.addEventListener("resize", adjustFooterMargin); 
 
 }
 
