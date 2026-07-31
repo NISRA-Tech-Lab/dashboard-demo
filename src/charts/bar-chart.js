@@ -168,6 +168,10 @@ export function barChart({ data, value, bars = null, categories, canvas_id, labe
     }
   }
 
+  const isMobile = window.innerWidth <= 768;
+  const totalBars = bar_categories.length * Object.keys(chart_data).length;
+  const hideLabels = isMobile && totalBars >= 7;
+
   // ===== CONFIGURE THE CHART =====
   const baseOptions = {
     indexAxis: align === "horizontal" ? "y" : "x",
@@ -189,6 +193,7 @@ export function barChart({ data, value, bars = null, categories, canvas_id, labe
             }
       },
       datalabels: {
+        display: !hideLabels,
         anchor: stacked ? "center": "end",
         align: stacked ? "center": "start",
         color: "#ffffff",
