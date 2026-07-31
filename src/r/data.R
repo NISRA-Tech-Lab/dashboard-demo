@@ -1,6 +1,5 @@
 library(dplyr)
 library(purrr)
-library(jsonlite)
 library(V8)
 library(tidyr)
 
@@ -50,7 +49,7 @@ fetch_dataset <- function(matrix,
           api_key
         )
 
-        json_data <- fromJSON(txt = json_url)
+        json_data <- jsonlite::fromJSON(txt = json_url)
         csv_data <- read.csv(csv_url, check.names = FALSE)
 
         # Check if API itself returned "error" field
@@ -132,4 +131,4 @@ for (matrix in matrix_list) {
 }
 
 
-write_json(all_data, "public/data/data.json", pretty = TRUE, auto_unbox = TRUE)
+jsonlite::write_json(all_data, "public/data/data.json", pretty = TRUE, auto_unbox = TRUE)
