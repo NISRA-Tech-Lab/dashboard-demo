@@ -128,7 +128,7 @@ export function pieChart({data, canvas_id, type = "pie"}) {
       },
       plugins: [{
         id: 'pieLabelConnector',
-        afterDraw(chart) {
+        afterDatasetsDraw(chart) {
           const ctx = chart.ctx;
           const dataset = chart.data.datasets[0];
           const meta = chart.getDatasetMeta(0);
