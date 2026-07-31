@@ -185,6 +185,8 @@ table tr:not(:has(th)):hover {
   /* background-color: #d6d6d6; */
   background-color: #68a41e;
   color: #000;
+  padding:0rem 0.5rem 1rem;
+  border-bottom: 14px solid #68a41e;
 }
 
 .current-page-strapline {
@@ -258,13 +260,14 @@ table tr:not(:has(th)):hover {
   /* border-left: 2px solid #d6d6d6; */
   /* border-top: 2px solid #3878c5; */
   border-bottom: 14px solid #68a41e;
-  padding: 0.5rem 1rem;
+  padding:0rem 0.5rem 0.5rem;
   color: #fff;
 }
 
 .nav-btn:hover {
-  background-color: #68a41e;
-  color: #000;
+  background-color: #00205b;
+   border-bottom: 25px solid #68a41e;
+  color: #fff;
   cursor: pointer;
 }
 
