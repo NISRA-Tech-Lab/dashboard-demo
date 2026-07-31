@@ -148,11 +148,14 @@ export function treemapChart({
         tooltip: {
           enabled: true,   // Display a tooltip when the user points to a rectangle
           callbacks: {
-            label: function(ctx) {
-              return `${ctx.raw.label}: ${ctx.raw.value.toLocaleString()}`;
+              title: function(ctx) {
+                return `${ctx[0].raw.g}`;
+              },
+              label: function(ctx) {
+                return ctx.raw.v.toLocaleString();
+              }
             }
           }
-        }
         }
       }
     });
