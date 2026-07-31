@@ -452,9 +452,17 @@ td {
 .change-cell {
   text-align: right;
 }
+.change-wrapper {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-end;
+}
 .arrow {
-  margin-right: 6px;
-  font-weight: bold;
+  width: 5px;
+}
+.change-value {
+  min-width: 65px;
+  text-align: right;
 }
 .arrow.up {
   color: var(--nisra_green);

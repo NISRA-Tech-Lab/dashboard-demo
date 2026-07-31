@@ -129,8 +129,10 @@ export function insertTable(tableId, table_data) {
       : "-" + Math.abs(value).toLocaleString();
 
     return `
-      <span class="arrow ${arrowClass}">${arrow}</span>
-      ${display}
+      <span class="change-wrapper">
+        <span class="arrow ${arrowClass}">${arrow}</span>
+        <span class="change-value">${display}</span>
+      </span>
     `;
   }
 
