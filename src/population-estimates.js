@@ -231,6 +231,10 @@ window.addEventListener("DOMContentLoaded", async () => {
         .map(col => col["Year"])
         .slice(-26);
 
+    document.querySelectorAll(".line-first-year").forEach(span => {
+        span.textContent = pop_line_years[0];
+    });
+
     // Extract the corresponding Unrounded population values
     //
     // The same slice is applied to the years and values so that the two arrays
