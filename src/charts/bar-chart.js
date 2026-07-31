@@ -177,11 +177,25 @@ export function barChart({ data, value, bars = null, categories, canvas_id, labe
       legend: {
             onClick: () => {},          
           },
+          tooltip: {
+            callbacks: {
+              label: function(ctx) {
+                let value = ctx.raw;
+                if (Array.isArray(value)) {
+                  value = value.find(v => v != null);
+                }
+                return `${ctx.dataset.label}: ${Number(value).toLocaleString()}`;
+              }
+            }
+      },
       datalabels: {
         anchor: stacked ? "center": "end",
         align: stacked ? "center": "start",
         color: "#ffffff",
-        clamp: true
+        clamp: true,
+        formatter: (value) => {
+          return Number(value).toLocaleString();
+        }
       },      
         yAxisLabel: {
           text: y_label,
