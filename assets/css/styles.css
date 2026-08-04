@@ -419,16 +419,12 @@ input:focus-visible, select:focus-visible, button:focus-visible, .map:has(canvas
   border-radius: 0.25rem; /* optional, if you want */
 }
 
-.display-6 .unit, .display-6 .unit-pct {
+.display-6.unit {
   font-size: 18pt;
 }
 
-.display-4 .unit, .display-4 .unit-pct {
+.display-4.unit {
   font-size: 26pt;
-}
-
-.unit:before {
-  content: "MtCO₂e";
 }
 
 .tab-pane p {
