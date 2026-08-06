@@ -47,7 +47,7 @@ window.addEventListener("DOMContentLoaded", async () => {
 
     // Read the available years from the CSV rows and update year labels
     // shown throughout the page
-    updateYearSpans(over_85_data);
+    updateYearSpans(over_85_data, over_85_meta);
 
     // Set the comparison year to ten years before the latest available year
     const comparison_year = latest_year - 10;
@@ -225,9 +225,6 @@ window.addEventListener("DOMContentLoaded", async () => {
   // Load the broad-age population matrix and its metadata
   const [pop_age_data, pop_age_meta] = await readData("MYE01T03");
   
-  // Update the year labels using the years available in the broad-age CSV
-  updateYearSpans(pop_age_data);
-
   // Format the matrix update date stored in the metadata
   const pop_age_updated = dateFormat(pop_age_meta.updated);
   

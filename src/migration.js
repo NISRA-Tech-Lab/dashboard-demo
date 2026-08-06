@@ -68,7 +68,7 @@ window.addEventListener("DOMContentLoaded", async () => {
 
     // Read the available years from the CSV rows and update year references
     // displayed throughout the page
-    updateYearSpans(migration_data);
+    updateYearSpans(migration_data, migration_meta);
 
     // Format the matrix update date stored separately in the metadata
     const migration_updated = dateFormat(migration_meta.updated);

@@ -40,7 +40,7 @@ window.addEventListener("DOMContentLoaded", async () => {
 
     // Use the years available in the population totals data to update year references
     // displayed throughout the page
-    updateYearSpans(pop_totals_data);
+    updateYearSpans(pop_totals_data, pop_totals_meta);
 
     // Step 2: Filter the data frame to the latest year
     //

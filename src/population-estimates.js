@@ -59,17 +59,17 @@ window.addEventListener("DOMContentLoaded", async () => {
     //
     // MYE01T05.csv contains the observation rows, while the MYE01T05 entry in
     // data.json contains the associated metadata
-    const [pop_totals_data, pop_totals_data_meta] = await readData("MYE01T05");
+    const [pop_totals_data, pop_totals_meta] = await readData("MYE01T05");
 
     // Read the available years from the CSV data and update year references
     // displayed throughout the page
-    updateYearSpans(pop_totals_data);
+    updateYearSpans(pop_totals_data, pop_totals_meta);
 
     // Format the matrix update date stored in the metadata
     //
     // The metadata is kept separately from the CSV observations, so the update
-    // date is read from pop_totals_data_meta rather than pop_totals_data
-    const pop_totals_data_updated = dateFormat(pop_totals_data_meta.updated);
+    // date is read from pop_totals_meta rather than pop_totals_data
+    const pop_totals_updated = dateFormat(pop_totals_meta.updated);
 
     // Step 2: Select the latest population total
     //
@@ -346,7 +346,7 @@ window.addEventListener("DOMContentLoaded", async () => {
     downloadButton(
         "pop-line-capture",
         "MYE01T05",
-        pop_totals_data_updated,
+        pop_totals_updated,
         pop_line_query
     );
 

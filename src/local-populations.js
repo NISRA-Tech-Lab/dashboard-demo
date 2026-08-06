@@ -47,7 +47,7 @@ window.addEventListener("DOMContentLoaded", async () => {
 
     // Read the available years from the CSV rows and update year references
     // displayed throughout the page
-    updateYearSpans(pop_by_lgd_data);
+    updateYearSpans(pop_by_lgd_data, pop_by_lgd_meta);
 
     // ===== PREPARE THE MAP DATA =====
     // Filter the CSV rows to:

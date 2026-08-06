@@ -68,7 +68,7 @@ window.addEventListener("DOMContentLoaded", async () => {
 
     // Read the available years from the CSV rows and update year references
     // displayed throughout the page
-    updateYearSpans(pop_change_data);
+    updateYearSpans(pop_change_data, pop_change_meta);
 
     // Step 2: Filter the data to the latest year
     //

@@ -76,7 +76,7 @@ window.addEventListener("DOMContentLoaded", async () => {
 
     // Read the available years from the CSV rows and update year references
     // displayed throughout the page
-    updateYearSpans(median_age_data);
+    updateYearSpans(median_age_data, median_age_meta);
 
     // Set a comparison year 25 years before the latest available year
     //
