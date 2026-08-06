@@ -55,6 +55,10 @@ window.addEventListener("DOMContentLoaded", async () => {
 
     // End page card content
 
+    // Insert chart content below
+
+    // Content for chart 1
+
     // Line chart example - replace with dynamic data as needed
 
     const line_chart_years = [2015, 2016, 2017, 2018, 2019, 2020];
@@ -76,6 +80,8 @@ window.addEventListener("DOMContentLoaded", async () => {
         labels: line_chart_labels,
         canvas_id: "line-example-expanded"
     });
+
+    // Content for chart 2
 
     // Bar chart example - replace with dynamic data as needed
     const bar_chart_data = [
@@ -111,6 +117,8 @@ window.addEventListener("DOMContentLoaded", async () => {
        label_format: ",",
        y_label: "Value"
     });
+
+    // End chart content
 
 
 })
