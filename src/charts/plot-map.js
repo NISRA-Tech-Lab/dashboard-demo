@@ -1,4 +1,4 @@
-import { loadShapes } from "./load-shapes.js";
+import { loadShapes } from "../utils/load-shapes.js";
 
 export let map;
 let geojsonData;

@@ -1,4 +1,4 @@
-import { map } from "./plot-map.js";
+import { map } from "../charts/plot-map.js";
 import { readData } from "./read-data.js";
 
 // ===== ADD DOWNLOAD OPTIONS TO A CARD =====
