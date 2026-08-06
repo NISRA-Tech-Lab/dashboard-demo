@@ -4,12 +4,12 @@
 
 import { insertHeader, insertFooter, insertNavButtons, insertHead } from "./utils/page-layout.js"; // Builds the shared page structure
 import { readData } from "./utils/read-data.js"; // Loads a CSV dataset together with its metadata
-import { plotMap } from "./utils/plot-map.js"; // Draws a map using row-based area and population data
+import { plotMap } from "./charts/plot-map.js"; // Draws a map using row-based area and population data
 import { populateInfoBoxes } from "./utils/info-boxes.js"; // Populates expandable information boxes
 import { downloadButton } from "./utils/download-button.js"; // Adds a button for downloading the map data
 import { updateYearSpans, latest_year } from "./utils/update-years.js"; // Provides the latest year and updates year labels
 import { dateFormat } from "./utils/date-format.js"; // Formats dataset update dates for display
-import { insertTable } from "./utils/insert-table.js"; // Builds and inserts an HTML data table
+import { insertTable } from "./charts/insert-table.js"; // Builds and inserts an HTML data table
 
 // ===== MAIN EXECUTION =====
 // Run the page setup and data-processing code after the initial HTML

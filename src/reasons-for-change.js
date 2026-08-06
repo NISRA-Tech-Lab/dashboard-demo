@@ -10,7 +10,7 @@ import { readData } from "./utils/read-data.js"; // Loads a matrix CSV together 
 import { insertValue } from "./utils/insert-value.js"; // Inserts a value into a specified HTML element
 import { latest_year, updateYearSpans, last_year } from "./utils/update-years.js"; // Provides and updates year-related values
 import { barChart } from "./charts/bar-chart.js"; // Creates a grouped bar chart
-import { insertTable } from "./utils/insert-table.js"; // Builds and inserts an HTML table
+import { insertTable } from "./charts/insert-table.js"; // Builds and inserts an HTML table
 import { insertExpandButtons } from "./utils/expand-buttons.js"; // Adds controls for expanding charts and tables
 import { dateFormat } from "./utils/date-format.js"; // Formats dataset update dates for display
 import { downloadButton } from "./utils/download-button.js"; // Adds buttons for downloading the underlying data
@@ -64,7 +64,7 @@ window.addEventListener("DOMContentLoaded", async () => {
     //
     // COPC01T01.csv contains the observation rows, while the COPC01T01 entry
     // in data.json contains the associated metadata
-    const [pop_change_data] = await readData("COPC01T01");
+    const [pop_change_data, pop_change_meta] = await readData("COPC01T01");
 
     // Read the available years from the CSV rows and update year references
     // displayed throughout the page
