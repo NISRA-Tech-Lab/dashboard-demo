@@ -39,13 +39,9 @@ export let last_year;
 // data
 //   The CSV rows from which the available years should be extracted.
 //
-// stat
-//   Optional.
+// meta
+//   The json metadata for the CSV file, which contains information about the columns.
 //
-//   If supplied, only rows whose Statistic column matches this value are used
-//   when calculating the available years.
-//
-//   If omitted or null, every row in the dataset is used.
 //
 // EXPORTED VALUES
 //
@@ -89,19 +85,16 @@ export let last_year;
 //   • sorts the available years
 //   • updates the exported year variables
 //   • replaces the text of matching HTML elements
-export function updateYearSpans(data, stat = null) {
+export function updateYearSpans(data, meta) {
 
-    // ===== FILTER THE DATA IF REQUIRED =====
-    let filteredData = data;
-
-    if (stat !== null) {
-        filteredData = data.filter(row => row["Statistic"] === stat);
-    }
+    const year_column = meta.variables
+    .filter(x => x["code"].includes("TLIST"))
+    .map(x => x["name"])[0];
 
     // ===== EXTRACT THE AVAILABLE YEARS =====
-    const all_years = filteredData
-        .sort((a, b) => a.Year - b.Year)
-        .map(row => row.Year);
+    const all_years = data
+        .sort((a, b) => a[year_column] - b[year_column])
+        .map(row => row[year_column]);
 
     years = [...new Set(all_years)];
 
