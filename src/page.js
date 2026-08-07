@@ -6,6 +6,7 @@ import { config } from "./config/config.js";
 import { lineChart } from "./charts/line-chart.js";
 import { barChart } from "./charts/bar-chart.js";
 import { insertExpandButtons } from "./utils/expand-buttons.js";
+import { downloadButton } from "./utils/download-button.js";
 
 window.addEventListener("DOMContentLoaded", async () => {
 
