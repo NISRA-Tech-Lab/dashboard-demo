@@ -241,18 +241,7 @@ window.addEventListener("DOMContentLoaded", async () => {
         bars: "Sex",
         categories: "Broad age band (7 cat)",
         canvas_id: "migration-bar",
-        label_format: ",",
-        align: "horizontal",
-        y_label: "Age"
-    });
-
-    // Draw a second copy of the chart for the expanded view
-    barChart({
-        data: migration_chart_data,
-        value: "Total Net",
-        bars: "Sex",
-        categories: "Broad age band (7 cat)",
-        canvas_id: "migration-bar-expanded",
+        expanded_canvas_id: "migration-bar-expanded",
         label_format: ",",
         align: "horizontal",
         y_label: "Age"

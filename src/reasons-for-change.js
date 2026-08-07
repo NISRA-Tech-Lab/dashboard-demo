@@ -193,17 +193,8 @@ window.addEventListener("DOMContentLoaded", async () => {
         value: ["Females", "Males"], // Numeric columns to display as separate series
         categories: "Broad age band (4 cat)", // Column used for the x-axis categories
         canvas_id: "population-age-bar", // HTML canvas where the chart is drawn
+        expanded_canvas_id: "population-age-bar-expanded", // HTML canvas for the expanded chart
         label_format: ",", // Format large values with thousands separators
-        y_label: "Population"
-    });
-
-    // Draw a second copy of the chart for the expanded view
-    barChart({
-        data: chart_data,
-        value: ["Females", "Males"],
-        categories: "Broad age band (4 cat)",
-        canvas_id: "population-age-bar-expanded",
-        label_format: ",",
         y_label: "Population"
     });
 

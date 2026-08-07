@@ -204,18 +204,7 @@ window.addEventListener("DOMContentLoaded", async () => {
     categories: "Year",
     bars: "Sex",
     canvas_id: "pop-stacked-bar",
-    label_format: "%",
-    stacked: true,
-    y_label: "%"
-  })
-
-  // Draw a second copy of the chart for the expanded view
-  barChart({
-    data: over_85_bar_data,
-    value: "over_85",
-    categories: "Year",
-    bars: "Sex",
-    canvas_id: "pop-stacked-bar-expanded",
+    expanded_canvas_id: "pop-stacked-bar-expanded",
     label_format: "%",
     stacked: true,
     y_label: "%"

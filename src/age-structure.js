@@ -296,19 +296,7 @@ window.addEventListener("DOMContentLoaded", async () => {
         categories: "Year",
         bars: "Broad age band (4 cat)",
         canvas_id: "age-bar",
-        label_format: "%",
-        stacked: true,
-        align: "horizontal",
-        y_label: "Year"
-    });
-
-    // Draw a second copy of the chart for the expanded view
-    barChart({
-        data: age_chart_data,
-        value: "All persons",
-        categories: "Year",
-        bars: "Broad age band (4 cat)",
-        canvas_id: "age-bar-expanded",
+        expanded_canvas_id: "age-bar-expanded",
         label_format: "%",
         stacked: true,
         align: "horizontal",
