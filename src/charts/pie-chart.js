@@ -107,7 +107,7 @@ export function pieChart({data, canvas_id, expanded_canvas_id = null, type = "pi
     const pie_data = {
       labels: labels,
       datasets: [{
-        label: 'Population',
+        label: 'Value',
         data: values,
         backgroundColor: chart_colours.slice(0, values.length),
         hoverOffset: 4
