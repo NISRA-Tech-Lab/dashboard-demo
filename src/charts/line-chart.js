@@ -63,6 +63,13 @@ import { chart_colours } from "../config/colours.js";
 //
 //     canvas_id: "population-line-chart"
 //
+// expanded_canvas_id
+//   The ID of the HTML <canvas> element where the expanded chart will be drawn.
+//
+//   Example:
+//
+//     expanded_canvas_id: "population-line-chart-expanded"
+//
 // showPoints
 //   Controls whether individual data points are visible on each line.
 //
@@ -90,10 +97,10 @@ import { chart_colours } from "../config/colours.js";
 //
 // The function finds the specified canvas element and draws a Chart.js line
 // chart inside it.
-export function lineChart({years, lines, labels, unit = "%", canvas_id, showPoints = true}) {
+export function lineChart({years, lines, labels, unit = "%", canvas_id, expanded_canvas_id = null, showPoints = true}) {
 
     // ===== BUILD THE LINE DATASETS =====
-    const line_canvas = document.getElementById(canvas_id);
+    
 
     let line_values = [];
  
@@ -166,8 +173,23 @@ export function lineChart({years, lines, labels, unit = "%", canvas_id, showPoin
       }
     };
 
-    // ===== DRAW AND RETURN THE CHART =====
+    // ===== DRAW THE STANDARD CHART =====
+    const line_canvas = document.getElementById(canvas_id);
     const ctx_line = line_canvas.getContext('2d');
-    return new Chart(ctx_line, config_line);
+
+    const charts = {
+        standard: new Chart(ctx_line, config_line),
+        expanded: null
+    };
+
+    // ===== DRAW THE EXPANDED CHART, IF REQUESTED =====
+    if (expanded_canvas_id) {
+        const expanded_canvas = document.getElementById(expanded_canvas_id);
+        const expanded_ctx = expanded_canvas.getContext("2d");
+
+        charts.expanded = new Chart(expanded_ctx, config_line);
+    }
+
+    return charts;
 
 }
