@@ -76,6 +76,12 @@ import { wrapLabel } from "../utils/wrap-label.js";
 //
 //     canvas_id: "population-chart"
 //
+// expanded_canvas_id
+//   The ID of the HTML <canvas> element where the expanded chart will be drawn.
+//
+//   Example:
+//
+//     expanded_canvas_id: "population-chart-expanded"
 // label_format
 //   Controls how values are displayed in the chart labels.
 //
@@ -120,11 +126,9 @@ import { wrapLabel } from "../utils/wrap-label.js";
 //   • creates a Chart.js chart inside that canvas
 //   • converts values to percentages when both stacked and percentage
 //     formatting are requested
-export function barChart({ data, value, bars = null, categories, canvas_id, label_format, stacked = false, align = "vertical", y_label }) {
+export function barChart({ data, value, bars = null, categories, canvas_id, expanded_canvas_id = null, label_format, stacked = false, align = "vertical", y_label }) {
 
   // ===== PREPARE THE CATEGORIES AND SERIES =====
-  const bar_canvas = document.getElementById(canvas_id);
-
   let bar_categories = data
     .map(col => col[categories]);
 
@@ -239,6 +243,7 @@ export function barChart({ data, value, bars = null, categories, canvas_id, labe
   };
 
   // ===== BUILD THE DATASETS =====
+  const bar_canvas = document.getElementById(canvas_id);
   const ctx = bar_canvas.getContext("2d");
   
   let chart_datasets = [];
@@ -253,17 +258,38 @@ export function barChart({ data, value, bars = null, categories, canvas_id, labe
   }
 
   // ===== DRAW AND RETURN THE CHART =====
-  const bar_chart = new Chart(ctx, {
-    type: "bar",
-    data: {
-      labels: bar_categories,
-      datasets: chart_datasets
-    },
-    options: baseOptions,
-    plugins: [ChartDataLabels, 
-      yAxisLabelPlugin]
-    
-  });
+  const charts = {
+        standard: new Chart(ctx, {
+          type: "bar",
+          data: {
+            labels: bar_categories,
+            datasets: chart_datasets
+          },
+          options: baseOptions,
+          plugins: [ChartDataLabels, 
+            yAxisLabelPlugin]
+          
+        }),
+        expanded: null
+    };
 
-  return bar_chart;
+  // ===== DRAW THE EXPANDED CHART, IF REQUESTED =====
+    if (expanded_canvas_id) {
+        const expanded_canvas = document.getElementById(expanded_canvas_id);
+        const expanded_ctx = expanded_canvas.getContext("2d");
+
+        charts.expanded = new Chart(expanded_ctx, {
+          type: "bar",
+          data: {
+            labels: bar_categories,
+            datasets: chart_datasets
+          },
+          options: baseOptions,
+          plugins: [ChartDataLabels, 
+            yAxisLabelPlugin]
+          
+        });
+    }
+
+  return charts;
 }
