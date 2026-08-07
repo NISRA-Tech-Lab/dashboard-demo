@@ -98,11 +98,9 @@ import { chart_colours } from "../config/colours.js";
 //   • filters the supplied rows to the requested year
 //   • creates a Chart.js bar chart inside the specified canvas
 //   • reverses the vertical axis so the age categories appear in pyramid order
-export function pyramidChart({ data, categories, values, canvas_id, year }) {
+export function pyramidChart({ data, categories, values, canvas_id, expanded_canvas_id = null, year }) {
 
   // ===== PREPARE THE SELECTED YEAR'S DATA =====
-  const bar_canvas = document.getElementById(canvas_id);
-
   let chart_data = {};
 
   values.forEach(
@@ -185,16 +183,37 @@ export function pyramidChart({ data, categories, values, canvas_id, year }) {
   };
 
   // ===== DRAW AND RETURN THE CHART =====
+  const bar_canvas = document.getElementById(canvas_id);
   const ctx = bar_canvas.getContext("2d");
 
-  const bar_chart = new Chart(ctx, {
-    type: "bar",
-    data: {
-      labels: category_labels,
-      datasets: chart_datasets
-    },
-    options: baseOptions
-  });
+  const charts = {
+        standard: new Chart(ctx, {
+          type: "bar",
+          data: {
+            labels: category_labels,
+            datasets: chart_datasets
+          },
+          options: baseOptions
+          
+        }),
+        expanded: null
+    };
 
-  return bar_chart;
+  // ===== DRAW THE EXPANDED CHART, IF REQUESTED =====
+    if (expanded_canvas_id) {
+        const expanded_canvas = document.getElementById(expanded_canvas_id);
+        const expanded_ctx = expanded_canvas.getContext("2d");
+
+        charts.expanded = new Chart(expanded_ctx, {
+          type: "bar",
+          data: {
+            labels: category_labels,
+            datasets: chart_datasets
+          },
+          options: baseOptions
+          
+        });
+    }
+
+  return charts;
 }

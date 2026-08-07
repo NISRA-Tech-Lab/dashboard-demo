@@ -91,6 +91,7 @@ export function treemapChart({
       categories,   
       value,    
       canvas_id,
+      expanded_canvas_id = null
     }) {
 
     // ===== PREPARE THE TREE MAP DATA =====
@@ -104,8 +105,7 @@ export function treemapChart({
         .map(col => col[value])
     }));
 
-    // ===== CONFIGURE AND DRAW THE CHART =====
-    new Chart(document.getElementById(canvas_id), {
+    const tree_config = {
       type: "treemap",
       data: {
         datasets: [{
@@ -158,5 +158,24 @@ export function treemapChart({
           }
         }
       }
-    });
+    }
+
+    // ===== CONFIGURE AND DRAW THE CHART =====
+    const tree_canvas = document.getElementById(canvas_id);
+    const ctx = tree_canvas.getContext("2d");
+
+    const charts = {
+      standard: new Chart(ctx, tree_config),
+      expanded: null
+    };
+
+    // ===== DRAW THE EXPANDED CHART, IF REQUESTED =====
+    if (expanded_canvas_id) {
+        const expanded_canvas = document.getElementById(expanded_canvas_id);
+        const expanded_ctx = expanded_canvas.getContext("2d");
+
+        charts.expanded = new Chart(expanded_ctx, tree_config);
+    }
+
+    return charts;
   }

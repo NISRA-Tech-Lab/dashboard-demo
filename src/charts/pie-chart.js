@@ -90,7 +90,7 @@ import { chart_colours } from "../config/colours.js";
 //   • calculates percentages from the supplied values
 //   • creates a Chart.js pie or doughnut chart
 //   • draws custom category and percentage labels on the canvas
-export function pieChart({data, canvas_id, type = "pie"}) {
+export function pieChart({data, canvas_id, expanded_canvas_id = null, type = "pie"}) {
 
     // ===== PREPARE THE LABELS AND VALUES =====
     const labels = Object.keys(data);
@@ -192,5 +192,22 @@ export function pieChart({data, canvas_id, type = "pie"}) {
 
     // ===== DRAW THE CHART =====
     const pie_canvas = document.getElementById(canvas_id);
-    new Chart(pie_canvas, pie_config);
+    // new Chart(pie_canvas, pie_config);
+
+    const ctx_pie = pie_canvas.getContext('2d');
+
+    const charts = {
+        standard: new Chart(ctx_pie, pie_config),
+        expanded: null
+    };
+
+    // ===== DRAW THE EXPANDED CHART, IF REQUESTED =====
+    if (expanded_canvas_id) {
+        const expanded_canvas = document.getElementById(expanded_canvas_id);
+        const expanded_ctx = expanded_canvas.getContext("2d");
+
+        charts.expanded = new Chart(expanded_ctx, pie_config);
+    }
+
+    return charts;
 }
