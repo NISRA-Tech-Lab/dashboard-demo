@@ -302,21 +302,8 @@ window.addEventListener("DOMContentLoaded", async () => {
         ], // Labels displayed in the chart legend
         unit: "", // No unit suffix is added to the chart labels
         canvas_id: "migration-line", // HTML canvas where the chart is drawn
+        expanded_canvas_id: "migration-line-expanded", // Canvas used for the expanded chart view
         showPoints: false // Draw lines without a marker on every observation
-    });
-
-    // Draw a second copy of the same chart for the expanded view
-    lineChart({
-        years: migration_years,
-        lines: lines,
-        labels: [
-            "United Kingdom Net",
-            "Rest of World Net",
-            "Total Net"
-        ],
-        unit: "",
-        canvas_id: "migration-line-expanded",
-        showPoints: false
     });
 
     // ===== DOWNLOAD FUNCTIONALITY =====

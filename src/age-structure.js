@@ -433,17 +433,8 @@ window.addEventListener("DOMContentLoaded", async () => {
         lines: line_chart_lines, // Arrays containing each median-age series
         labels: line_chart_labels, // Labels displayed in the legend
         canvas_id: "median-line", // HTML canvas where the chart is drawn
+        expanded_canvas_id: "median-line-expanded", // Canvas used for the expanded chart view
         showPoints: false, // Draw lines without a marker for every observation
-        unit: ""
-    });
-
-    // Draw a second copy of the line chart for the expanded view
-    lineChart({
-        years: median_line_years,
-        lines: line_chart_lines,
-        labels: line_chart_labels,
-        canvas_id: "median-line-expanded",
-        showPoints: false,
         unit: ""
     });
 
