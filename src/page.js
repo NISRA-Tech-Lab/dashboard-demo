@@ -72,14 +72,8 @@ window.addEventListener("DOMContentLoaded", async () => {
         years: line_chart_years,
         lines: line_chart_lines,
         labels: line_chart_labels,
-        canvas_id: "line-example"
-    });
-
-    lineChart({
-        years: line_chart_years,
-        lines: line_chart_lines,
-        labels: line_chart_labels,
-        canvas_id: "line-example-expanded"
+        canvas_id: "line-example",
+        expanded_canvas_id: "line-example-expanded"
     });
 
     // Content for chart 2
@@ -106,15 +100,7 @@ window.addEventListener("DOMContentLoaded", async () => {
        value: ["Type 1", "Type 2", "Type 3"],
        categories: "category",
        canvas_id: "bar-example",
-       label_format: ",",
-       y_label: "Value"
-    });
-
-    barChart({
-       data: bar_chart_data,
-       value: ["Type 1", "Type 2", "Type 3"],
-       categories: "category",
-       canvas_id: "bar-example-expanded",
+       expanded_canvas_id: "bar-example-expanded",
        label_format: ",",
        y_label: "Value"
     });

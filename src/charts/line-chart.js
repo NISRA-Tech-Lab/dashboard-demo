@@ -100,8 +100,6 @@ import { chart_colours } from "../config/colours.js";
 export function lineChart({years, lines, labels, unit = "%", canvas_id, expanded_canvas_id = null, showPoints = true}) {
 
     // ===== BUILD THE LINE DATASETS =====
-    
-
     let line_values = [];
  
     for (let i = 0; i < lines.length; i++) {
