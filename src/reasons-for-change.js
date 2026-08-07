@@ -311,8 +311,8 @@ window.addEventListener("DOMContentLoaded", async () => {
     };
 
     // Step 3: Insert the table into both the standard and expanded containers
-    insertTable("pop-table", table_data);
-    insertTable("pop-table-expanded", table_data);
+    insertTable("pop-table", "pop-table-expanded", table_data);
+    // insertTable("pop-table-expanded", table_data);
 
     // ===== DOWNLOAD FUNCTIONALITY =====
     // Define the source-matrix filters associated with the table and chart

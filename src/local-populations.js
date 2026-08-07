@@ -123,7 +123,7 @@ window.addEventListener("DOMContentLoaded", async () => {
     };
 
     // Insert the completed table into the specified HTML element
-    insertTable("map-data-table", table_data);
+    insertTable("map-data-table", null, table_data);
 
     // ===== INFO BOXES: HELP AND CONTEXT =====
     // Populate the expandable information boxes displayed below the map

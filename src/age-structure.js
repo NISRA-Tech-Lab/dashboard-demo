@@ -352,15 +352,7 @@ window.addEventListener("DOMContentLoaded", async () => {
         categories: "Single year of age",
         values: ["Females", "Males"],
         canvas_id: "pop-pyramid",
-        year: latest_year
-    });
-
-    // Draw a second copy of the pyramid for the expanded view
-    pyramidChart({
-        data: pop_chart_data,
-        categories: "Single year of age",
-        values: ["Females", "Males"],
-        canvas_id: "pop-pyramid-expanded",
+        expanded_canvas_id: "pop-pyramid-expanded",
         year: latest_year
     });
 

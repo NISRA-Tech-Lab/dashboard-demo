@@ -235,16 +235,9 @@ window.addEventListener("DOMContentLoaded", async () => {
     data: treemap_data,
     categories: "Broad age band (4 cat)",
     value: "All persons",
-    canvas_id: "pop-tree-map"
-  });
-
-  // Draw a second copy of the tree map for the expanded view
-  treemapChart({
-    data: treemap_data,
-    categories: "Broad age band (4 cat)",
-    value: "All persons",
-    canvas_id: "pop-tree-map-expanded"
-  });
+    canvas_id: "pop-tree-map",
+    expanded_canvas_id: "pop-tree-map-expanded"
+  });  
 
   // ===== DOWNLOAD FUNCTIONALITY =====
   // Define the source-matrix filters associated with each chart

@@ -302,13 +302,8 @@ window.addEventListener("DOMContentLoaded", async () => {
     // property values determine the sizes of the slices
     pieChart({
         data: pie_data,
-        canvas_id: "pop-pie"
-    });
-
-    // Draw a second copy of the same chart for the expanded view
-    pieChart({
-        data: pie_data,
-        canvas_id: "pop-pie-expanded"
+        canvas_id: "pop-pie",
+        expanded_canvas_id: "pop-pie-expanded"
     });
 
     // ===== DOWNLOAD FUNCTIONALITY =====
