@@ -170,14 +170,15 @@ nav a{
   text-decoration: none;
 }
 
-.card-footer a[target="_blank"]::after, #strategies a[target="_blank"]::after {
-  content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="14" height="11" viewBox="0 0 14 11"><g fill="none" stroke="white" stroke-width="1"><path d="M0 3h2V0h12v8h-2v3H0zm13-2H3v6h10zM2 4H1v4h1zm-1 6h10V8H1z"/></g></svg>');
-  display: inline-block;
-  width: 14px;
-  height: 11px;
-  margin: 0 5px 0 5px;
-  background-color: #fff;
-  vertical-align: middle;
+.feedback a[target="_blank"]::after {
+  content: "";
+  width: 14px; height: 11px;
+  margin: 5px; vertical-align: text-bottom; display: inline-block;
+
+  /* Use the SVG as a mask; then color it with Bootstrap’s variable */
+  -webkit-mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="14" height="11" viewBox="0 0 14 11"><g fill="none" stroke="%23000" stroke-width="1"><path d="M0 3h2V0h12v8h-2v3H0zm13-2H3v6h10zM2 4H1v4h1zm-1 6h10V8H1z"/></g></svg>') no-repeat center / contain;
+          mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="14" height="11" viewBox="0 0 14 11"><g fill="none" stroke="%23000" stroke-width="1"><path d="M0 3h2V0h12v8h-2v3H0zm13-2H3v6h10zM2 4H1v4h1zm-1 6h10V8H1z"/></g></svg>') no-repeat center / contain;
+  background-color: #fff; /* follows Bootstrap’s text-secondary */
 }
 
 table tr:not(:has(th)):hover {
@@ -505,4 +506,8 @@ thead th {
   background-color: var(--nisra_green);
   padding: 2px 2px 16px 2px;
   column-gap: 2px;
+}
+
+.feedback {
+  background-color: var(--nisra_blue);
 }
