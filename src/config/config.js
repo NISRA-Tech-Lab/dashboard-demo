@@ -6,8 +6,6 @@ export const config = {
     "navigation": [
         { href: "index.html", text: "Home" },
         { href: "page.html", text: "Page" },
-        { href: "page.html", text: "Page" },
-        { href: "page.html", text: "Page" },
         { href: "user-notes.html", text: "User Notes" }  
     ],
     
