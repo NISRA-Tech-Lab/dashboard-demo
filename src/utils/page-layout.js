@@ -259,7 +259,7 @@ export function insertNavButtons() {
 
       <!-- Desktop navigation -->
       <div class="d-none d-lg-block">
-        <div class="row g-2">
+        <div class="row g-2 nav-row">
           ${links
             .map(
               (l) => `
