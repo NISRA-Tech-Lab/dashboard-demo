@@ -87,7 +87,7 @@ export function insertHeader () {
     banner.innerHTML = `<div id="skip-link" class="container-fluid bg-warning py-2 d-none"><a class="text-black" href="#content">Skip to main content</a></div>
     <div class="container-fluid d-flex flex-column align-items-stretch p-0">
     <!-- Feedback banner -->
-    <div aria-label="Feedback" class="w-100" style="background-color:var(--nisra_blue);">
+    <div aria-label="Feedback" class="w-100 feedback">
         <div class="text-white text-center py-2 px-3">
             We welcome feedback from users through our 
                 <a href="https://dttselfserve.nidirect.gov.uk/NISRA/RateIt#/${config.rateit}" target="_blank" rel="noopener noreferrer">short survey</a>
@@ -259,7 +259,7 @@ export function insertNavButtons() {
 
       <!-- Desktop navigation -->
       <div class="d-none d-lg-block">
-        <div class="row g-2">
+        <div class="row g-2 nav-row">
           ${links
             .map(
               (l) => `
