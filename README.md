@@ -29,8 +29,7 @@ repo-root/
 │   ├── utils/             # Reusable helper functions
 │   ├── *.js               # Page-specific scripts
 │   └── r/                 # R scripts for data preparation
-│       ├── data.R
-│       └── pivot_long.R
+│       └── data.R
 ├── *.html                 # Dashboard pages
 └── dashboard-template.Rproj # RStudio project file
 ```
@@ -50,7 +49,7 @@ The JS module:
 - Builds charts, maps, and interactive elements
 - Wires up event listeners and interactions
 
-This modular approach keeps your code organized and reusable across multiple pages.
+This modular approach keeps your code organised and reusable across multiple pages.
 
 ---
 
@@ -59,19 +58,39 @@ This modular approach keeps your code organized and reusable across multiple pag
 For a complete, fully-worked example with production-ready implementations, see the [dashboard-demo repository](https://github.com/NISRA-Tech-Lab/dashboard-demo). This demonstrates how to:
 - Structure data for different chart types
 - Implement interactive features
-- Customize layouts and branding
+- Customise layouts and branding
 - Apply accessibility standards
 
 ---
 
-## 5. Getting Started (Recommended Workflow)
+## 5. Getting Started 
 
-### Step 1: Fork This Repository
+### Option A - Forking the repository (Recommended option)
+
+Using this option will allow your dashboard to keep up to date with function updates as new branding guidance and accessibility guidelines are implemented in the template.
+
+If your dashboard repo must remain private then use Option B.
+
+#### Step 1a: Fork This Repository
 - Go to [NISRA-Tech-Lab/dashboard-template](https://github.com/NISRA-Tech-Lab/dashboard-template)
 - Click the **Fork** button (top-right) to create your own copy
-- This allows you to pull future updates from the template while maintaining your own customizations
+- This allows you to pull future updates from the template while maintaining your own customisations
 
-### Step 2: Clone Your Fork in VS Code
+### Option B - Using this repository as a template
+
+This option creates a full copy of the template on your branch's Github organisation page, however functional changes made to the template will not be tracked and this may require more manual coding changes in future to ensure that your dashboard aligns with future branding and accessibility updates.
+
+It is only recommended to use this option if your code must remain private. (eg, you are developing a product with not yet published data)
+
+#### Step 1b: Use template
+- Click the **Use this template** button in the top right of the page.
+- Choose "Create a new repository" from the dropdown
+- Change the owner to your branch's organisation and enter the name of the dashboard
+- Click "Create repository"
+
+---
+
+#### Step 2: Clone Your Fork in VS Code
 - Open VS Code → `View > Command Palette` → `Git: Clone`
 - Paste your fork's URL:
 ```
@@ -104,9 +123,10 @@ This regenerates `public/data/data.json` from the data sources.
 
 ## 7. Adding a New Page
 
-1. Duplicate an existing HTML file to use as a template
-2. Create a matching JS module in `src/` with the same name
-3. Import utilities as needed:
+1. Take a copy of the page.html file and rename accordingly
+3. Create a matching JS module in `src/` with the same name
+4. Go to `src/config/config.js` and add the page link and name to the `navigation` array.
+5. Import utilities as needed:
 ```js
 import { readData } from './utils/read-data.js';
 import { createBarChart } from './utils/charts.js';
@@ -135,10 +155,7 @@ Each file in `src/utils/` provides reusable helper functions:
 - **load-shapes.js**: Fetches and loads GeoJSON shapes
 - **download-button.js**: Adds CSV/data download functionality
 - **expand-buttons.js**: Inserts expand/collapse controls
-- **reshape-for-treemap.js**: Reformats data for treemap visualizations
-- **to-title-case.js**: Converts strings to title case
 - **wrap-label.js**: Wraps long chart labels for readability
-- **get-nested.js**: Safely accesses nested object properties
 
 For detailed function signatures and usage examples, see the [dashboard-demo repository](https://github.com/NISRA-Tech-Lab/dashboard-demo).
 
@@ -163,7 +180,8 @@ For detailed function signatures and usage examples, see the [dashboard-demo rep
 3. In the corresponding JS file:
    - Import chart utilities:
 ```js
-import { createBarChart, createLineChart } from "./utils/charts.js";
+import { barChart } from "./charts/bar-chart.js";
+import { lineChart } from "./charts/line-chart.js";
 import { readData } from "./utils/read-data.js";
 ```
    - Fetch data and prepare chart data:
@@ -173,7 +191,7 @@ const chartData = {/* formatted data for chart */};
 ```
    - Render the chart:
 ```js
-createBarChart({ chart_data: chartData, canvas_id: "my-chart" });
+barChart({ chart_data: chartData, canvas_id: "my-chart", .... });
 ```
 
 For complete examples, see the [dashboard-demo repository](https://github.com/NISRA-Tech-Lab/dashboard-demo).

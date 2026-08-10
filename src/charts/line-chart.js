@@ -1,9 +1,105 @@
 import { chart_colours } from "../config/colours.js";
 
-export function lineChart({years, lines, labels, unit = "%", canvas_id, showPoints = true}) {
+// ===== LINE CHART =====
+//
+// Create a reusable Chart.js line chart from one or more series.
+//
+// The function expects the category values for the horizontal axis separately
+// from the numeric values for each line.
+//
+// DATA STRUCTURE
+//
+// years
+//   An array containing the labels shown on the x-axis.
+//
+//   Although this parameter is called years, it can contain any ordered
+//   category labels suitable for a line chart.
+//
+//   Example:
+//
+//     [2014, 2015, 2016, 2017]
+//
+// lines
+//   An array containing one numeric array for each line.
+//
+//   Each inner array should contain one value for every item in years.
+//
+//   Example:
+//
+//     [
+//       [10.2, 10.8, 11.1, 11.7],
+//       [9.5, 9.8, 10.0, 10.4]
+//     ]
+//
+//   This is similar to storing several numeric vectors in a list in R.
+//
+// labels
+//   An array containing the name of each line.
+//
+//   The order must match the order of the arrays in lines.
+//
+//   Example:
+//
+//     ["Males", "Females"]
+//
+//   Here, labels[0] describes lines[0], labels[1] describes lines[1],
+//   and so on.
+//
+// unit
+//   The unit added to values in the chart tooltip.
+//
+//   Examples:
+//
+//     "%"
+//     "years"
+//     "persons"
+//
+//   The default is "%".
+//
+// canvas_id
+//   The ID of the HTML <canvas> element where the chart will be drawn.
+//
+//   Example:
+//
+//     canvas_id: "population-line-chart"
+//
+// expanded_canvas_id
+//   The ID of the HTML <canvas> element where the expanded chart will be drawn.
+//
+//   Example:
+//
+//     expanded_canvas_id: "population-line-chart-expanded"
+//
+// showPoints
+//   Controls whether individual data points are visible on each line.
+//
+//     true   shows the point markers
+//     false  hides the point markers
+//
+//   The default is true.
+//
+// IMPORTANT INPUT REQUIREMENTS
+//
+//   • lines and labels should contain the same number of items
+//   • every array inside lines should contain the same number of values
+//     as years
+//   • values in lines should be numeric
+//   • canvas_id should match an existing <canvas> element in the HTML
+//
+// RETURNS
+//
+// Returns the completed Chart.js chart object.
+//
+// This allows the calling script to retain a reference to the chart if it
+// later needs to update, resize, or destroy it.
+//
+// SIDE EFFECTS
+//
+// The function finds the specified canvas element and draws a Chart.js line
+// chart inside it.
+export function lineChart({years, lines, labels, unit = "%", canvas_id, expanded_canvas_id = null, showPoints = true}) {
 
-    const line_canvas = document.getElementById(canvas_id);
-
+    // ===== BUILD THE LINE DATASETS =====
     let line_values = [];
  
     for (let i = 0; i < lines.length; i++) {
@@ -22,11 +118,13 @@ export function lineChart({years, lines, labels, unit = "%", canvas_id, showPoin
       });
     }
 
+    // ===== COMBINE THE AXIS LABELS AND DATASETS =====
     const line_data = {
         labels: years,
         datasets: line_values
     };
 
+    // ===== CONFIGURE THE CHART =====
     const config_line = {
       type: 'line',
       data: line_data,
@@ -62,10 +160,10 @@ export function lineChart({years, lines, labels, unit = "%", canvas_id, showPoin
           },
           tooltip: {
             mode: "index",
-            instersect: false,
+            intersect: false,
             callbacks: {
               label: function (context) {
-                return `${context.dataset.label}: ${Number(context.raw).toFixed(2)} ${unit}`;
+                return `${context.dataset.label}: ${unit == "" ? Number(context.raw).toLocaleString() : Number(context.raw).toFixed(2)} ${unit}`;
               }
             }
           }
@@ -73,11 +171,23 @@ export function lineChart({years, lines, labels, unit = "%", canvas_id, showPoin
       }
     };
 
-
+    // ===== DRAW THE STANDARD CHART =====
+    const line_canvas = document.getElementById(canvas_id);
     const ctx_line = line_canvas.getContext('2d');
-    return new Chart(ctx_line, config_line);
 
+    const charts = {
+        standard: new Chart(ctx_line, config_line),
+        expanded: null
+    };
 
+    // ===== DRAW THE EXPANDED CHART, IF REQUESTED =====
+    if (expanded_canvas_id) {
+        const expanded_canvas = document.getElementById(expanded_canvas_id);
+        const expanded_ctx = expanded_canvas.getContext("2d");
 
+        charts.expanded = new Chart(expanded_ctx, config_line);
+    }
+
+    return charts;
 
 }

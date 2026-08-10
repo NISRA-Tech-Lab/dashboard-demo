@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head></head>
-<body style="display:none;">
+<body style="display:none;" class="d-flex flex-column min-vh-100">
 
 <banner id="banner"></banner>
   <!-- Top Navbar -->
 <nav id="nav"></nav>
 
-<main>
+<main class="flex-grow-1">
 <div class="w-100 text-center current-page-strapline py-2">
     This is a homepage template. It contains example cards and content sections to demonstrate how to use the template to build a homepage for your dashboard. You can edit or remove these example sections as needed, and add new sections as required.
 </div>
@@ -19,8 +19,8 @@
                 <div class="col-6 col-xl-4 py-2">
                     <div class="home card h-100">
                         <div class="card-body d-flex flex-column justify-content-center text-center py-4">
-                            <p class="display-4"><span id="headline-1"></span></p>
-                            <p>wsa the total population in <span class="latest-year"></span></p>
+                            <p>Headline text
+                                <br><span class="display-4" id="headline-1"></span></p>
                         </div>
                         <div class="card-footer blue-bg">
                             <a href="population-estimates.html">Population estimates</a>
@@ -30,9 +30,8 @@
                 <div class="col-6 col-xl-4 py-2">
                     <div class="home card h-100">
                         <div class="card-body d-flex flex-column justify-content-center text-center">
-                            <p class="display-4"><span id="headline-2-value"></span><span class="unit-pct">%</span></p>
-                            <p>of population change was from <span id="headline-2-reason"></span></p>
-                            
+                            <p><span id="headline-2" class="display-4"></span><span class="display-4 unit">%</span>
+                                <br>Example percentage</p>
                         </div>
                         <div class="card-footer blue-bg">
                             <a href="reasons-for-change.html">Reasons for change</a>
@@ -42,8 +41,8 @@
                 <div class="col-6 col-xl-4 py-2">
                     <div class="home card h-100">
                         <div class="card-body d-flex flex-column justify-content-center text-center">
-                            <p class="display-4"><span id="headline-3"></span></p>
-                            <p>more people came here to live than left in <span class="latest-year"></span></p>
+                            <p><span id="headline-3" class="display-4"></span><span class="display-4 unit">%</span>
+                            <br>Example percentage change</p>
                         </div>
                         <div class="card-footer blue-bg">
                             <a href="migration.html">Migration</a>
@@ -53,8 +52,8 @@
                 <div class="col-6 col-xl-4 py-2">
                     <div class="home card h-100">
                         <div class="card-body d-flex flex-column justify-content-center text-center py-4">
-                            <p class="display-4"><span id="headline-4"></span></p>
-                            <p>is our average (median) age</p>
+                            <p>The greatest impact was seen in <strong id="example-4-area"></strong>
+                            <br><span id="example-4-value" class="display-4"></span></p>
                         </div>
                         <div class="card-footer blue-bg">
                             <a href="age-structure.html">Age structure</a>
@@ -64,8 +63,9 @@
                 <div class="col-6 col-xl-4 py-2">
                     <div class="home card h-100">
                         <div class="card-body d-flex flex-column justify-content-center text-center">
-                            <p class="display-4"><span id="headline-5"></span><span class="unit-pct">%</span></p>
-                            <p>of the population are aged over 85</p>
+                            <p>There was a difference of
+                            <br><span id="example-5-value" class="display-4"></span>
+                            <br>between male and female participants</p>
                         </div>
                         <div class="card-footer blue-bg">
                             <a href="over-85s.html">Over 85s</a>
@@ -75,9 +75,8 @@
                 <div class="col-6 col-xl-4 py-2">
                     <div id="projections-card" class="home card h-100">
                         <div class="card-body d-flex flex-column justify-content-center text-center">
-                            <p class="display-4"><span id="headline-6-value"></span><span class="unit-pct">%</span></p>
-                            <p>was the highest growth per council over 10 years (<strong id="headline-6-place"></strong>)</p>
-                            
+                            <p><span id="example-6-value" class="display-4"></span>
+                            <br>Projected value</p>
                         </div>
                         <div class="card-footer blue-bg">
                             <a href="local-populations.html">Local populations</a>
@@ -99,17 +98,19 @@
                         <p>This repo contains a minimal dashboard template populated with placeholder values.</p>
                         <p>To see a full demo dashboard built using this template with real data from the NISRA Data Portal <a href="https://nisra-tech-lab.github.io/dashboard-demo" target="_blank" rel="noopener"> visit this link</a>. The code for the demo is available in <a href="https://github.com/nisra-tech-lab/dashboard-demo" target="_blank" rel="noopener">this Github repository</a>.</p>
                         <p class="mt-2">Information on how to get started with this template can be found on the <a href="user-notes.html">User Notes</a> page.</p>
-</p>
                     </div>
                 </div>
             </div>
         </div>
 
-    </main>
+    
 </div>
+
+</main>
 
 <footer id = "footer"></footer>
 
 <script type = "module" src="src/index.js"></script>
 
 </body>
+</html>

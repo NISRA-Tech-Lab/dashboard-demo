@@ -20,6 +20,7 @@ export const config = {
     "department": "DoF",
 
     // Data portal tables to use in the dashboard.
+    // Re-run "src/r/data.R" script after each update to list below
     "matrix": [
         "MYE01T05",  // Population totals
         "MYE01T03",  // Broad age bands
