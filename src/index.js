@@ -3,6 +3,7 @@ import { readData } from "./utils/read-data.js";
 import { insertValue } from "./utils/insert-value.js";
 import { latest_year, updateYearSpans, first_year } from "./utils/update-years.js";
 import { config } from "./config/config.js";
+import { getMaxEntry } from "./utils/get-max-entry.js";
 
 window.addEventListener("DOMContentLoaded", async () => {
 
@@ -11,7 +12,7 @@ window.addEventListener("DOMContentLoaded", async () => {
     insertNavButtons();
     insertFooter();
 
-    // Insert values into homepage cards below
+    // Calculate values for insertion into homepage cards below
 
     // Full worked examples using data from the NISRA Data Portal can be found in the dashboard-demo repository:
     // https://github.com/nisra-techlab/dashboard-demo
@@ -32,17 +33,12 @@ window.addEventListener("DOMContentLoaded", async () => {
     const example_4_area = "Example Area";
     insertValue("example-4-area", example_4_area);
 
-    const example_4_value = (1234).toLocaleString();
-    insertValue("example-4-value", example_4_value);
+    const max_LGD = getMaxEntry(LGD_change);
 
-    // Content for card 5
-    const example_5_value = 56.78;
-    insertValue("example-5-value", example_5_value);
+    const headline_6_value = max_LGD.value.toFixed(0);
+    const headline_6_place = max_LGD.key;
 
-    // Content for card 6
-    const example_6_value = (98765).toLocaleString();
-    insertValue("example-6-value", example_6_value);
-    
-    
+    insertValue("headline-6-place", headline_6_place);
+    insertValue("headline-6-value", headline_6_value);
 
 })

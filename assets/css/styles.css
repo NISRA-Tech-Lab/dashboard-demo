@@ -140,7 +140,7 @@ main a[target="_blank"]::after {
 .footer a:hover,
 .footer a:focus {
   color: #fff;
-  text-decoration-thickness: 2px;
+  text-decoration-thickness: 3px;
 }
 .footer-links { list-style: none; padding-left: 0; }
 .footer-links .list-inline-item { margin: 0 .5rem; }
@@ -162,6 +162,9 @@ banner a {
   color: #fff;
 }
 
+a:hover, a:focus {
+  text-decoration-thickness: 3px;
+}
 nav a{
   color: #fff;
   text-decoration: none;
@@ -186,13 +189,22 @@ table tr:not(:has(th)):hover {
 }
 
 .btn-primary {
-  background-color: var(--nisra_blue);
+  background-color: #732777;
 }
 
 .current-page {
+  /* background-color: #d6d6d6; */
+  background-color: #68a41e;
+  color: #000;
+  padding:0rem 0.5rem 1rem;
+  border-bottom: 14px solid #68a41e;
+}
+
+.current-page-strapline {
   background-color: #d9d9d9;
   color: #000;
 }
+
 
 .card-body p {
   margin: 0;
@@ -255,12 +267,18 @@ table tr:not(:has(th)):hover {
 }
 
 .nav-btn {
-  background-color: var(--nisra_blue);
-  border: 2px solid var(--nisra_navy);
+  background-color: #00205b;
+  border-left: 2px solid #68a41e;
+  border-top: 2px solid #68a41e;
+  border-bottom: 14px solid #68a41e;
+  padding:0rem 0.5rem 0.5rem;
+  color: #fff;
 }
 
 .nav-btn:hover {
-  background-color: #6B7EA0;
+  background-color: #00205b;
+   border-bottom: 25px solid #68a41e;
+  color: #fff;
   cursor: pointer;
 }
 
@@ -276,7 +294,7 @@ table tr:not(:has(th)):hover {
 
 /* Only when expanded (i.e., NOT collapsed) */
 .accordion-button:not(.collapsed) {
-  background-color: var(--nisra_navy);
+  background-color: #00205b;
   color: #fff;
 }
 
@@ -286,10 +304,10 @@ table tr:not(:has(th)):hover {
 }
 
 .accordion-button {
-  border-left: 2px solid var(--nisra_navy);
-  border-top: 2px solid var(--nisra_navy);
-  border-bottom: 2px solid var(--nisra_navy);
-  color: var(--nisra_navy);
+  border-left: 2px solid #00205b;
+  border-top: 2px solid #00205b;
+  border-bottom: 2px solid #00205b;
+  color: #000;
   font-size: 0.75em;
 }
 
