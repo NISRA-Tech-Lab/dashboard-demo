@@ -60,6 +60,7 @@ window.addEventListener("DOMContentLoaded", async () => {
     // Insert chart content below
 
     // Content for chart 1
+    // BuildR placeholder chart start
 
     // Line chart example - replace with dynamic data as needed
 
@@ -76,8 +77,10 @@ window.addEventListener("DOMContentLoaded", async () => {
         canvas_id: "line-example",
         expanded_canvas_id: "line-example-expanded"
     });
+    // BuildR placeholder chart end
 
     // Content for chart 2
+    // BuildR placeholder chart start
 
     // Bar chart example - replace with dynamic data as needed
     const bar_chart_data = [
@@ -105,6 +108,7 @@ window.addEventListener("DOMContentLoaded", async () => {
        label_format: ",",
        y_label: "Value"
     });
+    // BuildR placeholder chart end
 
     // End chart content
 
