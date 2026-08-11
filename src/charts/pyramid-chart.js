@@ -98,21 +98,25 @@ import { chart_colours } from "../config/colours.js";
 //   • filters the supplied rows to the requested year
 //   • creates a Chart.js bar chart inside the specified canvas
 //   • reverses the vertical axis so the age categories appear in pyramid order
-export function pyramidChart({ data, categories, values, canvas_id, expanded_canvas_id = null, year }) {
+export function pyramidChart({ data, meta, categories, values, canvas_id, expanded_canvas_id = null, year }) {
 
   // ===== PREPARE THE SELECTED YEAR'S DATA =====
   let chart_data = {};
 
+  const year_column = meta.variables
+    .filter(x => x["code"].includes("TLIST"))
+    .map(x => x["name"])[0];
+
   values.forEach(
     value => {
       chart_data[value] = data
-        .filter(row => row["Year"] == year)
+        .filter(row => row[year_column] == year)
         .map(col => col[value]);
     }
   )
 
   const category_labels = data
-    .filter(row => row["Year"] == year)
+    .filter(row => row[year_column] == year)
     .map(col => col[categories])
   
   // ===== BUILD THE LEFT- AND RIGHT-HAND SERIES =====
