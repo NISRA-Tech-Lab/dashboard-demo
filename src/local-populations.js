@@ -83,6 +83,7 @@ window.addEventListener("DOMContentLoaded", async () => {
     plotMap({
         elementId: "map-container",
         data: map_data,
+        meta: pop_by_lgd_meta,
         area: "Local Government District",
         value: "Unrounded"
     });
