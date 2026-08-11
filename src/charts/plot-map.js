@@ -52,6 +52,13 @@ const palette = ["#d6e4f6", "#8db2e0", "#3878c5", "#22589c", "#00205b"];
 //
 //     elementId: "map-container"
 //
+// legendId
+//   The ID of the HTML element in which the map legend should be created.
+//
+//   Example:
+//
+//     legendId: "map-legend"
+//
 // area
 //   The name of the CSV column containing the geographic area names.
 //
@@ -143,7 +150,7 @@ const palette = ["#d6e4f6", "#8db2e0", "#3878c5", "#22589c", "#00205b"];
 //   • creates a new MapLibre map
 //   • adds map sources, layers, controls and event listeners
 //   • updates the exported map variable
-export async function plotMap({elementId, area, data, meta, value}) {
+export async function plotMap({elementId, legendId, area, data, meta, value}) {
 
   // ===== PREPARE THE VALUE RANGE =====
   const values = data
@@ -153,7 +160,7 @@ export async function plotMap({elementId, area, data, meta, value}) {
   const range_max = Math.ceil(Math.max(...values));
   const range = range_max - range_min || 1;
 
-  createLegend(range_min, range_max);
+  createLegend(legendId, range_min, range_max);
 
   // ===== LOAD AND PREPARE THE MAP SHAPES =====
   if (!geojsonData) [geojsonData, type] = await loadShapes(area);
@@ -502,9 +509,9 @@ function addHoverPopup(map) {
 //   • creates legend rows and colour blocks
 //   • updates the map-legend HTML element
 //   • displays the minimum and maximum values
-function createLegend(minValue, maxValue) {
+function createLegend(legendId, minValue, maxValue) {
 
-    const legend = document.getElementById("map-legend");
+    const legend = document.getElementById(legendId);
     if (!legend) return;
 
     legend.innerHTML = "";
