@@ -349,6 +349,7 @@ window.addEventListener("DOMContentLoaded", async () => {
     //   values identifies the female and male numeric columns
     pyramidChart({
         data: pop_chart_data,
+        meta: pop_single_age_meta,
         categories: "Single year of age",
         values: ["Females", "Males"],
         canvas_id: "pop-pyramid",
