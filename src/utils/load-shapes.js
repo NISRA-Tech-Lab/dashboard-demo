@@ -2,8 +2,9 @@
 //
 // Load the geographic boundary file used to draw the interactive map.
 //
-// The function downloads a GeoJSON file containing the map boundaries and
-// converts it into a standard GeoJSON FeatureCollection if necessary.
+// The function downloads a GeoJSON file containing the map boundaries for the
+// requested map type and converts it into a standard GeoJSON FeatureCollection
+// if necessary.
 //
 // GeoJSON is a common format for storing geographic features such as local
 // government districts, wards or countries. Each feature contains both its
@@ -12,11 +13,14 @@
 //
 // PARAMETERS
 //
-// None.
+// type
+//   The map type selector. The only valid values are the four names defined in
+//   the types constant below the function definition:
 //
-// The function currently loads the fixed file:
-//
-//   public/map/LGD2014.geo.json
+//   • "Local Government District"
+//   • "Assembly Area (2024)"
+//   • "Health and Social Care Trust"
+//   • "Assembly Area"
 //
 // RETURNS
 //
@@ -45,11 +49,11 @@
 //
 //   • no map file has been specified
 //   • the map file cannot be downloaded
-export async function loadShapes() {
+export async function loadShapes(type) {
 
   // ===== LOAD THE MAP FILE =====
-  const url = "public/map/LGD2014.geo.json";
-  if (!url) throw new Error(`No shape URL for LGD shapes`);
+  const url = types[type]?.url;
+  if (!url) throw new Error(`No shape URL for ${type} shapes`);
 
   const res = await fetch(url, { cache: "force-cache" });
   if (!res.ok) throw new Error(`Failed to load ${url}`);
@@ -61,5 +65,28 @@ export async function loadShapes() {
     : data;
 
   // ===== RETURN THE MAP SHAPES =====
-  return geojson;
+  return [geojson, types[type]];
+}
+
+const types = {
+  "Local Government District": {
+    "url": "public/map/LGD2014.geo.json",
+    "name": "LGDNAME",
+    "code": "LGDCode"
+  },
+  "Assembly Area (2024)": {
+    "url": "public/map/AA2024.geo.json",
+    "name": "PC_NAME",
+    "code": "PC_Code"
+  },
+  "Health and Social Care Trust": {
+    "url": "public/map/HSCT.geo.json",
+    "name": "HSCTNAME",
+    "code": "HSCTCode"
+  },
+  "Assembly Area": {
+    "url": "public/map/AA.geo.json",
+    "name": "PC_NAME",
+    "code": "PC_ID"
+  }
 }

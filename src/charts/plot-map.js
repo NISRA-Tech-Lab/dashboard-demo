@@ -2,6 +2,7 @@ import { loadShapes } from "../utils/load-shapes.js";
 
 export let map;
 let geojsonData;
+let type;
 
 const palette = ["#d6e4f6", "#8db2e0", "#3878c5", "#22589c", "#00205b"];
 
@@ -63,6 +64,12 @@ const palette = ["#d6e4f6", "#8db2e0", "#3878c5", "#22589c", "#00205b"];
 //
 // data
 //   The CSV rows used to colour the map.
+//
+// meta
+//   The metadata object returned from readData(). This is used to resolve
+//   each geographic area name to the code used in the map boundary file.
+//   It exposes variable metadata such as the lookup values used to map the
+//   selected area column to area codes.
 //
 // value
 //   The name of the numeric CSV column used to calculate the map colours.
@@ -136,7 +143,7 @@ const palette = ["#d6e4f6", "#8db2e0", "#3878c5", "#22589c", "#00205b"];
 //   • creates a new MapLibre map
 //   • adds map sources, layers, controls and event listeners
 //   • updates the exported map variable
-export async function plotMap({elementId, area, data, value}) {
+export async function plotMap({elementId, area, data, meta, value}) {
 
   // ===== PREPARE THE VALUE RANGE =====
   const values = data
@@ -149,12 +156,24 @@ export async function plotMap({elementId, area, data, value}) {
   createLegend(range_min, range_max);
 
   // ===== LOAD AND PREPARE THE MAP SHAPES =====
-  if (!geojsonData) geojsonData = await loadShapes();
+  if (!geojsonData) [geojsonData, type] = await loadShapes(area);
+
+  data.forEach(row => {
+    row["code"] = Object.entries(
+      meta
+      .variables
+      .filter(v => v.name == area)[0]
+      .values)
+      .filter(([code, name]) => name == row[area])[0]?.[0];
+  })
+
 
   const features = geojsonData.features.map((feature, idx) => {
-    const areaName = String(feature.properties.LGDNAME);
+    const areaName = String(feature.properties[type.name]);
+    const areaCode = String(feature.properties[type.code]);
+    
     const rawValue = data
-      .filter(row => row[area] == areaName)
+      .filter(row => row["code"] == areaCode)
       .map(col => col[value])[0];
 
     return {
