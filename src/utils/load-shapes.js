@@ -81,8 +81,8 @@ const types = {
   },
   "Health and Social Care Trust": {
     "url": "public/map/HSCT.geo.json",
-    "name": "HSCTNAME",
-    "code": "HSCTCode"
+    "name": "TrustName",
+    "code": "TrustCode"
   },
   "Assembly Area": {
     "url": "public/map/AA.geo.json",

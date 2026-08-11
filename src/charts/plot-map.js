@@ -55,7 +55,7 @@ const palette = ["#d6e4f6", "#8db2e0", "#3878c5", "#22589c", "#00205b"];
 // area
 //   The name of the CSV column containing the geographic area names.
 //
-//   The values in this column are matched against the LGDNAME property in the
+//   The values in this column are matched against the relevant property in the
 //   geographic boundary file.
 //
 //   Example:
@@ -167,14 +167,17 @@ export async function plotMap({elementId, area, data, meta, value}) {
       .filter(([code, name]) => name == row[area])[0]?.[0];
   })
 
-
   const features = geojsonData.features.map((feature, idx) => {
-    const areaName = String(feature.properties[type.name]);
+    
     const areaCode = String(feature.properties[type.code]);
     
     const rawValue = data
       .filter(row => row["code"] == areaCode)
       .map(col => col[value])[0];
+
+    const areaName = data
+      .filter(row => row["code"] == areaCode)
+      .map(col => col[area])[0];
 
     return {
       ...feature,
