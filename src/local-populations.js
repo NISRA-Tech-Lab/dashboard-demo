@@ -82,6 +82,7 @@ window.addEventListener("DOMContentLoaded", async () => {
     // each area
     plotMap({
         elementId: "map-container",
+        legendId: "map-legend",
         data: map_data,
         meta: pop_by_lgd_meta,
         area: "Local Government District",
