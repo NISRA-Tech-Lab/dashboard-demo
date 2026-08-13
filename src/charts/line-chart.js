@@ -156,7 +156,8 @@ export function lineChart({years, lines, labels, unit = "%", canvas_id, expanded
         },
         plugins: {
           legend: {
-            onClick: () => {}  
+            onClick: () => {},
+            display: lines.length == 1 ? false : true
           },
           tooltip: {
             mode: "index",
