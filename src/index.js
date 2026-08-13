@@ -107,14 +107,14 @@ window.addEventListener("DOMContentLoaded", async () => {
         headline_2_reason = "natural change";
 
         // Express natural change as a percentage of the total population change
-        // and round the result to the nearest whole number
-        headline_2_value = ((natural_change / total_change) * 100).toFixed(0);
+        // and round the result to one decimal place
+        headline_2_value = ((natural_change / total_change) * 100).toFixed(1);
     } else {
         headline_2_reason = "net migration";
 
         // Express net migration as a percentage of the total population change
-        // and round the result to the nearest whole number
-        headline_2_value = ((net_migration / total_change) * 100).toFixed(0);
+        // and round the result to one decimal place
+        headline_2_value = ((net_migration / total_change) * 100).toFixed(1);
     }
 
     // Insert both parts of the result into the reasons-for-change card
@@ -251,8 +251,8 @@ window.addEventListener("DOMContentLoaded", async () => {
         )
         .map(col => col["Local Government District"]);
 
-    // Round the growth percentage to the nearest whole number for display
-    const headline_6_value = max_LGD_value.toFixed(0);
+    // Round the growth percentage to one decimal place for display
+    const headline_6_value = max_LGD_value.toFixed(1);
 
     insertValue("headline-6-place", headline_6_place);
     insertValue("headline-6-value", headline_6_value);

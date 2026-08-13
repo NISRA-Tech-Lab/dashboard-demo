@@ -133,13 +133,13 @@ window.addEventListener("DOMContentLoaded", async () => {
             Math.abs(pop_change_last)) *
         100;
 
-    // Format the result with an explicit sign and no decimal places
+    // Format the result with an explicit sign and one decimal places
     const pop_change_pct =
         pop_change_pct_value > 0
-            ? `+ ${pop_change_pct_value.toFixed(0)}`
+            ? `+ ${pop_change_pct_value.toFixed(1)}`
             : pop_change_pct_value < 0
-                ? `- ${Math.abs(pop_change_pct_value).toFixed(0)}`
-                : `${pop_change_pct_value.toFixed(0)}`;
+                ? `- ${Math.abs(pop_change_pct_value).toFixed(1)}`
+                : `${pop_change_pct_value.toFixed(1)}`;
 
     insertValue("pop-change-pct", pop_change_pct);
 
