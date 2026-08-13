@@ -8,6 +8,7 @@ import { barChart } from "./charts/bar-chart.js";
 import { insertExpandButtons } from "./utils/expand-buttons.js";
 import { downloadButton } from "./utils/download-button.js";
 import { dateFormat } from "./utils/date-format.js";
+import { populateInfoBoxes } from "./utils/info-boxes.js";
 
 window.addEventListener("DOMContentLoaded", async () => {
 
@@ -111,6 +112,25 @@ window.addEventListener("DOMContentLoaded", async () => {
     // BuildR placeholder chart end
 
     // End chart content
+
+    // INFO BOXES: HELP AND CONTEXT
+    populateInfoBoxes(
+        [
+            "Definitions",
+            "Source",
+            "What does the data mean?"
+        ],
+        [
+            // DEFINITIONS BOX
+            ``,
+
+            // SOURCE BOX
+            ``,
+
+            // DATA MEANING BOX
+            ``
+        ]
+    );
 
 
 })
