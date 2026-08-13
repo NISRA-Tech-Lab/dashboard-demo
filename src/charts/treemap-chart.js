@@ -142,7 +142,7 @@ export function treemapChart({
         }]
       },
       options: {
-        maintainAspectRatio: true,
+        maintainAspectRatio: false,
         plugins: {
           legend: { display: false },          
         tooltip: {
