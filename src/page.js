@@ -113,7 +113,7 @@ window.addEventListener("DOMContentLoaded", async () => {
 
     // End chart content
 
-    // INFO BOXES: HELP AND CONTEXT
+    // BuildR info boxes start
     populateInfoBoxes(
         [
             "Definitions",
@@ -131,6 +131,7 @@ window.addEventListener("DOMContentLoaded", async () => {
             ``
         ]
     );
+    // BuildR info boxes end
 
 
 })
