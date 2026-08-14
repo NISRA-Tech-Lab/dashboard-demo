@@ -1,6 +1,6 @@
 export const config = {
     // Dashboard title
-    "title": "Demo Dashboard",
+    "title": "Demo dashboard",
 
     // Set order of page links and display text in navigation bar
     "navigation": [
