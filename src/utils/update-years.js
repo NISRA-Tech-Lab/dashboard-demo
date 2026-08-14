@@ -81,7 +81,6 @@ export let last_year;
 //
 // The function:
 //
-//   • filters the supplied data if required
 //   • sorts the available years
 //   • updates the exported year variables
 //   • replaces the text of matching HTML elements
