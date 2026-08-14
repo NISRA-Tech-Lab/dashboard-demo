@@ -100,7 +100,7 @@ export function pieChart({data, canvas_id, expanded_canvas_id = null, type = "pi
     const percentThreshold = 0.06; // Place pie-chart labels outside when a segment is less than 6%
 
     const formatPercent = (value) => {
-      return total > 0 ? `${Math.round((Number(value) / total) * 100)}%` : "0%";
+      return total > 0 ? `${((Number(value) / total) * 100).toFixed(1)}%` : "0%";
     };
 
     // ===== BUILD THE CHART DATA =====
