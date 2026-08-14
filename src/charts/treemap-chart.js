@@ -105,7 +105,7 @@ export function treemapChart({
         .map(col => col[value])
     }));
 
-    const tree_config = {
+     const createTreeConfig = () => ({
       type: "treemap",
       data: {
         datasets: [{
@@ -144,10 +144,12 @@ export function treemapChart({
       options: {
         maintainAspectRatio: false,
         plugins: {
-          legend: { display: false },          
-        tooltip: {
-          enabled: true,   // Display a tooltip when the user points to a rectangle
-          callbacks: {
+          legend: {
+            display: false
+          },
+          tooltip: {
+            enabled: true,
+            callbacks: {
               title: function(ctx) {
                 return `${ctx[0].raw.g}`;
               },
@@ -158,23 +160,23 @@ export function treemapChart({
           }
         }
       }
-    }
+    });
 
     // ===== CONFIGURE AND DRAW THE CHART =====
     const tree_canvas = document.getElementById(canvas_id);
     const ctx = tree_canvas.getContext("2d");
 
     const charts = {
-      standard: new Chart(ctx, tree_config),
+      standard: new Chart(ctx, createTreeConfig()),
       expanded: null
     };
 
     // ===== DRAW THE EXPANDED CHART, IF REQUESTED =====
     if (expanded_canvas_id) {
-        const expanded_canvas = document.getElementById(expanded_canvas_id);
-        const expanded_ctx = expanded_canvas.getContext("2d");
+      const expanded_canvas = document.getElementById(expanded_canvas_id);
+      const expanded_ctx = expanded_canvas.getContext("2d");
 
-        charts.expanded = new Chart(expanded_ctx, tree_config);
+      charts.expanded = new Chart(expanded_ctx, createTreeConfig());
     }
 
     return charts;
