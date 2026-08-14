@@ -190,3 +190,8 @@ The code favours clarity over cleverness, with extensive comments explaining how
 Where appropriate, the comments compare JavaScript concepts with familiar R equivalents to make the examples more accessible for statisticians who are new to JavaScript.
 
 ---
+
+# 11. Further resources
+
+- [Dashboard demo wireframe](https://datavis.nisra.gov.uk/techlab/drpvze/nisra-dashboard-demo-wireframe.pptx) - A Powerpoint presentation containing elements that can be used to in dashboard planning
+- [NISRA Dashboard BuildR](https://github.com/NISRA-Tech-Lab/dashboard-buildr) - An R package that can be used to interact with this template to automate some basic dashboard buiilding tasks.
