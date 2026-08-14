@@ -192,7 +192,8 @@ export function barChart({ data, value, bars = null, categories, canvas_id, expa
                 if (Array.isArray(value)) {
                   value = value.find(v => v != null);
                 }
-                return `${ctx.dataset.label}: ${Number(value).toLocaleString()}`;
+                console.log(ctx.dataset.label)
+                return label_format == "%" ? `${ctx.dataset.label}: ${Number(value).toFixed(1)}%` : `${ctx.dataset.label}: ${Number(value).toLocaleString()}`;
               }
             }
       },
@@ -203,7 +204,7 @@ export function barChart({ data, value, bars = null, categories, canvas_id, expa
         color: "#ffffff",
         clamp: true,
         formatter: (value) => {
-          return Number(value).toLocaleString();
+          return label_format == "%" ? `${Number(value).toFixed(1)}` : Number(value).toLocaleString();
         }
       },      
         yAxisLabel: {
