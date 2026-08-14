@@ -227,3 +227,8 @@ insertValue("my-value", calculatedValue);
 This will insert the value dynamically into the span.
 
 ---
+
+# 11. Further resources
+
+- [Dashboard demo wireframe](https://datavis.nisra.gov.uk/techlab/drpvze/nisra-dashboard-demo-wireframe.pptx) - A Powerpoint presentation containing elements that can be used to in dashboard planning
+- [NISRA Dashboard BuildR](https://github.com/NISRA-Tech-Lab/dashboard-buildr) - An R package that can be used to interact with this template to automate some basic dashboard buiilding tasks.
