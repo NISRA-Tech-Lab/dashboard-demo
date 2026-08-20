@@ -1,5 +1,7 @@
 # NISRA Dashboard Demo
 
+> ### 💀 _Part of the [NISRA Dashboard Skeleton](https://datavis.nisra.gov.uk/techlab/drpvze/dashboard-skeleton.html)_
+
 A fully worked example demonstrating how to build interactive statistical dashboards using the **NISRA Dashboard Template**.
 
 This repository is intended as a **learning resource**. It contains complete dashboard pages showing how the template's helper functions can be combined to create interactive charts, maps, tables and other dashboard components.
