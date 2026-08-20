@@ -1,3 +1,45 @@
+# Install required packages when the script is run locally.
+#
+# GitHub Actions installs these dependencies separately in
+# .github/workflows/update.yml, so package installation is
+# skipped when the script is running there.
+running_in_github_actions <- identical(
+  Sys.getenv("GITHUB_ACTIONS"),
+  "true"
+)
+
+required_packages <- c(
+  "dplyr",
+  "jsonlite",
+  "purrr",
+  "tidyr",
+  "V8"
+)
+
+if (!running_in_github_actions) {
+
+  options(
+    repos = c(
+      CRAN = "https://cran.rstudio.com/"
+    )
+  )
+
+  installed <- rownames(
+    installed.packages()
+  )
+
+  missing_packages <- setdiff(
+    required_packages,
+    installed
+  )
+
+  if (length(missing_packages) > 0) {
+    install.packages(
+      missing_packages
+    )
+  }
+}
+
 library(dplyr)
 library(purrr)
 library(V8)
@@ -88,7 +130,7 @@ for (matrix in matrix_list) {
 
   raw_json <- raw_data$json
   dimensions <- raw_json$dimension
-  
+
   variables <- map(names(dimensions), function(var) {
     list(
       code = var,
@@ -131,4 +173,9 @@ for (matrix in matrix_list) {
 }
 
 
-jsonlite::write_json(all_data, "public/data/data.json", pretty = TRUE, auto_unbox = TRUE)
+jsonlite::write_json(
+  all_data,
+  "public/data/data.json",
+  pretty = TRUE,
+  auto_unbox = TRUE
+)
