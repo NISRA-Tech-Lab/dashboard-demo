@@ -17,6 +17,7 @@ jobs:
             any::dplyr
             any::jsonlite
             any::purrr
+            any::tidyr
             any::V8
             any::tidyr
 
