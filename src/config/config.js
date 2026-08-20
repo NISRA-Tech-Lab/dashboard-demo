@@ -1,12 +1,17 @@
 export const config = {
     // Dashboard title
-    "title": "Dashboard template",
+    "title": "Demo dashboard",
 
     // Set order of page links and display text in navigation bar
     "navigation": [
         { href: "index.html", text: "Home" },
-        { href: "page.html", text: "Page" },
-        { href: "user-notes.html", text: "User Notes" }  
+        { href: "population-estimates.html", text: "Population estimates" },
+        { href: "reasons-for-change.html", text: "Reasons for change" },
+        { href: "migration.html", text: "Migration"},
+        { href: "age-structure.html", text: "Age structure" }, 
+        { href: "over-85s.html", text: "Over 85s" }, 
+        { href: "local-populations.html", text: "Local populations"},
+        { href: "user-notes.html", text: "User notes" }  
     ],
     
     "portal_url": "https://data.nisra.gov.uk/",
@@ -17,8 +22,15 @@ export const config = {
     // Data portal tables to use in the dashboard.
     // Re-run "src/r/data.R" script after each update to list below
     "matrix": [
-        "EXAMPLETABLE1",
-        "EXAMPLETABLE2"
+        "MYE01T05",  // Population totals
+        "MYE01T03",  // Broad age bands
+        "MYE01T06",  // Local Government Districts
+        "MYE01T025", // Over 85s
+        "COPC01T01", // Component of population change
+        "MA01T01",   // Median age
+        "MIG01T02",  // Net migration by age and sex
+        "MIG01T03",  // Migration flows
+        "MYE01T08"   // Single year of age
     ],
     
     "rateit": "link-to-rateit"

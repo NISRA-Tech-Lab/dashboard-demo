@@ -1,236 +1,199 @@
-# NISRA Dashboard Template
+# NISRA Dashboard Demo
 
 > ### 💀 _Part of the [NISRA Dashboard Skeleton](https://datavis.nisra.gov.uk/techlab/drpvze/dashboard-skeleton.html)_
 
-A reusable template for NISRA statisticians to build interactive static dashboards. Built with HTML, modular JavaScript, and R for data preparation.
+A fully worked example demonstrating how to build interactive statistical dashboards using the **NISRA Dashboard Template**.
+
+This repository is intended as a **learning resource**. It contains complete dashboard pages showing how the template's helper functions can be combined to create interactive charts, maps, tables and other dashboard components.
+
+> **Looking to build your own dashboard?**
+>
+> Start with the **NISRA Dashboard Template**:
+>
+> **[https://github.com/NISRA-Tech-Lab/dashboard-template](https://github.com/NISRA-Tech-Lab/dashboard-template)**
 
 ---
 
-## 1. Overview
+# 1. Overview
 
-This repository is a **template and toolkit** for creating data-driven dashboards. It provides:
-- Reusable helper functions for charts, maps, and layouts
-- A modular JavaScript architecture
-- R scripts for data preprocessing
-- Pre-configured styling and accessibility features
+This repository is a working implementation of the **NISRA Dashboard Template**.
 
-**Recommended workflow**: Fork this repository and build your dashboard in your fork. This allows you to receive updates to the template (new features, accessibility improvements, branding changes) and pull them into your fork as needed.
+Where the template provides the reusable framework and helper functions, this repository demonstrates how those helpers are used together to create complete dashboard pages.
 
-For a fully worked example, see the [dashboard-demo repository](https://github.com/NISRA-Tech-Lab/dashboard-demo).
+The examples are intended to help users:
+
+* understand the project structure
+* learn how the helper functions are used
+* see complete implementations of charts, maps and tables
+* reuse patterns in their own dashboards
+
+To create a new dashboard, **fork the Dashboard Template repository**, not this one.
 
 ---
 
-## 2. Folder Structure
+# 2. Relationship to the Dashboard Template
+
+The two repositories have different purposes.
+
+| Repository             | Purpose                        |
+| ---------------------- | ------------------------------ |
+| **dashboard-template** | Build a new dashboard          |
+| **dashboard-demo**     | Learn how the template is used |
+
+The reusable helper functions live in the template.
+
+This repository simply demonstrates how those helpers are used to build complete dashboard pages.
+
+**Dashboard Template**
+
+[https://github.com/NISRA-Tech-Lab/dashboard-template](https://github.com/NISRA-Tech-Lab/dashboard-template)
+
+---
+
+# 3. Project Structure
+
 ```
 repo-root/
-├── assets/                # CSS, images, icons
-├── public/                # Data and map styles
-│   ├── data/data.json     # Preprocessed data for charts
-│   └── map/               # GeoJSON and map style
-├── src/                   # JavaScript source
-│   ├── utils/             # Reusable helper functions
-│   ├── *.js               # Page-specific scripts
-│   └── r/                 # R scripts for data preparation
-│       └── data.R
-├── *.html                 # Dashboard pages
-└── dashboard-template.Rproj # RStudio project file
+├── assets/
+├── public/
+│   ├── data/
+│   └── map/
+├── src/
+│   ├── utils/
+│   └── *.js
+├── *.html
+└── README.md
 ```
+
+The overall structure is intentionally very similar to the Dashboard Template so that it is easy to compare the two repositories.
 
 ---
 
-## 3. How Modularisation Works
+# 4. Understanding a Dashboard Page
 
-Each HTML page loads a **corresponding JS module**:
-```html
-<script type="module" src="src/page.js"></script>
+Almost every dashboard page consists of two files with the same name.
+
+```
+population-estimates.html
+population-estimates.js
+
+age-structure.html
+age-structure.js
+
+migration.html
+migration.js
 ```
 
-The JS module:
-- Imports shared helpers from `src/utils/`
-- Fetches data from `public/data/data.json`
-- Builds charts, maps, and interactive elements
-- Wires up event listeners and interactions
+Together these define a single dashboard page.
 
-This modular approach keeps your code organised and reusable across multiple pages.
+### The HTML file
+
+The HTML file defines the page layout.
+
+It contains the cards, placeholders and containers that determine where charts, maps, tables and other components will appear.
+
+Most of the page content is inserted dynamically by JavaScript.
+
+### The JavaScript file
+
+The matching JavaScript file contains the page logic.
+
+Typically it will:
+
+* load the required data
+* prepare and filter the data
+* create charts
+* build tables
+* render maps
+* populate information boxes
+* add download buttons
+* update shared page elements
+
+Once you understand one page, you will find the rest of the repository follows the same pattern.
 
 ---
 
-## 4. Worked Example
+# 5. Learning from the Examples
 
-For a complete, fully-worked example with production-ready implementations, see the [dashboard-demo repository](https://github.com/NISRA-Tech-Lab/dashboard-demo). This demonstrates how to:
-- Structure data for different chart types
-- Implement interactive features
-- Customise layouts and branding
-- Apply accessibility standards
+The repository is designed to be explored.
 
----
+A good way to learn is to open the matching HTML and JavaScript files side by side.
 
-## 5. Getting Started 
+Follow the flow through the JavaScript:
 
-### Option A - Forking the repository (Recommended option)
+1. Load the data.
+2. Prepare the data.
+3. Call the helper functions.
+4. Populate the page.
 
-Using this option will allow your dashboard to keep up to date with function updates as new branding guidance and accessibility guidelines are implemented in the template.
-
-If your dashboard repo must remain private then use Option B.
-
-#### Step 1a: Fork This Repository
-- Go to [NISRA-Tech-Lab/dashboard-template](https://github.com/NISRA-Tech-Lab/dashboard-template)
-- Click the **Fork** button (top-right) to create your own copy
-- This allows you to pull future updates from the template while maintaining your own customisations
-
-### Option B - Using this repository as a template
-
-This option creates a full copy of the template on your branch's Github organisation page, however functional changes made to the template will not be tracked and this may require more manual coding changes in future to ensure that your dashboard aligns with future branding and accessibility updates.
-
-It is only recommended to use this option if your code must remain private. (eg, you are developing a product with not yet published data)
-
-#### Step 1b: Use template
-- Click the **Use this template** button in the top right of the page.
-- Choose "Create a new repository" from the dropdown
-- Change the owner to your branch's organisation and enter the name of the dashboard
-- Click "Create repository"
+Each page demonstrates a different combination of reusable helper functions supplied by the Dashboard Template.
 
 ---
 
-#### Step 2: Clone Your Fork in VS Code
-- Open VS Code → `View > Command Palette` → `Git: Clone`
-- Paste your fork's URL:
-```
-https://github.com/YOUR_USERNAME/dashboard-template
-```
-(Replace `YOUR_USERNAME` with your GitHub username)
+# 6. Helper Functions in Action
 
-### Step 3: Install Live Server Extension
-- In VS Code, go to Extensions → Search for **Live Server** → Install
+The helper functions are located in the **Dashboard Template** and imported into each page.
 
-### Step 4: Run the Dashboard
-- Open `index.html` in VS Code
-- Click **Go Live** (bottom-right corner)
-- The site will open in your browser with auto-refresh on changes
+Throughout this repository you will find examples of helpers including:
 
-### Reference Implementation
-For detailed implementation examples and best practices, explore the [dashboard-demo repository](https://github.com/NISRA-Tech-Lab/dashboard-demo).
+* `readData()`
+* `barChart()`
+* `lineChart()`
+* `pieChart()`
+* `treemapChart()`
+* `plotMap()`
+* `insertTable()`
+* `populateInfoBoxes()`
+* `downloadButton()`
+* `updateYearSpans()`
 
----
-
-## 6. Data Preparation (`src/r/`)
-Run in RStudio:
-```r
-source("src/r/data.R")
-source("src/r/pivot_long.R")
-```
-This regenerates `public/data/data.json` from the data sources.
+Reading the page JavaScript alongside these helper functions is the easiest way to understand how the framework is intended to be used.
 
 ---
 
-## 7. Adding a New Page
+# 7. Running the Demo
 
-1. Take a copy of the page.html file and rename accordingly
-3. Create a matching JS module in `src/` with the same name
-4. Go to `src/config/config.js` and add the page link and name to the `navigation` array.
-5. Import utilities as needed:
-```js
-import { readData } from './utils/read-data.js';
-import { createBarChart } from './utils/charts.js';
-import { populateInfoBoxes } from './utils/info-boxes.js';
-```
-4. Link the JS in your HTML:
-```html
-<script type="module" src="src/new-page.js"></script>
-```
+Clone the repository and open it in Visual Studio Code.
 
-For complete page implementation examples, see the [dashboard-demo repository](https://github.com/NISRA-Tech-Lab/dashboard-demo).
+Install the **Live Server** extension if required.
+
+Open `index.html` and click **Go Live** to launch the dashboard in your browser.
 
 ---
 
-## 8. Utilities Reference (`src/utils/`)
+# 8. Building Your Own Dashboard
 
-Each file in `src/utils/` provides reusable helper functions:
+This repository is provided as a reference implementation.
 
-- **charts.js**: Chart creation and data shaping functions
-- **read-data.js**: Loads preprocessed JSON data
-- **update-years.js**: Updates year spans in DOM
-- **insert-value.js**: Inserts calculated values into elements
-- **info-boxes.js**: Creates accordion-style info boxes
-- **page-layout.js**: Inserts header, footer, and navigation
-- **plot-map.js**: Renders interactive maps
-- **load-shapes.js**: Fetches and loads GeoJSON shapes
-- **download-button.js**: Adds CSV/data download functionality
-- **expand-buttons.js**: Inserts expand/collapse controls
-- **wrap-label.js**: Wraps long chart labels for readability
+If you want to create your own dashboard, begin with the **Dashboard Template** rather than this repository.
 
-For detailed function signatures and usage examples, see the [dashboard-demo repository](https://github.com/NISRA-Tech-Lab/dashboard-demo).
+The template contains:
 
----
+* the reusable helper functions
+* the project structure
+* starter HTML pages
+* data preparation scripts
+* shared styling and accessibility features
 
-## 9. Accessibility & Best Practices
-- Use **high-contrast colours**.
-- Add **ARIA roles** for interactive elements.
-- Ensure charts have **text alternatives** for screen readers.
-- Test responsiveness on mobile and desktop.
+**Dashboard Template**
+
+[https://github.com/NISRA-Tech-Lab/dashboard-template](https://github.com/NISRA-Tech-Lab/dashboard-template)
+
+You can then refer back to this repository whenever you need a complete working example of a particular chart, map or dashboard component.
 
 ---
 
-## 10. How to Add a New Chart or Info Box
+# 9. Repository Philosophy
 
-### Adding a New Chart
-1. Identify the HTML page where you want the chart
-2. Add a `<canvas>` element inside the appropriate section:
-```html
-<canvas id="my-chart" class="chart-canvas"></canvas>
-```
-3. In the corresponding JS file:
-   - Import chart utilities:
-```js
-import { barChart } from "./charts/bar-chart.js";
-import { lineChart } from "./charts/line-chart.js";
-import { readData } from "./utils/read-data.js";
-```
-   - Fetch data and prepare chart data:
-```js
-const data = await readData("YourDataKey");
-const chartData = {/* formatted data for chart */};
-```
-   - Render the chart:
-```js
-barChart({ chart_data: chartData, canvas_id: "my-chart", .... });
-```
+The examples in this repository are written to be easy to read and understand.
 
-For complete examples, see the [dashboard-demo repository](https://github.com/NISRA-Tech-Lab/dashboard-demo).
+The code favours clarity over cleverness, with extensive comments explaining how each helper function works and how the different parts of a dashboard fit together.
 
-### Adding a New Info Box
-1. In the HTML page, ensure there is a container for info boxes:
-```html
-<div id="info-boxes"></div>
-```
-2. In the JS file, use `populateInfoBoxes`:
-```js
-import { populateInfoBoxes } from "./utils/info-boxes.js";
-
-populateInfoBoxes([
-  "Title 1", "Title 2"
-], [
-  "<p>Content for box 1</p>",
-  "<p>Content for box 2</p>"
-]);
-```
-This will dynamically create accordion-style info boxes with your content.
-
-### Adding a New Value Using `insertValue`
-1. In the HTML page, create a `<span>` element with a unique ID:
-```html
-<p><span id="my-value"></span> descriptive text</p>
-```
-2. In the JS file, after fetching data, call `insertValue`:
-```js
-import { insertValue } from "./utils/insert-value.js";
-insertValue("my-value", calculatedValue);
-```
-This will insert the value dynamically into the span.
+Where appropriate, the comments compare JavaScript concepts with familiar R equivalents to make the examples more accessible for statisticians who are new to JavaScript.
 
 ---
 
-# 11. Further resources
+# 10. Further resources
 
 - [Dashboard demo wireframe](https://datavis.nisra.gov.uk/techlab/drpvze/nisra-dashboard-demo-wireframe.pptx) - A Powerpoint presentation containing elements that can be used to in dashboard planning
 - [NISRA Dashboard BuildR](https://github.com/NISRA-Tech-Lab/dashboard-buildr) - An R package that can be used to interact with this template to automate some basic dashboard buiilding tasks.
