@@ -1,5 +1,7 @@
 # NISRA Dashboard Template
 
+> ### 💀 _Part of the [NISRA Dashboard Skeleton](https://datavis.nisra.gov.uk/techlab/drpvze/dashboard-skeleton.html)_
+
 A reusable template for NISRA statisticians to build interactive static dashboards. Built with HTML, modular JavaScript, and R for data preparation.
 
 ---
