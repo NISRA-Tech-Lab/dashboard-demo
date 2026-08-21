@@ -337,13 +337,6 @@ table tr:not(:has(th)):hover {
   margin-bottom: 1em;
 }
 
-.y-label {
-  position: absolute;
-  left: 2.5em;
-  color: #666666;
-  font-size: 0.75rem
-}
-
 .nisra-table {
   width: 100%;
   border-collapse: collapse;
@@ -445,12 +438,6 @@ input:focus-visible, select:focus-visible, button:focus-visible, .map:has(canvas
 
 .tab-pane p {
   margin-bottom: 1em;
-}
-
-#co2-diff {
-  font-size: 0.875em;
-  color: #555555;
-  background-color: #fff;
 }
 
 /* Table Styling */
