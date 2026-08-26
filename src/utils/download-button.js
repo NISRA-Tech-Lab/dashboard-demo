@@ -101,6 +101,8 @@ export async function downloadButton (capture_id, matrix, update_date, query, pl
 
     // ===== READ THE MATRIX METADATA =====
     const [, matrix_meta] = await readData(matrix);
+    const source = matrix_meta.source ? matrix_meta.source : null;
+
     // ===== PREPARE THE CARD FOOTER =====
     const capture = document.getElementById(capture_id);
     const footer = capture.parentElement.querySelector(".card-footer");
@@ -158,6 +160,19 @@ export async function downloadButton (capture_id, matrix, update_date, query, pl
 
     const xl_query_string = csv_query_string.replace("csv", "xlsx");
 
+    let dropdown_items;
+
+    if (source == "custom") {
+      dropdown_items = `
+        <li><a class="dropdown-item" href="public/data/${matrix}.csv">data (in CSV format)</a></li>
+      `
+    } else {
+      dropdown_items = `
+        <li><a class="dropdown-item" href="https://ws-data.nisra.gov.uk/public/api.restful/PxStat.Data.Cube_API.PxAPIv1/en/${matrix_meta.subject}/${matrix_meta.product}/${matrix}?query=${csv_query_string}">data (in CSV format)</a></li>
+        <li><a class="dropdown-item" href="https://ws-data.nisra.gov.uk/public/api.restful/PxStat.Data.Cube_API.PxAPIv1/en/${matrix_meta.subject}/${matrix_meta.product}/${matrix}?query=${xl_query_string}">data (in Excel format)</a></li>
+      `
+    }
+
     // ===== ADD THE DOWNLOAD MENU =====
     footerContent.innerHTML = `
         <strong>Data last updated:</strong> ${update_date}.
@@ -167,8 +182,7 @@ export async function downloadButton (capture_id, matrix, update_date, query, pl
             </button>
             
             <ul class="dropdown-menu" aria-labelledby="${capture_id}-dropdown">
-                <li><a class="dropdown-item" href="https://ws-data.nisra.gov.uk/public/api.restful/PxStat.Data.Cube_API.PxAPIv1/en/${matrix_meta.subject}/${matrix_meta.product}/${matrix}?query=${csv_query_string}">data (in CSV format)</a></li>
-                <li><a class="dropdown-item" href="https://ws-data.nisra.gov.uk/public/api.restful/PxStat.Data.Cube_API.PxAPIv1/en/${matrix_meta.subject}/${matrix_meta.product}/${matrix}?query=${xl_query_string}">data (in Excel format)</a></li>
+                ${dropdown_items}
                 <li><a class="dropdown-item" href="#" id="download-${capture_id}">${plot_type} (as image)</a></li>
             </ul>
             </div>
