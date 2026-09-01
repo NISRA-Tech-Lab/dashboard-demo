@@ -92,9 +92,9 @@ It is only recommended to use this option if your code must remain private. (eg,
 
 ---
 
-#### Step 2: Clone Your Fork in VS Code
+#### Step 2: Clone Your repo in VS Code
 - Open VS Code → `View > Command Palette` → `Git: Clone`
-- Paste your fork's URL:
+- Paste your repo's URL:
 ```
 https://github.com/YOUR_USERNAME/dashboard-template
 ```
