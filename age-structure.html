@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head></head>
+<body style="display:none;">
+    
+<banner id="banner"></banner>
+  <!-- Top Navbar -->
+<nav id ="nav"></nav>
+
+<!-- Main Content -->
+<main class="flex-grow-1">
+<div class="w-100 text-center current-page-strapline py-2">
+    This page was built using the functions from <a href="https://github.com/NISRA-Tech-Lab/dashboard-template" target="_blank" rel="noopener">NISRA Dashboard Template</a>. Refer to the <em>age-structure.html</em> and <em>age-structure.js</em> scripts in this repository to see the fully annotated code used to build this page.
+</div>
+
+<div id="content" class="container-fluid">
+        
+    <div class="py-2">
+        <!-- First row - cards -->
+        <div class="row text-center">
+            <div class="col-6 col-xl py-2">
+                <div class="card h-100 navy-bg">
+                    <div class="card-body d-flex flex-column justify-content-center">
+                        <p>
+                            <span id="median-age" class="display-6"></span>
+                            <br>average (median) age in <span class="latest-year"></span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-6 col-xl py-2">
+                <div class="card h-100 navy-bg">
+                    <div class="card-body d-flex flex-column justify-content-center">
+                        <p>
+                            <span id="age-change" class="display-6"></span>
+                            <br>change in average (median) age since <span class="comparison-year"></span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-6 col-xl py-2">
+                <div class="card h-100 blue-bg">
+                    <div class="card-body d-flex flex-column justify-content-center">
+                        <p>
+                            <span id="age-change-pct" class="display-6"></span><span class="display-6 unit">%</span>
+                            <br>change from <span class="last-year"></span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-6 col-xl py-2">
+                <div class="card h-100 blue-bg">
+                    <div class="card-body d-flex flex-column justify-content-center">
+                        <p>
+                            <span id="over-65" class="display-6"></span><span class="display-6 unit">%</span>
+                            <br>of the population were aged 65 and over in <span class="latest-year"></span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-6 col-xl py-2">
+                <div class="card h-100 blue-bg">
+                    <div class="card-body d-flex flex-column justify-content-center">
+                        <p>
+                            <span id="child-pct-comparison" class="display-6"></span><span class="display-6 unit">%</span>
+                            <br>of the population were children in <span class="comparison-year"></span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-6 col-xl py-2">
+                <div class="card h-100 blue-bg">
+                    <div class="card-body d-flex flex-column justify-content-center">
+                        <p>
+                            <span id="child-pct" class="display-6"></span><span class="display-6 unit">%</span>
+                            <br>of the population were children in <span class="latest-year"></span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+            <!-- Second row - tables and charts -->
+            <div class="row">
+                <div class="col-12 col-xl-4 py-2">
+                    <div class="card h-100">
+                        <div id="age-bar-capture">
+                            <div class="card-header">
+                                Age structure of Northern Ireland's population, mid-<span class="comparison-year"></span> to mid-<span class="latest-year"></span>
+                            </div>
+                            <div class="card-body d-flex flex-column justify-content-center">
+                                <canvas id="age-bar" class="chart-canvas"></canvas>
+                            </div>
+                        </div>
+                        <div class="card-footer"></div>
+                    </div>
+                </div>
+                <div class="col-12 col-xl-4 py-2">
+                    <div class="card h-100">
+                        <div id="pop-pyramid-capture">
+                            <div class="card-header">
+                                Population by age and sex, <span class="latest-year"></span>
+                            </div>
+                            <div class="card-body d-flex flex-column justify-content-center">
+                                <canvas id="pop-pyramid" class="chart-canvas"></canvas>
+                            </div>
+                        </div>
+                        <div class="card-footer"></div>
+                    </div>
+                </div>
+                <div class="col-12 col-xl-4 py-2">
+                    <div class="card h-100">
+                        <div id="median-line-capture">
+                        <div class="card-header">
+                            Median age of the population, mid-<span class="comparison-year"></span> to mid-<span class="latest-year"></span>
+                        </div>
+                        <div class="card-body d-flex flex-column justify-content-center">
+                            <canvas id="median-line" class="chart-canvas"></canvas>
+                        </div>
+                        </div>
+                        <div class="card-footer"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Third row - Definitions -->
+            <div id="info-boxes"></div>
+            
+        </div>
+        
+    </main>
+</div>
+
+<footer id = "footer"></footer>
+
+<script type = "module" src="src/age-structure.js"></script>
+
+
+</body>
