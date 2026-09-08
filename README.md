@@ -4,6 +4,8 @@
 
 A fully worked example demonstrating how to build interactive statistical dashboards using the **NISRA Dashboard Template**.
 
+> View the demo: https://nisra-tech-lab.github.io/dashboard-demo/
+
 This repository is intended as a **learning resource**. It contains complete dashboard pages showing how the template's helper functions can be combined to create interactive charts, maps, tables and other dashboard components.
 
 You can download [the code used to build the Dashboard demo as a zip file](https://github.com/NISRA-Tech-Lab/dashboard-demo/archive/refs/heads/main.zip) or [follow the instructions below to clone it in VS Code](#7-running-the-demo).
