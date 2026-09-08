@@ -15,7 +15,7 @@ window.addEventListener("DOMContentLoaded", async () => {
     // ===== BUILD THE PAGE STRUCTURE =====
     // Insert the elements that are shared across pages, including the document head,
     // header, navigation buttons, and footer
-    initCookieConsent();
+    initCookieConsent(); // Adds a cookie consent banner to the page
     await insertHead("Home"); // Wait until the page head has been prepared before continuing
     insertHeader(); // Adds the page header
     insertNavButtons(); // Adds the navigation buttons

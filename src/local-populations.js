@@ -11,6 +11,7 @@ import { updateYearSpans, latest_year } from "./utils/update-years.js"; // Provi
 import { dateFormat } from "./utils/date-format.js"; // Formats dataset update dates for display
 import { insertTable } from "./charts/insert-table.js"; // Builds and inserts an HTML data table
 import { insertValue } from "./utils/insert-value.js"; // Inserts individual values into summary cards
+import { initCookieConsent } from "./utils/cookie-consent.js"; // Adds a cookie consent banner to the page
 
 // ===== MAIN EXECUTION =====
 // Run the page setup and data-processing code after the initial HTML
@@ -22,6 +23,7 @@ window.addEventListener("DOMContentLoaded", async () => {
 
     // ===== BUILD THE PAGE STRUCTURE =====
     // Insert the shared page head, header, and navigation controls
+    initCookieConsent(); // Adds a cookie consent banner to the page
     await insertHead("Local populations"); // Wait until the document head has been prepared
     insertHeader(); // Adds the page header
     insertNavButtons(); // Adds the navigation buttons
