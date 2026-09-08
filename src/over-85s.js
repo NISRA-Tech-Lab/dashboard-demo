@@ -12,7 +12,7 @@ import { dateFormat } from "./utils/date-format.js"; // Formats dataset update d
 import { downloadButton } from "./utils/download-button.js"; // Adds buttons for downloading the underlying data
 import { populateInfoBoxes } from "./utils/info-boxes.js"; // Populates expandable information boxes
 import { barChart } from "./charts/bar-chart.js"; // Creates vertical or horizontal bar charts
-import { initCookieConsent } from "./utils/cookie-consent.js"; // Adds a cookie consent banner to the page
+import { initCookieConsent } from "./utils/cookies.js"; // Adds a cookie consent banner to the page
 
 // ===== MAIN EXECUTION =====
 // Run the page setup and data-processing code after the initial HTML

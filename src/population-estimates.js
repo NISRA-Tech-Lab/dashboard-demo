@@ -15,7 +15,7 @@ import { insertExpandButtons } from "./utils/expand-buttons.js"; // Adds control
 import { downloadButton } from "./utils/download-button.js"; // Adds a button for downloading the underlying data
 import { dateFormat } from "./utils/date-format.js"; // Formats dataset update dates for display
 import { populateInfoBoxes } from "./utils/info-boxes.js"; // Populates expandable information boxes
-import { initCookieConsent } from "./utils/cookie-consent.js"; // Adds a cookie consent banner to the page
+import { initCookieConsent } from "./utils/cookies.js"; // Adds a cookie consent banner to the page
 
 // ===== MAIN EXECUTION =====
 // This function runs after the initial HTML document has finished loading
