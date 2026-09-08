@@ -498,3 +498,13 @@ thead th {
 .feedback {
   background-color: var(--nisra_blue);
 }
+
+#cookie-banner {
+  background-color: #041e34;
+  color: #fff;
+  padding: 1rem;
+}
+
+#cookie-banner a {
+  color: #00aae5;
+}

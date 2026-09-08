@@ -5,6 +5,7 @@ import { insertHeader, insertFooter, insertHead, insertNavButtons } from "./util
 import { readData } from "./utils/read-data.js"; // Loads a matrix CSV and its associated metadata
 import { insertValue } from "./utils/insert-value.js"; // Inserts a value into a specified HTML element
 import { latest_year, updateYearSpans } from "./utils/update-years.js"; // Utilities for working with the available years
+import { initCookieConsent } from "./utils/cookies.js";
 
 // ===== MAIN EXECUTION =====
 // This function runs once the initial HTML document has finished loading
@@ -14,6 +15,7 @@ window.addEventListener("DOMContentLoaded", async () => {
     // ===== BUILD THE PAGE STRUCTURE =====
     // Insert the elements that are shared across pages, including the document head,
     // header, navigation buttons, and footer
+    initCookieConsent();
     await insertHead("Home"); // Wait until the page head has been prepared before continuing
     insertHeader(); // Adds the page header
     insertNavButtons(); // Adds the navigation buttons

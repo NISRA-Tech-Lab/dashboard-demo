@@ -9,9 +9,11 @@ import { insertExpandButtons } from "./utils/expand-buttons.js";
 import { downloadButton } from "./utils/download-button.js";
 import { dateFormat } from "./utils/date-format.js";
 import { populateInfoBoxes } from "./utils/info-boxes.js";
+import { initCookieConsent } from "./utils/cookies.js";
 
 window.addEventListener("DOMContentLoaded", async () => {
 
+    initCookieConsent();
     await insertHead("Home");
     insertHeader();
     insertNavButtons();
