@@ -119,7 +119,7 @@ export function initCookieConsent(options = {}) {
       </p>
 
       <p>
-        This prototype web page places small amounts of information
+        This web page places small amounts of information
         known as cookies on your device.
 
         <a
