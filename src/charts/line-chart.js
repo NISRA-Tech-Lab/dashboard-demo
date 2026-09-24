@@ -164,7 +164,12 @@ export function lineChart({years, lines, labels, unit = "%", canvas_id, expanded
             intersect: false,
             callbacks: {
               label: function (context) {
-                return `${context.dataset.label}: ${unit == "" ? Number(context.raw).toLocaleString() : Number(context.raw).toFixed(2)} ${unit}`;
+                const value = unit == ""
+                    ? Number(context.raw).toLocaleString()
+                    : Number(context.raw).toFixed(2);
+                    return ["£", "$", "€"].includes(unit)
+                    ? `${context.dataset.label}: ${unit}${value}`
+                    : `${context.dataset.label}: ${value} ${unit}`;
               }
             }
           }
