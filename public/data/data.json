@@ -331,7 +331,7 @@
   },
   "COPC01T01": {
     "label": "Components of population change - Northern Ireland",
-    "updated": "2025-09-26",
+    "updated": "2026-10-01",
     "subject": 153,
     "product": "PMMCC",
     "variables": [
@@ -368,7 +368,8 @@
           "2021": "2021",
           "2022": "2022",
           "2023": "2023",
-          "2024": "2024"
+          "2024": "2024",
+          "2025": "2025"
         }
       },
       {
@@ -400,7 +401,7 @@
   },
   "MA01T01": {
     "label": "Median age - Northern Ireland",
-    "updated": "2025-09-26",
+    "updated": "2026-10-01",
     "subject": 153,
     "product": "PMPC",
     "variables": [
@@ -468,7 +469,8 @@
           "2021": "2021",
           "2022": "2022",
           "2023": "2023",
-          "2024": "2024"
+          "2024": "2024",
+          "2025": "2025"
         }
       },
       {
@@ -484,7 +486,7 @@
   },
   "MIG01T02": {
     "label": "Net Migration - Northern Ireland",
-    "updated": "2025-09-30",
+    "updated": "2026-10-01",
     "subject": 153,
     "product": "PMMCC",
     "variables": [
@@ -521,7 +523,8 @@
           "2021": "2021",
           "2022": "2022",
           "2023": "2023",
-          "2024": "2024"
+          "2024": "2024",
+          "2025": "2025"
         }
       },
       {
