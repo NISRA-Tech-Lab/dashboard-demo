@@ -1,7 +1,7 @@
 {
   "MYE01T05": {
     "label": "Population totals - Northern Ireland",
-    "updated": "2025-09-18",
+    "updated": "2026-10-02",
     "subject": 153,
     "product": "PMPE",
     "variables": [
@@ -69,7 +69,8 @@
           "2021": "2021",
           "2022": "2022",
           "2023": "2023",
-          "2024": "2024"
+          "2024": "2024",
+          "2025": "2025"
         }
       },
       {
@@ -84,7 +85,7 @@
   },
   "MYE01T03": {
     "label": "Mid-year population estimates - Northern Ireland",
-    "updated": "2025-09-19",
+    "updated": "2026-10-02",
     "subject": 153,
     "product": "PMPE",
     "variables": [
@@ -152,7 +153,8 @@
           "2021": "2021",
           "2022": "2022",
           "2023": "2023",
-          "2024": "2024"
+          "2024": "2024",
+          "2025": "2025"
         }
       },
       {
@@ -179,7 +181,7 @@
   },
   "MYE01T06": {
     "label": "Population totals",
-    "updated": "2025-09-17",
+    "updated": "2026-10-02",
     "subject": 153,
     "product": "PMPE",
     "variables": [
@@ -217,7 +219,8 @@
           "2021": "2021",
           "2022": "2022",
           "2023": "2023",
-          "2024": "2024"
+          "2024": "2024",
+          "2025": "2025"
         }
       },
       {
@@ -250,7 +253,7 @@
   },
   "MYE01T025": {
     "label": "Mid-year population estimates - Population Aged 85 and Over - Northern Ireland",
-    "updated": "2025-09-17",
+    "updated": "2026-10-02",
     "subject": 153,
     "product": "PMPE",
     "variables": [
@@ -288,7 +291,8 @@
           "2021": "2021",
           "2022": "2022",
           "2023": "2023",
-          "2024": "2024"
+          "2024": "2024",
+          "2025": "2025"
         }
       },
       {
@@ -563,7 +567,7 @@
   },
   "MIG01T03": {
     "label": "Migration flows by type - Northern Ireland",
-    "updated": "2025-09-17",
+    "updated": "2026-10-02",
     "subject": 153,
     "product": "PMMCC",
     "variables": [
@@ -600,7 +604,8 @@
           "2021": "2021",
           "2022": "2022",
           "2023": "2023",
-          "2024": "2024"
+          "2024": "2024",
+          "2025": "2025"
         }
       },
       {
@@ -622,7 +627,7 @@
   },
   "MYE01T08": {
     "label": "Mid-year population estimates - Northern Ireland",
-    "updated": "2025-09-17",
+    "updated": "2026-10-02",
     "subject": 153,
     "product": "PMPE",
     "variables": [
@@ -690,7 +695,8 @@
           "2021": "2021",
           "2022": "2022",
           "2023": "2023",
-          "2024": "2024"
+          "2024": "2024",
+          "2025": "2025"
         }
       },
       {
