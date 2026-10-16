@@ -25,8 +25,8 @@ window.addEventListener("DOMContentLoaded", async () => {
     // ===== BUILD THE PAGE STRUCTURE =====
     // Insert the shared head, header, navigation, footer, and chart
     // expansion controls used across the dashboard
-    initCookieConsent(); // Adds a cookie consent banner to the page
     await insertHead("Over 85s");
+    initCookieConsent(); // Adds a cookie consent banner to the page
     insertHeader();
     insertNavButtons();
     insertFooter();

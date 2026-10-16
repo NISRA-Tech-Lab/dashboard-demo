@@ -27,8 +27,8 @@ window.addEventListener("DOMContentLoaded", async () => {
     // ===== BUILD THE PAGE STRUCTURE =====
     // Insert the shared elements used across the website, including the page head,
     // header, navigation buttons, footer, and chart expansion controls
-    initCookieConsent(); // Adds a cookie consent banner to the page
     await insertHead("Population estimates"); // Wait until the document head has been prepared
+    initCookieConsent(); // Adds a cookie consent banner to the page
     insertHeader(); // Adds the page header
     insertNavButtons(); // Adds the page navigation buttons
     insertFooter(); // Adds the page footer
