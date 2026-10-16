@@ -126,7 +126,7 @@ import { wrapLabel } from "../utils/wrap-label.js";
 //   • creates a Chart.js chart inside that canvas
 //   • converts values to percentages when both stacked and percentage
 //     formatting are requested
-export function barChart({ data, value, bars = null, categories, canvas_id, expanded_canvas_id = null, label_format, stacked = false, align = "vertical", y_label }) {
+export function barChart({ data, value, bars = null, categories, canvas_id, expanded_canvas_id = null, label_format, stacked = false, align = "vertical", y_label, unit = "", label_dp = 0, comma_separator = true}) {
 
   // ===== PREPARE THE CATEGORIES AND SERIES =====
   let bar_categories = data
@@ -171,6 +171,22 @@ export function barChart({ data, value, bars = null, categories, canvas_id, expa
       })
     }
   }
+  const formatValue = (value) => {
+    const formatted = comma_separator
+    ? Number(value).toLocaleString("en-GB", {
+      minimumFractionDigits: label_dp,
+      maximumFractionDigits: label_dp
+    })
+    : Number(value).toFixed(label_dp);
+    
+    if (!unit) {
+      return formatted;
+    }
+    
+    return unit === "£"
+    ? `${unit}${formatted}`
+    : `${formatted} ${unit}`;
+  };
 
   const isMobile = window.innerWidth <= 768;
   const totalBars = bar_categories.length * Object.keys(chart_data).length;
@@ -192,8 +208,7 @@ export function barChart({ data, value, bars = null, categories, canvas_id, expa
                 if (Array.isArray(value)) {
                   value = value.find(v => v != null);
                 }
-                console.log(ctx.dataset.label)
-                return label_format == "%" ? `${ctx.dataset.label}: ${Number(value).toFixed(1)}%` : `${ctx.dataset.label}: ${Number(value).toLocaleString()}`;
+                return label_format == "%" ? `${ctx.dataset.label}: ${formatValue(value)}%` : `${ctx.dataset.label}: ${formatValue(value)}`;
               }
             }
       },
@@ -204,7 +219,9 @@ export function barChart({ data, value, bars = null, categories, canvas_id, expa
         color: "#ffffff",
         clamp: true,
         formatter: (value) => {
-          return label_format == "%" ? `${Number(value).toFixed(1)}` : Number(value).toLocaleString();
+          return label_format == "%"
+          ? `${formatValue(value)}`
+          : formatValue(value);
         }
       },      
         yAxisLabel: {

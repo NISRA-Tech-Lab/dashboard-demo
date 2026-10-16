@@ -91,6 +91,9 @@ export function treemapChart({
       categories,   
       value,    
       canvas_id,
+      unit = "",
+      label_dp = 0,
+      comma_separator = true,
       expanded_canvas_id = null
     }) {
 
@@ -132,11 +135,20 @@ export function treemapChart({
               const value = ctx.raw?.v;
 
               if (!label || value == null) return null;
-
-              return [
-                label,
-                value.toLocaleString()
-              ];
+              
+              const formattedValue = Number(value).toLocaleString("en-GB", {
+                minimumFractionDigits: label_dp,
+                maximumFractionDigits: label_dp,
+                useGrouping: comma_separator
+              }
+            );
+            
+            return [
+              label,
+              unit
+              ? `${formattedValue} ${unit}`
+              : formattedValue
+            ];
             }
           }
         }]
@@ -154,7 +166,16 @@ export function treemapChart({
                 return `${ctx[0].raw.g}`;
               },
               label: function(ctx) {
-                return ctx.raw.v.toLocaleString();
+                const formattedValue = Number(ctx.raw.v).toLocaleString("en-GB", 
+                  {
+                    minimumFractionDigits: label_dp,
+                    maximumFractionDigits: label_dp,
+                    useGrouping: comma_separator
+                  }
+                );
+                return unit
+                ? `Value: ${formattedValue} ${unit}`
+                : `Value: ${formattedValue}`;
               }
             }
           }

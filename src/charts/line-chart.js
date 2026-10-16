@@ -97,7 +97,7 @@ import { chart_colours } from "../config/colours.js";
 //
 // The function finds the specified canvas element and draws a Chart.js line
 // chart inside it.
-export function lineChart({years, lines, labels, unit = "%", canvas_id, expanded_canvas_id = null, showPoints = true}) {
+export function lineChart({years, lines, labels, unit = "%", canvas_id, expanded_canvas_id = null, showPoints = true, label_dp = 0, comma_separator = true}) {
 
     // ===== BUILD THE LINE DATASETS =====
     let line_values = [];
@@ -122,6 +122,23 @@ export function lineChart({years, lines, labels, unit = "%", canvas_id, expanded
     const line_data = {
         labels: years,
         datasets: line_values
+    };
+    
+    const formatValue = (value) => {
+      const formatted = comma_separator
+      ? Number(value).toLocaleString("en-GB", {
+        minimumFractionDigits: label_dp,
+        maximumFractionDigits: label_dp
+      })
+      : Number(value).toFixed(label_dp);
+
+      if (!unit) {
+        return formatted;
+      }
+      
+      return ["£", "$", "€"].includes(unit)
+      ? `${unit}${formatted}`
+      : `${formatted} ${unit}`;
     };
 
     // ===== CONFIGURE THE CHART =====
@@ -164,12 +181,7 @@ export function lineChart({years, lines, labels, unit = "%", canvas_id, expanded
             intersect: false,
             callbacks: {
               label: function (context) {
-                const value = unit == ""
-                    ? Number(context.raw).toLocaleString()
-                    : Number(context.raw).toFixed(2);
-                    return ["£", "$", "€"].includes(unit)
-                    ? `${context.dataset.label}: ${unit}${value}`
-                    : `${context.dataset.label}: ${value} ${unit}`;
+                return `${context.dataset.label}: ${formatValue(context.raw)}`;
               }
             }
           }

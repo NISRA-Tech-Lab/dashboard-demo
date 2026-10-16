@@ -464,8 +464,9 @@ export function insertFooter () {
 //   • loads external stylesheets and scripts
 //   • exposes the loaded libraries through their global browser objects
 //   • removes the body's inline style attribute
-export async function insertHead(title) {
 
+
+export async function insertHead(title) {
   // ===== INSERT THE DOCUMENT METADATA AND STYLESHEETS =====
   const head = document.head;
 
@@ -475,17 +476,14 @@ export async function insertHead(title) {
     <title>${config.title} - ${title}</title>
 
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
-
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
-
     <link rel="icon" href="assets/img/icon/favicon.ico" type="image/vnd.microsoft.icon" />
     <link rel="icon" type="image/png" href="assets/img/icon/favicon-96x96.png" sizes="96x96" />
     <link rel="icon" type="image/svg+xml" href="assets/img/icon/favicon.svg" />
     <link rel="shortcut icon" href="assets/img/icon/favicon.ico" />
     <link rel="apple-touch-icon" sizes="180x180" href="assets/img/icon/apple-touch-icon.png" />
     <meta name="apple-mobile-web-app-title" content="${config.title} - ${title}" />
-
     <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@5.6.2/dist/maplibre-gl.css">
 
     <link rel="stylesheet" href="assets/css/styles.css">
@@ -496,11 +494,18 @@ export async function insertHead(title) {
     new Promise((resolve, reject) => {
       const s = document.createElement("script");
       s.src = src;
-      s.defer = true;
       s.onload = resolve;
-      s.onerror = reject;
+      s.onerror = () => reject(
+        new Error(`Failed to load script: ${src}`)
+      );
       head.appendChild(s);
     });
+
+  // ===== INITIALISE GOOGLE CONSENT MODE V2 =====
+  // Must execute before Google Tag Manager or other tracking.
+  // consent-head.js sets denied defaults, restores saved
+  // preferences and loads GTM-KF6WGSG.
+  await loadScript("src/utils/consent-head.js");
 
   // ===== LOAD THE SHARED JAVASCRIPT LIBRARIES =====
   await loadScript("https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js");
@@ -514,5 +519,5 @@ export async function insertHead(title) {
 
   // ===== REVEAL THE PAGE BODY =====
   document.body.removeAttribute("style");
-
 }
+

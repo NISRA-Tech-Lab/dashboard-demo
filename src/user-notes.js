@@ -3,8 +3,8 @@ import { initCookieConsent } from "./utils/cookies.js";
 
 window.addEventListener("DOMContentLoaded", async () => {
 
-    initCookieConsent();
     await insertHead("User notes");
+    initCookieConsent();
     insertHeader();
     insertNavButtons();
     insertFooter();

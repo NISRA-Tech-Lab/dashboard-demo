@@ -1,198 +1,136 @@
-import { config } from '../config/config.js';
 
+import { config } from "../config/config.js";
+
+/**
+ * Initialise the NISRA cookie consent banner.
+ *
+ * Requires consent-head.js to have run in the
+ * document head before this function is called.
+ */
 export function initCookieConsent(options = {}) {
   const {
-    bannerId = 'cookie-banner',
-    gtmId = 'GTM-WKK8ZWP',
-    cookieDomain = '.nisra.gov.uk',
-    cookieDays = 365
+    bannerId = "cookie-banner"
   } = options;
 
-  const cookieBanner = document.getElementById(bannerId);
-  if (!cookieBanner) return;
+  const consent = window.NISRAConsent;
 
-  const COOKIE_NAME = 'cookie-agreed';
-  const ACCEPTED = '2';
-  const REJECTED = '0';
-
-  function getCookie(name) {
-    const cookies = document.cookie
-      ? document.cookie.split('; ')
-      : [];
-
-    for (const cookie of cookies) {
-      if (cookie.startsWith(`${name}=`)) {
-        return decodeURIComponent(
-          cookie.substring(name.length + 1)
-        );
-      }
-    }
-
-    return null;
+  if (!consent) {
+    console.error(
+      "NISRA Consent Mode is not initialised. " +
+      "Load consent-head.js before dashboard scripts."
+    );
+    return;
   }
 
-  function setCookie(name, value, days) {
-    const expires = new Date(
-      Date.now() + days * 24 * 60 * 60 * 1000
-    ).toUTCString();
+  const cookieBanner = document.getElementById(bannerId);
 
-    const hostname = window.location.hostname;
-    const protocol = window.location.protocol;
-
-    const rootDomain = cookieDomain.replace(/^\./, '');
-
-    const isProductionDomain =
-      hostname === rootDomain ||
-      hostname.endsWith(`.${rootDomain}`);
-
-    const domainAttribute = isProductionDomain
-      ? `; Domain=${cookieDomain}`
-      : '';
-
-    const secureAttribute =
-      protocol === 'https:' ? '; Secure' : '';
-
-    document.cookie =
-      `${encodeURIComponent(name)}=${encodeURIComponent(value)}` +
-      `; Expires=${expires}` +
-      `; Path=/` +
-      domainAttribute +
-      secureAttribute +
-      `; SameSite=Lax`;
+  if (!cookieBanner) {
+    console.warn(
+      `Cookie banner element #${bannerId} not found.`
+    );
+    return;
   }
 
   function hideBanner() {
-    cookieBanner.style.display = 'none';
-    cookieBanner.setAttribute('aria-hidden', 'true');
+    cookieBanner.style.display = "none";
+    cookieBanner.setAttribute("aria-hidden", "true");
   }
 
   function showBanner() {
-    cookieBanner.style.display = 'block';
-    cookieBanner.removeAttribute('aria-hidden');
+    cookieBanner.style.display = "block";
+    cookieBanner.removeAttribute("aria-hidden");
   }
 
-  function loadGoogleTagManager() {
-    if (window.__nisraGtmLoaded) return;
+  // Build the banner once.
+  if (!cookieBanner.dataset.consentInitialised) {
+    cookieBanner.dataset.consentInitialised = "true";
+    cookieBanner.classList.add("cookies-infobar");
 
-    window.__nisraGtmLoaded = true;
+    const container = document.createElement("div");
+    container.className = "container";
 
-    window.dataLayer = window.dataLayer || [];
+    const heading = document.createElement("p");
+    const strong = document.createElement("strong");
 
-    window.dataLayer.push({
-      'gtm.start': Date.now(),
-      event: 'gtm.js'
+    strong.textContent = `Cookies on ${config.title}`;
+    heading.appendChild(strong);
+
+    const description = document.createElement("p");
+    description.append(
+      "This web page places small amounts of information " +
+      "known as cookies on your device. "
+    );
+
+    const link = document.createElement("a");
+    link.href = "https://www.nisra.gov.uk/cookies";
+    link.className = "cookiesbarlink";
+    link.target = "_blank";
+    link.rel = "noopener noreferrer";
+    link.textContent = "Find out more about cookies";
+
+    description.appendChild(link);
+    description.append(".");
+
+    const acceptBtn = document.createElement("button");
+    acceptBtn.id = "accept-cookies";
+    acceptBtn.className =
+      "btn btn-secondary btn-primary";
+    acceptBtn.type = "button";
+    acceptBtn.textContent = "Accept analytics cookies";
+
+    const rejectBtn = document.createElement("button");
+    rejectBtn.id = "reject-cookies";
+    rejectBtn.className =
+      "btn btn-secondary btn-primary";
+    rejectBtn.type = "button";
+    rejectBtn.textContent = "Reject analytics cookies";
+
+    container.append(
+      heading,
+      description,
+      acceptBtn,
+      rejectBtn
+    );
+
+    cookieBanner.replaceChildren(container);
+
+    function handleChoice(choice) {
+      const saved = consent.setChoice(choice);
+
+      if (saved) {
+        hideBanner();
+      } else {
+        console.warn(
+          "Cookie preference could not be saved. " +
+          "The banner will reappear on the next page."
+        );
+        hideBanner();
+      }
+    }
+
+    acceptBtn.addEventListener("click", () => {
+      handleChoice("accepted");
     });
 
-    const gtmScript = document.createElement('script');
-    gtmScript.async = true;
-    gtmScript.src =
-      `https://www.googletagmanager.com/gtm.js?id=${gtmId}`;
-
-    const firstScript =
-      document.getElementsByTagName('script')[0];
-
-    firstScript.parentNode.insertBefore(
-      gtmScript,
-      firstScript
-    );
-
-    const iframe = document.createElement('iframe');
-    iframe.src =
-      `https://www.googletagmanager.com/ns.html?id=${gtmId}`;
-    iframe.height = '0';
-    iframe.width = '0';
-    iframe.style.display = 'none';
-    iframe.style.visibility = 'hidden';
-
-    document.body.appendChild(iframe);
+    rejectBtn.addEventListener("click", () => {
+      handleChoice("rejected");
+    });
   }
 
-  // Build the consent banner before loading GTM.
-  cookieBanner.classList.add('cookies-infobar');
+  // Expose a way to reopen the banner.
+  window.showNisraCookieSettings = function () {
+    showBanner();
 
+    const firstButton =
+      cookieBanner.querySelector("button");
 
+    firstButton?.focus();
+  };
 
-  cookieBanner.innerHTML = `
-    <div class="container">
-      <p>
-        <strong>Cookies on ${config.title}</strong>
-      </p>
-
-      <p>
-        This web page places small amounts of information
-        known as cookies on your device.
-
-        <a
-          href="https://www.nisra.gov.uk/cookies"
-          class="cookiesbarlink"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Find out more about cookies
-        </a>.
-      </p>
-
-      <button
-        id="accept-cookies"
-        class="btn btn-secondary btn-primary"
-        type="button"
-      >
-        Accept cookies
-      </button>
-
-      <button
-        id="reject-cookies"
-        class="btn btn-secondary btn-primary"
-        type="button"
-      >
-        Reject cookies
-      </button>
-    </div>
-  `;
-
-  const acceptBtn =
-    cookieBanner.querySelector('#accept-cookies');
-
-  const rejectBtn =
-    cookieBanner.querySelector('#reject-cookies');
-
-  const existingConsent =
-    getCookie(COOKIE_NAME);
-
-  // Existing consent has already been given.
-  if (existingConsent === ACCEPTED) {
+  // Show only when there is no valid saved choice.
+  if (consent.getChoice() === null) {
+    showBanner();
+  } else {
     hideBanner();
-    loadGoogleTagManager();
-    return;
   }
-
-  // Existing consent has already been rejected.
-  if (existingConsent === REJECTED) {
-    hideBanner();
-    return;
-  }
-
-  // No previous decision.
-  showBanner();
-
-  acceptBtn?.addEventListener('click', () => {
-    setCookie(
-      COOKIE_NAME,
-      ACCEPTED,
-      cookieDays
-    );
-
-    hideBanner();
-    loadGoogleTagManager();
-  });
-
-  rejectBtn?.addEventListener('click', () => {
-    setCookie(
-      COOKIE_NAME,
-      REJECTED,
-      cookieDays
-    );
-
-    hideBanner();
-  });
 }
