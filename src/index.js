@@ -128,9 +128,16 @@ window.addEventListener("DOMContentLoaded", async () => {
     //
     // Divide by 100, round to the nearest whole number, and multiply by 100
     // to round the result to the nearest hundred
-    const headline_3 = (((net_migration / 100).toFixed(0)) * 100).toLocaleString();
+    const headline_3_value = net_migration;
+    let headline_3_text;
+    if (headline_3_value > 0) {
+        headline_3_text = `more people came her to live than left in ${latest_year}`;
+    } else {
+        headline_3_text = `more people left than came here to live in ${latest_year}`;
+    }
 
-    insertValue("headline-3", headline_3);
+    insertValue("headline-3-value", Math.abs(headline_3_value).toLocaleString());
+    insertValue("headline-3-text", headline_3_text);
 
     // ----- MEDIAN AGE CARD -----
     // Step 1: Load the median age matrix
