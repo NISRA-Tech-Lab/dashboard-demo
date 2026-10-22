@@ -19,6 +19,7 @@ jobs:
             any::purrr
             any::tidyr
             any::V8
+            any::tidyr
 
       - name: Check out repository
         uses: actions/checkout@v5
