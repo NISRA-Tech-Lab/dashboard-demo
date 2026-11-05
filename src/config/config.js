@@ -14,7 +14,9 @@ export const config = {
         { href: "user-notes.html", text: "User notes" }  
     ],
     
-    "portal_url": "https://data.nisra.gov.uk/",
+    // Version of NISRA Data portal to use.
+    // Enter "data" for the live portal or "pp" for the pre-production portal.
+    "portal": "data",
 
     // Departmental abbreviations. See departments.js for available options
     "department": "DoF",
