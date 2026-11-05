@@ -7,8 +7,8 @@ import { initCookieConsent } from "./utils/cookies.js";
 
 window.addEventListener("DOMContentLoaded", async () => {
 
-    initCookieConsent();
     await insertHead("Home");
+    initCookieConsent();
     insertHeader();
     insertNavButtons();
     insertFooter();

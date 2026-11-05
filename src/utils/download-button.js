@@ -1,5 +1,6 @@
 import { map } from "../charts/plot-map.js";
 import { readData } from "./read-data.js";
+import { config } from "../config/config.js";
 
 // ===== ADD DOWNLOAD OPTIONS TO A CARD =====
 //
@@ -161,6 +162,7 @@ export async function downloadButton (capture_id, matrix, update_date, query, pl
     const xl_query_string = csv_query_string.replace("csv", "xlsx");
 
     let dropdown_items;
+    const portal = config.portal == "pp" ? config.portal : "";
 
     if (source == "custom") {
       dropdown_items = `
@@ -168,8 +170,8 @@ export async function downloadButton (capture_id, matrix, update_date, query, pl
       `
     } else {
       dropdown_items = `
-        <li><a class="dropdown-item" href="https://ws-data.nisra.gov.uk/public/api.restful/PxStat.Data.Cube_API.PxAPIv1/en/${matrix_meta.subject}/${matrix_meta.product}/${matrix}?query=${csv_query_string}">data (in CSV format)</a></li>
-        <li><a class="dropdown-item" href="https://ws-data.nisra.gov.uk/public/api.restful/PxStat.Data.Cube_API.PxAPIv1/en/${matrix_meta.subject}/${matrix_meta.product}/${matrix}?query=${xl_query_string}">data (in Excel format)</a></li>
+        <li><a class="dropdown-item" href="https://${portal}ws-data.nisra.gov.uk/public/api.restful/PxStat.Data.Cube_API.PxAPIv1/en/${matrix_meta.subject}/${matrix_meta.product}/${matrix}?query=${csv_query_string}">data (in CSV format)</a></li>
+        <li><a class="dropdown-item" href="https://${portal}ws-data.nisra.gov.uk/public/api.restful/PxStat.Data.Cube_API.PxAPIv1/en/${matrix_meta.subject}/${matrix_meta.product}/${matrix}?query=${xl_query_string}">data (in Excel format)</a></li>
       `
     }
 

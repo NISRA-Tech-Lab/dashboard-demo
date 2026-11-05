@@ -192,6 +192,14 @@ if (
 # API Key ####
 api_key <- "801aaca4bcf0030599c019f4efa8b89032e5e6aa1de4a629a7f7e9a86db7fb8c"
 
+# Data portal version ####
+portal <- if (config$portal == "pp") {
+  "pp"
+} else {
+  ""
+}
+
+
 # Fetch dataset function ####
 fetch_dataset <- function(
   matrix,
@@ -208,6 +216,7 @@ fetch_dataset <- function(
 
         json_url <- paste0(
           "https://",
+          portal,
           "ws-data.nisra.gov.uk/public/api.restful/",
           "PxStat.Data.Cube_API.ReadDataset/",
           matrix,
@@ -217,6 +226,7 @@ fetch_dataset <- function(
 
         csv_url <- paste0(
           "https://",
+          portal,
           "ws-data.nisra.gov.uk/public/api.restful/",
           "PxStat.Data.Cube_API.ReadDataset/",
           matrix,
