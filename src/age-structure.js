@@ -255,9 +255,11 @@ window.addEventListener("DOMContentLoaded", async () => {
     //
     // These years are retained to keep the chart readable
     let bar_years = [];
+        
+    const remainder = latest_year % 5;
 
     for (let i = comparison_year; i <= latest_year; i++) {
-        if (i % 5 == 4) {
+        if (i % 5 == remainder) {
             bar_years.push(i);
         }
     }

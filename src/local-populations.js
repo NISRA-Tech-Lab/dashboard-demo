@@ -208,7 +208,7 @@ window.addEventListener("DOMContentLoaded", async () => {
         ...map_data.map(col => col["change"])
     );
 
-    insertValue("bottom-growth", `+${bottom_growth.toFixed(1)}`);
+    insertValue("bottom-growth", `${bottom_growth > 0 ? "+" : ""}${bottom_growth.toFixed(1)}`);
 
     // Find the district associated with the minimum growth value
     const bottom_growth_area = map_data
