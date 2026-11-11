@@ -282,7 +282,8 @@ export function barChart({ data, value, bars = null, categories, canvas_id, expa
           maxRotation: 0,
           minRotation: 0,
           autoSkip: true
-        }
+        },
+        max: stacked == true && label_format == "%" ? 100 : null
        },
       y: {
         grid: { display: false },
