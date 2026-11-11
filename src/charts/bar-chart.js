@@ -111,6 +111,48 @@ import { wrapLabel } from "../utils/wrap-label.js";
 // y_label
 //   Text to display along top of y axis
 //
+// unit
+//   Optional text displayed alongside formatted values.
+//
+//   Common examples:
+//
+//     unit: "%"
+//     unit: "people"
+//     unit: "£"
+//
+//   When set to "£", the unit is prefixed:
+//
+//     £1,234
+//
+//   For all other values, the unit is appended:
+//
+//     1,234 people
+//
+//   The default is an empty string.
+//
+// label_dp
+//   Controls the number of decimal places displayed in chart labels
+//   and tooltips.
+//
+//   Examples:
+//
+//     label_dp: 0   → 123
+//     label_dp: 1   → 123.4
+//     label_dp: 2   → 123.45
+//
+//   The default is 0.
+//
+// comma_separator
+//   Controls whether values are displayed using locale-aware
+//   thousands separators.
+//
+//   Examples:
+//
+//     true   → 1,234,567
+//     false  → 1234567
+//
+//   The default is true.
+//
 // RETURNS
 //
 // Returns the completed Chart.js chart object.

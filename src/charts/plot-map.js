@@ -85,6 +85,37 @@ const palette = ["#d6e4f6", "#8db2e0", "#3878c5", "#22589c", "#00205b"];
 //
 //     value: "Population"
 //
+// unit
+//   Optional text displayed alongside formatted values.
+//
+//   Common examples:
+//
+//     unit: "%"
+//     unit: "people"
+//     unit: "£"
+//
+//   When set to "£", the unit is prefixed:
+//
+//     £1,234
+//
+//   For all other values, the unit is appended:
+//
+//     1,234 people
+//
+//   The default is an empty string.
+//
+// label_dp
+//   Controls the number of decimal places displayed in chart labels
+//   and tooltips.
+//
+//   Examples:
+//
+//     label_dp: 0   → 123
+//     label_dp: 1   → 123.4
+//     label_dp: 2   → 123.45
+//
+//   The default is 0.
+//
 // MAP SHAPES
 //
 // The geographic boundaries are loaded by loadShapes().

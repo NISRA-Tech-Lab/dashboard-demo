@@ -78,6 +78,29 @@ import { chart_colours } from "../config/colours.js";
 //
 //   The default is true.
 //
+// label_dp
+//   Controls the number of decimal places displayed in chart labels
+//   and tooltips.
+//
+//   Examples:
+//
+//     label_dp: 0   → 123
+//     label_dp: 1   → 123.4
+//     label_dp: 2   → 123.45
+//
+//   The default is 0.
+//
+// comma_separator
+//   Controls whether values are displayed using locale-aware
+//   thousands separators.
+//
+//   Examples:
+//
+//     true   → 1,234,567
+//     false  → 1234567
+//
+//   The default is true.
+//
 // IMPORTANT INPUT REQUIREMENTS
 //
 //   • lines and labels should contain the same number of items
