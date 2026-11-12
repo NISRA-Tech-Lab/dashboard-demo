@@ -283,7 +283,7 @@ export function barChart({ data, value, bars = null, categories, canvas_id, expa
           minRotation: 0,
           autoSkip: true
         },
-        max: stacked == true && label_format == "%" ? 100 : null
+        max: stacked == true && label_format == "%" && align == "horizontal" ? 100 : null
        },
       y: {
         grid: { display: false },
@@ -297,7 +297,8 @@ export function barChart({ data, value, bars = null, categories, canvas_id, expa
         beginAtZero: true,
         ticks: {
           precision: 0
-        }
+        },
+        max: stacked == true && label_format == "%" && align == "vertical" ? 100 : null
       }
     },
 
