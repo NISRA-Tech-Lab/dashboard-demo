@@ -504,7 +504,7 @@ export async function insertHead(title) {
   // ===== INITIALISE GOOGLE CONSENT MODE V2 =====
   // Must execute before Google Tag Manager or other tracking.
   // consent-head.js sets denied defaults, restores saved
-  // preferences and loads GTM-KF6WGSG.
+  // preferences and loads GTM-WKK8ZWP.
   await loadScript("src/utils/consent-head.js");
 
   // ===== LOAD THE SHARED JAVASCRIPT LIBRARIES =====

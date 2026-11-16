@@ -10,7 +10,7 @@
 
   if (window.NISRAConsent) return;
 
-  const GTM_CONTAINER_ID = "GTM-KF6WGSG";
+  const GTM_CONTAINER_ID = "GTM-WKK8ZWP";
   const STORAGE_KEY = "nisra_consent_v2";
   const CONSENT_VERSION = 1;
   const MAX_AGE_MS = 365 * 24 * 60 * 60 * 1000;
