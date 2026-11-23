@@ -1,5 +1,6 @@
 {
   "liveServer.settings.port": 5500,
   "liveServer.settings.root": "/",
-  "r.interactive.executionTarget": "terminal"
+  "r.interactive.executionTarget": "terminal",
+  "r.sessionWatcher": false
 }
