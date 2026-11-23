@@ -7,7 +7,7 @@ options(
 
 # Ensure the remotes and languageserver packages are
 # available so Dashboard BuildR can be installed directly from GitHub.
-for (pkg in c("remotes", "languageserver", "sess")) {
+for (pkg in c("remotes", "languageserver")) {
   if (!requireNamespace(pkg, quietly = TRUE))
     install.packages(pkg)
 }
